@@ -33,6 +33,7 @@
     font-size: 20px;
     width: 63px;
     height: 23px;
+    cursor: pointer;
 }
 .NReports {
     position: absolute;

@@ -1,4 +1,5 @@
 import React, { useState, useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import Loadable from 'react-loadable';
 import "./WSHomepage.css";
 
@@ -8,6 +9,7 @@ const WSComment = Loadable({
 });
 
 const WSHomepage = () => {
+  const navigate = useNavigate();
   const [isOverlayVisible, setOverlayVisible] = useState(false);
 
   const toggleOverlay = useCallback(() => {
@@ -19,8 +21,8 @@ const WSHomepage = () => {
   }, []);
 
   const onREPORTSClick = useCallback(() => {
-    // Please sync "WS-Report" to the project
-  }, []);
+    navigate("/wsreport");
+  }, [navigate]);
 
   const onPROFILEClick = useCallback(() => {
     // Please sync "WS-Profile" to the project
