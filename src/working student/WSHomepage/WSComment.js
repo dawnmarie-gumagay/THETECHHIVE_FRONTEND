@@ -1,45 +1,45 @@
 import { useCallback } from "react";
 import "./WSComment.css";
 
-const WSComment = () => {
-  const onEllipseClick = useCallback(() => {
-    // Please sync "AD-Home" to the project
-  }, []);
-
+const WSComment = ({ onClose }) => { 
+    const onEllipseClick = useCallback(() => {
+      onClose(); 
+    }, [onClose]);
   return (
     <div className="ws-comment">
-      <div className="ws-comment-child" />
-      <div className="ws-comment-item" onClick={onEllipseClick} />
-      <b className="x">x</b>
-      <div className="rectangle-parent4">
-        <div className="group-child8" />
-        <div className="richardmolina2">richard.molina</div>
+      <div className="Comment-box" />
+      <div className="Comment-exit" onClick={onEllipseClick} />
+      <b className="x" onClick={onEllipseClick}  >x </b>
+      
+      <div className="Comment1-Container">
+        <div className="CUser1">richard.molina</div>
         <img
-          className="e9a6b2c-9aa0-4ed8-a748-11b9f87-icon2"
+          className="CUser1-badge"
           alt=""
-          src="/0e9a6b2c9aa04ed8a74811b9f8755fcd-2@2x.png"
+          src="/Wildcat-Prowler.png"
         />
-        <div className="is-this-true">Is this true?</div>
+        <div className="CUser1-text">Is this true?</div>
       </div>
-      <div className="rectangle-parent5">
-        <div className="group-child8" />
-        <div className="richardmolina2">richard.molina</div>
+
+
+      <div className="Comment2-Container">
+        <div className="CUser1">richard.molina</div>
         <img
-          className="e9a6b2c-9aa0-4ed8-a748-11b9f87-icon2"
+          className="CUser1-badge"
           alt=""
-          src="/0e9a6b2c9aa04ed8a74811b9f8755fcd-2@2x.png"
+          src="/Wildcat-Prowler.png"
         />
-        <div className="this-report-is">This report is true!</div>
+        <div className="CUser2-text">This report is true!</div>
       </div>
-      <div className="rectangle-parent6">
-        <div className="group-child8" />
-        <div className="richardmolina2">richard.molina</div>
+      
+      <div className="Comment3-Container">
+        <div className="CUser1">richard.molina</div>
         <img
-          className="e9a6b2c-9aa0-4ed8-a748-11b9f87-icon2"
+          className="CUser1-badge"
           alt=""
-          src="/0e9a6b2c9aa04ed8a74811b9f8755fcd-2@2x.png"
+          src="/Wildcat-Prowler.png"
         />
-        <div className="i-saw-it">I saw it happened!</div>
+        <div className="CUser3-text">I saw it happened!</div>
       </div>
     </div>
   );

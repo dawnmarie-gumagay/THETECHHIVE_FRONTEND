@@ -2,7 +2,6 @@ import React, { useState, useCallback } from "react";
 import Loadable from 'react-loadable';
 import "./WSHomepage.css";
 
-// Loadable component for WSComment
 const WSComment = Loadable({
   loader: () => import('./WSComment'),
   loading: () => <div>Loading...</div>,
@@ -14,6 +13,10 @@ const WSHomepage = () => {
   const toggleOverlay = useCallback(() => {
     setOverlayVisible(!isOverlayVisible);
   }, [isOverlayVisible]);
+
+  const onClose = useCallback(() => {
+    setOverlayVisible(false); 
+  }, []);
 
   const onREPORTSClick = useCallback(() => {
     // Please sync "WS-Report" to the project
@@ -100,7 +103,8 @@ const WSHomepage = () => {
       {isOverlayVisible && (
         <div className="overlay" onClick={toggleOverlay}>
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <WSComment />
+            {/* Pass the onClose function as prop */}
+            <WSComment onClose={onClose} />
           </div>
         </div>
       )}
