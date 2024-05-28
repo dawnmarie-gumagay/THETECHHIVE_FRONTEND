@@ -1,40 +1,60 @@
-import PropTypes from 'prop-types';
+import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 import "./PopUpReport.css";
 
-const PopUpReport = ({ className = "" }) => {
+const PopUpReport = () => {
+  const navigate = useNavigate();
+
+  const onCONFIRMClick = useCallback(() => {
+    navigate("/signin");
+  }, [navigate]);
   return (
-    <div className={`pop-up-report ${className}`}>
-      <div className="pop-up-report-child" />
-      <div className="rectangle-parent7">
-        <div className="group-child11" />
-        <div className="incident-type2">Incident Type</div>
-        <div className="type-here">Type here</div>
-      </div>
-      <div className="rectangle-parent8">
-        <div className="group-child12" />
+    <div className="pop-up-report">
+      <div className="PopUpReport-Box" />
+
+      <div className="LevelIncident-Container">
+        <div className="LevelIncident-Dropdown" />
         <div className="level-of-incident">Level of Incident</div>
-        <div className="type-here">Type here</div>
+        <div className="Incident-Input">Type here</div>
       </div>
-      <div className="rectangle-parent9">
-        <div className="group-child13" />
-        <div className="upload-photo-for">Upload photo (For evidence)</div>
-        <div className="upload-file">Upload file</div>
+
+      <div className="IncidentType-Container">
+        <div className="IncidentType-Dropdown" />
+        <div className="IncidentType-Name">Incident Type</div>
+        <div className="Incident-Input">Type here</div>
+      </div>
+      
+      <div className="UploadPhoto-Container">
+        <div className="Upload-Button" />
+        <div className="UP-Name1">Upload photo (For evidence)</div>
+        <div className="UP-Name2">Upload file</div>
         <img
-          className="material-symbolsupload-icon"
+          className="upload-icon"
           alt=""
-          src="/materialsymbolsupload.svg"
+          src="/upload-icon.png"
         />
       </div>
-      <div className="rectangle-parent10">
-        <div className="group-child14" />
-        <div className="report">REPORT</div>
+      <div className="ReportContainer">
+      <Button
+        className="ReportButton"
+        variant="contained"
+        sx={{ borderRadius: "10px", 
+              width: 165, 
+              height: 40,
+              backgroundColor: "#8A252C",
+              "&:hover": { backgroundColor: "#A91D3A" } 
+            }}
+        onClick={onCONFIRMClick}
+      >
+        REPORT
+      </Button> 
       </div>
     </div>
   );
 };
 
-PopUpReport.propTypes = {
-  className: PropTypes.string,
-};
+
+
 
 export default PopUpReport;

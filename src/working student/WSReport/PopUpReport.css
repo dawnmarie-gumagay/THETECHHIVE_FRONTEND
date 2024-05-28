@@ -1,24 +1,80 @@
-.pop-up-report-child {
+.pop-up-report {
+  width: 506px;
+  position: relative;
+  height: 534px;
+  overflow: hidden;
+  text-align: left;
+  color: #8a252c;
+  font-family: var(--font-montserrat);
+}
+
+.PopUpReport-Box {
     position: absolute;
     top: 0;
     left: 0;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: var(--br-3xs);
+    border-radius: 10px;
     background: linear-gradient(180deg, #fdfbc9 54%, #f9d67b);
     width: 506px;
     height: 534px;
-  }
-  .group-child11 {
+}
+
+.LevelIncident-Container {
+  position: absolute;
+  top: 60px;
+  left: 98px;
+  width: 308px;
+  height: 71px;
+}
+.LevelIncident-Dropdown {
+  position: absolute;
+  top: 30px;
+  left: 0;
+  border-radius: 20px;
+  background-color: white;
+  width: 308px;
+  height: 38px;
+}
+.level-of-incident {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 600;
+  font-size: 17px;
+  display: inline-block;
+  width: 146px;
+  height: 17px;
+}
+.Incident-Input {
+  position: absolute;
+  top: 38px;
+  left: 15px;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-block;
+  width: 75px;
+  height: 18px;
+}
+
+
+
+.IncidentType-Container {
+  position: absolute;
+  top: 179px;
+  left: 99px;
+  width: 307px;
+  height: 71px;
+}
+.IncidentType-Dropdown {
     position: absolute;
-    top: 33px;
+    top: 28px;
     left: 0;
-    border-radius: var(--br-xl);
-    background-color: var(--color-white);
+    border-radius: 20px;
+    background-color: white;
     width: 307px;
     height: 38px;
-  }
-  .incident-type2,
-  .type-here {
+}
+.IncidentType-Name {
     position: absolute;
     top: 0;
     left: 0;
@@ -26,130 +82,69 @@
     display: inline-block;
     width: 120px;
     height: 17px;
-  }
-  .type-here {
-    top: 43px;
-    left: 11px;
-    font-size: var(--font-size-mini);
-    font-weight: 500;
-    width: 75px;
-    height: 18px;
-  }
-  .group-child12,
-  .rectangle-parent7 {
+}
+
+
+.UploadPhoto-Container {
+  position: absolute;
+  top: 296px;
+  left: 98px;
+  width: 308px;
+  height: 120px;
+}
+.Upload-Button {
+  position: absolute;
+  top: 33px;
+  left: 2px;
+  border-radius: 20px;
+  background-color: white;
+  width: 306px;
+  height: 87px;
+}
+.UP-Name1 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-weight: 600;
+  display: inline-block;
+  width: 249px;
+  height: 17px;
+}
+  
+ 
+.UP-Name2 {
     position: absolute;
-    top: 179px;
-    left: 99px;
-    width: 307px;
-    height: 71px;
-  }
-  .group-child12 {
-    top: 33px;
-    left: 0;
-    border-radius: var(--br-xl);
-    background-color: var(--color-white);
-    width: 308px;
-    height: 38px;
-  }
-  .level-of-incident {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-weight: 600;
-    display: inline-block;
-    width: 146px;
-    height: 17px;
-  }
-  .group-child13,
-  .rectangle-parent8 {
-    position: absolute;
-    top: 62px;
-    left: 98px;
-    width: 308px;
-    height: 71px;
-  }
-  .group-child13 {
-    top: 33px;
-    left: 2px;
-    border-radius: var(--br-xl);
-    background-color: var(--color-white);
-    width: 306px;
-    height: 87px;
-  }
-  .upload-file,
-  .upload-photo-for {
-    position: absolute;
-    top: 0;
-    left: 0;
-    font-weight: 600;
-    display: inline-block;
-    width: 249px;
-    height: 17px;
-  }
-  .upload-file {
     top: 87px;
     left: 113px;
-    font-size: var(--font-size-mini);
+    font-size: 15px;
     font-weight: 500;
+    display: inline-block;
     width: 82px;
     height: 18px;
-  }
-  .material-symbolsupload-icon {
+}
+.upload-icon {
     position: absolute;
     top: 38px;
     left: 135px;
     width: 40px;
     height: 39px;
     overflow: hidden;
-  }
-  .group-child14,
-  .rectangle-parent9 {
+}
+
+.ReportContainer {
+  position: absolute;
+  top: 455px;
+  left: 165px;
+  width: 114px;
+  height: 31px;
+  mix-blend-mode: normal;
+  text-align: center;
+}
+ .ReportButton {
     position: absolute;
-    top: 296px;
-    left: 98px;
-    width: 308px;
-    height: 120px;
-  }
-  .group-child14 {
     top: 0;
     left: 0;
-    border-radius: var(--br-61xl);
-    background-color: var(--color-brown);
     width: 114px;
     height: 31px;
-  }
-  .report {
-    position: absolute;
-    top: 1px;
-    left: 20px;
-    font-weight: 500;
-    display: inline-block;
-    width: 75px;
-    height: 30px;
-  }
-  .rectangle-parent10 {
-    position: absolute;
-    top: 462px;
-    left: 195px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
-    width: 114px;
-    height: 31px;
-    mix-blend-mode: normal;
-    text-align: center;
-    font-size: var(--font-size-xl);
-    color: var(--color-white);
-    font-family: var(--font-poppins);
-  }
-  .pop-up-report {
-    width: 506px;
-    position: relative;
-    height: 534px;
-    overflow: hidden;
-    max-width: 100%;
-    max-height: 100%;
-    text-align: left;
-    font-size: var(--font-size-mid);
-    color: var(--color-brown);
-    font-family: var(--font-montserrat);
-  }
+}
   
