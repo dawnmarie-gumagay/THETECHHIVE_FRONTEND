@@ -1,0 +1,178 @@
+.ws-sign-up {
+    width: 100%;
+    position: relative;
+    height: 729px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+  }
+
+
+.welcome2 {
+    position: absolute;
+    top: 90px;
+    left: 980px;
+    font-size: 30px;
+    display: inline-block;
+    font-weight: 700;
+    width: 178px;
+    height: 33px;
+}
+.sub-title {
+    position: absolute;
+    top: 135px;
+    left: 967px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 20px;
+    width: 206px;
+    height: 21px;
+  }
+
+
+.username-box {
+    position: absolute;
+    top: 220px;
+    left: 870px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
+    border-radius: 20px;
+    height: 39px;
+}
+.username-name {
+    position: absolute;
+    top: 190px;
+    left: 875px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 106px;
+    height: 21px;
+}
+
+
+.email-box {
+    position: absolute;
+    top: 305px;
+    border-radius: 20px;
+    height: 39px;
+    left: 870px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
+}
+.email-name {
+  position: absolute;
+  top: 275px;
+  left: 875px;
+  font-weight: 500;
+  font-size: 20px;
+  display: inline-block;
+  width: 106px;
+  height: 21px;
+}
+
+
+.pass-box {
+    position: absolute;
+    border-radius: 20px;
+    height: 39px;
+    top: 394px;
+    left: 870px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
+}
+.pass-name {
+    position: absolute;
+    top: 365px;
+    left: 875px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 106px;
+    height: 21px;
+}
+ 
+
+.cpass-box {
+    position: absolute;
+    border-radius: 20px;
+    height: 39px;
+    top: 485px;
+    left: 870px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
+}
+.cpass-name {
+    position: absolute;
+    top: 455px;
+    left: 875px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 21px;
+  }
+  
+
+.signupContainer {
+    position: absolute;
+    top: 550px;
+    left: 1000px;
+    width: 119px;
+    height: 39px;
+    cursor: pointer;
+    color: white;
+}
+.s-button {
+    position: absolute;
+    border-radius: 20px;
+    height: 39px;
+    top: 0;
+    left: 0;
+    background-color:#8a252c;
+    width: 110px;
+  }
+.s-name {
+    position: absolute;
+    top: 6px;
+    left: 16px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 87px;
+    height: 23px;
+}
+  
+ 
+.q1 {
+    position: absolute;
+    top: 610px;
+    left: 880px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 264px;
+    height: 21px;
+}
+
+.q2 {
+    position: absolute;
+    top: 610px;
+    left: 1120px;
+    font-weight: 650;
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: underline;
+    width: 106px;
+    height: 21px;
+    cursor: pointer;
+}  

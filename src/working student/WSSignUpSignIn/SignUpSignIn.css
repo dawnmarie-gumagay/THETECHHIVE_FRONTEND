@@ -1,0 +1,144 @@
+.ws-sign-upsign-in {
+    width: 100%;
+    position: relative;
+    height: 729px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+
+.back-bg {
+    position: absolute;
+    top: 65px;
+    left: 290px;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 64px;
+    height: 60px;
+    cursor: pointer;
+}
+.back-icon {
+    position: absolute;
+    top: 75px;
+    left: 305px;
+    width: 35px;
+    height: 41px;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.main-bg {
+    position: absolute;
+    top: 105px;
+    left: 390px;
+    border-radius: 100px;
+    width: 372px;
+    height: 526px;
+    object-fit: cover;
+    opacity: 0.9;
+    mix-blend-mode: normal;
+}
+.main-title {
+    position: absolute;
+    top: 180px;
+    left: 455px;
+    width: 261px;
+    height: 206px;
+    object-fit: cover;
+}
+
+.welcome {
+    position: absolute;
+    top: 190px;
+    left: 975px;
+    font-size: 30px;
+    display: inline-block;
+    font-weight: 700;
+    width: 178px;
+    height: 33px;
+}
+
+
+.signup-container {
+    position: absolute;
+    top: 300px;
+    left: 875px;
+    cursor: pointer;
+    width: 347px;
+    height: 39px;
+}
+.signup-box{
+    position: absolute;
+    box-sizing: border-box;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background-color: white;
+    border: 3px solid #8a252c;
+    width: 347px;
+    height: 39px;
+}
+.signup-name {
+    position: absolute;
+    top: 6px;
+    left: 130px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 87px;
+    height: 23px;
+  }
+
+ 
+
+.line {
+    position: absolute;
+    box-sizing: border-box;
+    top: 375px;
+    left: 945px;
+    border-top: 1px solid #8a252c;
+    width: 217px;
+    height: 1px;
+}
+  
+
+.signin-container {
+    position: absolute;
+    top: 412px;
+    left: 875px;
+    width: 347px;
+    height: 39px;
+    cursor: pointer;
+    color: white;
+}
+.signin-box {
+    position: absolute;
+    width: 347px;
+    height: 39px;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background-color: #8a252c;
+}
+.signin-name {
+    position: absolute;
+    top: 6px;
+    left: 134px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 79px;
+    height: 23px;
+}
+  
+  
+.wildcat-cutie {
+    position: absolute;
+    top: 490px;
+    left: 1025px;
+    width: 54px;
+    height: 46px;
+    object-fit: cover;
+}
+   

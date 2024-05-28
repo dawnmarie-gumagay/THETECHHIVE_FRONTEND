@@ -1,0 +1,55 @@
+.successfully-register {
+    width: 100%;
+    position: relative;
+    height: 729px;
+    overflow: hidden;
+    text-align: center;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+
+
+.messContainer {
+    position: absolute;
+    top: 200px;
+    left: 875px;
+    font-weight: 600;
+    font-size: 25px;
+    display: inline-block;
+    width: 307px;
+    height: 150px;
+}
+.m {
+    margin: 0;
+}
+
+.signinContainer {
+    position: absolute;
+    top: 430px;
+    left: 965px;
+    width: 119px;
+    height: 39px;
+    cursor: pointer;
+    text-align: left;
+    font-size: 20px;
+    color: white;
+} 
+.si-button {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background-color: #8a252c;
+    width: 119px;
+    height: 39px;
+}
+.si-name {
+    position: absolute;
+    top: 6px;
+    left: 23px;
+    font-weight: 600;
+    display: inline-block;
+    width: 79px;
+    height: 23px;
+ }
+   

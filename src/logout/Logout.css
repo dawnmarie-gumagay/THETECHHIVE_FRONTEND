@@ -1,0 +1,45 @@
+.admin-logout {
+  width: 100%;
+  position: relative;
+  height: 785px;
+  overflow: hidden;
+  text-align: center;
+  font-size: 28px;
+  color: #8A252C;
+  font-family: var(--font-montserrat);
+}
+
+
+.prompt-message-container {
+  position: absolute;
+  top: 260px;
+  left: 950px;
+  display: inline-block;
+  width: 234px;
+  height: 85px;
+}
+
+.message1 {
+  font-size: 30px;
+  margin: 0;
+}
+
+.message2 {
+  position: absolute;
+  top: 420px;
+  left: 885px;
+  font-size: 23px;
+  text-decoration: underline;
+  font-weight: 500;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  width: 350px;
+  height: 36px;
+}
+
+.login-link {
+  text-decoration: none; 
+  color: #8A252C; 
+}
+  

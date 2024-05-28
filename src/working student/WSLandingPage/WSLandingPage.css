@@ -1,0 +1,203 @@
+.ws-landing-page {
+  width: 100%;
+  position: relative;
+  height: 729px;
+  overflow: hidden;
+  font-size: 20px;
+  text-align: left;
+  color: #8a252c;
+  font-family: var(--font-montserrat);
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 840px;
+  object-fit: cover;
+}
+
+.wildcat-cute {
+  position: absolute;
+  top: 80px;
+  left: 300px;
+  width: 28px;
+  height: 25px;
+  object-fit: cover;
+}
+
+.main-box {
+  position: absolute;
+  top: 45px;
+  left: 260px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.3);
+  width: 1052px;
+  height: 637px;
+}
+
+.sign-in-name {
+  position: absolute;
+  top: 80px;
+  left: 905px;
+  font-weight: 600;
+  font-size: 20px;
+  display: inline-block;
+  width: 81px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.half2,
+.half1 {
+  position: absolute;
+  top: 80px;
+  left: 905px;
+  font-weight: 600;
+  font-size: 20px;
+  display: inline-block;
+  width: 81px;
+  height: 23px;
+
+}
+.half1 {
+  left: 990px;
+  width: 5px;
+}
+.half2{
+  left: 1135px;
+  width: 5px;
+}
+
+.contact-us-name {
+  top: 80px;
+  left: 1005px;
+  font-weight: 600;
+  position: absolute;
+  display: inline-block;
+  width: 136px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.about-us-name {
+  top: 80px;
+  left: 1150px;
+  font-weight: 600;
+  position: absolute;
+  display: inline-block;
+  width: 110px;
+  height: 23px;
+  cursor: pointer;
+}
+
+.title-icon {
+  position: absolute;
+  top: 200px;
+  left: 900px;
+  width: 354px;
+  height: 237px;
+  object-fit: cover;
+}
+
+.get-started-button {
+  position: absolute;
+  top: 450px;
+  left: 995px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  mix-blend-mode: normal;
+  cursor: pointer;
+}
+
+.app-info {
+  top: 350px;
+  left: 10px;
+  font-weight: 500;
+  position: relative;
+  display: inline-block;
+  text-align: justify;
+  width: 494px;
+  height: 127px;
+}
+
+.badge-container {
+  position: absolute;
+  top: 160px;
+  left: 350px;
+  width: 460px;
+  height: 319px;
+}
+  
+.badge4,
+.badge2,
+.badge3,
+.badge1 {
+  position: absolute;
+  top: 169px;
+  left: 377px;
+  border-radius: var(--br-481xl);
+  width: 83px;
+  height: 77px;
+  object-fit: cover;
+}
+.badge2,
+.badge3,
+.badge1 {
+  top: 105px;
+  left: 254px;
+  width: 77px;
+}
+.badge2,
+.badge1 {
+  top: 48px;
+  left: 128px;
+  width: 78px;
+}
+.badge1 {
+  top: 0;
+  left: 0;
+  width: 82.3px;
+}
+
+.badge1-bar,
+.badge3-bar,
+.badge2-bar,
+.badge4-bar {
+  position: absolute;
+  top: 82px;
+  left: 8px;
+  border-radius: 10px 10px 0 0;
+  background-color: #F6C301;
+  width: 66px;
+  height: 237px;
+}
+.badge3-bar,
+.badge2-bar,
+.badge4-bar {
+  top: 129px;
+  left: 134px;
+  height: 190px;
+}
+.badge3-bar,
+.badge4-bar {
+  top: 186px;
+  left: 260px;
+  height: 133px;
+}
+.badge4-bar {
+  top: 249px;
+  left: 386px;
+  height: 70px;
+}
+.line-div {
+  position: absolute;
+  top: 318px;
+  left: 7px;
+  border-top: 2px solid #FFFEE9;
+  box-sizing: border-box;
+  width: 446px;
+  height: 2px;
+}
+  

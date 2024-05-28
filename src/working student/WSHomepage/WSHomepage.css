@@ -1,0 +1,321 @@
+.ws-homepage {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
+    height: 1330px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+
+.WSNavbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFFEE9;
+    width: 100%;
+    height: 76px;
+}
+.WSTitle {
+    position: absolute;
+    top: -19px;
+    left: 31px;
+    width: 115px;
+    height: 113px;
+    object-fit: cover;
+}
+.NHome {
+    position: absolute;
+    display: inline-block;
+    top: 26px;
+    left: 820px;
+    font-size: 20px;
+    width: 63px;
+    height: 23px;
+}
+.NReports {
+    position: absolute;
+    top: 26px;
+    left: 990px;
+    font-size: 20px;
+    display: inline-block;
+    width: 82px;
+    height: 23px;
+    cursor: pointer;
+}
+.NLeaderboards {
+    position: absolute;
+    top: 26px;
+    left: 1150px;
+    font-size: 20px;
+    display: inline-block;
+    width: 139px;
+    height: 23px;
+    cursor: pointer;
+}
+.NProfile {
+    position: absolute;
+    top: 26px;
+    left: 1350px;
+    font-size: 20px;
+    display: inline-block;
+    width: 65px;
+    height: 23px;
+    cursor: pointer;
+}
+  
+
+.HWildcat {
+    position: absolute;
+    display: inline-block;
+    top: 100px;
+    left: 700px;
+    font-size: 64px;
+    width: 323px;
+    height: 77px;
+}
+
+.PostContainer {
+    position: absolute;
+    top: 219px;
+    left: 540px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    width: 612px;
+    height: 108px;
+}
+
+  .solargallery-bold-icon {
+    position: absolute;
+    top: 295px;
+    left: 446px;
+    width: 18px;
+    height: 17px;
+    overflow: hidden;
+  }
+  .ws-homepage-item {
+    position: absolute;
+    top: 246px;
+    left: 446px;
+    border-radius: var(--br-xl);
+    background-color: var(--color-white);
+    width: 462px;
+    height: 38px;
+  }
+  
+  .ws-homepage-child1,
+  .ws-homepage-child2 {
+    position: absolute;
+    top: 365px;
+    left: 334px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-3xs);
+    background-color: var(--color-gray-100);
+    width: 612px;
+    height: 428px;
+  }
+  .ws-homepage-child2 {
+    top: 838px;
+  }
+ 
+  
+  
+  .richardmolina {
+    top: 402px;
+    left: 428px;
+    font-weight: 600;
+    width: 121px;
+  }
+  .comment,
+  .comment1,
+  .richardmolina,
+  .richardmolina1 {
+    position: absolute;
+    display: inline-block;
+    height: 16px;
+  }
+  .richardmolina1 {
+    top: 875px;
+    left: 428px;
+    font-weight: 600;
+    width: 121px;
+  }
+  .comment,
+  .comment1 {
+    top: 742px;
+    left: 799px;
+    width: 84px;
+  }
+  .comment1 {
+    top: 1215px;
+  }
+  .incident-type {
+    font-weight: 600;
+    font-family: var(--font-montserrat);
+  }
+  .incident-type-medical-emergen {
+    margin-block-start: 0;
+    margin-block-end: 15px;
+  }
+  .incident-location {
+    font-weight: 600;
+  }
+  .nge-building {
+    font-family: var(--font-montserrat);
+  }
+  .incident-type-medical-container,
+  .incident-type-medical-container1 {
+    position: absolute;
+    top: 457px;
+    left: 428px;
+    font-size: var(--font-size-mini);
+    display: inline-block;
+    width: 266px;
+    height: 47px;
+  }
+  .incident-type-medical-container1 {
+    top: 930px;
+  }
+  .dreamstime-l-35800431-scaled-1-icon,
+  .dreamstime-l-35800431-scaled-2-icon {
+    position: absolute;
+    top: 540px;
+    left: 424px;
+    border-radius: var(--br-3xs);
+    width: 432.5px;
+    height: 158.1px;
+    object-fit: cover;
+  }
+  .dreamstime-l-35800431-scaled-2-icon {
+    top: 1013px;
+  }
+  .ws-homepage-child3,
+  .ws-homepage-child4 {
+    position: absolute;
+    top: 721.5px;
+    left: 394.5px;
+    border-top: 1px solid var(--color-black);
+    box-sizing: border-box;
+    width: 506.4px;
+    height: 1px;
+  }
+  .ws-homepage-child4 {
+    top: 1194.5px;
+  }
+  .group-child6 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: var(--br-3xs);
+    background-color: var(--color-brown);
+    width: 53px;
+    height: 25px;
+  }
+  .post {
+    position: absolute;
+    top: 3px;
+    left: 6px;
+    font-weight: 600;
+    display: inline-block;
+    width: 41px;
+    height: 19px;
+  }
+  .rectangle-parent2 {
+    position: absolute;
+    top: 295px;
+    left: 855px;
+    width: 53px;
+    height: 25px;
+    font-size: 14px;
+    color: var(--color-white);
+  }
+  .whats-happening-in {
+    position: absolute;
+    top: 256px;
+    left: 457px;
+    display: inline-block;
+    font-weight: 500;
+    width: 335px;
+    height: 18px;
+  }
+  .solarverified-check-bold-icon {
+    position: absolute;
+    top: 389px;
+    left: 866px;
+    width: 34px;
+    height: 32px;
+    overflow: hidden;
+  }
+  .circle-3-icon,
+  .circle-4-icon,
+  .circle-5-icon {
+    position: absolute;
+    top: 246px;
+    left: 371px;
+    width: 48px;
+    height: 46px;
+    object-fit: cover;
+  }
+  .circle-4-icon,
+  .circle-5-icon {
+    top: 389px;
+  }
+  .circle-5-icon {
+    top: 862px;
+  }
+  .carbonmicrophone-filled-icon {
+    position: absolute;
+    top: 296px;
+    left: 473px;
+    width: 16px;
+    height: 16px;
+    overflow: hidden;
+  }
+  .e9a6b2c-9aa0-4ed8-a748-11b9f87-icon,
+  .e9a6b2c-9aa0-4ed8-a748-11b9f87-icon1 {
+    position: absolute;
+    top: 405px;
+    left: 549px;
+    border-radius: var(--br-481xl);
+    width: 18px;
+    height: 17px;
+    object-fit: cover;
+  }
+  .e9a6b2c-9aa0-4ed8-a748-11b9f87-icon1 {
+    top: 878px;
+  }
+  .bix-octagon-fill-icon {
+    position: absolute;
+    top: 862px;
+    left: 866px;
+    width: 34px;
+    height: 32px;
+    overflow: hidden;
+  }
+  .carbonthumbs-up-filled-icon,
+  .carbonthumbs-up-filled-icon1 {
+    position: absolute;
+    top: 734px;
+    left: 424px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+  }
+  .carbonthumbs-up-filled-icon1 {
+    top: 1207px;
+  }
+  .carbonthumbs-down-filled-icon,
+  .carbonthumbs-down-filled-icon1 {
+    position: absolute;
+    top: 734px;
+    left: 492px;
+    width: 32px;
+    height: 32px;
+    overflow: hidden;
+  }
+  .carbonthumbs-down-filled-icon1 {
+    top: 1207px;
+  }
+ 
+  

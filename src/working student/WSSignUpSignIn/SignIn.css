@@ -1,0 +1,122 @@
+.ws-sign-in {
+    width: 100%;
+    position: relative;
+    height: 832px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+  }
+
+
+.sub-title2 {
+    position: absolute;
+    display: inline-block;
+    top: 230px;
+    left: 945px;
+    font-weight: 400;
+    font-size: 20px;
+    width: 231px;
+    height: 21px;
+}
+
+
+.E-name {
+    position: absolute;
+    left: 870px;
+    top: 305px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 58px;
+    height: 21px;
+}
+.E-box {
+    position: absolute;
+    left: 865px;
+    top: 335px;
+    border-radius: 20px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
+    height: 39px;
+}
+
+.P-name {
+    position: absolute;
+    display: inline-block;
+    top: 410px;
+    left: 870px;
+    font-weight: 500;
+    font-size: 20px;
+    width: 231px;
+    height: 21px;
+}
+.P-box {
+    position: absolute;
+    left: 865px;
+    top: 440px;
+    border-radius: 20px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
+    height: 39px;
+}
+
+
+.SIContainer {
+    position: absolute;
+    top: 510px;
+    left: 980px;
+    width: 119px;
+    height: 39px;
+    cursor: pointer;
+    color: white;
+}
+.SIButton {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 20px;
+    background-color: #8a252c;
+    width: 115px;
+    height: 39px;
+}
+.SIName {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 79px;
+    height: 23px;
+ }
+ 
+.q4 {
+    position: absolute;
+    top: 585px;
+    left: 880px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 240px;
+    height: 21px;
+}
+
+.q5 {
+    position: absolute;
+    top: 585px;
+    left: 1105px;
+    font-weight: 650;
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: underline;
+    width: 240px;
+    height: 21px;
+    cursor: pointer;
+}
+  
+  

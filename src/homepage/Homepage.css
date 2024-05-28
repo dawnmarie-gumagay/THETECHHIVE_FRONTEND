@@ -1,0 +1,167 @@
+.admin-homepage {
+  width: 100%;
+  position: relative;
+  background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
+  height: 832px;
+  overflow: hidden;
+  text-align: left;
+  color: #8A252C;
+  font-family: var(--font-montserrat);
+}
+
+.navbar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: #FFFEE9;
+    width: 100%;
+    height: 76px;
+  }
+
+  .navbar-icon {
+    position: absolute;
+    top: -19px;
+    left: 31px;
+    width: 115px;
+    height: 113px;
+    object-fit: cover;
+  }
+  .home,
+  .profile,
+  .reports {
+    position: absolute;
+    top: 26px;
+    left: 1045px;
+    display: inline-block;
+    font-size: 20px;
+    width: 63px;
+    height: 23px;
+  }
+  .profile,
+  .reports {
+    left: 1200px;
+    width: 82px;
+  }
+  .profile {
+    left: 1360px;
+    width: 65px;
+  }
+
+  .homepage-title {
+    position: absolute;
+    top: 80px;
+    left: 650px;
+    width: 260px;
+    height: 160px;
+    object-fit: cover;
+  }
+
+  .line-icon {
+    position: absolute;
+    top: 647px;
+    left: 165px;
+    width: 1218px;
+    height: 3px;
+    background-color: white; 
+    border-radius: 10px; 
+  }
+  
+  .post2,
+  .post3,
+  .post4,
+  .postbox,
+  .post5,
+  .post6 {
+    position: absolute;
+    top: 248px;
+    left: 150px;
+    border-radius: 10px;
+    background-color: white;
+    width: 372px;
+    height: 342px;
+  }
+  .post3 {
+    top: 248px;
+    left: 1025px;
+  }
+  .post4,
+  .post5,
+  .post6 {
+    top: 698px;
+  }
+  .post2,
+  .post5 {
+    left: 585px;
+  }
+  .post6 {
+    left: 1025px;
+  }
+
+  
+  .InfoBox {
+    position: absolute;
+    top: 264px;
+    left: 175px;
+    width: 321px;
+    height: 309px;
+    font-size: 15px;
+  }
+  .dp-icon {
+    position: absolute;
+    top: -19px;
+    left: 31px;
+    width: 115px;
+    height: 113px;
+    object-fit: cover;
+  }
+  .dp-icon {
+    top: 0;
+    left: 0;
+    width: 33px;
+    height: 33px;
+  }
+  .users-name {
+    position: absolute;
+    top: 7px;
+    left: 43px;
+    font-weight: 600;
+    display: inline-block;
+    width: 106px;
+    height: 20px;
+  }
+  
+  .example-pic {
+    position: absolute;
+    top: 122px;
+    left: 32px;
+    border-radius: var(--br-3xs);
+    width: 267px;
+    height: 129px;
+    object-fit: cover;
+  } 
+
+  .incident-type-medical {
+    margin-block-start: 0;
+    margin-block-end: 10px;
+  }
+  .needed-office-clinic {
+    margin: 0;
+  }
+  .incident-type-container {
+    position: absolute;
+    top: 41px;
+    left: 4px;
+    font-weight: 600;
+    display: inline-block;
+    width: 258px;
+    height: 73px;
+  }
+  .span {
+    letter-spacing: 3em;
+  }
+  .like-comment-office-container {
+    position: absolute;
+    top: 292px;
+    left: 9px;
+    font-weight: 600;
+  }

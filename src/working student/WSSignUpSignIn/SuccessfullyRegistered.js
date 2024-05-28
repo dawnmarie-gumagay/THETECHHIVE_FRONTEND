@@ -1,0 +1,33 @@
+import { useCallback } from "react";
+import "./SuccessfullyRegistered.css";
+
+const SuccessfullyRegistered = () => {
+  const onGroupContainerClick = useCallback(() => {
+    // Please sync "WS-Sign In" to the project
+  }, []);
+
+  return (
+    <div className="successfully-register">
+      <img className="background" alt="" src="/bg1.png" />
+
+      <div className="main-box" />
+      <img className="main-bg" alt="" src="/main-bg.png" />
+      <img className="main-title" alt="" src="/TITLE.png" />
+
+      <div className="messContainer">
+        <p className="m">You have</p>
+        <p className="m">successfully registered!</p>
+        <p className="m">&nbsp;</p>
+        <p className="m">Click the button below</p>
+        <p className="m">to proceed.</p>
+      </div>
+
+      <div className="signinContainer" onClick={onGroupContainerClick}>
+        <div className="si-button" />
+        <div className="si-name">SIGN IN</div>
+      </div>
+    </div>
+  );
+};
+
+export default SuccessfullyRegistered;
