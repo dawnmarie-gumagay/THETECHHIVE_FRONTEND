@@ -11,6 +11,7 @@ import SignUp from './working student/WSSignUpSignIn/SignUp';
 import SuccessfullyRegistered from './working student/WSSignUpSignIn/SuccessfullyRegistered';
 import SignIn from './working student/WSSignUpSignIn/SignIn';
 import WSHomepage from './working student/WSHomepage/WSHomepage';
+import WSComment from './working student/WSHomepage/WSComment';
 
 const App = () => {
   return (
@@ -30,6 +31,7 @@ const App = () => {
         <Route path="/signin/" element={<SignIn />} />
         <Route path="/successfullyregistered/" element={<SuccessfullyRegistered />} />
         <Route path="/wshomepage/" element={<WSHomepage />} />
+        <Route path="/wscomment/" element={<WSComment />} />
 
 
       </Routes>

@@ -1,0 +1,120 @@
+.ws-comment-child {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-3xs);
+    background: linear-gradient(180deg, #fdfbc9 54%, #f9d67b);
+    width: 648px;
+    height: 534px;
+  }
+  .ws-comment-item {
+    position: absolute;
+    top: 19px;
+    left: 580px;
+    border-radius: 50%;
+    background-color: var(--color-brown);
+    width: 47px;
+    height: 47px;
+    cursor: pointer;
+  }
+  .x {
+    position: absolute;
+    top: 23px;
+    left: 595px;
+    font-size: var(--font-size-11xl);
+    display: inline-block;
+    color: var(--color-white);
+    width: 20px;
+    height: 32px;
+  }
+  .group-child8 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: var(--br-3xs);
+    background-color: var(--color-white);
+    width: 586px;
+    height: 111px;
+  }
+  .richardmolina2 {
+    position: absolute;
+    top: 12px;
+    left: 21px;
+    font-weight: 600;
+    display: inline-block;
+    width: 122px;
+    height: 16px;
+  }
+  .e9a6b2c-9aa0-4ed8-a748-11b9f87-icon2 {
+    position: absolute;
+    top: 11px;
+    left: 147px;
+    border-radius: var(--br-481xl);
+    width: 18px;
+    height: 17px;
+    object-fit: cover;
+  }
+  .is-this-true {
+    position: absolute;
+    top: 56px;
+    left: 45px;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    display: inline-block;
+    width: 123px;
+    height: 25px;
+  }
+  .rectangle-parent4,
+  .this-report-is {
+    position: absolute;
+    top: 102px;
+    left: 31px;
+    width: 586px;
+    height: 111px;
+  }
+  .this-report-is {
+    top: 56px;
+    left: 45px;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    display: inline-block;
+    width: 189px;
+    height: 25px;
+  }
+  .i-saw-it,
+  .rectangle-parent5 {
+    position: absolute;
+    top: 244px;
+    left: 31px;
+    width: 586px;
+    height: 111px;
+  }
+  .i-saw-it {
+    top: 56px;
+    left: 45px;
+    font-size: var(--font-size-xl);
+    font-weight: 600;
+    display: inline-block;
+    width: 197px;
+    height: 25px;
+  }
+  .rectangle-parent6 {
+    position: absolute;
+    top: 386px;
+    left: 31px;
+    width: 586px;
+    height: 111px;
+  }
+  .ws-comment {
+    width: 100%;
+    position: relative;
+    height: 534px;
+    overflow: hidden;
+    text-align: left;
+    font-size: var(--font-size-base);
+    color: var(--color-brown);
+    font-family: var(--font-montserrat);
+  }
+  

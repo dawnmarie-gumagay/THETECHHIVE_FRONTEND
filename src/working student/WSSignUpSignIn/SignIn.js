@@ -10,7 +10,7 @@ const SignIn = () => {
   }, [navigate]);
 
   const onHOMEPAGEClick = useCallback(() => {
-    navigate("/homepage");
+    navigate("/wshomepage");
   }, [navigate]);
 
   const onSIGNUPClick = useCallback(() => {

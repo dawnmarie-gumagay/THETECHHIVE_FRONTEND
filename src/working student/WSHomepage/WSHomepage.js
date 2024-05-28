@@ -1,7 +1,20 @@
-import { useCallback } from "react";
+import React, { useState, useCallback } from "react";
+import Loadable from 'react-loadable';
 import "./WSHomepage.css";
 
+// Loadable component for WSComment
+const WSComment = Loadable({
+  loader: () => import('./WSComment'),
+  loading: () => <div>Loading...</div>,
+});
+
 const WSHomepage = () => {
+  const [isOverlayVisible, setOverlayVisible] = useState(false);
+
+  const toggleOverlay = useCallback(() => {
+    setOverlayVisible(!isOverlayVisible);
+  }, [isOverlayVisible]);
+
   const onREPORTSClick = useCallback(() => {
     // Please sync "WS-Report" to the project
   }, []);
@@ -45,16 +58,8 @@ const WSHomepage = () => {
       <div className="EXPost1-Box" />
       <img className="EXUser1-dp" alt="" src="/dp.png" />
       <div className="EXUser1-Name">richard.molina</div>
-      <img
-        className="EXUser1-badge"
-        alt=""
-        src="/Wildcat-Prowler.png"
-      />
-       <img
-        className="EXUser1-verified"
-        alt=""
-        src="/check.png"
-      />
+      <img className="EXUser1-badge" alt="" src="/Wildcat-Prowler.png" />
+      <img className="EXUser1-verified" alt="" src="/check.png" />
       <div className="EXUser1-Incident-Container">
         <p className="EXUser1-Incident-Margin">
           <span className="IncidentType1">{`Incident Type: `}</span>
@@ -65,38 +70,17 @@ const WSHomepage = () => {
           <span>NGE Building</span>
         </p>
       </div>
-      <img
-        className="EXUser1-Incident-Picture"
-        alt=""
-        src="/ex.png"
-      />
+      <img className="EXUser1-Incident-Picture" alt="" src="/ex.png" />
       <div className="EXUser1-line" />
-      <img
-        className="EXUser1-like"
-        alt=""
-        src="/t-up.png"
-      />
-      <img
-        className="EXUser1-unlike"
-        alt=""
-        src="/t-down.png"
-      />
-      <b className="EXUser1-Comment">Comment</b>
-
+      <img className="EXUser1-like" alt="" src="/t-up.png" />
+      <img className="EXUser1-unlike" alt="" src="/t-down.png" />
+      <b className="EXUser1-Comment" onClick={toggleOverlay}>Comment</b>
 
       <div className="EXPost2-Box" />
       <img className="EXUser2-dp" alt="" src="/dp.png" />
       <div className="EXUser2-Name">richard.molina</div>
-      <img
-        className="EXUser2-badge"
-        alt=""
-        src="/Wildcat-Prowler.png"
-      />
-      <img 
-        className="EXUser2-unverified" 
-        alt="" 
-        src="/x.png" 
-      />
+      <img className="EXUser2-badge" alt="" src="/Wildcat-Prowler.png" />
+      <img className="EXUser2-unverified" alt="" src="/x.png" />
       <div className="EXUser2-Incident-Container">
         <p className="EXUser2-Incident-Margin">
           <span className="IncidentType2">{`Incident Type: `}</span>
@@ -107,23 +91,19 @@ const WSHomepage = () => {
           <span className="nge-building">NGE Building</span>
         </p>
       </div>
-      <img
-        className="EXUser2-Incident-Picture"
-        alt=""
-        src="/ex.png"
-      />
-       <div className="EXUser2-line" />
-       <img
-        className="EXUser2-like"
-        alt=""
-        src="/t-up.png"
-      />
-       <img
-        className="EXUser2-unlike"
-        alt=""
-        src="/t-down.png"
-      />
-      <b className="EXUser2-Comment">Comment</b>
+      <img className="EXUser2-Incident-Picture" alt="" src="/ex.png" />
+      <div className="EXUser2-line" />
+      <img className="EXUser2-like" alt="" src="/t-up.png" />
+      <img className="EXUser2-unlike" alt="" src="/t-down.png" />
+      <b className="EXUser2-Comment" onClick={toggleOverlay}>Comment</b>
+
+      {isOverlayVisible && (
+        <div className="overlay" onClick={toggleOverlay}>
+          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+            <WSComment />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
