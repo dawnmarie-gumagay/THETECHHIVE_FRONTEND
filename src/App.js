@@ -14,6 +14,7 @@ import WSHomepage from './working student/WSHomepage/WSHomepage';
 import WSComment from './working student/WSHomepage/WSComment';
 import WSReport from './working student/WSReport/WSReport';
 import PopUpReport from './working student/WSReport/PopUpReport';
+import PopUpConfirm from './working student/WSReport/PopUpConfirm';
 
 const App = () => {
   return (
@@ -36,6 +37,7 @@ const App = () => {
         <Route path="/wscomment/" element={<WSComment />} />
         <Route path="/wsreport/" element={<WSReport />} />
         <Route path="/popupreport/" element={<PopUpReport />} />
+        <Route path="/popupconfirm/" element={<PopUpConfirm />} />
         
 
 

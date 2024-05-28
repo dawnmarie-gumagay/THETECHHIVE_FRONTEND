@@ -1,14 +1,21 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
+import Loadable from 'react-loadable';
 import "./PopUpReport.css";
 
-const PopUpReport = () => {
-  const navigate = useNavigate();
+// Loadable component for PopUpConfirm
+const PopUpConfirm = Loadable({
+  loader: () => import('./PopUpConfirm'),
+  loading: () => <div>Loading...</div>,
+});
 
-  const onCONFIRMClick = useCallback(() => {
-    navigate("/signin");
-  }, [navigate]);
+const PopUpReport = () => {
+  const [isConfirmVisible, setConfirmVisible] = useState(false);
+
+  const toggleConfirm = useCallback(() => {
+    setConfirmVisible(!isConfirmVisible);
+  }, [isConfirmVisible]);
+
   return (
     <div className="pop-up-report">
       <div className="PopUpReport-Box" />
@@ -29,32 +36,33 @@ const PopUpReport = () => {
         <div className="Upload-Button" />
         <div className="UP-Name1">Upload photo (For evidence)</div>
         <div className="UP-Name2">Upload file</div>
-        <img
-          className="upload-icon"
-          alt=""
-          src="/upload-icon.png"
-        />
+        <img className="upload-icon" alt="" src="/upload-icon.png" />
       </div>
       <div className="ReportContainer">
-      <Button
-        className="ReportButton"
-        variant="contained"
-        sx={{ borderRadius: "10px", 
-              width: 165, 
-              height: 40,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" } 
-            }}
-        onClick={onCONFIRMClick}
-      >
-        REPORT
-      </Button> 
+        <Button
+          className="ReportButton"
+          variant="contained"
+          sx={{ borderRadius: "10px", 
+                width: 165, 
+                height: 40,
+                backgroundColor: "#8A252C",
+                "&:hover": { backgroundColor: "#A91D3A" } 
+              }}
+          onClick={toggleConfirm}
+        >
+          REPORT
+        </Button> 
       </div>
+
+      {isConfirmVisible && (
+        <div className="overlay" onClick={toggleConfirm}>
+          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+            <PopUpConfirm onClose={toggleConfirm} />
+          </div>
+        </div>
+      )}
     </div>
   );
 };
-
-
-
 
 export default PopUpReport;

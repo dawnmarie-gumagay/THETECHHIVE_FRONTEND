@@ -1,9 +1,21 @@
-import { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Loadable from 'react-loadable';
 import "./WSReport.css";
+
+
+const PopUpReport = Loadable({
+  loader: () => import('./PopUpReport'),
+  loading: () => <div>Loading...</div>,
+});
 
 const WSReport = () => {
   const navigate = useNavigate();
+  const [isPopupVisible, setPopupVisible] = useState(false);
+
+  const togglePopup = useCallback(() => {
+    setPopupVisible(!isPopupVisible);
+  }, [isPopupVisible]);
 
   const onHomeTextClick = useCallback(() => {
     navigate("/wshomepage");
@@ -16,7 +28,6 @@ const WSReport = () => {
   const onLEADERBOARDSClick = useCallback(() => {
     navigate("/wshomepage");
   }, [navigate]);
-
 
   return (
     <>
@@ -44,8 +55,17 @@ const WSReport = () => {
           className="INReport"
           alt=""
           src="/wildcat-icon.png"
+          onClick={togglePopup} 
         />
       </div>
+      
+      {isPopupVisible && (
+        <div className="overlay" onClick={togglePopup}>
+          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
+            <PopUpReport onClose={togglePopup} />
+          </div>
+        </div>
+      )}
     </>
   );
 };
