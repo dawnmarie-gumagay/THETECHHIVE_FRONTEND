@@ -32,10 +32,10 @@ const SignIn = () => {
       <i className="sub-title2">Sign in to your Account</i>
 
       <div className="E-name">Email</div>
-      <div className="E-box" />
+      <input className="E-box" type="email"  />
       
       <div className="P-name">Password</div>
-      <div className="P-box" />
+      <input className="P-box" type="password" />
       
       <div className="SIContainer" onClick={onHOMEPAGEClick}>
         <div className="SIButton" />

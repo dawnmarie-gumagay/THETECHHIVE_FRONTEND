@@ -1,6 +1,8 @@
 import React, { useCallback, useState } from "react";
 import { Button } from "@mui/material";
 import Loadable from 'react-loadable';
+import Select from '@mui/material/Select';
+import MenuItem from '@mui/material/MenuItem';
 import "./PopUpReport.css";
 
 // Loadable component for PopUpConfirm
@@ -11,10 +13,17 @@ const PopUpConfirm = Loadable({
 
 const PopUpReport = () => {
   const [isConfirmVisible, setConfirmVisible] = useState(false);
+  const [selectedType, setSelectedType] = React.useState('');
 
   const toggleConfirm = useCallback(() => {
     setConfirmVisible(!isConfirmVisible);
   }, [isConfirmVisible]);
+
+  const handleChange = (event) => {
+    setSelectedType(event.target.value);
+  };
+
+  
 
   return (
     <div className="pop-up-report">
@@ -23,7 +32,22 @@ const PopUpReport = () => {
       <div className="LevelIncident-Container">
         <div className="LevelIncident-Dropdown" />
         <div className="level-of-incident">Level of Incident</div>
-        <div className="Incident-Input">Type here</div>
+        <div className="Incident-Input">
+      <Select
+        value={selectedType}
+        onChange={handleChange}
+        displayEmpty
+        className="SelectInput"
+        style={{ width: "200px", color: "#8A252C" }}
+      >
+        <MenuItem value="" disabled>
+          Type here
+        </MenuItem>
+        <MenuItem value="Type1">Type 1</MenuItem>
+        <MenuItem value="Type2">Type 2</MenuItem>
+        <MenuItem value="Type3">Type 3</MenuItem>
+      </Select>
+    </div>
       </div>
 
       <div className="IncidentType-Container">

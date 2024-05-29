@@ -31,17 +31,17 @@ const SignUp = () => {
       <i className="welcome2">WELCOME!</i>
       <i className="sub-title">Create your Account</i>
       
-      <div className="username-box" />
       <div className="username-name">Username</div>
+      <input className="username-box" type="text" />
 
-      <div className="email-box" />
       <div className="email-name">Email</div>
+      <input className="email-box" type="email"  />
 
-      <div className="pass-box" />
       <div className="pass-name">Password</div>
+      <input className="pass-box" type="password"  />
 
-      <div className="cpass-box" />
       <div className="cpass-name">Confirm Password</div>
+      <input className="cpass-box" type="password"  />
 
       <div className="signupContainer" onClick={onSUCCESSFULLYREGISTEREDClick}>
         <div className="s-button" />

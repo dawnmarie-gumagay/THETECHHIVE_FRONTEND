@@ -26,15 +26,7 @@
   width: 308px;
   height: 71px;
 }
-.LevelIncident-Dropdown {
-  position: absolute;
-  top: 30px;
-  left: 0;
-  border-radius: 20px;
-  background-color: white;
-  width: 308px;
-  height: 38px;
-}
+
 .level-of-incident {
   position: absolute;
   top: 0;

@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 import Loadable from 'react-loadable';
 import "./WSHomepage.css";
 
@@ -11,6 +12,7 @@ const WSComment = Loadable({
 const WSHomepage = () => {
   const navigate = useNavigate();
   const [isOverlayVisible, setOverlayVisible] = useState(false);
+  const [postInput, setPostInput] = useState("");
 
   const toggleOverlay = useCallback(() => {
     setOverlayVisible(!isOverlayVisible);
@@ -32,6 +34,14 @@ const WSHomepage = () => {
     navigate("/wsleaderboards");
   }, [navigate]);
 
+  const toggleConfirm = useCallback(() => {
+    navigate("/wsleaderboards");
+  }, [navigate]);
+
+  const handlePostInputChange = (e) => {
+    setPostInput(e.target.value);
+  };
+
   return (
     <div className="ws-homepage">
       <div className="WSNavbar" />
@@ -51,14 +61,34 @@ const WSHomepage = () => {
 
       <div className="PostContainer" />
       <img className="users-dp" alt="" src="/dp.png" />
-      <div className="post-input" />
-      <i className="post-q"> What's happening in your day, Wildcat? </i>
+
+      <input
+        type="text"
+        className="post-input"
+        value={postInput}
+        onChange={handlePostInputChange}
+        placeholder="What's happening in your day, Wildcat?"
+      />
+      
       <img className="gallery-icon" alt="" src="/gallery.png" />
       <img className="mic-icon" alt="" src="/mic.png" />
+
       <div className="post-container">
-        <div className="post-button" />
-        <div className="post-name">POST</div>
-      </div>
+      <Button
+        className="post-button"
+        variant="contained"
+        sx={{
+          borderRadius: "10px",
+          width: 60,
+          height: 30,
+          backgroundColor: "#8A252C",
+          "&:hover": { backgroundColor: "#A91D3A" }
+        }}
+        onClick={toggleConfirm}
+      >
+        POST
+      </Button>
+    </div>
       
       <div className="EXPost1-Box" />
       <img className="EXUser1-dp" alt="" src="/dp.png" />
@@ -105,7 +135,6 @@ const WSHomepage = () => {
       {isOverlayVisible && (
         <div className="overlay" onClick={toggleOverlay}>
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            {/* Pass the onClose function as prop */}
             <WSComment onClose={onClose} />
           </div>
         </div>
