@@ -1,17 +1,14 @@
 .PopUpSuccess {
-    width: 100%;
-    position: relative;
-    height: 249px;
-    overflow: hidden;position: fixed;
+    position: fixed;
     top: 50%;
-    left: 50%;
+    left: 215px;
     transform: translate(-50%, -50%);
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     padding: 20px;
-    width: 421px;
+    width: 430px;
     height: 209px;
     text-align: center;
     color: #8a252c;
@@ -52,12 +49,11 @@
  
 .pop-up-inner {
     position: absolute;
-    top: 190px;
-    left: 180px;
-    border-radius: 80px;
-    background-color: #8a252c;
-    width: 134px;
-    height: 31px;
+    top: 170px;
+    left: 15px;
+    text-align: center;
+    width: 115px;
+    height: 35px;
 }
 .go-back {
     position: absolute;
@@ -73,3 +69,7 @@
     cursor: pointer;
 }
   
+  
+  
+
+

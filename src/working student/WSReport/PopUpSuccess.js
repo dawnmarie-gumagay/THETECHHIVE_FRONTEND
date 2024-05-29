@@ -1,11 +1,12 @@
-import { useCallback } from "react";
+import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
+import Button from "@mui/material/Button"; // Import Button component from Material-UI
 import "./PopUpSuccess.css";
 
 const PopUpSuccess = () => {
   const navigate = useNavigate();
 
-  const onGOBACKTextClick = useCallback(() => {
+  const onBack = useCallback(() => {
     navigate("/wsreport");
   }, [navigate]);
 
@@ -21,11 +22,22 @@ const PopUpSuccess = () => {
         alt=""
         src="/success-icon.png"
       />
-      <div className="pop-up-inner" />
-      <div className="go-back" onClick={onGOBACKTextClick}>
+
+      <Button
+        className="pop-up-inner"
+        variant="contained"
+        sx={{
+          borderRadius: "10px",
+          width: 105,
+          height: 35,
+          backgroundColor: "#8A252C",
+          "&:hover": { backgroundColor: "#A91D3A" }
+        }}
+        onClick={onBack}
+      >
         GO BACK
-      </div>
-      
+      </Button>
+
     </div>
   );
 };

@@ -37,7 +37,7 @@
 .PUQuestion {
   position: absolute;
   top: 23px;
-  left: 110px;
+  left: 116px;
   font-weight: 600;
   font-size: 20px;
   color: #8a252c;
@@ -45,52 +45,25 @@
   width: 240px;
 }
 
-.PUCReportConainer {
-    position: absolute;
-    top: 185px;
-    left: 80px;
-    width: 103px;
-    height: 31px;
-    cursor: pointer;
-}
+
 .PUCReportButton {
-  position: absolute;
-  top: 0;
-  left: 0;
-  border-radius: 80px;
-  background-color: #8a252c;
-  width: 103px;
-  height: 31px;
-}
-.PUCReportName {
-  position: absolute;
-  top: 3px;
-  left: 15px;
-  font-weight: 500;
-  color: white;
-  display: inline-block;
-  width: 75px;
-  height: 30px;
+    position: absolute;
+    top: 165px;
+    left: -30px;
+    text-align: center;
+    width: 115px;
+    height: 35px;
 }
 
-.PUCCancelContainer {
-    position: absolute;
-    top: 185px;
-    left: 280px;
-    width: 103px;
-    height: 31px;
-    cursor: pointer;
-}
-.PUCCancelName {
+.PUCCancelButton {
   position: absolute;
-  top: 3px;
-  left: 12px;
-  font-weight: 500;
-  color: white;
-  display: inline-block;
-  width: 79px;
-  height: 30px;
+  top: 165px;
+  left: 45px;
+  text-align: center;
+  width: 115px;
+  height: 35px;
 }
+
 
 /* PopUpConfirm.css */
 .popup-confirm {
