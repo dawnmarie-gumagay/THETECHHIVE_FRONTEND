@@ -2,11 +2,29 @@ import React, { useState, useCallback } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UpdatedPopUp from './UpdatedPopUp';  
+import ConfirmLogout from "./ConfirmLogout";
 import "./WSProfile.css";
 
 const WSProfile = ({ className = "" }) => {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
+  const [isConfirmLogoutVisible, setIsConfirmLogoutVisible] = useState(false);
   const navigate = useNavigate();
+
+  const openLOGOUTConfirmation = () => {
+    setIsConfirmLogoutVisible(true);
+  };
+
+  const closeLOGOUTConfirmation = () => {
+    setIsConfirmLogoutVisible(false);
+  };
+
+  const onLOGOUTTextClick = () => {
+    navigate("/logged-out");
+  };
+
+  const onCANCELTextClick = () => {
+    setIsConfirmLogoutVisible(false);
+  };
 
   const onHomeTextClick = useCallback(() => {
     navigate("/wshomepage");
@@ -17,10 +35,6 @@ const WSProfile = ({ className = "" }) => {
   }, [navigate]);
 
   const onLeaderboardsTextClick = useCallback(() => {
-    navigate("/wsleaderboards");
-  }, [navigate]);
-
-  const openLOGOUTConfirmation = useCallback(() => {
     navigate("/wsleaderboards");
   }, [navigate]);
 
@@ -65,7 +79,8 @@ const WSProfile = ({ className = "" }) => {
               width: 110,
               height: 40,
               backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" }
+              "&:hover": { backgroundColor: "#A91D3A" },
+              fontSize: "17px"
             }}
             onClick={openLOGOUTConfirmation}
           >
@@ -94,7 +109,8 @@ const WSProfile = ({ className = "" }) => {
               width: 110,
               height: 35,
               backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" }
+              "&:hover": { backgroundColor: "#A91D3A" },
+              fontSize: "17px"
             }}
             onClick={openUpdatedPopUp}
           >
@@ -106,6 +122,21 @@ const WSProfile = ({ className = "" }) => {
       {isPopUpVisible && (
         <div className="popup-overlay">
           <UpdatedPopUp onClose={closeUpdatedPopUp} />
+        </div>
+      )}
+
+      {isConfirmLogoutVisible && (
+        <div className="popup-overlay">
+          <ConfirmLogout
+            onLOGOUTTextClick={onLOGOUTTextClick}
+            onCANCELTextClick={onCANCELTextClick}
+          />
+        </div>
+      )}
+
+      {isConfirmLogoutVisible && (
+        <div className="popup-overlay">
+          <ConfirmLogout onClose={closeLOGOUTConfirmation} />
         </div>
       )}
     </>

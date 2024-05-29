@@ -19,6 +19,8 @@ import PopUpSuccess from './working student/WSReport/PopUpSuccess';
 import WSLeaderboards from './working student/WSLeaderboards/WSLeaderboards';
 import WSProfile from './working student/WSProfile/WSProfile';
 import UpdatedPopUp from './working student/WSProfile/UpdatedPopUp';
+import WSLogout from './working student/WSProfile/WSLogout';
+import ConfirmLogout from './working student/WSProfile/ConfirmLogout';
 
 
 const App = () => {
@@ -51,6 +53,9 @@ const App = () => {
         <Route path="/wsleaderboards/" element={<WSLeaderboards />} />
         <Route path="/wsprofile/" element={<WSProfile />} />
         <Route path="/updatedpopup/" element={<UpdatedPopUp />} />
+
+        <Route path="/wslogout/" element={<WSLogout />} />
+        <Route path="/confirmlogout/" element={<ConfirmLogout />} />
 
 
         
