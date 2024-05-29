@@ -1,7 +1,7 @@
 import React from "react";
 import "./PopUpConfirm.css";
 
-const PopUpConfirm = ({ onClose }) => {
+const PopUpConfirm = ({ onClose, onConfirm }) => {
   return (
     <div className="pop-up-confirm">
       <div className="PUConfirm" />
@@ -10,7 +10,7 @@ const PopUpConfirm = ({ onClose }) => {
       </div>
       <img className="PUConfirmPic" alt="" src="/wreport-icon.png" />
 
-      <div className="PUCReportConainer">
+      <div className="PUCReportConainer" onClick={onConfirm}>
         <div className="PUCReportButton" />
         <div className="PUCReportName">REPORT</div>
       </div>

@@ -51,6 +51,7 @@
     left: 80px;
     width: 103px;
     height: 31px;
+    cursor: pointer;
 }
 .PUCReportButton {
   position: absolute;
