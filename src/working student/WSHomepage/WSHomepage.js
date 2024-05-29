@@ -29,8 +29,8 @@ const WSHomepage = () => {
   }, []);
 
   const onLEADERBOARDSClick = useCallback(() => {
-    // Please sync "WS-Leaderboards" to the project
-  }, []);
+    navigate("/wsleaderboards");
+  }, [navigate]);
 
   return (
     <div className="ws-homepage">
@@ -38,7 +38,7 @@ const WSHomepage = () => {
       <img className="WSTitle" alt="" src="/TITLE.png" />
       <b className="NHome">Home</b>
       <div className="NReports" onClick={onREPORTSClick}>
-        Reports
+        Entry
       </div>
       <div className="NProfile" onClick={onPROFILEClick}>
         Profile

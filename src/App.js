@@ -16,6 +16,7 @@ import WSReport from './working student/WSReport/WSReport';
 import PopUpReport from './working student/WSReport/PopUpReport';
 import PopUpConfirm from './working student/WSReport/PopUpConfirm';
 import PopUpSuccess from './working student/WSReport/PopUpSuccess';
+import WSLeaderboards from './working student/WSLeaderboards/WSLeaderboards';
 
 const App = () => {
   return (
@@ -30,16 +31,21 @@ const App = () => {
         <Route path="/wslandingpage/" element={<WSLandingPage />} />
         <Route path="/wscontactus/" element={<ContactUs />} />
         <Route path="/wsaboutus/" element={<AboutUs />} />
+
         <Route path="/wssignupsignin/" element={<SignUpSignIn />} />
         <Route path="/signup/" element={<SignUp />} />
         <Route path="/signin/" element={<SignIn />} />
         <Route path="/successfullyregistered/" element={<SuccessfullyRegistered />} />
+
         <Route path="/wshomepage/" element={<WSHomepage />} />
         <Route path="/wscomment/" element={<WSComment />} />
+
         <Route path="/wsreport/" element={<WSReport />} />
         <Route path="/popupreport/" element={<PopUpReport />} />
         <Route path="/popupconfirm/" element={<PopUpConfirm />} />
         <Route path="/popupsuccess/" element={<PopUpSuccess />} />
+
+        <Route path="/wsleaderboards/" element={<WSLeaderboards />} />
         
 
 

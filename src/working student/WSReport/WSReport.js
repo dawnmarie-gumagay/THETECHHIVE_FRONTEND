@@ -26,7 +26,7 @@ const WSReport = () => {
   }, [navigate]);
 
   const onLEADERBOARDSClick = useCallback(() => {
-    navigate("/wshomepage");
+    navigate("/wsleaderboards");
   }, [navigate]);
 
   return (
@@ -39,7 +39,7 @@ const WSReport = () => {
         <div className="NHome" onClick={onHomeTextClick}>
           Home
         </div>
-        <b className="NReports">Reports</b>
+        <b className="NReports">Entry</b>
         <div className="NProfile" onClick={onPROFILEClick}>
           Profile
         </div>
