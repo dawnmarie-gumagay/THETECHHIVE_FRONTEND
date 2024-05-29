@@ -1,0 +1,164 @@
+.ws-profile {
+    width: 100%;
+    max-width: 100%;
+    height: 729px;
+    overflow: hidden;
+    background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+  
+
+.WSProfileBg {
+    position: absolute;
+    object-fit: cover;
+    top: 120px;
+    left: 170px;
+    border-radius: 0 0 0 0;
+    width: 372px;
+    height: 555px;
+    opacity: 0.95;
+    mix-blend-mode: normal;
+}
+.WSProfileUser {
+  position: absolute;
+  object-fit: cover;
+  top: 160px;
+  left: 280px;
+  border-radius: 76px;
+  width: 157px;
+  height: 152px;
+}
+.WSProfileBadge {
+    position: absolute;
+    top: 265px;
+    left: 395px;
+    width: 37px;
+    height: 37px;
+    object-fit: cover;
+}
+
+.WSID {
+  position: absolute;
+  font-weight: 600;
+  top: 340px;
+  left: 315px;
+  font-size: 16px;
+}
+.WSName {
+    position: absolute;
+    top: 375px;
+    left: 270px;
+    font-size: 25px;
+    font-weight: 650;
+}
+.WSPoints {
+    position: absolute;
+    top: 425px;
+    left: 319px;
+    font-size: 16px;
+    font-weight: 600;
+}
+.WSEdu {
+    position: absolute;
+    font-weight: 600;
+    font-size: 20px;
+    top: 490px;
+    left: 253px;
+}
+  
+
+.WSPLogout {
+    position: absolute;
+    top: 565px;
+    left: 305px;
+    width: 90px;
+    height: 20px;
+    text-align: center;
+    cursor: pointer;
+    color: white;
+}
+
+
+.PasswordGroup {
+  position: absolute;
+  top: 210px;
+  left: 700px;
+  width: 625px;
+  height: 333px;
+}
+.PasswordBox {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 36px;
+  background-color: #FFFFFF;
+  opacity: 0.30;
+  width: 625px;
+  height: 333px;
+}
+.PasswordName {
+    position: absolute;
+    left: 45px;
+    display: inline-block;
+    font-size: 22px;
+    height: 32.3px;
+    top: 45px;
+    font-size: 22px;
+    width: 113px;
+}
+.OldPass,
+.NewPass {
+  position: absolute;
+  top: 123.6px;
+  font-weight: 500;
+  font-size: 20px;
+  width: 218px;
+  left: 45px;
+  display: inline-block;
+  height: 32.3px;
+}
+.NewPass {
+  top: 181.5px;
+}
+.OldPassInput {
+    position: absolute;
+    top: 320px;
+    left: 930px;
+    border-radius: 20px;
+    background-color: white;
+    width: 339px;
+    height: 40px;
+}
+.NewPassInput {
+  position: absolute;
+  top: 380px;
+  left: 930px;
+  border-radius: 20px;
+  background-color: white;
+  width: 339px;
+  height: 40px;
+}
+
+.edit {
+    position: absolute;
+    top: 475px;
+    left: 1040px;
+    display: inline-block;
+    font-size: 20px;
+    width: 43px;
+    height: 24px;
+    cursor: pointer;
+}
+
+.UpdateContainer {
+    position: absolute;
+    top: 470px;
+    left: 1160px;
+    width: 107px;
+    height: 39px;
+    cursor: pointer;
+    color: white;
+}
+

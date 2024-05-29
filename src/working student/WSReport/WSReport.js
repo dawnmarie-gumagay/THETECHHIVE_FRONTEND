@@ -21,12 +21,12 @@ const WSReport = () => {
     navigate("/wshomepage");
   }, [navigate]);
 
-  const onPROFILEClick = useCallback(() => {
-    navigate("/wshomepage");
-  }, [navigate]);
-
   const onLEADERBOARDSClick = useCallback(() => {
     navigate("/wsleaderboards");
+  }, [navigate]);
+
+  const onPROFILEClick = useCallback(() => {
+    navigate("/wsprofile");
   }, [navigate]);
 
   return (

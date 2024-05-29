@@ -17,6 +17,7 @@ import PopUpReport from './working student/WSReport/PopUpReport';
 import PopUpConfirm from './working student/WSReport/PopUpConfirm';
 import PopUpSuccess from './working student/WSReport/PopUpSuccess';
 import WSLeaderboards from './working student/WSLeaderboards/WSLeaderboards';
+import WSProfile from './working student/WSProfile/WSProfile';
 
 const App = () => {
   return (
@@ -46,6 +47,7 @@ const App = () => {
         <Route path="/popupsuccess/" element={<PopUpSuccess />} />
 
         <Route path="/wsleaderboards/" element={<WSLeaderboards />} />
+        <Route path="/wsprofile/" element={<WSProfile />} />
         
 
 

@@ -25,8 +25,8 @@ const WSHomepage = () => {
   }, [navigate]);
 
   const onPROFILEClick = useCallback(() => {
-    // Please sync "WS-Profile" to the project
-  }, []);
+    navigate("/wsprofile");
+  }, [navigate]);
 
   const onLEADERBOARDSClick = useCallback(() => {
     navigate("/wsleaderboards");

@@ -19,7 +19,7 @@ const WSLeaderboards = () => {
 
   return (
     <div className="ws-leaderboards">
-        <div className="WSNavbar" />
+      <div className="WSNavbar" />
       <img className="WSTitle" alt="" src="/TITLE.png" />
       <div className="NHome" onClick={onHomeTextClick}>
         Home
