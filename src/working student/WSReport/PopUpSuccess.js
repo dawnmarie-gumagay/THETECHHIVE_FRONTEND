@@ -1,14 +1,16 @@
+// PopUpSuccess.js
 import React, { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import Button from "@mui/material/Button"; // Import Button component from Material-UI
+import Button from "@mui/material/Button";
 import "./PopUpSuccess.css";
 
-const PopUpSuccess = () => {
+const PopUpSuccess = ({ onClose }) => {
   const navigate = useNavigate();
 
   const onBack = useCallback(() => {
-    navigate("/wsreport");
-  }, [navigate]);
+    onClose(); // Close the popup first
+    navigate("/wsreport"); // Ensure this path is correct
+  }, [navigate, onClose]);
 
   return (
     <div className="PopUpSuccess">
@@ -19,7 +21,7 @@ const PopUpSuccess = () => {
       </div>
       <img
         className="WildcatSuccess-icon"
-        alt=""
+        alt="Success Icon"
         src="/success-icon.png"
       />
 
@@ -37,7 +39,6 @@ const PopUpSuccess = () => {
       >
         GO BACK
       </Button>
-
     </div>
   );
 };

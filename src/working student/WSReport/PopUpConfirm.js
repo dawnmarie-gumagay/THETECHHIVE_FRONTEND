@@ -12,8 +12,13 @@ const PopUpConfirm = ({ onClose }) => {
   const [isConfirmVisible, setConfirmVisible] = useState(false);
 
   const onConfirm = useCallback(() => {
-    setConfirmVisible(!isConfirmVisible);
-  }, [isConfirmVisible]);
+    setConfirmVisible(true);
+  }, []);
+
+  const closeSuccessPopup = useCallback(() => {
+    setConfirmVisible(false);
+    onClose(); // Close the confirmation popup as well
+  }, [onClose]);
 
   return (
     <div className="pop-up-confirm">
@@ -54,9 +59,9 @@ const PopUpConfirm = ({ onClose }) => {
       </Button>
 
       {isConfirmVisible && (
-        <div className="overlay" onClick={onConfirm}>
+        <div className="overlay" onClick={closeSuccessPopup}>
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <PopUpSuccess onClose={onConfirm} />
+            <PopUpSuccess onClose={closeSuccessPopup} />
           </div>
         </div>
       )}
