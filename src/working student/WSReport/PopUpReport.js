@@ -13,17 +13,32 @@ const PopUpConfirm = Loadable({
 
 const PopUpReport = () => {
   const [isConfirmVisible, setConfirmVisible] = useState(false);
-  const [selectedType, setSelectedType] = React.useState('');
+  const [selectedLevel, setSelectedLevel] = useState('');
+  const [selectedType, setSelectedType] = useState('');
+  const [uploadedImage, setUploadedImage] = useState(null);
 
   const toggleConfirm = useCallback(() => {
     setConfirmVisible(!isConfirmVisible);
   }, [isConfirmVisible]);
 
-  const handleChange = (event) => {
+  const handleLevelChange = (event) => {
+    setSelectedLevel(event.target.value);
+  };
+
+  const handleTypeChange = (event) => {
     setSelectedType(event.target.value);
   };
 
-  
+  const handleImageUpload = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setUploadedImage(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
+  };
 
   return (
     <div className="pop-up-report">
@@ -33,49 +48,76 @@ const PopUpReport = () => {
         <div className="LevelIncident-Dropdown" />
         <div className="level-of-incident">Level of Incident</div>
         <div className="Incident-Input">
-      <Select
-        value={selectedType}
-        onChange={handleChange}
-        displayEmpty
-        className="SelectInput"
-        style={{ width: "200px", color: "#8A252C" }}
-      >
-        <MenuItem value="" disabled>
-          Type here
-        </MenuItem>
-        <MenuItem value="Type1">Type 1</MenuItem>
-        <MenuItem value="Type2">Type 2</MenuItem>
-        <MenuItem value="Type3">Type 3</MenuItem>
-      </Select>
-    </div>
+          <Select
+            value={selectedLevel}
+            onChange={handleLevelChange}
+            displayEmpty
+            className="SelectInput"
+            style={{ width: "200px", color: "#8A252C" }}
+          >
+            <MenuItem value="" disabled>
+              Choose here
+            </MenuItem>
+            <MenuItem value="Minor">Minor</MenuItem>
+            <MenuItem value="Moderate">Moderate</MenuItem>
+            <MenuItem value="Major">Major</MenuItem>
+          </Select>
+        </div>
       </div>
 
       <div className="IncidentType-Container">
         <div className="IncidentType-Dropdown" />
         <div className="IncidentType-Name">Incident Type</div>
-        <div className="Incident-Input">Type here</div>
+        <div className="Incident-Input">
+          <Select
+            value={selectedType}
+            onChange={handleTypeChange}
+            displayEmpty
+            className="SelectInput"
+            style={{ width: "200px", color: "#8A252C" }}
+          >
+            <MenuItem value="" disabled>
+              Choose here
+            </MenuItem>
+            <MenuItem value="Natural Incident">Natural Incident</MenuItem>
+            <MenuItem value="Health-Related Incidents">Health-Related Incidents</MenuItem>
+            <MenuItem value="Environmental Incidents">Environmental Incidents</MenuItem>
+          </Select>
+        </div>
       </div>
-      
+
       <div className="UploadPhoto-Container">
-        <div className="Upload-Button" />
+        <div className="Upload-Button">
+          <input 
+            type="file" 
+            accept="image/*" 
+            style={{ display: 'none' }} 
+            id="file-input" 
+            onChange={handleImageUpload} 
+          />
+          <label htmlFor="file-input" className="upload-label">
+            <img className="upload-icon" alt="Upload Icon" src="/upload-icon.png" />
+          </label>
+        </div>
         <div className="UP-Name1">Upload photo (For evidence)</div>
-        <div className="UP-Name2">Upload file</div>
-        <img className="upload-icon" alt="" src="/upload-icon.png" />
+        {uploadedImage && <img className="uploaded-image" src={uploadedImage} alt="Uploaded" />}
       </div>
+
       <div className="ReportContainer">
         <Button
           className="ReportButton"
           variant="contained"
-          sx={{ borderRadius: "10px", 
-                width: 165, 
-                height: 40,
-                backgroundColor: "#8A252C",
-                "&:hover": { backgroundColor: "#A91D3A" } 
-              }}
+          sx={{
+            borderRadius: "10px",
+            width: 165,
+            height: 40,
+            backgroundColor: "#8A252C",
+            "&:hover": { backgroundColor: "#A91D3A" }
+          }}
           onClick={toggleConfirm}
         >
           REPORT
-        </Button> 
+        </Button>
       </div>
 
       {isConfirmVisible && (

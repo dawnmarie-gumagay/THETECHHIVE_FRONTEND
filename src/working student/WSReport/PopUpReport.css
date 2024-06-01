@@ -62,7 +62,6 @@
     top: 28px;
     left: 0;
     border-radius: 20px;
-    background-color: white;
     width: 307px;
     height: 38px;
 }
@@ -93,6 +92,24 @@
   width: 306px;
   height: 87px;
 }
+.upload-label {
+  cursor: pointer;
+  display: inline-block;
+  width: 40px;
+  height: 39px;
+}
+
+.uploaded-image {
+  position: absolute;
+  top: 33px;
+  left: 2px;
+  border-radius: 10px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+
 .UP-Name1 {
   position: absolute;
   top: 0;
@@ -103,20 +120,10 @@
   height: 17px;
 }
   
- 
-.UP-Name2 {
-    position: absolute;
-    top: 87px;
-    left: 113px;
-    font-size: 15px;
-    font-weight: 500;
-    display: inline-block;
-    width: 82px;
-    height: 18px;
-}
+
 .upload-icon {
     position: absolute;
-    top: 38px;
+    top: 20px;
     left: 135px;
     width: 40px;
     height: 39px;
