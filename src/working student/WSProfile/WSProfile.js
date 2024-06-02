@@ -1,4 +1,4 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UpdatedPopUp from './UpdatedPopUp';  
@@ -8,7 +8,32 @@ import "./WSProfile.css";
 const WSProfile = ({ className = "" }) => {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
   const [isConfirmLogoutVisible, setIsConfirmLogoutVisible] = useState(false);
+  const [isEditable, setIsEditable] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [userData, setUserData] = useState(null);
   const navigate = useNavigate();
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
+
+  const fetchUserData = async () => {
+    try {
+      const response = await fetch("http://localhost:8080/user", {
+        method: 'GET',
+        credentials: 'include' // Include credentials if your API requires authentication
+      });
+      if (!response.ok) {
+        throw new Error(`HTTP error! status: ${response.status}`);
+      }
+      const data = await response.json();
+      console.log("Fetched user data:", data); // Debugging log
+      setUserData(data);
+    } catch (error) {
+      console.error("Error fetching user data:", error);
+    }
+  };
 
   const openLOGOUTConfirmation = () => {
     setIsConfirmLogoutVisible(true);
@@ -46,6 +71,10 @@ const WSProfile = ({ className = "" }) => {
     setIsPopUpVisible(false);
   }, []);
 
+  const onEditClick = () => {
+    setIsEditable(!isEditable);
+  };
+
   return (
     <>
       <div className={`ws-profile ${className}`}>
@@ -65,10 +94,17 @@ const WSProfile = ({ className = "" }) => {
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
         <img className="WSProfileUser" alt="" src="/ex-dp.png" />
         <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
-        <div className="WSID">21-0000-000</div>
-        <div className="WSName">Richard Molina</div>
-        <div className="WSPoints">2500 points</div>
-        <div className="WSEdu">richard.molina@cit.edu</div>
+
+        {userData ? (
+          <>
+            <div className="WSID">{userData.id}</div>
+            <div className="WSName">{userData.name}</div>
+            <div className="WSPoints">{userData.points} points</div>
+            <div className="WSEdu">{userData.email}</div>
+          </>
+        ) : (
+          <div>Loading...</div>
+        )}
 
         <div className="WSPLogout">
           <Button
@@ -95,10 +131,22 @@ const WSProfile = ({ className = "" }) => {
           <div className="NewPass">New Password</div>
         </div>
 
-        <div className="OldPassInput" />
-        <div className="NewPassInput" />
+        <input
+          type="password"
+          className="OldPassInput"
+          disabled={!isEditable}
+          value={currentPassword}
+          onChange={(e) => setCurrentPassword(e.target.value)}
+        />
+        <input
+          type="password"
+          className="NewPassInput"
+          disabled={!isEditable}
+          value={newPassword}
+          onChange={(e) => setNewPassword(e.target.value)}
+        />
 
-        <b className="edit">Edit</b>
+        <b className="edit" onClick={onEditClick}>Edit</b>
 
         <div className="UpdateContainer">
           <Button
@@ -113,6 +161,7 @@ const WSProfile = ({ className = "" }) => {
               fontSize: "17px"
             }}
             onClick={openUpdatedPopUp}
+            disabled={!isEditable}
           >
             Update
           </Button>
