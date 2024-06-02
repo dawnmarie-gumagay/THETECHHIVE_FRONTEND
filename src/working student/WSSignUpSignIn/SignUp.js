@@ -1,6 +1,6 @@
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios'; // Import axios for API requests
+import axios from 'axios';
 import "./SignUp.css";
 
 const SignUp = () => {
@@ -11,40 +11,41 @@ const SignUp = () => {
   const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
 
   const onSignUpButtonClick = async () => {
-    if (
-      emailValue &&
-      passwordValue &&
-      confirmPasswordValue &&
-      passwordValue === confirmPasswordValue
-    ) {
-      const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
-      const isPasswordValid = passwordRegex.test(passwordValue);
+    if (!emailValue || !passwordValue || !usernameValue || !confirmPasswordValue) {
+      alert("All fields are required.");
+      return;
+    }
 
-      if (!isPasswordValid) {
-        alert("Password must have a minimum of 8 characters, a combination of uppercase and lowercase letters, with special character/s.");
-        return; // Stop signup process if the password doesn't meet the criteria
-      }
-
-      const confirmed = window.confirm("Are you sure you want to sign up?");
-    
-      if (confirmed) {
-        try {
-          const response = await axios.post("http://localhost:8080/user/insertUser", {
-            username: usernameValue,
-            password: passwordValue,
-            email: emailValue,
-            isAdmin: false // Set admin status as needed
-          });
-      
-          if (response.status === 200) {
-            navigate("/successfullyregistered");
-          }
-        } catch (error) {
-          console.error("Signup Error:", error);
-        }
-      }
-    } else {
+    if (passwordValue !== confirmPasswordValue) {
       alert("Password and confirm password do not match.");
+      return;
+    }
+
+    const passwordRegex = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]{8,}$/;
+    const isPasswordValid = passwordRegex.test(passwordValue);
+
+    if (!isPasswordValid) {
+      alert("Password must have a minimum of 8 characters, a combination of uppercase and lowercase letters, with special character/s.");
+      return;
+    }
+
+    const confirmed = window.confirm("Are you sure you want to sign up?");
+  
+    if (confirmed) {
+      try {
+        const response = await axios.post("http://localhost:8080/user/insertUser", {
+          username: usernameValue,
+          password: passwordValue,
+          email: emailValue,
+          isAdmin: false
+        });
+    
+        if (response.status === 200) {
+          navigate("/successfullyregistered");
+        }
+      } catch (error) {
+        console.error("Signup Error:", error);
+      }
     }
   };
 
