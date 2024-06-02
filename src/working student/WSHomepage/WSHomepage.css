@@ -132,6 +132,7 @@
     width: 18px;
     height: 17px;
     overflow: hidden;
+    cursor: pointer;
 }
 .mic-icon {
   position: absolute;
@@ -397,4 +398,19 @@
 .overlay-content {
   position: relative;
   z-index: 1000; 
+}
+
+.EXUser-Content {
+  display: flex;
+  flex-direction: column;
+}
+
+.EXUser-Image-Container {
+  margin-top: 10px;
+}
+
+.EXUser-Image {
+  max-width: 100%;
+  max-height: 200px;
+  object-fit: contain;
 }
