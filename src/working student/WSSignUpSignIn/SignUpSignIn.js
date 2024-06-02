@@ -9,7 +9,7 @@ const SignUpSignIn = () => {
   }, [navigate]);
 
   const onSIGNINClick = useCallback(() => {
-    navigate("/signup");
+    navigate("/signin");
   }, [navigate]);
 
   const onWSLANDINGPAGEClick = useCallback(() => {
