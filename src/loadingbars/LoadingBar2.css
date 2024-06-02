@@ -1,22 +1,12 @@
-:root {
-  --font-montserrat: 'Montserrat', sans-serif;
-}
-
 .loadingbarpage2 {
   width: 100%;
   position: relative;
-  height: 100vh;
+  height: 729px;
   overflow: hidden;
-  text-align: center;
+  text-align: left;
   font-size: 20px;
   color: #8a252c;
   font-family: var(--font-montserrat);
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  box-sizing: border-box;
 }
 
 .bg1 {
@@ -24,58 +14,47 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 832px;
   object-fit: cover;
-  z-index: -1;
-}
-
-.wildcat-icon {
-  width: 50%;
-  max-width: 274px;
-  height: auto;
-  margin: 20px 0;
 }
 
 .bar-gray {
+  position: absolute;
+  top: calc(50% + 45px);
+  left: 645px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.12) inset;
   border-radius: 50px;
   background-color: #d9d9d9;
-  width: 80%;
-  max-width: 296px;
+  width: 296px; /* Initially, the bar is full */
   height: 18px;
-  margin: 20px 0;
-  position: relative;
 }
 
 .bar-red {
-  height: 12px;
-  background-color: #8a252c;
-  border-radius: 50px;
-  transition: width 0.1s linear;
   position: absolute;
-  top: 3px;
-  left: 0;
+  top: calc(50% + 48px);
+  left: 648px;
+  box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25) inset;
+  border-radius: 50px;
+  background-color: #8a252c;
+  height: 12px;
+  transition: width 0.1s linear; /* Smooth animation for width change */
+}
+
+.wildcat-icon {
+  position: absolute;
+  top: 130px;
+  left: 655px;
+  width: 274px;
+  height: 245px;
+  object-fit: cover;
 }
 
 .intro-line {
-  font-size: 18px;
-  margin-top: 20px;
+  position: absolute;
+  top: 450px;
+  left: 720px;
+  display: inline-block;
   font-weight: 500;
-}
-
-@media (min-width: 768px) {
-  .intro-line {
-    font-size: 20px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .bar-gray {
-    width: 296px;
-  }
-
-  .intro-line {
-    font-size: 20px;
-    width: auto;
-  }
+  width: 172px;
+  height: 23px;
 }

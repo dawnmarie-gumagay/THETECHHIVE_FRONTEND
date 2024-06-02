@@ -27,12 +27,11 @@ const LoadingBar2 = () => {
 
   return (
     <div className="loadingbarpage2">
-      <img className="bg1" alt="Background" src="/bg1.png" />
-      <img className="wildcat-icon" alt="Wildcat Icon" src="/wildcat-icon.png" />
-      <div className="bar-gray">
-        <div className="bar-red" style={{ width: `${width}px` }} />
-      </div>
-      <i className="intro-line">Stay wild! Roar</i>
+      <img className="bg1" alt="" src="/bg1.png" />
+      <div className="bar-gray" />
+      <img className="wildcat-icon" alt="" src="/wildcat-icon.png" />
+      <i className="intro-line">stay wild! roar</i>
+      <div className="bar-red" style={{ width: `${width}px` }} />
     </div>
   );
 };
