@@ -16,10 +16,16 @@ const PopUpReport = () => {
   const [selectedLevel, setSelectedLevel] = useState('');
   const [selectedType, setSelectedType] = useState('');
   const [uploadedImage, setUploadedImage] = useState(null);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const toggleConfirm = useCallback(() => {
-    setConfirmVisible(!isConfirmVisible);
-  }, [isConfirmVisible]);
+    if (selectedLevel && selectedType && uploadedImage) {
+      setConfirmVisible(!isConfirmVisible);
+      setErrorMessage(''); // Clear the error message if all fields are filled
+    } else {
+      setErrorMessage('Please fill out the necessary details before submitting.');
+    }
+  }, [isConfirmVisible, selectedLevel, selectedType, uploadedImage]);
 
   const handleLevelChange = (event) => {
     setSelectedLevel(event.target.value);
@@ -118,6 +124,7 @@ const PopUpReport = () => {
         >
           REPORT
         </Button>
+        {errorMessage && <div className="error-message">{errorMessage}</div>}
       </div>
 
       {isConfirmVisible && (
