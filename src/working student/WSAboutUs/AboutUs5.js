@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AboutUs4.css";
+import "./AboutUs5.css";
 
-const AboutUs4 = () => {
+const AboutUs5 = () => {
   const navigate = useNavigate();
 
   const onGETSTARTEDTextClick = useCallback(() => {
@@ -14,11 +14,11 @@ const AboutUs4 = () => {
   }, [navigate]);
 
   const onLeftClick = useCallback(() => {
-    navigate("/wsaboutus3");
+    navigate("/wsaboutus4");
   }, [navigate]);
 
   const onRightClick = useCallback(() => {
-    navigate("/wsaboutus5");
+    navigate("/wsaboutus");
   }, [navigate]);
 
   return (
@@ -36,28 +36,28 @@ const AboutUs4 = () => {
       </div>
 
       <div className="AboutUs-title">ABOUT US</div>
-      <b className="member-name">Gelu Marie Ursal</b>
+      <b className="member-name">Rodlyn Mahilum</b>
 
       <div className="role-name">Role</div>
-      <div className="role-info">UI/UX Designer, Developer</div>
+      <div className="role-info">Developer</div>
       <div className="role-bg" />
       <img className="role-icon" alt="" src="/role.png" />
 
       <div className="motto-name">Motto</div>
-      <div className="motto-info">Never Back Down Never What?!</div>
+      <div className="motto-info">"There are two ways you can get through pain; you <br></br>can let it destroy you or you can use it as fuel to <br></br> drive you to dream bigger."</div>
       <div className="motto-bg" />
       <img className="motto-icon" alt="" src="/motto.png" />
 
       <div className="hobbies-name">Hobbies</div>
-      <div className="hobbies-info">Watching movies, Cooking, Sleeping & Playing online games</div>
+      <div className="hobbies-info">Reading books sometimes, playing games I like, watching movies/series.</div>
       <div className="hobbies-bg" />
       <img className="hobbies-icon" alt="" src="/hobby.png" />
       
-      <img className="members-dp" alt="" src="/mdp3.png" />
+      <img className="members-dp" alt="" src="/mdp5.jpg" />
       <img className="left-click" alt="" src="/left.png" onClick={onLeftClick} />
       <img className="right-click" alt="" src="/right.png" onClick={onRightClick} />
     </div>
   );
 };
 
-export default AboutUs4;
+export default AboutUs5;

@@ -22,6 +22,7 @@ import ConfirmLogout from './working student/WSProfile/ConfirmLogout';
 import AboutUs2 from './working student/WSAboutUs/AboutUs2';
 import AboutUs3 from './working student/WSAboutUs/AboutUs3';
 import AboutUs4 from './working student/WSAboutUs/AboutUs4';
+import AboutUs5 from './working student/WSAboutUs/AboutUs5';
 
 
 const App = () => {
@@ -38,6 +39,7 @@ const App = () => {
         <Route path="/wsaboutus2/" element={<AboutUs2 />} />
         <Route path="/wsaboutus3/" element={<AboutUs3 />} />
         <Route path="/wsaboutus4/" element={<AboutUs4 />} />
+        <Route path="/wsaboutus5/" element={<AboutUs5 />} />
 
         <Route path="/wssignupsignin/" element={<SignUpSignIn />} />
         <Route path="/signup/" element={<SignUp />} />
