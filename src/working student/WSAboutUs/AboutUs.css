@@ -196,6 +196,7 @@
   width: 33px;
   height: 33px;
   object-fit: contain;
+  cursor: pointer;
 }
 .right-click {
   position: absolute;
@@ -205,5 +206,6 @@
   width: 33px;
   height: 33px;
   object-fit: contain;
+  cursor: pointer;
 }
   

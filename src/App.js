@@ -19,6 +19,9 @@ import WSProfile from './working student/WSProfile/WSProfile';
 import UpdatedPopUp from './working student/WSProfile/UpdatedPopUp';
 import WSLogout from './working student/WSProfile/WSLogout';
 import ConfirmLogout from './working student/WSProfile/ConfirmLogout';
+import AboutUs2 from './working student/WSAboutUs/AboutUs2';
+import AboutUs3 from './working student/WSAboutUs/AboutUs3';
+import AboutUs4 from './working student/WSAboutUs/AboutUs4';
 
 
 const App = () => {
@@ -32,6 +35,9 @@ const App = () => {
         <Route path="/wslandingpage/" element={<WSLandingPage />} />
         <Route path="/wscontactus/" element={<ContactUs />} />
         <Route path="/wsaboutus/" element={<AboutUs />} />
+        <Route path="/wsaboutus2/" element={<AboutUs2 />} />
+        <Route path="/wsaboutus3/" element={<AboutUs3 />} />
+        <Route path="/wsaboutus4/" element={<AboutUs4 />} />
 
         <Route path="/wssignupsignin/" element={<SignUpSignIn />} />
         <Route path="/signup/" element={<SignUp />} />
