@@ -6,8 +6,7 @@
     text-align: left;
     color: #8a252c;
     font-family: var(--font-montserrat);
-  }
-
+}
 
 .sub-title2 {
     position: absolute;
@@ -20,51 +19,46 @@
     height: 21px;
 }
 
-
-.E-name {
+.E-name,
+.P-name {
     position: absolute;
-    left: 870px;
-    top: 305px;
     font-weight: 500;
     font-size: 20px;
     display: inline-block;
     width: 58px;
     height: 21px;
 }
-.E-box {
-    position: absolute;
-    left: 865px;
-    top: 335px;
-    border-radius: 20px;
-    background-color: white;
-    border: 2px solid #8a252c;
-    box-sizing: border-box;
-    width: 347px;
-    height: 39px;
+
+.E-name {
+    left: 870px;
+    top: 305px;
 }
 
 .P-name {
-    position: absolute;
-    display: inline-block;
     top: 410px;
     left: 870px;
-    font-weight: 500;
-    font-size: 20px;
-    width: 231px;
-    height: 21px;
 }
+
+.E-box,
 .P-box {
     position: absolute;
     left: 865px;
-    top: 440px;
-    border-radius: 20px;
     background-color: white;
     border: 2px solid #8a252c;
     box-sizing: border-box;
     width: 347px;
     height: 39px;
+    border-radius: 20px;
+    padding-left: 10px; /* Add padding for left alignment */
 }
 
+.E-box {
+    top: 335px;
+}
+
+.P-box {
+    top: 440px;
+}
 
 .SIContainer {
     position: absolute;
@@ -75,6 +69,7 @@
     cursor: pointer;
     color: white;
 }
+
 .SIButton {
     position: absolute;
     top: 0;
@@ -84,6 +79,7 @@
     width: 115px;
     height: 39px;
 }
+
 .SIName {
     position: absolute;
     top: 5px;
@@ -93,8 +89,8 @@
     display: inline-block;
     width: 79px;
     height: 23px;
- }
- 
+}
+
 .q4 {
     position: absolute;
     top: 585px;
@@ -118,5 +114,3 @@
     height: 21px;
     cursor: pointer;
 }
-  
-  

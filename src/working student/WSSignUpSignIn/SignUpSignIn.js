@@ -8,9 +8,9 @@ const SignUpSignIn = () => {
     navigate("/signup");
   }, [navigate]);
 
-  const onGroupContainer1Click = useCallback(() => {
-    // Please sync "WS-Sign In" to the project
-  }, []);
+  const onSIGNINClick = useCallback(() => {
+    navigate("/signin");
+  }, [navigate]);
 
   const onWSLANDINGPAGEClick = useCallback(() => {
     navigate("/wslandingpage");
@@ -38,7 +38,7 @@ const SignUpSignIn = () => {
 
       <div className="line" />
      
-      <div className="signin-container" onClick={onGroupContainer1Click}>
+      <div className="signin-container" onClick={onSIGNINClick}>
         <div className="signin-box" />
         <div className="signin-name">SIGN IN</div>
       </div>
