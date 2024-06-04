@@ -1,0 +1,126 @@
+.bg-1-icon {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    margin: 0 !important;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    max-width: 100%;
+    overflow: hidden;
+    max-height: 100%;
+    object-fit: cover;
+  }
+  .frame-child {
+    height: 637px;
+    width: 1052px;
+    position: relative;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    display: none;
+    max-width: 100%;
+  }
+  .untitled-1-4-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 100px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    mix-blend-mode: normal;
+    z-index: 2;
+  }
+  .wildcat-3-icon {
+    position: absolute;
+    top: 95px;
+    left: 55px;
+    width: 261px;
+    height: 206px;
+    object-fit: cover;
+    z-index: 3;
+  }
+  .untitled-1-4-parent {
+    height: 526px;
+    flex: 1;
+    position: relative;
+    min-width: 242px;
+    max-width: 100%;
+  }
+  .ad-logout,
+  .frame-wrapper,
+  .rectangle-parent {
+    display: flex;
+    align-items: flex-start;
+    box-sizing: border-box;
+  }
+  .frame-wrapper {
+    width: 347px;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding: 100px 0 0;
+    min-width: 347px;
+    max-width: 100%;
+  }
+  .ad-logout,
+  .rectangle-parent {
+    flex-direction: row;
+  }
+  .rectangle-parent {
+    width: 1052px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    justify-content: flex-start;
+    padding: 56px 110px 55px 102px;
+    gap: 121px;
+    max-width: 100%;
+    z-index: 1;
+  }
+  .ad-logout {
+    width: 100%;
+    position: relative;
+    background-color: #fff;
+    overflow: hidden;
+    justify-content: center;
+    padding: 97px 20px 98px;
+    line-height: normal;
+    letter-spacing: normal;
+  }
+  @media screen and (max-width: 1050px) {
+    .rectangle-parent {
+      gap: 60px;
+      padding-left: 51px;
+      padding-right: 55px;
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 1000px) {
+    .frame-wrapper {
+      flex: 1;
+    }
+    .rectangle-parent {
+      flex-wrap: wrap;
+    }
+  }
+  @media screen and (max-width: 725px) {
+    .frame-wrapper {
+      min-width: 100%;
+    }
+    .rectangle-parent {
+      gap: 30px;
+      padding: 36px 27px 36px 25px;
+      box-sizing: border-box;
+    }
+  }
+  @media screen and (max-width: 450px) {
+    .frame-wrapper {
+      padding-top: 65px;
+      box-sizing: border-box;
+    }
+    .rectangle-parent {
+      gap: 15px;
+    }
+  }
