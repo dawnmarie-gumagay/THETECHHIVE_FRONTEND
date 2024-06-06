@@ -1,36 +1,25 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import React from "react";
 import "./Logout.css";
+import WildText from "../../assets/image/TITLE.png";
+import CatRunning from "../../assets/image/CatRunning.png";
 
-
-const ADLogout = ({ className = "" }) => {
-  const onGroupButtonClick = useCallback(() => {
-    // Please sync "AD-Sign In" to the project
-  }, []);
-
+const AdLogout = () => {
   return (
-    <div className={`frame-parent ${className}`}>
-      <div className="d81143-7f60-4974-9949-4dc6fba5-wrapper">
-        <img
-          className="d81143-7f60-4974-9949-4dc6fba5-icon"
-          loading="lazy"
-          alt=""
-          src="/-71d811437f60497499494dc6fba54a28removebgpreview-1@2x.png"
-        />
+    <div className="bg-main">
+      <div className="logout-container">
+        <div className="wildcat-container">
+          <div className="wildtap-container">
+            <img src={WildText} alt="title" />
+          </div>
+        </div>
+        <div className="return-container">
+          <img src={CatRunning} alt="Cat Running" />
+          <h1>Wildcat on the prowl!</h1>
+          <button>RETURN HOME</button>
+        </div>
       </div>
-      <div className="wildcat-on-the-prowl-wrapper">
-        <h3 className="wildcat-on-the">Wildcat on the prowl!</h3>
-      </div>
-      <button className="rectangle-group" onClick={onGroupButtonClick}>
-        <div className="frame-item" />
-        <b className="return-home">RETURN HOME</b>
-      </button>
     </div>
   );
 };
 
-ADLogout.propTypes = {
-  className: PropTypes.string,
-};
-
-export default ADLogout;
+export default AdLogout;

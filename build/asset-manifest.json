@@ -1,0 +1,32 @@
+{
+  "files": {
+    "main.css": "/static/css/main.cff43080.css",
+    "main.js": "/static/js/main.107c2fe6.js",
+    "static/css/219.a78b9c6b.chunk.css": "/static/css/219.a78b9c6b.chunk.css",
+    "static/js/219.3b4967aa.chunk.js": "/static/js/219.3b4967aa.chunk.js",
+    "static/js/453.940077a8.chunk.js": "/static/js/453.940077a8.chunk.js",
+    "static/media/bg2.png": "/static/media/bg2.f7f2fe3f940854dbb462.png",
+    "static/media/wildcat-admin.png": "/static/media/wildcat-admin.d75182cae644797400c6.png",
+    "static/media/wildpublish.png": "/static/media/wildpublish.0963a221847838f3d7a8.png",
+    "static/media/bg1.png": "/static/media/bg1.bad79bf3c7a4238878dd.png",
+    "static/media/ex.png": "/static/media/ex.c40822adcda854615d15.png",
+    "static/media/CatRunning.png": "/static/media/CatRunning.056d459b037186f04d73.png",
+    "static/media/ex-dp.png": "/static/media/ex-dp.f34d8b6599a8660ac56d.png",
+    "static/media/WildCry.png": "/static/media/WildCry.9b051e7fb2b98eb39d31.png",
+    "static/media/wildlike.png": "/static/media/wildlike.2fc4372874b5c058c1dd.png",
+    "static/media/Wildcat-Champion.png": "/static/media/Wildcat-Champion.7dfef853f759fea27ccb.png",
+    "static/media/TITLE.png": "/static/media/TITLE.a47b04de8854ecc44917.png",
+    "static/media/reportsTitle.png": "/static/media/reportsTitle.8249784c5288f44b6b0b.png",
+    "static/media/leaderboardtext.png": "/static/media/leaderboardtext.689929a942e7b5aec01d.png",
+    "index.html": "/index.html",
+    "main.cff43080.css.map": "/static/css/main.cff43080.css.map",
+    "main.107c2fe6.js.map": "/static/js/main.107c2fe6.js.map",
+    "219.a78b9c6b.chunk.css.map": "/static/css/219.a78b9c6b.chunk.css.map",
+    "219.3b4967aa.chunk.js.map": "/static/js/219.3b4967aa.chunk.js.map",
+    "453.940077a8.chunk.js.map": "/static/js/453.940077a8.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.cff43080.css",
+    "static/js/main.107c2fe6.js"
+  ]
+}
