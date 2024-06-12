@@ -6,7 +6,8 @@
     text-align: left;
     color: #8a252c;
     font-family: var(--font-montserrat);
-}
+  }
+
 
 .welcome2 {
     position: absolute;
@@ -18,7 +19,6 @@
     width: 178px;
     height: 33px;
 }
-
 .sub-title {
     position: absolute;
     top: 135px;
@@ -28,45 +28,12 @@
     font-size: 20px;
     width: 206px;
     height: 21px;
-}
+  }
 
-.username-name,
-.email-name,
-.pass-name,
-.cpass-name {
+
+.username-box {
     position: absolute;
-    font-weight: 500;
-    font-size: 20px;
-    display: inline-block;
-    width: 200px;
-    height: 21px;
-}
-
-.username-name {
-    top: 190px;
-    left: 875px;
-}
-
-.email-name {
-    top: 275px;
-    left: 875px;
-}
-
-.pass-name {
-    top: 365px;
-    left: 875px;
-}
-
-.cpass-name {
-    top: 455px;
-    left: 875px;
-}
-
-.username-box,
-.email-box,
-.pass-box,
-.cpass-box {
-    position: absolute;
+    top: 220px;
     left: 870px;
     background-color: white;
     border: 2px solid #8a252c;
@@ -74,24 +41,87 @@
     width: 347px;
     border-radius: 20px;
     height: 39px;
-    padding-left: 10px; /* Add padding for left alignment */
+}
+.username-name {
+    position: absolute;
+    top: 190px;
+    left: 875px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 106px;
+    height: 21px;
 }
 
-.username-box {
-    top: 220px;
-}
 
 .email-box {
+    position: absolute;
     top: 305px;
+    border-radius: 20px;
+    height: 39px;
+    left: 870px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
 }
+.email-name {
+  position: absolute;
+  top: 275px;
+  left: 875px;
+  font-weight: 500;
+  font-size: 20px;
+  display: inline-block;
+  width: 106px;
+  height: 21px;
+}
+
 
 .pass-box {
+    position: absolute;
+    border-radius: 20px;
+    height: 39px;
     top: 394px;
+    left: 870px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
 }
+.pass-name {
+    position: absolute;
+    top: 365px;
+    left: 875px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 106px;
+    height: 21px;
+}
+ 
 
 .cpass-box {
+    position: absolute;
+    border-radius: 20px;
+    height: 39px;
     top: 485px;
+    left: 870px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 347px;
 }
+.cpass-name {
+    position: absolute;
+    top: 455px;
+    left: 875px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 21px;
+  }
+  
 
 .signupContainer {
     position: absolute;
@@ -102,17 +132,15 @@
     cursor: pointer;
     color: white;
 }
-
 .s-button {
     position: absolute;
     border-radius: 20px;
     height: 39px;
     top: 0;
     left: 0;
-    background-color: #8a252c;
+    background-color:#8a252c;
     width: 110px;
-}
-
+  }
 .s-name {
     position: absolute;
     top: 6px;
@@ -123,7 +151,8 @@
     width: 87px;
     height: 23px;
 }
-
+  
+ 
 .q1 {
     position: absolute;
     top: 610px;
@@ -146,4 +175,4 @@
     width: 106px;
     height: 21px;
     cursor: pointer;
-}
+}  

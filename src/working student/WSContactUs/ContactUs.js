@@ -23,6 +23,7 @@ const ContactUs = () => {
       <b className="ContactUs-title">CONTACT US</b>
       <i className="cinfo">We’re here to help you</i>
 
+      
       <div className="phone">PHONE</div>
       <div className="phone-num">+63 920 1988</div>
       <div className="phone-bg" />
@@ -40,11 +41,19 @@ const ContactUs = () => {
       
       <b className="Lets-title">LET’S TALK</b>
       <i className="feel-free-to">Feel free to drop us a line below</i>
+      
+        
+      <div className="ynInput" />
+      <div className="YourName">Your name</div>
 
-      <input className="ynInput" type="text" placeholder="Your name" />
-      <input className="eInput" type="email" placeholder="Email" />
-      <input className="pnInput" type="tel" placeholder="Phone number" />
-      <textarea className="mInput" placeholder="Message"></textarea>
+      <div className="eInput" />
+      <div className="Email">Email</div>
+
+      <div className="pnInput" />
+      <div className="PhoneNumber">Phone number</div>
+
+      <div className="mInput" />
+      <div className="Message">Message</div>
 
       <Button
         className="submit-button"
@@ -56,8 +65,9 @@ const ContactUs = () => {
               backgroundColor: "#8A252C",
               "&:hover": { backgroundColor: "#A91D3A" } }}
       >
-        SUBMIT
+        SUMBIT
       </Button>
+          
     </div>
   );
 };

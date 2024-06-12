@@ -13,14 +13,6 @@ const AboutUs = () => {
     navigate("/wscontactus");
   }, [navigate]);
 
-  const onLeftClick = useCallback(() => {
-    navigate("/wsaboutus5");
-  }, [navigate]);
-
-  const onRightClick = useCallback(() => {
-    navigate("/wsaboutus2");
-  }, [navigate]);
-
   return (
     <div className="ws-about-us">
       <img className="background" alt="" src="/bg1.png" />
@@ -39,7 +31,7 @@ const AboutUs = () => {
       <b className="member-name">Richard Molina</b>
 
       <div className="role-name">Role</div>
-      <div className="role-info">UI/UX Designer</div>
+      <div className="role-info">UI/UX Designer, Developer</div>
       <div className="role-bg" />
       <img className="role-icon" alt="" src="/role.png" />
 
@@ -54,8 +46,8 @@ const AboutUs = () => {
       <img className="hobbies-icon" alt="" src="/hobby.png" />
       
       <img className="members-dp" alt="" src="/m-dp.png" />
-      <img className="left-click" alt="" src="/left.png" onClick={onLeftClick} />
-      <img className="right-click" alt="" src="/right.png" onClick={onRightClick} />
+      <img className="left-click" alt="" src="/left.png" />
+      <img className="right-click" alt="" src="/right.png" />
     </div>
   );
 };

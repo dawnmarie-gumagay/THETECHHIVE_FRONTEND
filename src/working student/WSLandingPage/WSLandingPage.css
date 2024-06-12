@@ -38,8 +38,20 @@
   height: 637px;
 }
 
+.sign-in-name {
+  position: absolute;
+  top: 80px;
+  left: 905px;
+  font-weight: 600;
+  font-size: 20px;
+  display: inline-block;
+  width: 81px;
+  height: 23px;
+  cursor: pointer;
+}
 
-.half2 {
+.half2,
+.half1 {
   position: absolute;
   top: 80px;
   left: 905px;
@@ -49,6 +61,10 @@
   width: 81px;
   height: 23px;
 
+}
+.half1 {
+  left: 990px;
+  width: 5px;
 }
 .half2{
   left: 1135px;
@@ -114,6 +130,7 @@
   height: 319px;
 }
   
+.badge4,
 .badge2,
 .badge3,
 .badge1 {
@@ -146,7 +163,8 @@
 
 .badge1-bar,
 .badge3-bar,
-.badge2-bar {
+.badge2-bar,
+.badge4-bar {
   position: absolute;
   top: 82px;
   left: 8px;
@@ -156,24 +174,30 @@
   height: 237px;
 }
 .badge3-bar,
-.badge2-bar {
+.badge2-bar,
+.badge4-bar {
   top: 129px;
   left: 134px;
   height: 190px;
 }
-.badge3-bar {
+.badge3-bar,
+.badge4-bar {
   top: 186px;
   left: 260px;
   height: 133px;
 }
-
+.badge4-bar {
+  top: 249px;
+  left: 386px;
+  height: 70px;
+}
 .line-div {
   position: absolute;
   top: 318px;
   left: 7px;
   border-top: 2px solid #FFFEE9;
   box-sizing: border-box;
-  width: 320px;
+  width: 446px;
   height: 2px;
 }
   

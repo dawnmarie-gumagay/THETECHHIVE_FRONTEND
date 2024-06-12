@@ -6,6 +6,9 @@ import "./WSLandingPage.css";
 const WSLandingPage = () => {
   const navigate = useNavigate();
 
+  const onSIGNINTextClick = useCallback(() => {
+    navigate("/signin");
+  }, [navigate]);
 
   const onABOUTUSTextClick = useCallback(() => {
     navigate("/wsaboutus");
@@ -25,6 +28,10 @@ const WSLandingPage = () => {
       
       <div className="main-box" />
       <img className="wildcat-cute" alt="" src="/wildcat-icon.png" />
+      <div className="sign-in-name" onClick={onSIGNINTextClick}>
+        SIGN IN
+      </div>
+      <div className="half1">|</div>
       <div className="contact-us-name" onClick={onCONTACTUSTextClick}>
         CONTACT US
       </div>
@@ -64,7 +71,11 @@ const WSLandingPage = () => {
           alt=""
           src="/Wildcat-Pub.png"
         />
-      
+        <img
+          className="badge4"
+          alt=""
+          src="/Wildcat-Novice.png"
+        />
 
         <div className="app-info">
           A platform for the technologian community to submit incident reports and
@@ -75,6 +86,7 @@ const WSLandingPage = () => {
         <div className="badge1-bar" />
         <div className="badge2-bar" />
         <div className="badge3-bar" />
+        <div className="badge4-bar" />
         <div className="line-div" />
       </div>
       

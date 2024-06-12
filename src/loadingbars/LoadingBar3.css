@@ -1,4 +1,4 @@
-.loadingbarpage2 {
+.loadingbarpage3 {
   width: 100%;
   position: relative;
   height: 729px;
@@ -9,14 +9,13 @@
   font-family: var(--font-montserrat);
 }
 
-.bar-red {
+.bar-red2 {
   position: absolute;
   top: calc(50% + 48px);
   left: 648px;
   box-shadow: 0 4px 4px rgba(255, 255, 255, 0.25) inset;
   border-radius: 50px;
   background-color: #8a252c;
-  width: 132px;
+  width: 290px;
   height: 12px;
 }
-
