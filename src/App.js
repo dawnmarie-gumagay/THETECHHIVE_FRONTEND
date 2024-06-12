@@ -23,7 +23,6 @@ import AboutUs2 from './working student/WSAboutUs/AboutUs2';
 import AboutUs3 from './working student/WSAboutUs/AboutUs3';
 import AboutUs4 from './working student/WSAboutUs/AboutUs4';
 import AboutUs5 from './working student/WSAboutUs/AboutUs5';
-import ADSignIn from './admin pages/ADSignIn/SignIn';
 
 
 const App = () => {
@@ -62,7 +61,7 @@ const App = () => {
         <Route path="/wslogout/" element={<WSLogout />} />
         <Route path="/confirmlogout/" element={<ConfirmLogout />} />
 
-        <Route path="/adsignin/" element={<ADSignIn />}/>
+
         
 
 
