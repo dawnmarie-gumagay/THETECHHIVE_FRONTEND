@@ -1,0 +1,211 @@
+.ws-about-us {
+    width: 100%;
+    position: relative;
+    height: 729px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+  }
+  
+  
+  .get-started2 {
+    position: absolute;
+    top: 80px;
+    display: inline-block;
+    height: 23px;
+    left: 1005px;
+    font-weight: 600;
+    font-size: 20px;
+    width: 142px;
+    cursor: pointer;
+  } 
+  
+  .half3 {
+    position: absolute;
+    top: 80px;
+    display: inline-block;
+    height: 23px;
+    left: 1135px;
+    font-weight: 500;
+    width: 6px;
+  }
+  
+  .contact-us2 {
+    position: absolute;
+    top: 80px;
+    display: inline-block;
+    height: 23px;
+    left: 1150px;
+    font-weight: 600;
+    font-size: 20px;
+    width: 136px;
+    cursor: pointer;
+  }
+  
+  
+  .AboutUs-title {
+    position: absolute;
+    left: 340px;
+    display: inline-block;
+    height: 30px;
+    top: 165px;
+    font-size: 25px;
+    font-weight: 600;
+    width: 140px;
+  }
+  
+  
+  .member-name {
+    position: absolute;
+    left: 340px;
+    display: inline-block;
+    height: 30px;
+    top: 205px;
+    font-size: 30px;
+    width: 400px;
+  }
+  
+  .role-name {
+    position: absolute;
+    top: 311px;
+    left: 420px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 48px;
+    height: 21px;
+  }
+  .role-info {
+    position: absolute;
+    top: 347px;
+    left: 420px;
+    font-size: 20px;
+    display: inline-block;
+    width: 266px;
+    height: 21px;
+  }
+  .role-bg {
+    position: absolute;
+    top: 308px;
+    left: 340px;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 64px;
+    height: 60px;
+  }
+  .role-icon {
+    position: absolute;
+    top: 322px;
+    left: 357px;
+    width: 34px;
+    height: 31px;
+    overflow: hidden;
+  }
+  
+  
+  .motto-name {
+    position: absolute;
+    top: 413px;
+    left: 420px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 48px;
+    height: 21px;
+  }
+  .motto-info {
+      position: absolute;
+      top: 449px;
+      left: 420px;
+      font-size: 20px;
+      display: inline-block;
+      width: 266px;
+      height: 21px;
+  }
+  .motto-bg {
+    position: absolute;
+    top: 410px;
+    left: 340px;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 64px;
+    height: 60px;
+  }
+  .motto-icon {
+    position: absolute;
+    top: 427px;
+    left: 357px;
+    width: 30px;
+    height: 25px;
+  }
+  
+  
+  .hobbies-name {
+    position: absolute;
+    top: 520px;
+    left: 420px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 48px;
+    height: 21px;
+  }
+  .hobbies-info {
+    position: absolute;
+    top: 557px;
+    left: 420px;
+    font-size: 20px;
+    display: inline-block;
+    width: 266px;
+    height: 21px;
+  }
+  .hobbies-bg {
+    position: absolute;
+    top: 520px;
+    left: 340px;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 64px;
+    height: 60px;
+  }
+  .hobbies-icon {
+    position: absolute;
+    top: 533px;
+    left: 353px;
+    width: 38px;
+    height: 35px;
+    overflow: hidden;
+  }
+  
+  .members-dp {
+    position: absolute;
+    top: 175px;
+    left: 880px;
+    border-radius: 20px;
+    width: 308px;
+    height: 395px;
+    object-fit: cover;
+  }
+  
+  .left-click {
+    position: absolute;
+    top: 600px;
+    left: 995px;
+    border-radius: 2px;
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  .right-click {
+    position: absolute;
+    top: 600px;
+    left: 1040px;
+    border-radius: 2px;
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+    

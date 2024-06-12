@@ -1,10 +1,13 @@
 import { useCallback } from "react";
+import { useNavigate } from "react-router-dom";
 import "./SuccessfullyRegistered.css";
 
 const SuccessfullyRegistered = () => {
-  const onGroupContainerClick = useCallback(() => {
-    // Please sync "WS-Sign In" to the project
-  }, []);
+  const navigate = useNavigate();
+
+  const onSIGNINClick = useCallback(() => {
+    navigate("/signin");
+  }, [navigate]);
 
   return (
     <div className="successfully-register">
@@ -22,7 +25,7 @@ const SuccessfullyRegistered = () => {
         <p className="m">to proceed.</p>
       </div>
 
-      <div className="signinContainer" onClick={onGroupContainerClick}>
+      <div className="signinContainer" onClick={onSIGNINClick}>
         <div className="si-button" />
         <div className="si-name">SIGN IN</div>
       </div>

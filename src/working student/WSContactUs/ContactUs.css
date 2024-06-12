@@ -6,7 +6,7 @@
     text-align: left;
     color: #8a252c;
     font-family: var(--font-montserrat);
-  }
+}
 
 .get-started {
     position: absolute;
@@ -29,6 +29,7 @@
     width: 170px;
     height: 30px;
 }
+
 .cinfo {
     position: absolute;
     display: inline-block;
@@ -40,7 +41,6 @@
     height: 22px;
 }
 
-
 .phone {
     position: absolute;
     display: inline-block;
@@ -51,6 +51,7 @@
     width: 78px;
     height: 21px;
 }
+
 .phone-num {
     top: 320px;
     width: 128px;
@@ -59,6 +60,7 @@
     display: inline-block;
     height: 21px;
 }
+
 .phone-bg {
     position: absolute;
     top: 290px;
@@ -68,6 +70,7 @@
     width: 64px;
     height: 60px;
 }
+
 .phone-icon {
     position: absolute;
     top: 305px;
@@ -76,7 +79,6 @@
     height: 33px;
     overflow: hidden;
 }
-
 
 .email {
     position: absolute;
@@ -88,6 +90,7 @@
     width: 67px;
     height: 21px;
 }
+
 .email-mail {
     top: 430px;
     width: 128px;
@@ -96,6 +99,7 @@
     display: inline-block;
     height: 21px;
 }
+
 .email-bg {
     position: absolute;
     top: 400px;
@@ -105,6 +109,7 @@
     width: 64px;
     height: 60px;
 }
+
 .email-icon {
     position: absolute;
     top: 415px;
@@ -114,17 +119,17 @@
     overflow: hidden;
 }
 
-
 .location {
-  position: absolute;
-  top: 520px;
-  left: 420px;
-  display: inline-block;
-  font-weight: 600;
-  font-size: 20px;
-  width: 67px;
-  height: 21px;
+    position: absolute;
+    top: 520px;
+    left: 420px;
+    display: inline-block;
+    font-weight: 600;
+    font-size: 20px;
+    width: 67px;
+    height: 21px;
 }
+
 .location-name {
     position: absolute;
     top: 555px;
@@ -133,6 +138,7 @@
     width: 233px;
     height: 47px;
 }
+
 .location-bg {
     position: absolute;
     top: 515px;
@@ -142,6 +148,7 @@
     width: 64px;
     height: 60px;
 }
+
 .location-icon {
     position: absolute;
     top: 528px;
@@ -150,7 +157,6 @@
     height: 36px;
     overflow: hidden;
 }
-
 
 .Lets-title {
     position: absolute;
@@ -161,6 +167,7 @@
     width: 147px;
     height: 30px;
 }
+
 .feel-free-to {
     position: absolute;
     left: 850px;
@@ -171,7 +178,6 @@
     width: 293px;
     height: 22px;
 }
-
 
 .ynInput,
 .eInput,
@@ -186,58 +192,22 @@
     box-sizing: border-box;
     width: 347px;
     height: 39px;
+    padding-left: 15px; /* Add this line */
 }
-.eInput{
+
+.eInput {
     top: 350px;
 }
+
 .pnInput {
     top: 410px;
 }
+
 .mInput {
     top: 480px;
     height: 106px;
 }
 
-.YourName {
-    position: absolute;
-    top: 300px;
-    left: 870px;
-    font-size: 15px;
-    display: inline-block;
-    width: 83px;
-    height: 18px;
-}
-
-.Email {
-  position: absolute;
-  top: 359px;
-  left: 870px;
-  font-size: 15px;
-  display: inline-block;
-  width: 83px;
-  height: 18px;
-}
-
-.PhoneNumber {
-    position: absolute;
-    top: 418px;
-    left: 870px;
-    font-size: 15px;
-    display: inline-block;
-    width: 100px;
-    height: 18px;
-}
-
-.Message {
-  position: absolute;
-  top: 490px;
-  left: 870px;
-  font-size: 15px;
-  display: inline-block;
-  width: 100px;
-  height: 18px;
-}
- 
 .submit-button {
     position: absolute;
     top: 610px;

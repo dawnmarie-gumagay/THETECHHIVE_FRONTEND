@@ -1,0 +1,58 @@
+.ws-report {
+    width: 100%;
+    position: relative;
+    height: 729px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+ 
+.bg2-expanded {
+    position: absolute;
+    left: 0;
+    top: -582px;
+    height: 1414px;
+    object-fit: cover;
+    width: 100%;
+}
+ 
+.IncidentReport-Pic {
+  position: absolute;
+  top: 90px;
+  left: 655px;
+  width: 267.8px;
+  height: 132px;
+  object-fit: cover;
+}
+
+.INTitle1 {
+  position: absolute;
+  display: inline-block;
+  top: 280px;
+  left: 547px;
+  font-size: 36px;
+  width: 547px;
+  height: 40px;
+}
+
+.INTitle2 {
+  position: absolute;
+  display: inline-block;
+  top: 360px;
+  left: 695px;
+  font-size: 36px;
+  width: 210px;
+  height: 40px;
+}
+
+.INReport {
+  position: absolute;
+  top: 460px;
+  left: 695px;
+  width: 167px;
+  height: 147px;
+  object-fit: cover;
+  cursor: pointer;
+}
+
