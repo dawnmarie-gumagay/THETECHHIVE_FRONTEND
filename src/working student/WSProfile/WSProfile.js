@@ -8,8 +8,12 @@ import "./WSProfile.css";
 const ErrorPopUp = ({ message, onClose }) => {
   return (
     <div className="error-popup">
-      <p>{message}</p>
-      <Button onClick={onClose}>Close</Button>
+      <div className="error-popup-content">
+        <p>{message}</p>
+        <Button onClick={onClose} variant="contained" color="primary">
+          Close
+        </Button>
+      </div>
     </div>
   );
 };
@@ -62,7 +66,7 @@ const WSProfile = ({ className = "" }) => {
     } else {
       try {
         // Replace this with the actual user ID
-        const userId = 1; 
+        const userId = 1;
         console.log('Sending update request:', { userId, currentPassword, newPassword });
         const response = await fetch(`http://localhost:8080/user/updateUser?userId=${userId}`, {
           method: 'PUT',
@@ -74,7 +78,7 @@ const WSProfile = ({ className = "" }) => {
             password: newPassword,
           }),
         });
-  
+
         if (response.ok) {
           setIsPopUpVisible(true);
           setCurrentPassword("");
