@@ -131,9 +131,7 @@ const WSHomepage = () => {
         )}
       </div>
 
-      <img className="mic-icon" alt="" src="/mic.png" />
-
-      <div className="post-container">
+      <div className="post-contain">
         <Button
           className="post-button"
           variant="contained"
