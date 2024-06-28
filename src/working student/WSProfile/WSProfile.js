@@ -5,12 +5,23 @@ import UpdatedPopUp from './UpdatedPopUp';
 import ConfirmLogout from "./ConfirmLogout";
 import "./WSProfile.css";
 
+const ErrorPopUp = ({ message, onClose }) => {
+  return (
+    <div className="error-popup">
+      <p>{message}</p>
+      <Button onClick={onClose}>Close</Button>
+    </div>
+  );
+};
+
 const WSProfile = ({ className = "" }) => {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
   const [isConfirmLogoutVisible, setIsConfirmLogoutVisible] = useState(false);
   const [isEditable, setIsEditable] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
   const navigate = useNavigate();
 
   const openLOGOUTConfirmation = () => {
@@ -41,9 +52,46 @@ const WSProfile = ({ className = "" }) => {
     navigate("/wsleaderboards");
   }, [navigate]);
 
-  const openUpdatedPopUp = useCallback(() => {
-    setIsPopUpVisible(true);
-  }, []);
+  const openUpdatedPopUp = useCallback(async () => {
+    if (!currentPassword && !newPassword) {
+      setError("Please enter both current and new passwords.");
+      setIsErrorPopUpVisible(true);
+    } else if (!currentPassword || !newPassword) {
+      setError("Please fill up both current and new password fields.");
+      setIsErrorPopUpVisible(true);
+    } else {
+      try {
+        // Replace this with the actual user ID
+        const userId = 1; 
+        console.log('Sending update request:', { userId, currentPassword, newPassword });
+        const response = await fetch(`http://localhost:8080/user/updateUser?userId=${userId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            currentPassword: currentPassword,
+            password: newPassword,
+          }),
+        });
+  
+        if (response.ok) {
+          setIsPopUpVisible(true);
+          setCurrentPassword("");
+          setNewPassword("");
+        } else {
+          const errorData = await response.text();
+          console.error('Update failed:', errorData);
+          setError(errorData || "Failed to update password. Please try again.");
+          setIsErrorPopUpVisible(true);
+        }
+      } catch (error) {
+        console.error('Update error:', error);
+        setError("An error occurred. Please try again.");
+        setIsErrorPopUpVisible(true);
+      }
+    }
+  }, [currentPassword, newPassword]);
 
   const closeUpdatedPopUp = useCallback(() => {
     setIsPopUpVisible(false);
@@ -154,9 +202,12 @@ const WSProfile = ({ className = "" }) => {
         </div>
       )}
 
-      {isConfirmLogoutVisible && (
+      {isErrorPopUpVisible && (
         <div className="popup-overlay">
-          <ConfirmLogout onClose={closeLOGOUTConfirmation} />
+          <ErrorPopUp 
+            message={error} 
+            onClose={() => setIsErrorPopUpVisible(false)} 
+          />
         </div>
       )}
     </>
