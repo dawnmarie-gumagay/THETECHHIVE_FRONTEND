@@ -13,7 +13,7 @@ const UpdatedPopUp = ({ className = "", onClose }) => {
   }, [navigate, onClose]);
 
   return (
-    <div className="updated-popup">
+    <div className={`updated-popup ${className}`}>
       <div className="UpdatedPopUpBox" />
       <div className="your-password-has">Your password has been updated</div>
       <img className="SIcon" alt="" src="/success-icon.png" />
