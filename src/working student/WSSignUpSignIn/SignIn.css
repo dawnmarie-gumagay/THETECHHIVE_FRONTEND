@@ -19,17 +19,17 @@
     height: 21px;
 }
 
-.E-name,
+.id-number-in,
 .P-name {
     position: absolute;
     font-weight: 500;
     font-size: 20px;
     display: inline-block;
-    width: 58px;
+    width: 120px;
     height: 21px;
 }
 
-.E-name {
+.id-number-in {
     left: 870px;
     top: 305px;
 }
@@ -39,7 +39,7 @@
     left: 870px;
 }
 
-.E-box,
+.id-number-b,
 .P-box {
     position: absolute;
     left: 865px;
@@ -52,7 +52,7 @@
     padding-left: 10px; /* Add padding for left alignment */
 }
 
-.E-box {
+.id-number-b {
     top: 335px;
 }
 
