@@ -6,7 +6,7 @@ import "./SignIn.css";
 const SignIn = () => {
   const navigate = useNavigate();
   const [users, setUsers] = useState([]);
-  const [emailValue, setEmailValue] = useState("");
+  const [idNumberValue, setIdNumberValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
 
   const fetchUsers = async () => {
@@ -25,21 +25,21 @@ const SignIn = () => {
   const onSignInButtonClick = useCallback(async () => {
     try {
       const user = users.find(
-        (u) => u.email === emailValue && u.password === passwordValue
+        (u) => u.idNumber === idNumberValue && u.password === passwordValue
       );
 
       if (user) {
         navigate("/wshomepage", { state: { loggedInUser: user } });
       } else {
-        alert("Invalid email or password. Please try again.");
+        alert("Invalid ID Number or Password. Please try again.");
       }
     } catch (error) {
       console.error("Sign-in Error:", error);
     }
-  }, [navigate, users, emailValue, passwordValue]);
+  }, [navigate, users, idNumberValue, passwordValue]);
 
-  const handleEmailChange = (event) => {
-    setEmailValue(event.target.value);
+  const handleIdNumberChange = (event) => {
+    setIdNumberValue(event.target.value);
   };
 
   const handlePasswordChange = (event) => {
@@ -68,12 +68,12 @@ const SignIn = () => {
       <i className="welcome">WELCOME!</i>
       <i className="sub-title2">Sign in to your Account</i>
 
-      <div className="E-name">Email</div>
+      <div className="id-number-in">ID Number</div>
       <input
-        className="E-box"
-        type="email"
-        value={emailValue}
-        onChange={handleEmailChange}
+        className="id-number-b"
+        type="text"
+        value={idNumberValue}
+        onChange={handleIdNumberChange}
       />
 
       <div className="P-name">Password</div>

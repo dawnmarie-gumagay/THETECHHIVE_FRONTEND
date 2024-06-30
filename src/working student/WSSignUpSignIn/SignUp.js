@@ -5,13 +5,16 @@ import "./SignUp.css";
 
 const SignUp = () => {
   const navigate = useNavigate();
+  const [fullNameValue, setFullNameValue] = useState("");
   const [emailValue, setEmailValue] = useState("");
-  const [passwordValue, setPasswordValue] = useState("");
   const [usernameValue, setUsernameValue] = useState("");
+  const [idNumberValue, setIdNumberValue] = useState("");
+  const [passwordValue, setPasswordValue] = useState("");
   const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
+  const [idError, setIdError] = useState("");
 
   const onSignUpButtonClick = async () => {
-    if (!emailValue || !passwordValue || !usernameValue || !confirmPasswordValue) {
+    if (!fullNameValue || !emailValue || !usernameValue || !idNumberValue || !passwordValue || !confirmPasswordValue) {
       alert("All fields are required.");
       return;
     }
@@ -29,14 +32,22 @@ const SignUp = () => {
       return;
     }
 
+    const idPattern = /^[0-9]{2}-[0-9]{4}-[0-9]{3}$/;
+    if (!idPattern.test(idNumberValue)) {
+      alert("ID Number format should be YY-NNNN-NNN");
+      return;
+    }
+
     const confirmed = window.confirm("Are you sure you want to sign up?");
   
     if (confirmed) {
       try {
         const response = await axios.post("http://localhost:8080/user/insertUser", {
-          username: usernameValue,
-          password: passwordValue,
+          fullName: fullNameValue,
           email: emailValue,
+          username: usernameValue,
+          idNumber: idNumberValue,
+          password: passwordValue,
           isAdmin: false
         });
     
@@ -49,16 +60,33 @@ const SignUp = () => {
     }
   };
 
+  const handleFullNameChange = (event) => {
+    setFullNameValue(event.target.value);
+  };
+
   const handleEmailChange = (event) => {
     setEmailValue(event.target.value);
   };
 
-  const handlePasswordChange = (event) => {
-    setPasswordValue(event.target.value);
-  };
-
   const handleUsernameChange = (event) => {
     setUsernameValue(event.target.value);
+  };
+
+  const handleIdNumberChange = (event) => {
+    const value = event.target.value;
+    const idPattern = /^[0-9]{2}-[0-9]{4}-[0-9]{3}$/;
+
+    if (idPattern.test(value)) {
+      setIdError("");
+    } else {
+      setIdError("ID Number format should be YY-NNNN-NNN");
+    }
+
+    setIdNumberValue(value);
+  };
+
+  const handlePasswordChange = (event) => {
+    setPasswordValue(event.target.value);
   };
 
   const handleConfirmPasswordChange = (event) => {
@@ -87,12 +115,12 @@ const SignUp = () => {
       <i className="welcome2">WELCOME!</i>
       <i className="sub-title">Create your Account</i>
 
-      <div className="username-name">Username</div>
+      <div className="full-name">Full Name</div>
       <input
-        className="username-box"
+        className="full-name-box"
         type="text"
-        value={usernameValue}
-        onChange={handleUsernameChange}
+        value={fullNameValue}
+        onChange={handleFullNameChange}
       />
 
       <div className="email-name">Email</div>
@@ -102,6 +130,24 @@ const SignUp = () => {
         value={emailValue}
         onChange={handleEmailChange}
       />
+
+      <div className="username-name">Username</div>
+      <input
+        className="username-box"
+        type="text"
+        value={usernameValue}
+        onChange={handleUsernameChange}
+      />
+
+      <div className="id-number-name">ID Number</div>
+      <input
+        className="id-number-box"
+        type="text"
+        value={idNumberValue}
+        onChange={handleIdNumberChange}
+        
+      />
+      {idError && <p className="error-message">{idError}</p>}
 
       <div className="pass-name">Password</div>
       <input

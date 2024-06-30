@@ -1,7 +1,7 @@
 .ws-sign-up {
     width: 100%;
     position: relative;
-    height: 729px;
+    height: 800px;
     overflow: hidden;
     text-align: left;
     color: #8a252c;
@@ -30,8 +30,10 @@
     height: 21px;
 }
 
-.username-name,
+.full-name,
 .email-name,
+.username-name,
+.id-number-name,
 .pass-name,
 .cpass-name {
     position: absolute;
@@ -42,7 +44,7 @@
     height: 21px;
 }
 
-.username-name {
+.full-name {
     top: 190px;
     left: 875px;
 }
@@ -52,18 +54,30 @@
     left: 875px;
 }
 
+.username-name {
+    top: 360px;
+    left: 875px;
+}
+
+.id-number-name {
+    top: 445px;
+    left: 875px;
+}
+
 .pass-name {
-    top: 365px;
+    top: 530px;
     left: 875px;
 }
 
 .cpass-name {
-    top: 455px;
+    top: 615px;
     left: 875px;
 }
 
-.username-box,
+.full-name-box,
 .email-box,
+.username-box,
+.id-number-box,
 .pass-box,
 .cpass-box {
     position: absolute;
@@ -74,10 +88,10 @@
     width: 347px;
     border-radius: 20px;
     height: 39px;
-    padding-left: 10px; /* Add padding for left alignment */
+    padding-left: 10px;
 }
 
-.username-box {
+.full-name-box {
     top: 220px;
 }
 
@@ -85,17 +99,33 @@
     top: 305px;
 }
 
+.username-box {
+    top: 390px;
+}
+
+.id-number-box {
+    top: 475px;
+}
+
 .pass-box {
-    top: 394px;
+    top: 560px;
 }
 
 .cpass-box {
-    top: 485px;
+    top: 645px;
+}
+
+.error-message {
+    position: absolute;
+    top: 670px;
+    left: 870px;
+    color: red;
+    font-size: 14px;
 }
 
 .signupContainer {
     position: absolute;
-    top: 550px;
+    top: 700px;
     left: 1000px;
     width: 119px;
     height: 39px;
@@ -126,7 +156,7 @@
 
 .q1 {
     position: absolute;
-    top: 610px;
+    top: 750px;
     left: 880px;
     font-weight: 500;
     font-size: 20px;
@@ -137,7 +167,7 @@
 
 .q2 {
     position: absolute;
-    top: 610px;
+    top: 750px;
     left: 1120px;
     font-weight: 650;
     font-size: 20px;
