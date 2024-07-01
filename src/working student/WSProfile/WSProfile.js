@@ -1,5 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UpdatedPopUp from './UpdatedPopUp';  
 import ConfirmLogout from "./ConfirmLogout";
@@ -27,6 +27,10 @@ const WSProfile = ({ className = "" }) => {
   const [error, setError] = useState("");
   const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || null;
+
 
   const openLOGOUTConfirmation = () => {
     setIsConfirmLogoutVisible(true);
@@ -66,7 +70,7 @@ const WSProfile = ({ className = "" }) => {
     } else {
       try {
         // Replace this with the actual user ID
-        const userId = 1;
+        const userId = 3; // Assuming your user object has an 'id' property
         console.log('Sending update request:', { userId, currentPassword, newPassword });
         const response = await fetch(`http://localhost:8080/user/updateUser?userId=${userId}`, {
           method: 'PUT',
@@ -95,7 +99,7 @@ const WSProfile = ({ className = "" }) => {
         setIsErrorPopUpVisible(true);
       }
     }
-  }, [currentPassword, newPassword]);
+  }, [currentPassword, newPassword, loggedInUser]);
 
   const closeUpdatedPopUp = useCallback(() => {
     setIsPopUpVisible(false);
@@ -127,7 +131,9 @@ const WSProfile = ({ className = "" }) => {
         <div className="WSID">21-0000-000</div>
         <div className="WSName">Richard Molina</div>
         <div className="WSPoints">2500 points</div>
-        <div className="WSEdu">richard.molina@cit.edu</div>
+        {loggedInUser && (
+        <div className="WSEdu">{loggedInUser.email}</div>
+      )}
 
         <div className="WSPLogout">
           <Button
