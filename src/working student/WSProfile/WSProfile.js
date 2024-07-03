@@ -1,5 +1,5 @@
-import React, { useState, useCallback } from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import React, { useState, useCallback, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UpdatedPopUp from './UpdatedPopUp';  
 import ConfirmLogout from "./ConfirmLogout";
@@ -26,11 +26,19 @@ const WSProfile = ({ className = "" }) => {
   const [newPassword, setNewPassword] = useState("");
   const [error, setError] = useState("");
   const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null); // State to hold logged in user data
   const navigate = useNavigate();
-  const location = useLocation();
 
-  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || null;
+  // Function to fetch and set logged in user data
+  const fetchLoggedInUser = useCallback(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser")) || null;
+    setLoggedInUser(user);
+  }, []);
 
+  // Fetch logged in user data on component mount
+  useEffect(() => {
+    fetchLoggedInUser();
+  }, [fetchLoggedInUser]);
 
   const openLOGOUTConfirmation = () => {
     setIsConfirmLogoutVisible(true);
@@ -42,10 +50,6 @@ const WSProfile = ({ className = "" }) => {
 
   const onLOGOUTTextClick = () => {
     navigate("/logged-out");
-  };
-
-  const onCANCELTextClick = () => {
-    setIsConfirmLogoutVisible(false);
   };
 
   const onHomeTextClick = useCallback(() => {
@@ -61,16 +65,12 @@ const WSProfile = ({ className = "" }) => {
   }, [navigate]);
 
   const openUpdatedPopUp = useCallback(async () => {
-    if (!currentPassword && !newPassword) {
+    if (!currentPassword || !newPassword) {
       setError("Please enter both current and new passwords.");
-      setIsErrorPopUpVisible(true);
-    } else if (!currentPassword || !newPassword) {
-      setError("Please fill up both current and new password fields.");
       setIsErrorPopUpVisible(true);
     } else {
       try {
-        // Replace this with the actual user ID
-        const userId = 3; // Assuming your user object has an 'id' property
+        const userId = loggedInUser.userId; // Use the actual user ID from loggedInUser
         console.log('Sending update request:', { userId, currentPassword, newPassword });
         const response = await fetch(`http://localhost:8080/user/updateUser?userId=${userId}`, {
           method: 'PUT',
@@ -109,6 +109,10 @@ const WSProfile = ({ className = "" }) => {
     setIsEditable(!isEditable);
   };
 
+  if (!loggedInUser) {
+    return null; // Handle case where user is not logged in
+  }
+
   return (
     <>
       <div className={`ws-profile ${className}`}>
@@ -128,12 +132,11 @@ const WSProfile = ({ className = "" }) => {
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
         <img className="WSProfileUser" alt="" src="/ex-dp.png" />
         <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
-        <div className="WSID">21-0000-000</div>
-        <div className="WSName">Richard Molina</div>
-        <div className="WSPoints">2500 points</div>
-        {loggedInUser && (
+        <div className="WSID">{loggedInUser.idNumber}</div>
+        <div className="WSName">{loggedInUser.fullName}</div>
         <div className="WSEdu">{loggedInUser.email}</div>
-      )}
+
+        <div className="WSPoints">2500 points</div>
 
         <div className="WSPLogout">
           <Button
@@ -207,7 +210,7 @@ const WSProfile = ({ className = "" }) => {
         <div className="popup-overlay">
           <ConfirmLogout
             onLOGOUTTextClick={onLOGOUTTextClick}
-            onCANCELTextClick={onCANCELTextClick}
+            onCANCELTextClick={() => setIsConfirmLogoutVisible(false)}
           />
         </div>
       )}
