@@ -1,4 +1,5 @@
-import React, { useState, useCallback } from "react";
+import React, { useState, useEffect, useCallback } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button } from "@mui/material";
 import Loadable from 'react-loadable';
@@ -12,9 +13,22 @@ const WSComment = Loadable({
 const WSHomepage = () => {
   const navigate = useNavigate();
   const [isOverlayVisible, setOverlayVisible] = useState(false);
-  const [postInput, setPostInput] = useState("");
-  const [posts, setPosts] = useState([]); // State to store posts
-  const [selectedFile, setSelectedFile] = useState(null); // State to store the selected file
+  const [newPostContent, setNewPostContent] = useState("");
+  const [posts, setPosts] = useState([]);
+  const [selectedFile, setSelectedFile] = useState(null);
+
+  useEffect(() => {
+    const fetchPosts = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/posts");
+        setPosts(response.data);
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+
+    fetchPosts();
+  }, []);
 
   const toggleOverlay = useCallback(() => {
     setOverlayVisible(!isOverlayVisible);
@@ -37,21 +51,39 @@ const WSHomepage = () => {
   }, [navigate]);
 
   const handlePostInputChange = (e) => {
-    setPostInput(e.target.value);
+    setNewPostContent(e.target.value);
   };
 
   const handleFileChange = (e) => {
     setSelectedFile(e.target.files[0]);
   };
 
-  const handlePostButtonClick = () => {
-    if (!postInput && !selectedFile) {
+  const handlePostButtonClick = async () => {
+    if (!newPostContent && !selectedFile) {
       alert("Please enter a post or select a picture before submitting.");
       return;
     }
-    setPosts([...posts, { username: "current.user", content: postInput, image: selectedFile }]);
-    setPostInput("");
-    setSelectedFile(null);
+
+    const newPost = {
+      content: newPostContent,
+      image: selectedFile ? URL.createObjectURL(selectedFile) : null,
+      timestamp: new Date().toISOString(),
+      userId: 1, // Replace with actual user ID
+      isVerified: false,
+      likes: 0,
+      dislikes: 0,
+    };
+
+    try {
+      const response = await axios.post("http://localhost:8080/posts/add", newPost);
+      const newPostId = response.data.postId;
+      newPost.postId = newPostId;
+      setPosts([...posts, newPost]);
+      setNewPostContent("");
+      setSelectedFile(null);
+    } catch (error) {
+      console.error("Error posting data:", error);
+    }
   };
 
   return (
@@ -78,7 +110,7 @@ const WSHomepage = () => {
         <input
           type="text"
           className="post-input"
-          value={postInput}
+          value={newPostContent}
           onChange={handlePostInputChange}
           placeholder="What's happening in your day, Wildcat?"
         />
@@ -99,9 +131,7 @@ const WSHomepage = () => {
         )}
       </div>
 
-      <img className="mic-icon" alt="" src="/mic.png" />
-
-      <div className="post-container">
+      <div className="post-contain">
         <Button
           className="post-button"
           variant="contained"
@@ -118,56 +148,23 @@ const WSHomepage = () => {
         </Button>
       </div>
 
-      {posts.map((post, index) => (
-        <div key={index} className="EXPost-Box">
-          <img className="EXUser-dp" alt="" src="/dp.png" />
-          <div className="EXUser-Name">{post.username}</div>
-          <div className="EXUser-Content">{post.content}</div>
-          {post.image && <img className="EXUser-Image" alt="" src={URL.createObjectURL(post.image)} />}
-        </div>
-      ))}
-
-      <div className="EXPost1-Box" />
-      <img className="EXUser1-dp" alt="" src="/dp.png" />
-      <div className="EXUser1-Name">richard.molina</div>
-      <img className="EXUser1-badge" alt="" src="/Wildcat-Prowler.png" />
-      <img className="EXUser1-verified" alt="" src="/check.png" />
-      <div className="EXUser1-Incident-Container">
-        <p className="EXUser1-Incident-Margin">
-          <span className="IncidentType1">{`Incident Type: `}</span>
-          <span>Medical Emergency</span>
-        </p>
-        <p className="EXUser1-Incident-Margin">
-          <span className="IncidentLoc1">{`Incident Location: `}</span>
-          <span>NGE Building</span>
-        </p>
+      <div className="post-list">
+        {posts.map((post) => (
+          <div key={post.postId} className="post-box">
+            <img src="/dp.png" alt="User Avatar" />
+            <div className="user-details">
+              <div className="user-name">User ID: {post.userId}</div>
+              <div className="user-content">{post.content}</div>
+              {post.image && <img className="post-image" alt="Post" src={post.image} />}
+              <div className="likes-dislikes">
+                <span>Likes: {post.likes}</span>
+                <span>Dislikes: {post.dislikes}</span>
+              </div>
+            </div>
+            <button className="comment-button" onClick={toggleOverlay}>Comment</button>
+          </div>
+        ))}
       </div>
-      <img className="EXUser1-Incident-Picture" alt="" src="/ex.png" />
-      <div className="EXUser1-line" />
-      <img className="EXUser1-like" alt="" src="/t-up.png" />
-      <img className="EXUser1-unlike" alt="" src="/t-down.png" />
-      <b className="EXUser1-Comment" onClick={toggleOverlay}>Comment</b>
-
-      <div className="EXPost2-Box" />
-      <img className="EXUser2-dp" alt="" src="/dp.png" />
-      <div className="EXUser2-Name">richard.molina</div>
-      <img className="EXUser2-badge" alt="" src="/Wildcat-Prowler.png" />
-      <img className="EXUser2-unverified" alt="" src="/x.png" />
-      <div className="EXUser2-Incident-Container">
-        <p className="EXUser2-Incident-Margin">
-          <span className="IncidentType2">{`Incident Type: `}</span>
-          <span>Medical Emergency</span>
-        </p>
-        <p className="EXUser2-Incident-Margin">
-          <span className="IncidentLoc2">{`Incident Location: `}</span>
-          <span className="nge-building">NGE Building</span>
-        </p>
-      </div>
-      <img className="EXUser2-Incident-Picture" alt="" src="/ex.png" />
-      <div className="EXUser2-line" />
-      <img className="EXUser2-like" alt="" src="/t-up.png" />
-      <img className="EXUser2-unlike" alt="" src="/t-down.png" />
-      <b className="EXUser2-Comment" onClick={toggleOverlay}>Comment</b>
 
       {isOverlayVisible && (
         <div className="overlay" onClick={toggleOverlay}>

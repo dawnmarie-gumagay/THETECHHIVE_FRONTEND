@@ -30,7 +30,7 @@ const LoadingBar2 = () => {
       <img className="bg1" alt="" src="/bg1.png" />
       <div className="bar-gray" />
       <img className="wildcat-icon" alt="" src="/wildcat-icon.png" />
-      <i className="intro-line">stay wild! roar</i>
+      <i className="intro-line">Wildcat One Tap</i>
       <div className="bar-red" style={{ width: `${width}px` }} />
     </div>
   );

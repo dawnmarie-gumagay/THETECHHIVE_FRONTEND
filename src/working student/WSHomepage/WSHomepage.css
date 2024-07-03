@@ -1,100 +1,91 @@
 .ws-homepage {
-    width: 100%;
-    position: relative;
-    background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
-    height: 1330px;
-    overflow: hidden;
-    text-align: left;
-    color: #8a252c;
-    font-family: var(--font-montserrat);
+  width: 100%;
+  position: relative;
+  background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
+  height: 1330px;
+  overflow: hidden;
+  text-align: left;
+  color: #8a252c;
+  font-family: var(--font-montserrat);
 }
 
 .WSNavbar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #FFFEE9;
-    width: 100%;
-    height: 76px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: #FFFEE9;
+  width: 100%;
+  height: 76px;
 }
+
 .WSTitle {
-    position: absolute;
-    top: -19px;
-    left: 31px;
-    width: 115px;
-    height: 113px;
-    object-fit: cover;
+  position: absolute;
+  top: -19px;
+  left: 31px;
+  width: 115px;
+  height: 113px;
+  object-fit: cover;
 }
+
+.NHome, .NReports, .NLeaderboards, .NProfile {
+  position: absolute;
+  display: inline-block;
+  top: 26px;
+  font-size: 20px;
+  height: 23px;
+  cursor: pointer;
+}
+
 .NHome {
-    position: absolute;
-    display: inline-block;
-    top: 26px;
-    left: 820px;
-    font-size: 20px;
-    width: 63px;
-    height: 23px;
-    cursor: pointer;
+  left: 820px;
+  width: 63px;
 }
+
 .NReports {
-    position: absolute;
-    top: 26px;
-    left: 990px;
-    font-size: 20px;
-    display: inline-block;
-    width: 82px;
-    height: 23px;
-    cursor: pointer;
+  left: 990px;
+  width: 82px;
 }
+
 .NLeaderboards {
-    position: absolute;
-    top: 26px;
-    left: 1150px;
-    font-size: 20px;
-    display: inline-block;
-    width: 139px;
-    height: 23px;
-    cursor: pointer;
+  left: 1150px;
+  width: 139px;
 }
+
 .NProfile {
-    position: absolute;
-    top: 26px;
-    left: 1350px;
-    font-size: 20px;
-    display: inline-block;
-    width: 65px;
-    height: 23px;
-    cursor: pointer;
+  left: 1350px;
+  width: 65px;
 }
-  
 
 .HWildcat {
-    position: absolute;
-    display: inline-block;
-    top: 100px;
-    left: 700px;
-    font-size: 64px;
-    width: 323px;
-    height: 77px;
+  position: absolute;
+  display: inline-block;
+  top: 100px;
+  left: 700px;
+  font-size: 64px;
+  width: 323px;
+  height: 77px;
 }
 
 .PostContainer {
-    position: absolute;
-    top: 219px;
-    left: 520px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.25);
-    width: 612px;
-    height: 108px;
+  position: absolute;
+  top: 219px;
+  left: 520px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.25);
+  width: 612px;
+  height: 108px;
 }
+
 .users-dp {
-    position: absolute;
-    top: 246px;
-    left: 560px;
-    width: 48px;
-    height: 46px;
-    object-fit: cover;
+  position: absolute;
+  top: 246px;
+  left: 560px;
+  width: 48px;
+  height: 46px;
+  object-fit: cover;
 }
+
 .post-input {
   position: absolute;
   top: 246px;
@@ -110,12 +101,14 @@
   box-shadow: none;
   color: #8a252c;
 }
+
 .post-input::placeholder {
   color: #8a252c;
   font-style: italic;
   font-weight: 500;
   text-align: left;
 }
+
 .post-q {
   position: absolute;
   top: 255px;
@@ -125,24 +118,21 @@
   width: 335px;
   height: 18px;
 }
-.gallery-icon {
-    position: absolute;
-    top: 295px;
-    left: 630px;
-    width: 18px;
-    height: 17px;
-    overflow: hidden;
-    cursor: pointer;
-}
-.mic-icon {
+
+.gallery-icon, .mic-icon {
   position: absolute;
-  top: 296px;
-  left: 670px;
-  width: 16px;
-  height: 16px;
   overflow: hidden;
+  cursor: pointer;
 }
-.post-container {
+
+.gallery-icon {
+  top: 295px;
+  left: 630px;
+  width: 18px;
+  height: 17px;
+}
+
+.post-contain {
   position: absolute;
   top: 290px;
   left: 1037px;
@@ -151,6 +141,7 @@
   font-size: 14px;
   color: white;
 }
+
 .post-button {
   position: absolute;
   top: 0;
@@ -158,6 +149,7 @@
   width: 53px;
   height: 25px;
 }
+
 .post-name {
   position: absolute;
   top: 2px;
@@ -169,227 +161,69 @@
   height: 19px;
 }
 
+/* New styles for post listing */
+.post-list {
+  position: absolute;
+  top: 365px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 20px;
+  gap: 20px;
+  width: 100%;
+  max-width: 612px;
+}
 
+.post-box {
+  display: flex;
+  align-items: center;
+  background-color: rgba(255, 255, 255, 0.25);
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  padding: 10px;
+  width: 100%;
+}
 
-.EXPost1-Box {
-    position: absolute;
-    top: 365px;
-    left: 520px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.25);
-    width: 612px;
-    height: 428px;
-}
-.EXUser1-Name {
-  position: absolute;
-  display: inline-block;
-  height: 16px;
-  top: 402px;
-  left: 625px;
-  font-weight: 600;
-  width: 121px;
-}
-.EXUser1-dp {
-    position: absolute;
-    top: 389px;
-    left: 560px;
-    width: 48px;
-    height: 46px;
-    object-fit: cover;
-}
-.EXUser1-badge {
-  position: absolute;
-  top: 405px;
-  left: 735px;
-  width: 18px;
-  height: 17px;
-  object-fit: cover;
-}
-.EXUser1-verified {
-  position: absolute;
-  top: 389px;
-  left: 1060px;
-  width: 34px;
-  height: 32px;
-  overflow: hidden;
-}
-.EXUser1-Incident-Container {
-    position: absolute;
-    top: 457px;
-    left: 625px;
-    font-size: 15px;
-    display: inline-block;
-    width: 266px;
-    height: 47px;
-}
-.EXUser1-Incident-Margin {
-  margin-block-start: 0;
-  margin-block-end: 15px;
-}
-.IncidentType1,
-.IncidentLoc1 {
-  font-weight: 600;
-}
-.EXUser1-Incident-Picture {
-  position: absolute;
-  top: 540px;
-  left: 620px;
-  border-radius: 15px;
-  width: 432.5px;
-  height: 158.1px;
-  object-fit: cover;
-}
-.EXUser1-line {
-    position: absolute;
-    top: 721.5px;
-    left: 575px;
-    border-top: 1px solid black;
-    box-sizing: border-box;
-    width: 506.4px;
-    height: 1px;
-}
-.EXUser1-like {
-    position: absolute;
-    top: 734px;
-    left: 620px;
-    width: 32px;
-    height: 32px;
-    overflow: hidden;
-}
-.EXUser1-unlike {
-    position: absolute;
-    top: 734px;
-    left: 680px;
-    width: 32px;
-    height: 32px;
-    overflow: hidden;
-}
-.EXUser1-Comment {
-    position: absolute;
-    display: inline-block;
-    top: 742px;
-    left: 970px;
-    width: 84px;
-    height: 16px;
-    cursor: pointer;
-  }
-
-
-  
-.EXPost2-Box {
-    position: absolute;
-    top: 838px;
-    left: 520px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: 10px;
-    background-color: rgba(255, 255, 255, 0.25);
-    width: 612px;
-    height: 428px;
-}
-.EXUser2-dp {
-  position: absolute;
-  top: 862px;
-  left: 560px;
+.post-box img {
   width: 48px;
   height: 46px;
-  object-fit: cover;
+  border-radius: 50%;
+  margin-right: 10px;
 }
-.EXUser2-Name {
-  position: absolute;
-  display: inline-block;
-  top: 875px;
-  left: 625px;
-  font-weight: 600;
-  width: 121px;
-  height: 16px;
+
+.post-box .user-details {
+  flex: 1;
 }
-.EXUser2-badge {
-  position: absolute;
-  top: 877px;
-  left: 735px;
-  width: 18px;
-  height: 17px;
-  object-fit: cover;
+
+.post-box .user-content {
+  margin-bottom: 10px;
 }
-.EXUser2-unverified {
-  position: absolute;
-  top: 862px;
-  left: 1060px;
-  width: 27px;
-  height: 25px;
-  overflow: hidden;
+
+.post-box .likes-dislikes {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
 }
-.EXUser2-Incident-Container {
-  position: absolute;
-  top: 930px;
-  left: 625px;
-  font-size: 15px;
-  display: inline-block;
-  width: 266px;
-  height: 47px;
+
+.post-box .likes-dislikes span {
+  margin-right: 10px;
 }
-.EXUser2-Incident-Margin {
-  margin-block-start: 0;
-  margin-block-end: 15px;
-}
-.IncidentType2,
-.IncidentLoc2 {
-  font-weight: 600;
-}
-.EXUser2-Incident-Picture {
-  position: absolute;
-  top: 1013px;
-  left: 620px;
-  border-radius: 15px;
-  width: 432.5px;
-  height: 158.1px;
-  object-fit: cover;
-}
-.EXUser2-line {
-  position: absolute;
-  top: 1194.5px;
-  left: 575px;
-  border-top: 1px solid black;
-  box-sizing: border-box;
-  width: 506.4px;
-  height: 1px;
-}
-.EXUser2-like {
-  position: absolute;
-  top: 1207px;
-  left: 620px;
-  width: 32px;
-  height: 32px;
-  overflow: hidden;
-}
-.EXUser2-unlike {
-  position: absolute;
-  top: 1207px;
-  left: 680px;
-  width: 32px;
-  height: 32px;
-  overflow: hidden;
-}
-.EXUser2-Comment {
-  position: absolute;
-  display: inline-block;
-  top: 1215px;
-  left: 970px;
-  width: 84px;
-  height: 16px;
+
+.post-box .comment-button {
+  margin-left: 10px;
   cursor: pointer;
 }
 
-
 .overlay {
-  position: fixed; 
+  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5); 
-  z-index: 999; 
+  background-color: rgba(0, 0, 0, 0.5);
+  z-index: 999;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -397,7 +231,5 @@
 
 .overlay-content {
   position: relative;
-  z-index: 1000; 
+  z-index: 1000;
 }
-
-

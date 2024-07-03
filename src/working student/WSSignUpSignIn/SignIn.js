@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useEffect } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 import "./SignIn.css";
@@ -29,6 +29,8 @@ const SignIn = () => {
       );
 
       if (user) {
+        // Store logged-in user information (consider using local storage or a state management library)
+        localStorage.setItem("loggedInUser", JSON.stringify(user));
         navigate("/wshomepage", { state: { loggedInUser: user } });
       } else {
         alert("Invalid ID Number or Password. Please try again.");

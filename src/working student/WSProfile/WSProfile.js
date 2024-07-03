@@ -1,9 +1,22 @@
 import React, { useState, useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UpdatedPopUp from './UpdatedPopUp';  
 import ConfirmLogout from "./ConfirmLogout";
 import "./WSProfile.css";
+
+const ErrorPopUp = ({ message, onClose }) => {
+  return (
+    <div className="error-popup">
+      <div className="error-popup-content">
+        <p>{message}</p>
+        <Button onClick={onClose} variant="contained" color="primary">
+          Close
+        </Button>
+      </div>
+    </div>
+  );
+};
 
 const WSProfile = ({ className = "" }) => {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
@@ -11,7 +24,13 @@ const WSProfile = ({ className = "" }) => {
   const [isEditable, setIsEditable] = useState(false);
   const [currentPassword, setCurrentPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const loggedInUser = JSON.parse(localStorage.getItem("loggedInUser")) || null;
+
 
   const openLOGOUTConfirmation = () => {
     setIsConfirmLogoutVisible(true);
@@ -41,9 +60,46 @@ const WSProfile = ({ className = "" }) => {
     navigate("/wsleaderboards");
   }, [navigate]);
 
-  const openUpdatedPopUp = useCallback(() => {
-    setIsPopUpVisible(true);
-  }, []);
+  const openUpdatedPopUp = useCallback(async () => {
+    if (!currentPassword && !newPassword) {
+      setError("Please enter both current and new passwords.");
+      setIsErrorPopUpVisible(true);
+    } else if (!currentPassword || !newPassword) {
+      setError("Please fill up both current and new password fields.");
+      setIsErrorPopUpVisible(true);
+    } else {
+      try {
+        // Replace this with the actual user ID
+        const userId = 3; // Assuming your user object has an 'id' property
+        console.log('Sending update request:', { userId, currentPassword, newPassword });
+        const response = await fetch(`http://localhost:8080/user/updateUser?userId=${userId}`, {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            currentPassword: currentPassword,
+            password: newPassword,
+          }),
+        });
+
+        if (response.ok) {
+          setIsPopUpVisible(true);
+          setCurrentPassword("");
+          setNewPassword("");
+        } else {
+          const errorData = await response.text();
+          console.error('Update failed:', errorData);
+          setError(errorData || "Failed to update password. Please try again.");
+          setIsErrorPopUpVisible(true);
+        }
+      } catch (error) {
+        console.error('Update error:', error);
+        setError("An error occurred. Please try again.");
+        setIsErrorPopUpVisible(true);
+      }
+    }
+  }, [currentPassword, newPassword, loggedInUser]);
 
   const closeUpdatedPopUp = useCallback(() => {
     setIsPopUpVisible(false);
@@ -75,7 +131,9 @@ const WSProfile = ({ className = "" }) => {
         <div className="WSID">21-0000-000</div>
         <div className="WSName">Richard Molina</div>
         <div className="WSPoints">2500 points</div>
-        <div className="WSEdu">richard.molina@cit.edu</div>
+        {loggedInUser && (
+        <div className="WSEdu">{loggedInUser.email}</div>
+      )}
 
         <div className="WSPLogout">
           <Button
@@ -154,9 +212,12 @@ const WSProfile = ({ className = "" }) => {
         </div>
       )}
 
-      {isConfirmLogoutVisible && (
+      {isErrorPopUpVisible && (
         <div className="popup-overlay">
-          <ConfirmLogout onClose={closeLOGOUTConfirmation} />
+          <ErrorPopUp 
+            message={error} 
+            onClose={() => setIsErrorPopUpVisible(false)} 
+          />
         </div>
       )}
     </>
