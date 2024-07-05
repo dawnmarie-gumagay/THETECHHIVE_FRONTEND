@@ -1,16 +1,28 @@
 import React from "react";
-import "./AdSignInForm.css"
+import { useNavigate } from "react-router-dom";
+import "./AdSignInForm.css";
+
 export default function AdSignInForm() {
+  const navigate = useNavigate();
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    // Add your authentication logic here
+    // If authentication is successful:
+    navigate("/adhome");
+  };
+
   return (
-    <form>
+    <form onSubmit={handleSubmit}>
       <label>
-        Email <br/>
+        Email <br />
         <input type="text" />
       </label>
-      <label>Password <br/>
+      <label>
+        Password <br />
         <input type="text" />
       </label>
-      <button>SIGN IN</button>
+      <button type="submit">SIGN IN</button>
     </form>
   );
 }

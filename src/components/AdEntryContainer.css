@@ -1,62 +1,61 @@
-/* AdContainer.css */
+/* AdEntryContainer.css */
 
-.post-container {
+.entrypost-container {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.post-card {
+.entrypost-card {
   background-color: #fefdd9;
   border-radius: 10px;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 5px;
-  margin-top: 20px; /* Adds space between AdPost and AdPostContainer */
   margin-bottom: 20px; /* Adds space between each post-card */
 }
 
-.card-container {
+.entrycard-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   padding: 10px;
 }
 
-.name-container {
+.entryname-container {
   width: 100%;
   display: flex;
   align-items: center;
   gap: 10px;
 }
 
-.name-container h5 {
+.entryname-container h5 {
   font-size: 16px;
   font-weight: 500;
   color: #8a252c;
 }
 
-.card-contents {
+.entrycard-contents {
   width: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
-.card-contents p {
+.entrycard-contents p {
   font-size: 14px;
   color: #333;
 }
 
-.card-contents img {
+.entrycard-contents img {
   max-width: 70%;
   border-radius: 10px;
   margin-top: 10px;
   margin-bottom: 20px;
 }
 
-.footer-line {
+.entryfooter-line {
   width: 100%;
   height: 1px;
   background-color: #000000;
@@ -97,21 +96,28 @@
 
 /* Responsive styles */
 @media only screen and (min-width: 700px) {
-  .post-card {
+  .entrypost-card {
     width: 612px; /* Adjusted width to match AdPost */
   }
 
-  .card-container {
+  .entrycard-container {
     width: 550px;
   }
+
+  .entrysub-container span {
+    /* font-size: 64px; */
+    font-weight: bold;
+    color: #8a252c;
+    margin-top: 30px;
+}
 }
 
 @media (min-device-width: 320px) and (max-width: 699px) {
-  .post-card {
-    width: 450px;
+  .entrypost-card {
+    width: 400px;
   }
 
-  .card-container {
-    width: 400px;
+  .entrycard-container {
+    width: 350px;
   }
 }

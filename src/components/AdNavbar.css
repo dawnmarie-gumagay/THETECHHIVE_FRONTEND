@@ -1,40 +1,54 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap');
 
-.nav-container {
-  max-width: 100%;
-  margin: 0 auto;
-  padding: 0 15px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  height: 100%;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
 }
 
 .navbar {
   height: 60px;
   width: 100%;
   background-color: #fef7e5;
-  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 15px;
+  box-sizing: border-box;
+  position: fixed; /* Ensure navbar stays at the top */
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000; /* Ensure it appears above other content */
 }
 
-.logo img{
+.logo {
+  display: flex;
+  align-items: center;
+}
+
+.logo img {
   width: 115px;
-  height: 100%;
+  height: auto;
 }
 
 .menu-icon {
   display: none;
 }
 
-.nav-elements ul {
+.nav-elements {
   display: flex;
-  justify-content: space-between;
-  list-style-type: none;
-  margin-right: 400px;
+  align-items: center;
 }
 
-.nav-elements ul li:not(:last-child) {
-  margin-right: 60px;
+.nav-elements ul {
+  display: flex;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-elements ul li {
+  margin-left: 30px;
 }
 
 .nav-elements ul a {
@@ -42,6 +56,7 @@
   font-weight: 400;
   color: #8A252C;
   text-decoration: none;
+  margin-left: 50px;
 }
 
 .nav-elements ul a.active {
@@ -61,8 +76,8 @@
 }
 
 @media (max-width: 768px) {
-  .nav-elements ul li:not(:last-child) {
-    margin-right: 30px;
+  .nav-elements ul li {
+    margin-left: 15px;
   }
 }
 
@@ -78,23 +93,26 @@
     top: 60px;
     z-index: 1;
     background-color: #fef7e5;
-    width: 0px;
+    width: 0;
     height: calc(100vh - 60px);
     transition: all 0.3s ease-in;
     overflow: hidden;
+    flex-direction: column; /* Ensure flex direction is column for mobile view */
   }
 
   .nav-elements.active {
-    width: 270px;
+    width: 100%;
   }
 
   .nav-elements ul {
     display: flex;
     flex-direction: column;
+    width: 100%; /* Ensure full width for mobile view */
   }
 
   .nav-elements ul li {
-    margin-right: unset;
+    margin-left: 0;
     margin-top: 22px;
+    text-align: center; /* Center the text */
   }
 }

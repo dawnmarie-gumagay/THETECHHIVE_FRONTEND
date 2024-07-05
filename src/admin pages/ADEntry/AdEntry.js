@@ -2,6 +2,8 @@ import React from "react";
 import AdNavBar from "../../components/AdNavBar";
 import IncomingReportText from "../../assets/image/reportsTitle.png";
 import AdReportContainer from "../../components/AdReportContainer";
+import "./AdEntry.css";
+
 
 const AdEntry = () => {
   return (
@@ -9,7 +11,7 @@ const AdEntry = () => {
       <header>
         <AdNavBar />
       </header>
-      <main className="sub-container">
+      <main className="entrysub-container">
         <img src={IncomingReportText} />
         <AdReportContainer />
       </main>

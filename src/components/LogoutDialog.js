@@ -1,11 +1,13 @@
 import React, { useRef } from "react";
+import { useNavigate } from "react-router-dom";
 import Modal from "react-modal";
 import "./ConfirmationDialog.css";
-import CryingCat from "../assets/image/WildCry.png"
+import CryingCat from "../assets/image/WildCry.png";
 
 const LogoutDialog = () => {
   const [modalIsOpen, setIsOpen] = React.useState(false);
   const subtitleRef = useRef(null);
+  const navigate = useNavigate();
 
   function openModal() {
     setIsOpen(true);
@@ -22,6 +24,11 @@ const LogoutDialog = () => {
     setIsOpen(false);
   }
 
+  function handleLogout() {
+    // Add your logout logic here
+    navigate("/adlogout"); // Redirect to Logout.js
+  }
+
   return (
     <div className="modal-container">
       <button className="publish-btn" onClick={openModal}>LOGOUT</button>
@@ -32,13 +39,12 @@ const LogoutDialog = () => {
         style={customStyles}
         contentLabel="Example Modal"
       >
-
         <div className="confirmation-container">
           <h4>Are you sure you want to log out?</h4>
           <img src={CryingCat} alt="crying cat"/>
           <div className="confirmation-btn">
-            <button>LOG OUT</button>
-            <button>CANCEL</button>
+            <button onClick={handleLogout}>LOG OUT</button>
+            <button onClick={closeModal}>CANCEL</button>
           </div>
         </div>
       </Modal>

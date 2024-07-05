@@ -1,11 +1,40 @@
-import React from "react";
+import React, { useState } from "react";
 import AdNavBar from "../../components/AdNavBar";
 import "./AdProfile.css";
 import ExImg from "../../assets/image/ex-dp.png";
 import LogoutDialog from "../../components/LogoutDialog";
-import EditSuccessfulDialog from "../../components/EditSucessfulDialog";
+import EditSuccessfulDialog from "./EditSuccessfulDialog";
+import ErrorDialog from "./ErrorDialog";
 
 const AdProfile = () => {
+  const [isEditable, setIsEditable] = useState(false);
+  const [currentPassword, setCurrentPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
+  const [showErrorMessage, setShowErrorMessage] = useState(false);
+
+  const handleEditClick = () => {
+    setIsEditable(true);
+    setCurrentPassword("");
+    setNewPassword("");
+  };
+
+  const handleUpdateClick = () => {
+    if (!currentPassword || !newPassword) {
+      setShowErrorMessage(true);
+      setTimeout(() => {
+        setShowErrorMessage(false);
+      }, 3000);
+      return;
+    }
+
+    setIsEditable(false);
+    setShowSuccessMessage(true);
+    setTimeout(() => {
+      setShowSuccessMessage(false);
+    }, 3000);
+  };
+
   return (
     <div className="main-container">
       <header>
@@ -28,17 +57,36 @@ const AdProfile = () => {
           <form>
             <div>
               <label>Current Password</label>
-              <input />
+              <input
+                type="password"
+                value={currentPassword}
+                readOnly={!isEditable}
+                onChange={(e) => setCurrentPassword(e.target.value)}
+              />
             </div>
             <div>
               <label>New Password</label>
-              <input />
+              <input
+                type="password"
+                value={newPassword}
+                readOnly={!isEditable}
+                onChange={(e) => setNewPassword(e.target.value)}
+              />
             </div>
             <div className="btn-container">
-              <button className="edit-btn">Edit</button>
-              <EditSuccessfulDialog />
+              {isEditable ? (
+                <button type="button" className="update-btn" onClick={handleUpdateClick}>
+                  Update
+                </button>
+              ) : (
+                <button type="button" className="edit-btn" onClick={handleEditClick}>
+                  Edit
+                </button>
+              )}
             </div>
           </form>
+          {showSuccessMessage && <EditSuccessfulDialog />}
+          {showErrorMessage && <ErrorDialog />}
         </div>
       </main>
     </div>

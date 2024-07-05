@@ -1,51 +1,41 @@
 import React from "react";
-import "./AdContainer.css"
+import "./AdContainer.css";
 import CitLogo from "../assets/image/CitLogo.png";
-import CheckIcon from "../assets/image/check.png";
-import ExampleImage from "../assets/image/ex.png";
 import ThumbsUp from "../assets/image/t-up.png";
 import ThumbsDown from "../assets/image/t-down.png";
 import CommentsDialog from "./CommentsDialog";
-import "./AdContainer.css"
-import ExIcon from "../assets/image/x.png"
 
-const AdPostContainer = () => {
+const AdPostContainer = ({ posts }) => {
   return (
-    <div className="post-card">
-      <div className="card-container">
-        <div className="name-container">
-          <img src={CitLogo} alt="Cit Logo" />
-          <h5>Richard Molina</h5>
-          <div className="status-container">
-            <img src={CheckIcon} />
+    <div className="post-containerr">
+      {posts.map((post) => (
+        <div key={post.id} className="post-card">
+          <div className="card-container">
+            <div className="name-container">
+              <img src={CitLogo} alt="CIT logo" />
+              <h5>CIT-University</h5>
+            </div>
+            <div className="card-contents">
+              <p>{post.caption}</p>
+              {post.image && <img src={post.image} alt="Post" className="post-image" />}
+            </div>
+            <div className="footer-line" />
+            <div className="footer-actions">
+              <div className="footer-icons">
+                <button>
+                  <img src={ThumbsUp} alt="Thumbs Up" />
+                </button>
+                <button>
+                  <img src={ThumbsDown} alt="Thumbs Down" />
+                </button>
+              </div>
+              <div className="footer-comments">
+                <CommentsDialog />
+              </div>
+            </div>
           </div>
         </div>
-        <div className="card-contents">
-          <div className="text-designs">
-            <h5>
-              Incident Type: <span>Medical Emergency</span>
-            </h5>
-            <h5>
-              Incident Location: <span>NGE Building</span>
-            </h5>
-          </div>
-          <img src={ExampleImage} />
-        </div>
-        <div className="footer-line" />
-        <div className="footer-actions">
-          <div className="footer-icons">
-            <button>
-              <img src={ThumbsUp} />
-            </button>
-            <button>
-              <img src={ThumbsDown} />
-            </button>
-          </div>
-          <div className="footer-comments">
-            <CommentsDialog />
-          </div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 };
