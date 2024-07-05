@@ -122,11 +122,11 @@ const WSProfile = ({ className = "" }) => {
           Home
         </div>
         <div className="NReports" onClick={onReportsTextClick}>
-          Reports
+          Entry
         </div>
         <b className="NProfile">Profile</b>
         <div className="NLeaderboards" onClick={onLeaderboardsTextClick}>
-          Leaderboards
+          Leaderboard
         </div>
 
         <img className="WSProfileBg" alt="" src="/profilebg.png" />

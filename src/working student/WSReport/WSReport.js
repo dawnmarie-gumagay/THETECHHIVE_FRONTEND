@@ -44,7 +44,7 @@ const WSReport = () => {
           Profile
         </div>
         <div className="NLeaderboards" onClick={onLEADERBOARDSClick}>
-          Leaderboards
+          Leaderboard
         </div>
 
         <img className="IncidentReport-Pic" alt="" src="/IN.png" />

@@ -26,7 +26,7 @@
     display: inline-block;
     font-weight: 400;
     font-size: 20px;
-    width: 206px;
+    width: 210px;
     height: 21px;
 }
 
@@ -161,14 +161,14 @@
     font-weight: 500;
     font-size: 20px;
     display: inline-block;
-    width: 264px;
+    width: 270px;
     height: 21px;
 }
 
 .q2 {
     position: absolute;
     top: 750px;
-    left: 1120px;
+    left: 1150px;
     font-weight: 650;
     font-size: 20px;
     display: inline-block;

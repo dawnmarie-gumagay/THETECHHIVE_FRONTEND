@@ -155,7 +155,7 @@
   color: red;
   white-space: pre-wrap; /* Ensure text wraps properly */
   word-break: break-word; /* Break words if they are too long */
-  font-size: 14px; /* Adjust font size if necessary */
+  font-size: 12px; /* Adjust font size if necessary */
   width: 100%; /* Ensure it takes the full width */
   text-align: center; /* Center align the error message */
 }
