@@ -29,7 +29,7 @@ import AdEntry from './admin pages/ADEntry/AdEntry';
 import AdLeaderboard from './admin pages/ADLeaderboard/AdLeaderboard';
 import AdProfile from './admin pages/ADProfile/AdProfile';
 import AdLogout from './admin pages/ADLogout/Logout';
-
+import LogoutDialog from './components/LogoutDialog'; // Corrected import path
 
 const App = () => {
   return (
@@ -37,42 +37,35 @@ const App = () => {
       <Routes>
         <Route path="/" element={<Navigate to="/loadingbar2" />} />
         <Route path="/loadingbar2" element={<LoadingBar2 />} />
-        
-        <Route path="/wslandingpage/" element={<WSLandingPage />} />
-        <Route path="/wscontactus/" element={<ContactUs />} />
-        <Route path="/wsaboutus/" element={<AboutUs />} />
-        <Route path="/wsaboutus2/" element={<AboutUs2 />} />
-        <Route path="/wsaboutus3/" element={<AboutUs3 />} />
-        <Route path="/wsaboutus4/" element={<AboutUs4 />} />
-        <Route path="/wsaboutus5/" element={<AboutUs5 />} />
-
-        <Route path="/wssignupsignin/" element={<SignUpSignIn />} />
-        <Route path="/signup/" element={<SignUp />} />
-        <Route path="/signin/" element={<SignIn />} />
-        <Route path="/successfullyregistered/" element={<SuccessfullyRegistered />} />
-
-        <Route path="/wshomepage/" element={<WSHomepage />} />
-        <Route path="/wscomment/" element={<WSComment />} />
-
-        <Route path="/wsreport/" element={<WSReport />} />
-        <Route path="/popupreport/" element={<PopUpReport />} />
-        <Route path="/popupconfirm/" element={<PopUpConfirm />} />
-        <Route path="/popupsuccess/" element={<PopUpSuccess />} />
-
-        <Route path="/wsleaderboards/" element={<WSLeaderboards />} />
-        <Route path="/wsprofile/" element={<WSProfile />} />
-        <Route path="/updatedpopup/" element={<UpdatedPopUp />} />
-
-        <Route path="/wslogout/" element={<WSLogout />} />
-        <Route path="/confirmlogout/" element={<ConfirmLogout />} />
-
-        <Route path="/adsignin/" element={<ADSignIn />}/>
-        <Route path="/adhome/" element={<AdHome />}/>
-        <Route path="/adentry/" element={<AdEntry />}/>
-        <Route path="/adleaderboard/" element={<AdLeaderboard />}/>
-        <Route path="/adprofile/" element={<AdProfile />}/>
-        <Route path="/adlogout/" element={<AdLogout />}/>
-
+        <Route path="/wslandingpage" element={<WSLandingPage />} />
+        <Route path="/wscontactus" element={<ContactUs />} />
+        <Route path="/wsaboutus" element={<AboutUs />} />
+        <Route path="/wsaboutus2" element={<AboutUs2 />} />
+        <Route path="/wsaboutus3" element={<AboutUs3 />} />
+        <Route path="/wsaboutus4" element={<AboutUs4 />} />
+        <Route path="/wsaboutus5" element={<AboutUs5 />} />
+        <Route path="/wssignupsignin" element={<SignUpSignIn />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/signin" element={<SignIn />} />
+        <Route path="/successfullyregistered" element={<SuccessfullyRegistered />} />
+        <Route path="/wshomepage" element={<WSHomepage />} />
+        <Route path="/wscomment" element={<WSComment />} />
+        <Route path="/wsreport" element={<WSReport />} />
+        <Route path="/popupreport" element={<PopUpReport />} />
+        <Route path="/popupconfirm" element={<PopUpConfirm />} />
+        <Route path="/popupsuccess" element={<PopUpSuccess />} />
+        <Route path="/wsleaderboards" element={<WSLeaderboards />} />
+        <Route path="/wsprofile" element={<WSProfile />} />
+        <Route path="/updatedpopup" element={<UpdatedPopUp />} />
+        <Route path="/wslogout" element={<WSLogout />} />
+        <Route path="/confirmlogout" element={<ConfirmLogout />} />
+        <Route path="/adsignin" element={<ADSignIn />}/>
+        <Route path="/adhome" element={<AdHome />}/>
+        <Route path="/adentry" element={<AdEntry />}/>
+        <Route path="/adleaderboard" element={<AdLeaderboard />}/>
+        <Route path="/adprofile" element={<AdProfile />}/>
+        <Route path="/adlogout" element={<AdLogout />}/>
+        <Route path="/logoutdialog" element={<LogoutDialog />} />
       </Routes>
     </Router>
   );
