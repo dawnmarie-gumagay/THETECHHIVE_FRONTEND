@@ -30,12 +30,12 @@
 }
   
 .WSLUser1 {
-  position: absolute;
-  top: 373px;
-  left: 450px;
-  width: 90px;
-  height: 87px;
-  object-fit: cover;
+    position: absolute;
+    top: 373px;
+    left: 450px;
+    width: 90px;
+    height: 87px;
+    object-fit: cover;
 }
 .WSLUser2 {
     position: absolute;
@@ -57,26 +57,47 @@
 .WSLGradient1,
 .WSLGradient2,
 .WSLGradient3 {
-  position: absolute;
-  top: 391px;
-  left: 570px;
-  border-radius: 0 500px 500px 0;
-  background: linear-gradient(
-      90deg,
-      rgba(255, 255, 255, 0.76) 12%,
-      rgba(255, 241, 205, 0.81) 32%,
-      rgba(255, 234, 180, 0.83) 65.5%,
-      rgba(255, 227, 155, 0.85) 88%
+    position: absolute;
+    border-radius: 0 500px 500px 0;
+    width: 577px;
+    height: 50px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.76) 12%,
+        rgba(255, 241, 205, 0.81) 32%,
+        rgba(255, 234, 180, 0.83) 65.5%,
+        rgba(255, 227, 155, 0.85) 88%
     );
-  width: 577px;
-  height: 50px;
+    transition: background-color 0.3s; /* Smooth transition for background color */
 }
-.WSLGradient2,
-.WSLGradient3 {
+
+.WSLGradient1 {
+    top: 391px;
+    left: 570px;
+}
+
+.WSLGradient2 {
     top: 523px;
+    left: 570px;
 }
+
 .WSLGradient3 {
     top: 655px;
+    left: 570px;
+}
+
+/* Hover effect to change background to solid maroon */
+.WSLGradient1:hover,
+.WSLGradient2:hover,
+.WSLGradient3:hover {
+    background: maroon; /* Solid maroon background on hover */
+}
+
+/* Change text color to white when WSLGradient is hovered */
+.WSLGradient1:hover + .WSLNUser1,
+.WSLGradient2:hover + .WSLNUser2,
+.WSLGradient3:hover + .WSLNUser3 {
+    color: white;
 }
 
 .WSLNUser2,
@@ -90,6 +111,7 @@
     display: inline-block;
     width: 233px;
     height: 23px;
+    color: #8a252c; /* Default text color */
 }
 .WSLNUser2 {
     top: 535px;
@@ -97,7 +119,6 @@
 .WSLNUser3 {
     top: 665px;
 }
-
 
 .WSLCircle1 {
     position: absolute;
@@ -133,7 +154,7 @@
     left: 1109px;
     font-size: 15px;
     font-weight: 600;
-    color: #F6C301;
+    color: #f6c301;
     display: inline-block;
     width: 41px;
     height: 18px;
@@ -144,7 +165,7 @@
     left: 1105px;
     font-size: 15px;
     font-weight: 600;
-    color: #F6C301;
+    color: #f6c301;
     text-align: center;
     display: inline-block;
     width: 41px;
@@ -156,17 +177,10 @@
     left: 1105px;
     font-size: 15px;
     font-weight: 600;
-    color: #F6C301;
+    color: #f6c301;
     text-align: center;
     display: inline-block;
     width: 41px;
     height: 18px;
+    
 }
-  
-
-
-  
-
-  
- 
-  

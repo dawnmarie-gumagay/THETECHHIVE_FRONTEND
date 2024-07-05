@@ -34,32 +34,20 @@ const WSLeaderboards = () => {
 
       <img className="LeaderboardsTitle" alt="" src="/WL.png" />
       <div className="WSLeaderboardsBox" />
-    
-      <img
-        className="WSLUser1"
-        alt=""
-        src="/Wildcat-Champion.png"
-      />
+
+      <img className="WSLUser1" alt="" src="/Wildcat-Champion.png" />
       <div className="WSLGradient1" />
       <div className="WSLNUser1">Dawn Marie Gumagay</div>
       <div className="WSLCircle1" />
       <div className="WSLUser1Points">4000</div>
 
-      <img
-        className="WSLUser2"
-        alt=""
-        src="/Wildcat-Prowler.png"
-      />
+      <img className="WSLUser2" alt="" src="/Wildcat-Prowler.png" />
       <div className="WSLGradient2" />
       <div className="WSLNUser2">Areej Charisse Corbete</div>
       <div className="WSLCircle2" />
       <div className="WSLUser2Points">500</div>
 
-      <img
-        className="WSLUser3"
-        alt=""
-        src="/Wildcat-Pub.png"
-      />
+      <img className="WSLUser3" alt="" src="/Wildcat-Pub.png" />
       <div className="WSLGradient3" />
       <div className="WSLNUser3">Gelu Marie Ursal</div>
       <div className="WSLCircle3" />
