@@ -48,8 +48,8 @@
 .WSName {
   position: absolute;
   top: 375px;
-  left: 270px;
-  font-size: 25px;
+  left: 250px;
+  font-size: 30px;
   font-weight: 650;
 }
 .WSPoints {
@@ -62,9 +62,9 @@
 .WSEdu {
   position: absolute;
   font-weight: 600;
-  font-size: 20px;
+  font-size: 15px;
   top: 490px;
-  left: 300px;
+  left: 250px;
 }
 
 .WSPLogout {
