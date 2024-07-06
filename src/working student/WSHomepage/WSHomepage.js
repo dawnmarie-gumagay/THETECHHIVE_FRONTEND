@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-import { Button } from "@mui/material";
+import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import Loadable from 'react-loadable';
 import "./WSHomepage.css";
 
@@ -16,6 +16,10 @@ const WSHomepage = () => {
   const [newPostContent, setNewPostContent] = useState("");
   const [posts, setPosts] = useState([]);
   const [selectedFile, setSelectedFile] = useState(null);
+  const [imagePreview, setImagePreview] = useState(null);
+  const [currentPostId, setCurrentPostId] = useState(null);
+  const [comments, setComments] = useState([]);
+  const [isCommentsDialogOpen, setIsCommentsDialogOpen] = useState(false);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -28,6 +32,12 @@ const WSHomepage = () => {
     };
 
     fetchPosts();
+  }, []);
+
+  useEffect(() => {
+    if (!("webkitSpeechRecognition" in window)) {
+      console.log("Speech recognition not supported in this browser.");
+    }
   }, []);
 
   const toggleOverlay = useCallback(() => {
@@ -55,10 +65,39 @@ const WSHomepage = () => {
   };
 
   const handleFileChange = (e) => {
-    setSelectedFile(e.target.files[0]);
+    const file = e.target.files[0];
+    setSelectedFile(file);
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setImagePreview(reader.result);
+      };
+      reader.readAsDataURL(file);
+    }
   };
 
-  const handlePostButtonClick = async () => {
+  const handleMicClick = () => {
+    if (!("webkitSpeechRecognition" in window)) return;
+
+    const recognition = new window.webkitSpeechRecognition();
+    recognition.continuous = false;
+    recognition.interimResults = false;
+    recognition.lang = "en-US";
+
+    recognition.onresult = (event) => {
+      const transcript = event.results[0][0].transcript;
+      setNewPostContent((prevContent) => prevContent + " " + transcript);
+    };
+
+    recognition.onerror = (event) => {
+      console.log("Speech recognition error:", event.error);
+    };
+
+    recognition.start();
+  };
+
+  const handlePostSubmit = async (e) => {
+    e.preventDefault();
     if (!newPostContent && !selectedFile) {
       alert("Please enter a post or select a picture before submitting.");
       return;
@@ -66,7 +105,7 @@ const WSHomepage = () => {
 
     const newPost = {
       content: newPostContent,
-      image: selectedFile ? URL.createObjectURL(selectedFile) : null,
+      image: imagePreview,
       timestamp: new Date().toISOString(),
       userId: 1, // Replace with actual user ID
       isVerified: false,
@@ -78,11 +117,60 @@ const WSHomepage = () => {
       const response = await axios.post("http://localhost:8080/posts/add", newPost);
       const newPostId = response.data.postId;
       newPost.postId = newPostId;
-      setPosts([...posts, newPost]);
+      setPosts([newPost, ...posts]);
       setNewPostContent("");
       setSelectedFile(null);
+      setImagePreview(null);
     } catch (error) {
       console.error("Error posting data:", error);
+    }
+  };
+
+  const handleLike = async (postId) => {
+    try {
+      await axios.post(`http://localhost:8080/posts/${postId}/like`);
+      setPosts(posts.map(post => 
+        post.postId === postId ? { ...post, likes: post.likes + 1 } : post
+      ));
+    } catch (error) {
+      console.error("Error liking post:", error);
+    }
+  };
+
+  const handleDislike = async (postId) => {
+    try {
+      await axios.post(`http://localhost:8080/posts/${postId}/dislike`);
+      setPosts(posts.map(post => 
+        post.postId === postId ? { ...post, dislikes: post.dislikes + 1 } : post
+      ));
+    } catch (error) {
+      console.error("Error disliking post:", error);
+    }
+  };
+
+  const handleOpenComments = async (postId) => {
+    setCurrentPostId(postId);
+    try {
+      const response = await axios.get(`http://localhost:8080/posts/${postId}/comments`);
+      setComments(response.data);
+      setIsCommentsDialogOpen(true);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
+  };
+
+  const handleCloseComments = () => {
+    setIsCommentsDialogOpen(false);
+    setCurrentPostId(null);
+    setComments([]);
+  };
+
+  const handleDeleteComment = async (commentId) => {
+    try {
+      await axios.delete(`http://localhost:8080/comments/${commentId}`);
+      setComments(comments.filter(comment => comment.id !== commentId));
+    } catch (error) {
+      console.error("Error deleting comment:", error);
     }
   };
 
@@ -103,68 +191,110 @@ const WSHomepage = () => {
 
       <b className="HWildcat">WILDCAT</b>
 
-      <div className="PostContainer" />
-      <img className="users-dp" alt="" src="/dp.png" />
-
-      <div className="post-input-container">
-        <input
-          type="text"
-          className="post-input"
-          value={newPostContent}
-          onChange={handlePostInputChange}
-          placeholder="What's happening in your day, Wildcat?"
-        />
-        <label htmlFor="file-upload">
-          <img className="gallery-icon" alt="" src="/gallery.png" />
-        </label>
-        <input
-          id="file-upload"
-          type="file"
-          className="file-input"
-          style={{ display: "none" }}
-          onChange={handleFileChange}
-        />
-        {selectedFile && (
-          <div className="image-preview">
-            <img alt="Preview" src={URL.createObjectURL(selectedFile)} style={{ width: '100px', height: '100px' }} />
-          </div>
-        )}
-      </div>
-
-      <div className="post-contain">
-        <Button
-          className="post-button"
-          variant="contained"
-          sx={{
-            borderRadius: "10px",
-            width: 60,
-            height: 30,
-            backgroundColor: "#8A252C",
-            "&:hover": { backgroundColor: "#A91D3A" }
-          }}
-          onClick={handlePostButtonClick}
-        >
-          POST
-        </Button>
+      <div className="post-container">
+        <div className="logo-container">
+          <img src="/dp.png" alt="User Avatar" className="users-dp" />
+        </div>
+        <div className="post-form">
+          <form onSubmit={handlePostSubmit}>
+            <input
+              type="text"
+              className="post-input"
+              value={newPostContent}
+              onChange={handlePostInputChange}
+              placeholder="What's happening in your day, Wildcat?"
+            />
+            <div className="post-subcontainer">
+              <div className="post-subcontainer-icons">
+                <label htmlFor="file-upload">
+                  <img className="gallery-icon" alt="" src="/gallery.png" />
+                </label>
+                <input
+                  id="file-upload"
+                  type="file"
+                  className="file-input"
+                  style={{ display: "none" }}
+                  onChange={handleFileChange}
+                />
+                <img
+                  className="mic-icon"
+                  alt="Mic"
+                  src="/mic.png"
+                  onClick={handleMicClick}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <Button
+                type="submit"
+                className="post-button"
+                variant="contained"
+                sx={{
+                  borderRadius: "10px",
+                  width: 60,
+                  height: 30,
+                  backgroundColor: "#8A252C",
+                  "&:hover": { backgroundColor: "#A91D3A" }
+                }}
+              >
+                POST
+              </Button>
+            </div>
+          </form>
+          {imagePreview && (
+            <div className="image-preview">
+              <img src={imagePreview} alt="Preview" style={{ width: '100px', height: '100px' }} />
+            </div>
+          )}
+        </div>
       </div>
 
       <div className="post-list">
         {posts.map((post) => (
-          <div key={post.postId} className="post-box">
-            <img src="/dp.png" alt="User Avatar" />
-            <div className="user-details">
-              <div className="user-name">User ID: {post.userId}</div>
-              <div className="user-content">{post.content}</div>
-              {post.image && <img className="post-image" alt="Post" src={post.image} />}
-              <div className="likes-dislikes">
-                <span>Likes: {post.likes}</span>
-                <span>Dislikes: {post.dislikes}</span>
+          <div key={post.postId} className="post-card">
+            <div className="card-container">
+              <div className="name-container">
+                <img src="/dp.png" alt="User Avatar" />
+                <h5>User ID: {post.userId}</h5>
+              </div>
+              <div className="card-contents">
+                <p>{post.content}</p>
+                {post.image && <img className="post-image" alt="Post" src={post.image} />}
+              </div>
+              <div className="footer-line" />
+              <div className="footer-actions">
+                <div className="footer-icons">
+                  <button onClick={() => handleLike(post.postId)} className="like-button">
+                    <img src="/t-up.png" alt="Thumbs Up" /> {post.likes}
+                  </button>
+                  <button onClick={() => handleDislike(post.postId)} className="dislike-button">
+                    <img src="/t-down.png" alt="Thumbs Down" /> {post.dislikes}
+                  </button>
+                </div>
+                <div className="footer-comments">
+                  <button className="comment-button" onClick={() => handleOpenComments(post.postId)}>Comment</button>
+                </div>
               </div>
             </div>
-            <button className="comment-button" onClick={toggleOverlay}>Comment</button>
           </div>
         ))}
       </div>
+
+      <Dialog open={isCommentsDialogOpen} onClose={handleCloseComments}>
+        <DialogTitle>Comments</DialogTitle>
+        <DialogContent>
+          {comments.map((comment) => (
+            <div key={comment.id} className="comment">
+              <p>{comment.content}</p>
+              {comment.userId === 1 && ( // Replace 1 with the actual logged-in user's ID
+                <button onClick={() => handleDeleteComment(comment.id)}>Delete</button>
+              )}
+            </div>
+          ))}
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={handleCloseComments}>Close</Button>
+        </DialogActions>
+      </Dialog>
 
       {isOverlayVisible && (
         <div className="overlay" onClick={toggleOverlay}>
