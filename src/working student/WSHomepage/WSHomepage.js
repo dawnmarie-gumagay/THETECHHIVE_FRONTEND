@@ -20,6 +20,23 @@ const WSHomepage = () => {
   const [currentPostId, setCurrentPostId] = useState(null);
   const [comments, setComments] = useState([]);
   const [isCommentsDialogOpen, setIsCommentsDialogOpen] = useState(false);
+  const [loggedInUser, setLoggedInUser] = useState(null);
+
+  useEffect(() => {
+    const fetchLoggedInUser = async () => {
+      const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
+      if (storedUser && storedUser.username) {
+        try {
+          const response = await axios.get(`http://localhost:8080/user/getByUsername?username=${storedUser.username}`);
+          setLoggedInUser(response.data);
+        } catch (error) {
+          console.error("Error fetching user data:", error);
+        }
+      }
+    };
+
+    fetchLoggedInUser();
+  }, []);
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -103,11 +120,18 @@ const WSHomepage = () => {
       return;
     }
 
+    if (!loggedInUser) {
+      alert("Please log in to post.");
+      return;
+    }
+
     const newPost = {
       content: newPostContent,
       image: imagePreview,
       timestamp: new Date().toISOString(),
-      userId: 1, // Replace with actual user ID
+      userId: loggedInUser.userId,
+      fullName: loggedInUser.fullName,
+      idNumber: loggedInUser.idNumber,
       isVerified: false,
       likes: 0,
       dislikes: 0,
@@ -115,9 +139,7 @@ const WSHomepage = () => {
 
     try {
       const response = await axios.post("http://localhost:8080/posts/add", newPost);
-      const newPostId = response.data.postId;
-      newPost.postId = newPostId;
-      setPosts([newPost, ...posts]);
+      setPosts([response.data, ...posts]);
       setNewPostContent("");
       setSelectedFile(null);
       setImagePreview(null);
@@ -254,7 +276,7 @@ const WSHomepage = () => {
             <div className="card-container">
               <div className="name-container">
                 <img src="/dp.png" alt="User Avatar" />
-                <h5>User ID: {post.userId}</h5>
+                <h5>{post.fullName} ({post.idNumber})</h5>
               </div>
               <div className="card-contents">
                 <p>{post.content}</p>
@@ -285,7 +307,7 @@ const WSHomepage = () => {
           {comments.map((comment) => (
             <div key={comment.id} className="comment">
               <p>{comment.content}</p>
-              {comment.userId === 1 && ( // Replace 1 with the actual logged-in user's ID
+              {comment.userId === loggedInUser?.userId && (
                 <button onClick={() => handleDeleteComment(comment.id)}>Delete</button>
               )}
             </div>
