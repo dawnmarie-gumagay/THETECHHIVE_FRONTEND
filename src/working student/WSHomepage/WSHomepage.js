@@ -210,6 +210,15 @@ const WSHomepage = () => {
     }
   };
 
+  const formatTimestamp = (timestamp) => {
+    const date = new Date(timestamp);
+    return date.toLocaleDateString('en-US', {
+      year: 'numeric',
+      month: 'long',
+      day: 'numeric'
+    });
+  };
+
   return (
     <div className="ws-homepage">
       <div className="WSNavbar" />
@@ -291,6 +300,9 @@ const WSHomepage = () => {
               <div className="name-container">
                 <img src="/dp.png" alt="User Avatar" />
                 <h5>{post.fullName} ({post.idNumber})</h5>
+              </div>
+              <div className="timestamp">
+                {formatTimestamp(post.timestamp)}
               </div>
               <div className="card-contents">
               <p>{post.content}</p>
