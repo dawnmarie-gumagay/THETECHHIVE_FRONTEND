@@ -92,7 +92,6 @@ const WSHomepage = () => {
       reader.readAsDataURL(file);
     }
   };
-  
 
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
@@ -210,6 +209,20 @@ const WSHomepage = () => {
     }
   };
 
+  const handleDeletePost = async (postId) => {
+    if (!loggedInUser) {
+      alert("Please log in to delete posts.");
+      return;
+    }
+
+    try {
+      await axios.delete(`http://localhost:8080/posts/${postId}`);
+      setPosts(posts.filter(post => post.postId !== postId));
+    } catch (error) {
+      console.error("Error deleting post:", error);
+    }
+  };
+
   const formatTimestamp = (timestamp) => {
     const date = new Date(timestamp);
     return date.toLocaleDateString('en-US', {
@@ -300,21 +313,30 @@ const WSHomepage = () => {
               <div className="name-container">
                 <img src="/dp.png" alt="User Avatar" />
                 <h5>{post.fullName} ({post.idNumber})</h5>
+                {loggedInUser && loggedInUser.userId === post.userId && (
+                  <img
+                    src="/delete.png"
+                    alt="Delete"
+                    className="delete-icon"
+                    onClick={() => handleDeletePost(post.postId)}
+                    style={{ cursor: 'pointer', width: '20px', height: '20px', marginLeft: 'auto' }}
+                  />
+                )}
               </div>
               <div className="timestamp">
                 {formatTimestamp(post.timestamp)}
               </div>
               <div className="card-contents">
-              <p>{post.content}</p>
-        {post.image && (
-          <img
-            className="post-image"
-            alt="Post"
-            src={post.image}
-            style={{ maxWidth: '100%', height: 'auto' }}
-          />
-        )}
-         </div>
+                <p>{post.content}</p>
+                {post.image && (
+                  <img
+                    className="post-image"
+                    alt="Post"
+                    src={post.image}
+                    style={{ maxWidth: '100%', height: 'auto' }}
+                  />
+                )}
+              </div>
               <div className="footer-line" />
               <div className="footer-actions">
                 <div className="footer-icons">
