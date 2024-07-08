@@ -113,10 +113,10 @@
   width: 460px;
   height: 319px;
 }
-  
+
+.badge1,
 .badge2,
-.badge3,
-.badge1 {
+.badge3 {
   position: absolute;
   top: 169px;
   left: 377px;
@@ -124,29 +124,35 @@
   width: 83px;
   height: 77px;
   object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth transition for hover effects */
 }
-.badge2,
-.badge3,
-.badge1 {
-  top: 105px;
-  left: 254px;
-  width: 77px;
+.badge1:hover,
+.badge2:hover,
+.badge3:hover {
+  transform: scale(1.1); /* Slightly enlarge the badge */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a shadow effect */
 }
-.badge2,
-.badge1 {
-  top: 48px;
-  left: 128px;
-  width: 78px;
-}
+
 .badge1 {
   top: 0;
   left: 0;
   width: 82.3px;
 }
+.badge2,
+.badge3 {
+  top: 48px;
+  left: 128px;
+  width: 78px;
+}
+.badge2 {
+  top: 105px;
+  left: 254px;
+  width: 77px;
+}
 
 .badge1-bar,
-.badge3-bar,
-.badge2-bar {
+.badge2-bar,
+.badge3-bar {
   position: absolute;
   top: 82px;
   left: 8px;
@@ -154,9 +160,15 @@
   background-color: #F6C301;
   width: 66px;
   height: 237px;
+  transition: background-color 0.3s ease; /* Smooth transition for hover effects */
 }
-.badge3-bar,
-.badge2-bar {
+.badge1-bar:hover,
+.badge2-bar:hover,
+.badge3-bar:hover {
+  background-color: #D1A501; /* Darker shade on hover */
+}
+.badge2-bar,
+.badge3-bar {
   top: 129px;
   left: 134px;
   height: 190px;
