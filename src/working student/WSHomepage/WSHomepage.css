@@ -218,6 +218,16 @@
   font-size: 16px;
 }
 
+/* Delete Icon */
+.delete-icon {
+  margin-left: auto;
+  transition: opacity 0.2s;
+}
+
+.delete-icon:hover {
+  opacity: 0.7;
+}
+
 /* Timestamp */
 .timestamp {
   font-size: 0.8em;
