@@ -92,6 +92,7 @@ const WSHomepage = () => {
       reader.readAsDataURL(file);
     }
   };
+  
 
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
@@ -115,11 +116,12 @@ const WSHomepage = () => {
 
   const handlePostSubmit = async (e) => {
     e.preventDefault();
-    if (!newPostContent && !selectedFile) {
+    
+    if (!newPostContent && !imagePreview) {
       alert("Please enter a post or select a picture before submitting.");
       return;
     }
-
+    
     if (!loggedInUser) {
       alert("Please log in to post.");
       return;
@@ -136,15 +138,27 @@ const WSHomepage = () => {
       likes: 0,
       dislikes: 0,
     };
+  
+    console.log("Attempting to post:", newPost);
 
     try {
-      const response = await axios.post("http://localhost:8080/posts/add", newPost);
+      const response = await axios.post("http://localhost:8080/posts/add", newPost, {
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      });
+      
+      console.log("Post response:", response.data);
       setPosts([response.data, ...posts]);
       setNewPostContent("");
       setSelectedFile(null);
       setImagePreview(null);
     } catch (error) {
       console.error("Error posting data:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
     }
   };
 
@@ -279,9 +293,16 @@ const WSHomepage = () => {
                 <h5>{post.fullName} ({post.idNumber})</h5>
               </div>
               <div className="card-contents">
-                <p>{post.content}</p>
-                {post.image && <img className="post-image" alt="Post" src={post.image} />}
-              </div>
+              <p>{post.content}</p>
+        {post.image && (
+          <img
+            className="post-image"
+            alt="Post"
+            src={post.image}
+            style={{ maxWidth: '100%', height: 'auto' }}
+          />
+        )}
+         </div>
               <div className="footer-line" />
               <div className="footer-actions">
                 <div className="footer-icons">
