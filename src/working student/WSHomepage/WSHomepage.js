@@ -19,8 +19,9 @@ const WSHomepage = () => {
   const [imagePreview, setImagePreview] = useState(null);
   const [currentPostId, setCurrentPostId] = useState(null);
   const [comments, setComments] = useState([]);
-  const [isCommentsDialogOpen, setIsCommentsDialogOpen] = useState(false);
+  const [isCommentDialogOpen, setIsCommentDialogOpen] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
+  const [newComment, setNewComment] = useState('');
 
   useEffect(() => {
     const fetchLoggedInUser = async () => {
@@ -183,30 +184,33 @@ const WSHomepage = () => {
     }
   };
 
-  const handleOpenComments = async (postId) => {
+  const handleOpenComments = (postId) => {
     setCurrentPostId(postId);
-    try {
-      const response = await axios.get(`http://localhost:8080/posts/${postId}/comments`);
-      setComments(response.data);
-      setIsCommentsDialogOpen(true);
-    } catch (error) {
-      console.error("Error fetching comments:", error);
-    }
+    setIsCommentDialogOpen(true);
   };
 
   const handleCloseComments = () => {
-    setIsCommentsDialogOpen(false);
+    setIsCommentDialogOpen(false);
     setCurrentPostId(null);
-    setComments([]);
   };
 
-  const handleDeleteComment = async (commentId) => {
-    try {
-      await axios.delete(`http://localhost:8080/comments/${commentId}`);
-      setComments(comments.filter(comment => comment.id !== commentId));
-    } catch (error) {
-      console.error("Error deleting comment:", error);
-    }
+  const handleAddComment = () => {
+    if (newComment.trim() === '') return;
+    
+    const comment = {
+      id: Date.now(), // temporary id
+      content: newComment,
+      fullName: loggedInUser.fullName,
+      idNumber: loggedInUser.idNumber,
+      userId: loggedInUser.userId
+    };
+    
+    setComments([...comments, comment]);
+    setNewComment('');
+  };
+
+  const handleDeleteComment = (commentId) => {
+    setComments(comments.filter(comment => comment.id !== commentId));
   };
 
   const handleDeletePost = async (postId) => {
@@ -356,20 +360,32 @@ const WSHomepage = () => {
         ))}
       </div>
 
-      <Dialog open={isCommentsDialogOpen} onClose={handleCloseComments}>
-        <DialogTitle>Comments</DialogTitle>
+      <Dialog open={isCommentDialogOpen} onClose={handleCloseComments}>
+        <DialogTitle>
+          Comments
+          <Button onClick={handleCloseComments} style={{ position: 'absolute', right: 8, top: 8 }}>
+            X
+          </Button>
+        </DialogTitle>
         <DialogContent>
           {comments.map((comment) => (
             <div key={comment.id} className="comment">
+              <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
               <p>{comment.content}</p>
-              {comment.userId === loggedInUser?.userId && (
-                <button onClick={() => handleDeleteComment(comment.id)}>Delete</button>
+              {loggedInUser && loggedInUser.userId === currentPostId && (
+                <Button onClick={() => handleDeleteComment(comment.id)}>Delete</Button>
               )}
             </div>
           ))}
         </DialogContent>
         <DialogActions>
-          <Button onClick={handleCloseComments}>Close</Button>
+          <input
+            type="text"
+            placeholder="Add a comment..."
+            value={newComment}
+            onChange={(e) => setNewComment(e.target.value)}
+          />
+          <Button onClick={handleAddComment}>Comment</Button>
         </DialogActions>
       </Dialog>
 
