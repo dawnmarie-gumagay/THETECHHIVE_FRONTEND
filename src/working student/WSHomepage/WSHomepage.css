@@ -123,7 +123,7 @@
   gap: 10px;
 }
 
-.gallery-icon {
+.gallery-icon, .mic-icon {
   width: 18px;
   height: 18px;
   display: flex;
@@ -131,20 +131,7 @@
   transition: transform 0.2s ease-in-out;
 }
 
-.gallery-icon:hover {
-  transform: scale(1.4);
-}
-
-.mic-icon {
-  width: 18px;
-  height: 18px;
-  display: flex;
-  gap: 10px;
-  cursor: pointer;
-  transition: transform 0.2s ease-in-out;
-}
-
-.mic-icon:hover {
+.gallery-icon:hover, .mic-icon:hover {
   transform: scale(1.4);
 }
 
@@ -302,6 +289,78 @@
 .comment-button:hover {
   transform: scale(1.2);
   background-color: #f9d67b;
+}
+
+/* Comment Dialog Styles */
+.MuiDialog-root .MuiDialog-paper {
+  background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b) !important;
+  border-radius: 10px !important;
+  max-width: 500px !important;
+  width: 100% !important;
+}
+
+.MuiDialogTitle-root {
+  background-color: #8A252C !important;
+  color: white !important;
+  padding: 16px 24px !important;
+}
+
+.MuiDialogActions-root button {
+  background-color: #8A252C !important;
+  color: white !important;
+  border: none !important;
+  border-radius: 5px !important;
+  padding: 8px 16px !important;
+  cursor: pointer !important;
+}
+
+.MuiDialogActions-root button:hover {
+  background-color: #a91d3a !important;
+}
+
+.MuiDialogContent-root {
+  padding: 20px !important;
+  background-color: transparent !important;
+}
+
+.comment {
+  background-color: white;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 10px;
+}
+
+.user-info {
+  font-weight: bold;
+  margin-bottom: 5px;
+  display: block;
+}
+
+.MuiDialogActions-root {
+  padding: 16px !important;
+  display: flex;
+  justify-content: space-between;
+}
+
+.MuiDialogActions-root input {
+  flex-grow: 1;
+  margin-right: 10px;
+  padding: 8px;
+  border-radius: 5px;
+  border: 1px solid #8a252c;
+}
+
+.MuiDialogActions-root button {
+  background-color: #8a252c;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 8px 16px;
+  cursor: pointer;
+}
+
+.MuiDialogActions-root button:hover {
+  background-color: #a91d3a;
 }
 
 /* Overlay */
