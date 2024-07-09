@@ -244,7 +244,7 @@ const WSHomepage = () => {
         Profile
       </div>
       <div className="NLeaderboards" onClick={onLEADERBOARDSClick}>
-        Leaderboards
+        Leaderboard
       </div>
 
       <b className="HWildcat">WILDCAT</b>
