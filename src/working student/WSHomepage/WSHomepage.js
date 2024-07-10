@@ -184,29 +184,40 @@ const WSHomepage = () => {
     }
   };
 
-  const handleOpenComments = (postId) => {
+  const handleOpenComments = async (postId) => {
     setCurrentPostId(postId);
+    try {
+      const response = await axios.get(`http://localhost:8080/posts/${postId}/comments`);
+      setComments(response.data);
+    } catch (error) {
+      console.error("Error fetching comments:", error);
+    }
     setIsCommentDialogOpen(true);
   };
+  
 
   const handleCloseComments = () => {
     setIsCommentDialogOpen(false);
     setCurrentPostId(null);
   };
 
-  const handleAddComment = () => {
+  const handleAddComment = async () => {
     if (newComment.trim() === '') return;
     
     const comment = {
-      id: Date.now(), // temporary id
       content: newComment,
+      userId: loggedInUser.userId,
       fullName: loggedInUser.fullName,
       idNumber: loggedInUser.idNumber,
-      userId: loggedInUser.userId
     };
     
-    setComments([...comments, comment]);
-    setNewComment('');
+    try {
+      const response = await axios.post(`http://localhost:8080/posts/${currentPostId}/comments`, comment);
+      setComments([...comments, response.data]);
+      setNewComment('');
+    } catch (error) {
+      console.error("Error adding comment:", error);
+    }
   };
 
   const handleDeleteComment = (commentId) => {
