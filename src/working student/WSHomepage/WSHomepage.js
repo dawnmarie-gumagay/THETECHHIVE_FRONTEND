@@ -10,6 +10,11 @@ const WSComment = Loadable({
   loading: () => <div>Loading...</div>,
 });
 
+// Create an axios instance with a base URL
+const api = axios.create({
+  baseURL: 'http://localhost:8080',
+});
+
 const WSHomepage = () => {
   const navigate = useNavigate();
   const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -28,7 +33,7 @@ const WSHomepage = () => {
       const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
       if (storedUser && storedUser.username) {
         try {
-          const response = await axios.get(`http://localhost:8080/user/getByUsername?username=${storedUser.username}`);
+          const response = await api.get(`/user/getByUsername?username=${storedUser.username}`);
           setLoggedInUser(response.data);
         } catch (error) {
           console.error("Error fetching user data:", error);
@@ -42,7 +47,7 @@ const WSHomepage = () => {
   useEffect(() => {
     const fetchPosts = async () => {
       try {
-        const response = await axios.get("http://localhost:8080/posts");
+        const response = await api.get("/posts");
         setPosts(response.data);
       } catch (error) {
         console.error("Error fetching posts:", error);
@@ -142,7 +147,7 @@ const WSHomepage = () => {
     console.log("Attempting to post:", newPost);
 
     try {
-      const response = await axios.post("http://localhost:8080/posts/add", newPost, {
+      const response = await api.post("/posts/add", newPost, {
         headers: {
           'Content-Type': 'application/json'
         }
@@ -164,7 +169,7 @@ const WSHomepage = () => {
 
   const handleLike = async (postId) => {
     try {
-      await axios.post(`http://localhost:8080/posts/${postId}/like`);
+      await api.post(`/posts/${postId}/like`);
       setPosts(posts.map(post => 
         post.postId === postId ? { ...post, likes: post.likes + 1 } : post
       ));
@@ -175,7 +180,7 @@ const WSHomepage = () => {
 
   const handleDislike = async (postId) => {
     try {
-      await axios.post(`http://localhost:8080/posts/${postId}/dislike`);
+      await api.post(`/posts/${postId}/dislike`);
       setPosts(posts.map(post => 
         post.postId === postId ? { ...post, dislikes: post.dislikes + 1 } : post
       ));
@@ -187,14 +192,13 @@ const WSHomepage = () => {
   const handleOpenComments = async (postId) => {
     setCurrentPostId(postId);
     try {
-      const response = await axios.get(`http://localhost:8080/posts/${postId}/comments`);
+      const response = await api.get(`/comments/${postId}`);
       setComments(response.data);
     } catch (error) {
       console.error("Error fetching comments:", error);
     }
     setIsCommentDialogOpen(true);
   };
-  
 
   const handleCloseComments = () => {
     setIsCommentDialogOpen(false);
@@ -202,17 +206,19 @@ const WSHomepage = () => {
   };
 
   const handleAddComment = async () => {
-    if (newComment.trim() === '') return;
+    if (newComment.trim() === '' || !loggedInUser) return;
     
     const comment = {
       content: newComment,
       userId: loggedInUser.userId,
       fullName: loggedInUser.fullName,
       idNumber: loggedInUser.idNumber,
+      postId: currentPostId,
+      timestamp: new Date().toISOString(),
     };
     
     try {
-      const response = await axios.post(`http://localhost:8080/posts/${currentPostId}/comments`, comment);
+      const response = await api.post(`/comments/add`, comment);
       setComments([...comments, response.data]);
       setNewComment('');
     } catch (error) {
@@ -220,8 +226,26 @@ const WSHomepage = () => {
     }
   };
 
-  const handleDeleteComment = (commentId) => {
-    setComments(comments.filter(comment => comment.id !== commentId));
+  const handleDeleteComment = async (commentId) => {
+    console.log("Attempting to delete comment with ID:", commentId);
+    if (!loggedInUser) {
+      console.error("User not logged in");
+      return;
+    }
+    try {
+      const response = await api.delete(`/comments/${commentId}?userId=${loggedInUser.userId}`);
+      if (response.status === 200) {
+        setComments(comments.filter(comment => comment.id !== commentId));
+      } else {
+        console.error("Failed to delete comment:", response.data);
+      }
+    } catch (error) {
+      console.error("Error deleting comment:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
+    }
   };
 
   const handleDeletePost = async (postId) => {
@@ -231,7 +255,7 @@ const WSHomepage = () => {
     }
 
     try {
-      await axios.delete(`http://localhost:8080/posts/${postId}`);
+      await api.delete(`/posts/${postId}`);
       setPosts(posts.filter(post => post.postId !== postId));
     } catch (error) {
       console.error("Error deleting post:", error);
@@ -384,11 +408,20 @@ const WSHomepage = () => {
         <DialogContent>
           {comments.map((comment) => (
             <div key={comment.id} className="comment">
-              <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
+              <div className="comment-header">
+                <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
+                <span className="comment-timestamp">{formatTimestamp(comment.timestamp)}</span>
+                {loggedInUser && (loggedInUser.userId === comment.userId || loggedInUser.userId === posts.find(p => p.postId === currentPostId)?.userId) && (
+                  <img
+                    src="/delete.png"
+                    alt="Delete"
+                    className="delete-icon"
+                    onClick={() => handleDeleteComment(comment.id)}
+                    style={{ cursor: 'pointer', width: '20px', height: '20px', marginLeft: 'auto' }}
+                  />
+                )}
+              </div>
               <p>{comment.content}</p>
-              {loggedInUser && loggedInUser.userId === currentPostId && (
-                <Button onClick={() => handleDeleteComment(comment.id)}>Delete</Button>
-              )}
             </div>
           ))}
         </DialogContent>
