@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AboutUs4.css";
+import "./WSAboutUs4.css";
 
-const AboutUs4 = () => {
+const WSAboutUs4 = () => {
   const navigate = useNavigate();
 
   const onGETSTARTEDTextClick = useCallback(() => {
@@ -49,7 +49,7 @@ const AboutUs4 = () => {
       <img className="motto-icon" alt="" src="/motto.png" />
 
       <div className="hobbies-name">Hobbies</div>
-      <div className="hobbies-info">Watching movies, Cooking, Sleeping & Playing online games</div>
+      <div className="hobbies-info">Watching movies, Cooking, Sleeping & <br></br> Playing online games</div>
       <div className="hobbies-bg" />
       <img className="hobbies-icon" alt="" src="/hobby.png" />
       
@@ -60,4 +60,4 @@ const AboutUs4 = () => {
   );
 };
 
-export default AboutUs4;
+export default WSAboutUs4;

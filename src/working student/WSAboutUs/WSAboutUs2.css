@@ -8,40 +8,7 @@
     font-family: var(--font-montserrat);
   }
   
-  
-  .get-started2 {
-    position: absolute;
-    top: 80px;
-    display: inline-block;
-    height: 23px;
-    left: 1005px;
-    font-weight: 600;
-    font-size: 20px;
-    width: 142px;
-    cursor: pointer;
-  } 
-  
-  .half3 {
-    position: absolute;
-    top: 80px;
-    display: inline-block;
-    height: 23px;
-    left: 1135px;
-    font-weight: 500;
-    width: 6px;
-  }
-  
-  .contact-us2 {
-    position: absolute;
-    top: 80px;
-    display: inline-block;
-    height: 23px;
-    left: 1150px;
-    font-weight: 600;
-    font-size: 20px;
-    width: 136px;
-    cursor: pointer;
-  }
+
   
   
   .AboutUs-title {

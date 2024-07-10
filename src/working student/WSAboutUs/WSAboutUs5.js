@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AboutUs2.css";
+import "./WSAboutUs5.css";
 
-const AboutUs2 = () => {
+const WSAboutUs5 = () => {
   const navigate = useNavigate();
 
   const onGETSTARTEDTextClick = useCallback(() => {
@@ -14,11 +14,11 @@ const AboutUs2 = () => {
   }, [navigate]);
 
   const onLeftClick = useCallback(() => {
-    navigate("/wsaboutus");
+    navigate("/wsaboutus4");
   }, [navigate]);
 
   const onRightClick = useCallback(() => {
-    navigate("/wsaboutus3");
+    navigate("/wsaboutus");
   }, [navigate]);
 
   return (
@@ -36,28 +36,28 @@ const AboutUs2 = () => {
       </div>
 
       <div className="AboutUs-title">ABOUT US</div>
-      <b className="member-name">Areej Charisse R. Corbete</b>
+      <b className="member-name">Rodlyn Mahilum</b>
 
       <div className="role-name">Role</div>
-      <div className="role-info">UI/UX Designer, Developer</div>
+      <div className="role-info">Developer</div>
       <div className="role-bg" />
       <img className="role-icon" alt="" src="/role.png" />
 
       <div className="motto-name">Motto</div>
-      <div className="motto-info">Eat spicy food to be hot</div>
+      <div className="motto-info">Use pain as fuel to drive you to dream bigger.</div>
       <div className="motto-bg" />
       <img className="motto-icon" alt="" src="/motto.png" />
 
       <div className="hobbies-name">Hobbies</div>
-      <div className="hobbies-info">Gaming and Dancing</div>
+      <div className="hobbies-info">Sometimes reading books, playing games <br></br> I like, and watching movies/series</div>
       <div className="hobbies-bg" />
       <img className="hobbies-icon" alt="" src="/hobby.png" />
       
-      <img className="members-dp" alt="" src="/mdp2.png" />
+      <img className="members-dp" alt="" src="/mdp5.jpg" />
       <img className="left-click" alt="" src="/left.png" onClick={onLeftClick} />
       <img className="right-click" alt="" src="/right.png" onClick={onRightClick} />
     </div>
   );
 };
 
-export default AboutUs2;
+export default WSAboutUs5;

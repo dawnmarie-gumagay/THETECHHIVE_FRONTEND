@@ -3,7 +3,11 @@ import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-d
 import LoadingBar2 from './loadingbars/LoadingBar2';
 import WSLandingPage from './working student/WSLandingPage/WSLandingPage';
 import ContactUs from './working student/WSContactUs/ContactUs';
-import AboutUs from './working student/WSAboutUs/AboutUs';
+import WSAboutUs from './working student/WSAboutUs/WSAboutUs';
+import WSAboutUs2 from './working student/WSAboutUs/WSAboutUs2';
+import WSAboutUs3 from './working student/WSAboutUs/WSAboutUs3';
+import WSAboutUs4 from './working student/WSAboutUs/WSAboutUs4';
+import WSAboutUs5 from './working student/WSAboutUs/WSAboutUs5';
 import SignUpSignIn from './working student/WSSignUpSignIn/SignUpSignIn';
 import SignUp from './working student/WSSignUpSignIn/SignUp';
 import SuccessfullyRegistered from './working student/WSSignUpSignIn/SuccessfullyRegistered';
@@ -19,10 +23,6 @@ import WSProfile from './working student/WSProfile/WSProfile';
 import UpdatedPopUp from './working student/WSProfile/UpdatedPopUp';
 import WSLogout from './working student/WSProfile/WSLogout';
 import ConfirmLogout from './working student/WSProfile/ConfirmLogout';
-import AboutUs2 from './working student/WSAboutUs/AboutUs2';
-import AboutUs3 from './working student/WSAboutUs/AboutUs3';
-import AboutUs4 from './working student/WSAboutUs/AboutUs4';
-import AboutUs5 from './working student/WSAboutUs/AboutUs5';
 import ADSignIn from './admin pages/ADSignIn/SignIn';
 import AdHome from './admin pages/ADHome/AdHome';
 import AdEntry from './admin pages/ADEntry/AdEntry';
@@ -30,6 +30,7 @@ import AdLeaderboard from './admin pages/ADLeaderboard/AdLeaderboard';
 import AdProfile from './admin pages/ADProfile/AdProfile';
 import AdLogout from './admin pages/ADLogout/Logout';
 import LogoutDialog from './components/LogoutDialog'; // Corrected import path
+
 
 const App = () => {
   return (
@@ -39,11 +40,11 @@ const App = () => {
         <Route path="/loadingbar2" element={<LoadingBar2 />} />
         <Route path="/wslandingpage" element={<WSLandingPage />} />
         <Route path="/wscontactus" element={<ContactUs />} />
-        <Route path="/wsaboutus" element={<AboutUs />} />
-        <Route path="/wsaboutus2" element={<AboutUs2 />} />
-        <Route path="/wsaboutus3" element={<AboutUs3 />} />
-        <Route path="/wsaboutus4" element={<AboutUs4 />} />
-        <Route path="/wsaboutus5" element={<AboutUs5 />} />
+        <Route path="/wsaboutus" element={<WSAboutUs />} />
+        <Route path="/wsaboutus2" element={<WSAboutUs2 />} />
+        <Route path="/wsaboutus3" element={<WSAboutUs3 />} />
+        <Route path="/wsaboutus4" element={<WSAboutUs4 />} />
+        <Route path="/wsaboutus5" element={<WSAboutUs5 />} />
         <Route path="/wssignupsignin" element={<SignUpSignIn />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/signin" element={<SignIn />} />

@@ -8,42 +8,39 @@
     font-family: var(--font-montserrat);
   }
   
-  
   .get-started2 {
-    position: absolute;
-    top: 80px;
-    display: inline-block;
-    height: 23px;
-    left: 1005px;
+    top: 70px;
+    left: 960px;
     font-weight: 600;
-    font-size: 20px;
-    width: 142px;
+    position: absolute;
+    display: inline-block;
+    width: 136px;
+    height: 23px;
     cursor: pointer;
   } 
   
   .half3 {
     position: absolute;
-    top: 80px;
+    top: 70px;
+    left: 1100px;
+    font-weight: 600;
+    font-size: 20px;
     display: inline-block;
+    width: 81px;
     height: 23px;
-    left: 1135px;
-    font-weight: 500;
-    width: 6px;
   }
   
   .contact-us2 {
     position: absolute;
-    top: 80px;
+    top: 70px;
     display: inline-block;
     height: 23px;
-    left: 1150px;
+    left: 1116px;
     font-weight: 600;
     font-size: 20px;
     width: 136px;
     cursor: pointer;
   }
-  
-  
   .AboutUs-title {
     position: absolute;
     left: 340px;

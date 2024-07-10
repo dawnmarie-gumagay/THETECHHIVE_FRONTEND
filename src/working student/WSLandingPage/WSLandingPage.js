@@ -37,16 +37,18 @@ const WSLandingPage = () => {
       <Button
         className="get-started-button"
         variant="contained"
-        sx={{ borderRadius: "10px", 
-              width: 165, 
-              height: 40,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" } 
+        sx={{
+            borderRadius: "10px",
+            width: 165,
+            height: 40,
+            backgroundColor: "#8A252C",
+            "&:hover": { backgroundColor: "#A91D3A" },
             }}
-        onClick={onGroupButtonClick}
-      >
-        GET STARTED
+         onClick={onGroupButtonClick}
+        >
+        <span style={{ fontSize: "15px" }}>GET STARTED</span>
       </Button>
+
 
       <div className="badge-container">
         <img

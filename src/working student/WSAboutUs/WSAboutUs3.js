@@ -1,8 +1,8 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./AboutUs3.css";
+import "./WSAboutUs3.css";
 
-const AboutUs3 = () => {
+const WSAboutUs3 = () => {
   const navigate = useNavigate();
 
   const onGETSTARTEDTextClick = useCallback(() => {
@@ -61,4 +61,4 @@ const AboutUs3 = () => {
   );
 };
 
-export default AboutUs3;
+export default WSAboutUs3;
