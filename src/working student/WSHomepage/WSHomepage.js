@@ -363,9 +363,12 @@ const WSHomepage = () => {
       <Dialog open={isCommentDialogOpen} onClose={handleCloseComments}>
         <DialogTitle>
           Comments
-          <Button onClick={handleCloseComments} style={{ position: 'absolute', right: 8, top: 8 }}>
-            X
-          </Button>
+          <img
+            src="/exit.png"
+            alt="Close"
+            className="exit-icon"
+            onClick={handleCloseComments}
+          />
         </DialogTitle>
         <DialogContent>
           {comments.map((comment) => (
