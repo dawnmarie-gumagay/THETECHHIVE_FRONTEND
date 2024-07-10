@@ -315,7 +315,8 @@
 }
 
 .MuiDialogActions-root button:hover {
-  background-color: #a91d3a !important;
+  background-color: #f9d67b !important;
+  color: black !important;
 }
 
 .MuiDialogContent-root {
@@ -329,6 +330,10 @@
   border-radius: 8px;
   padding: 10px;
   margin-bottom: 10px;
+}
+
+.comment:hover{
+  background-color: #f9d67b !important;
 }
 
 .user-info {
@@ -396,7 +401,7 @@
   width: 30px;
   height: 30px;
   cursor: pointer;
-  transform: scale(1.2);
+  transform: scale(1.0);
 }
 
 .exit-icon:hover {
