@@ -22,6 +22,9 @@ const WSHomepage = () => {
   const [isCommentDialogOpen, setIsCommentDialogOpen] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
   const [newComment, setNewComment] = useState('');
+  const [isDeletePostDialogOpen, setIsDeletePostDialogOpen] = useState(false);
+  const [isDeleteCommentDialogOpen, setIsDeleteCommentDialogOpen] = useState(false);
+  const [itemToDelete, setItemToDelete] = useState(null);
 
   useEffect(() => {
     const fetchLoggedInUser = async () => {
@@ -220,37 +223,45 @@ const WSHomepage = () => {
     }
   };
 
-  const handleDeleteComment = async (commentId) => {
-    if (!loggedInUser) {
-      alert("Please log in to delete comments.");
-      return;
-    }
-  
-    try {
-      await axios.delete(`http://localhost:8080/comments/${commentId}`, {
-        params: {
-          userId: loggedInUser.userId
-        }
-      });
-      setComments(comments.filter(comment => comment.commentId !== commentId));
-
-    } catch (error) {
-      console.error("Error deleting comment:", error);
-    }
-  };
-  
-
-  const handleDeletePost = async (postId) => {
+  const handleDeletePost = (postId) => {
     if (!loggedInUser) {
       alert("Please log in to delete posts.");
       return;
     }
+    setItemToDelete(postId);
+    setIsDeletePostDialogOpen(true);
+  };
 
+  const handleDeleteComment = (commentId) => {
+    if (!loggedInUser) {
+      alert("Please log in to delete comments.");
+      return;
+    }
+    setItemToDelete(commentId);
+    setIsDeleteCommentDialogOpen(true);
+  };
+
+  const confirmDeletePost = async () => {
     try {
-      await axios.delete(`http://localhost:8080/posts/${postId}`);
-      setPosts(posts.filter(post => post.postId !== postId));
+      await axios.delete(`http://localhost:8080/posts/${itemToDelete}`);
+      setPosts(posts.filter(post => post.postId !== itemToDelete));
+      setIsDeletePostDialogOpen(false);
     } catch (error) {
       console.error("Error deleting post:", error);
+    }
+  };
+
+  const confirmDeleteComment = async () => {
+    try {
+      await axios.delete(`http://localhost:8080/comments/${itemToDelete}`, {
+        params: {
+          userId: loggedInUser.userId
+        }
+      });
+      setComments(comments.filter(comment => comment.commentId !== itemToDelete));
+      setIsDeleteCommentDialogOpen(false);
+    } catch (error) {
+      console.error("Error deleting comment:", error);
     }
   };
 
@@ -398,25 +409,24 @@ const WSHomepage = () => {
           />
         </DialogTitle>
         <DialogContent>
-        {comments.map((comment) => (
-  <div key={comment.commentId} className="comment">
-    <div className="comment-header">
-      <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
-      <span className="comment-timestamp">{formatTimestamp(comment.timestamp)}</span>
-      {loggedInUser && (loggedInUser.userId === comment.userId || loggedInUser.userId === posts.find(post => post.postId === comment.postId).userId) && (
-        <img
-          src="/delete.png"
-          alt="Delete"
-          className="delete-icon"
-          onClick={() => handleDeleteComment(comment.commentId)}
-          style={{ cursor: 'pointer', width: '20px', height: '20px', marginLeft: 'auto' }}
-        />
-      )}
-    </div>
-    <p>{comment.content}</p>
-  </div>
-))}
-
+          {comments.map((comment) => (
+            <div key={comment.commentId} className="comment">
+              <div className="comment-header">
+                <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
+                <span className="comment-timestamp">{formatTimestamp(comment.timestamp)}</span>
+                {loggedInUser && (loggedInUser.userId === comment.userId || loggedInUser.userId === posts.find(post => post.postId === comment.postId).userId) && (
+                  <img
+                    src="/delete.png"
+                    alt="Delete"
+                    className="delete-icon"
+                    onClick={() => handleDeleteComment(comment.commentId)}
+                    style={{ cursor: 'pointer', width: '20px', height: '20px', marginLeft: 'auto' }}
+                  />
+                )}
+              </div>
+              <p>{comment.content}</p>
+            </div>
+          ))}
         </DialogContent>
         <DialogActions>
           <input
@@ -426,6 +436,28 @@ const WSHomepage = () => {
             onChange={(e) => setNewComment(e.target.value)}
           />
           <Button onClick={handleAddComment}>Comment</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={isDeletePostDialogOpen} onClose={() => setIsDeletePostDialogOpen(false)}>
+        <DialogTitle>Confirm Deletion</DialogTitle>
+        <DialogContent>
+          Are you sure you want to delete this post?
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setIsDeletePostDialogOpen(false)}>Cancel</Button>
+          <Button onClick={confirmDeletePost} color="error">Delete</Button>
+        </DialogActions>
+      </Dialog>
+
+      <Dialog open={isDeleteCommentDialogOpen} onClose={() => setIsDeleteCommentDialogOpen(false)}>
+        <DialogTitle>Confirm Deletion</DialogTitle>
+        <DialogContent>
+          Are you sure you want to delete this comment?
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setIsDeleteCommentDialogOpen(false)}>Cancel</Button>
+          <Button onClick={confirmDeleteComment} color="error">Delete</Button>
         </DialogActions>
       </Dialog>
 
