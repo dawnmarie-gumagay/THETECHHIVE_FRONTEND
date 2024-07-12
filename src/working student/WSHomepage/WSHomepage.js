@@ -221,13 +221,24 @@ const WSHomepage = () => {
   };
 
   const handleDeleteComment = async (commentId) => {
+    if (!loggedInUser) {
+      alert("Please log in to delete comments.");
+      return;
+    }
+  
     try {
-      await axios.delete(`http://localhost:8080/comments/${commentId}`);
-      setComments(comments.filter(comment => comment.id !== commentId));
+      await axios.delete(`http://localhost:8080/comments/${commentId}`, {
+        params: {
+          userId: loggedInUser.userId
+        }
+      });
+      setComments(comments.filter(comment => comment.commentId !== commentId));
+
     } catch (error) {
       console.error("Error deleting comment:", error);
     }
   };
+  
 
   const handleDeletePost = async (postId) => {
     if (!loggedInUser) {
@@ -387,24 +398,25 @@ const WSHomepage = () => {
           />
         </DialogTitle>
         <DialogContent>
-          {comments.map((comment) => (
-            <div key={comment.id} className="comment">
-              <div className="comment-header">
-                <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
-                <span className="comment-timestamp">{formatTimestamp(comment.timestamp)}</span>
-                {loggedInUser && loggedInUser.userId === comment.userId && (
-                  <img
-                    src="/delete.png"
-                    alt="Delete"
-                    className="delete-icon"
-                    onClick={() => handleDeleteComment(comment.id)}
-                    style={{ cursor: 'pointer', width: '20px', height: '20px', marginLeft: 'auto' }}
-                  />
-                )}
-              </div>
-              <p>{comment.content}</p>
-            </div>
-          ))}
+        {comments.map((comment) => (
+  <div key={comment.commentId} className="comment">
+    <div className="comment-header">
+      <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
+      <span className="comment-timestamp">{formatTimestamp(comment.timestamp)}</span>
+      {loggedInUser && (loggedInUser.userId === comment.userId || loggedInUser.userId === posts.find(post => post.postId === comment.postId).userId) && (
+        <img
+          src="/delete.png"
+          alt="Delete"
+          className="delete-icon"
+          onClick={() => handleDeleteComment(comment.commentId)}
+          style={{ cursor: 'pointer', width: '20px', height: '20px', marginLeft: 'auto' }}
+        />
+      )}
+    </div>
+    <p>{comment.content}</p>
+  </div>
+))}
+
         </DialogContent>
         <DialogActions>
           <input
