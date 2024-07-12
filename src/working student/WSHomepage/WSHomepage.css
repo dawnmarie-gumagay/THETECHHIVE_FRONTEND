@@ -221,9 +221,15 @@
 
 /* Timestamp */
 .timestamp {
-  font-size: 0.8em;
-  color: #666;
-  margin-bottom: 10px;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.formatted-date,
+.relative-time {
+  font-size: 12px;
+  color: #696969; /* This is a gray color. Adjust the shade as needed */
 }
 
 /* Card Contents */
