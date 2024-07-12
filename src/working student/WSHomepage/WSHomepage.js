@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
 import Loadable from 'react-loadable';
+import moment from 'moment';
 import "./WSHomepage.css";
 
 const WSComment = Loadable({
@@ -38,7 +39,6 @@ const WSHomepage = () => {
         }
       }
     };
-
     fetchLoggedInUser();
   }, []);
 
@@ -46,12 +46,13 @@ const WSHomepage = () => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get("http://localhost:8080/posts");
-        setPosts(response.data);
+        // Sort posts by timestamp, newest first
+        const sortedPosts = response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        setPosts(sortedPosts);
       } catch (error) {
         console.error("Error fetching posts:", error);
       }
     };
-
     fetchPosts();
   }, []);
 
@@ -99,21 +100,17 @@ const WSHomepage = () => {
 
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
-
     const recognition = new window.webkitSpeechRecognition();
     recognition.continuous = false;
     recognition.interimResults = false;
     recognition.lang = "en-US";
-
     recognition.onresult = (event) => {
       const transcript = event.results[0][0].transcript;
       setNewPostContent((prevContent) => prevContent + " " + transcript);
     };
-
     recognition.onerror = (event) => {
       console.log("Speech recognition error:", event.error);
     };
-
     recognition.start();
   };
 
@@ -133,7 +130,6 @@ const WSHomepage = () => {
     const newPost = {
       content: newPostContent,
       image: imagePreview,
-      timestamp: new Date().toISOString(),
       userId: loggedInUser.userId,
       fullName: loggedInUser.fullName,
       idNumber: loggedInUser.idNumber,
@@ -143,7 +139,6 @@ const WSHomepage = () => {
     };
   
     console.log("Attempting to post:", newPost);
-
     try {
       const response = await axios.post("http://localhost:8080/posts/add", newPost, {
         headers: {
@@ -152,7 +147,7 @@ const WSHomepage = () => {
       });
       
       console.log("Post response:", response.data);
-      setPosts([response.data, ...posts]);
+      setPosts(prevPosts => [response.data, ...prevPosts]); // Add new post to the beginning of the array
       setNewPostContent("");
       setSelectedFile(null);
       setImagePreview(null);
@@ -211,7 +206,6 @@ const WSHomepage = () => {
       userId: loggedInUser.userId,
       fullName: loggedInUser.fullName,
       idNumber: loggedInUser.idNumber,
-      timestamp: new Date().toISOString(),
     };
     
     try {
@@ -266,12 +260,12 @@ const WSHomepage = () => {
   };
 
   const formatTimestamp = (timestamp) => {
-    const date = new Date(timestamp);
-    return date.toLocaleDateString('en-US', {
-      year: 'numeric',
-      month: 'long',
-      day: 'numeric'
-    });
+    const momentDate = moment(timestamp);
+    return momentDate.format('dddd, MMMM D, YYYY [at] h:mm A');
+  };
+
+  const getRelativeTime = (timestamp) => {
+    return moment(timestamp).fromNow();
   };
 
   return (
@@ -288,9 +282,7 @@ const WSHomepage = () => {
       <div className="NLeaderboards" onClick={onLEADERBOARDSClick}>
         Leaderboard
       </div>
-
       <b className="HWildcat">WILDCAT</b>
-
       <div className="post-container">
         <div className="logo-container">
           <img src="/dp.png" alt="User Avatar" className="users-dp" />
@@ -347,7 +339,6 @@ const WSHomepage = () => {
           )}
         </div>
       </div>
-
       <div className="post-list">
         {posts.map((post) => (
           <div key={post.postId} className="post-card">
@@ -366,7 +357,9 @@ const WSHomepage = () => {
                 )}
               </div>
               <div className="timestamp">
-                {formatTimestamp(post.timestamp)}
+              <span className="formatted-date">{formatTimestamp(post.timestamp)}</span>
+              <br />
+              <span className="relative-time">{getRelativeTime(post.timestamp)}</span>
               </div>
               <div className="card-contents">
                 <p>{post.content}</p>
@@ -397,7 +390,6 @@ const WSHomepage = () => {
           </div>
         ))}
       </div>
-
       <Dialog open={isCommentDialogOpen} onClose={handleCloseComments}>
         <DialogTitle>
           Comments
@@ -429,18 +421,23 @@ const WSHomepage = () => {
           ))}
         </DialogContent>
         <DialogActions>
-          <input
-            type="text"
-            placeholder="Add a comment..."
-            value={newComment}
-            onChange={(e) => setNewComment(e.target.value)}
-          />
-          <Button onClick={handleAddComment}>Comment</Button>
+          <div style={{ display: 'flex', width: '100%' }}>
+            <input
+              type="text"
+              placeholder="Add a comment..."
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              style={{ flexGrow: 1, marginRight: '10px' }}
+            />
+            <Button onClick={handleAddComment} variant="contained" color="primary">
+              Comment
+            </Button>
+          </div>
         </DialogActions>
       </Dialog>
 
       <Dialog open={isDeletePostDialogOpen} onClose={() => setIsDeletePostDialogOpen(false)}>
-        <DialogTitle>Confirm Deletion</DialogTitle>
+        <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
           Are you sure you want to delete this post?
         </DialogContent>
@@ -451,7 +448,7 @@ const WSHomepage = () => {
       </Dialog>
 
       <Dialog open={isDeleteCommentDialogOpen} onClose={() => setIsDeleteCommentDialogOpen(false)}>
-        <DialogTitle>Confirm Deletion</DialogTitle>
+        <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
           Are you sure you want to delete this comment?
         </DialogContent>
@@ -460,14 +457,6 @@ const WSHomepage = () => {
           <Button onClick={confirmDeleteComment} color="error">Delete</Button>
         </DialogActions>
       </Dialog>
-
-      {isOverlayVisible && (
-        <div className="overlay" onClick={toggleOverlay}>
-          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <WSComment onClose={onClose} />
-          </div>
-        </div>
-      )}
     </div>
   );
 };
