@@ -19,6 +19,7 @@ const WSHomepage = () => {
   const [selectedFile, setSelectedFile] = useState(null);
   const [imagePreview, setImagePreview] = useState(null);
   const [currentPostId, setCurrentPostId] = useState(null);
+  const [currentPostOwner, setCurrentPostOwner] = useState(null);
   const [comments, setComments] = useState([]);
   const [isCommentDialogOpen, setIsCommentDialogOpen] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null);
@@ -26,6 +27,7 @@ const WSHomepage = () => {
   const [isDeletePostDialogOpen, setIsDeletePostDialogOpen] = useState(false);
   const [isDeleteCommentDialogOpen, setIsDeleteCommentDialogOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
+  
 
   useEffect(() => {
     const fetchLoggedInUser = async () => {
@@ -46,7 +48,6 @@ const WSHomepage = () => {
     const fetchPosts = async () => {
       try {
         const response = await axios.get("http://localhost:8080/posts");
-        // Sort posts by timestamp, newest first
         const sortedPosts = response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
         setPosts(sortedPosts);
       } catch (error) {
@@ -65,12 +66,14 @@ const WSHomepage = () => {
   useEffect(() => {
     const timer = setInterval(() => {
       setComments(prevComments => 
-        prevComments.map(comment => ({
-          ...comment,
-          relativeTime: moment(comment.timestamp).fromNow()
-        }))
+        prevComments
+          .map(comment => ({
+            ...comment,
+            relativeTime: moment(comment.timestamp).fromNow()
+          }))
+          .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
       );
-    }, 60000); // Update every minute
+    }, 60000);
     return () => clearInterval(timer);
   }, []);
 
@@ -150,7 +153,6 @@ const WSHomepage = () => {
       dislikes: 0,
     };
   
-    console.log("Attempting to post:", newPost);
     try {
       const response = await axios.post("http://localhost:8080/posts/add", newPost, {
         headers: {
@@ -158,8 +160,7 @@ const WSHomepage = () => {
         }
       });
       
-      console.log("Post response:", response.data);
-      setPosts(prevPosts => [response.data, ...prevPosts]); // Add new post to the beginning of the array
+      setPosts(prevPosts => [response.data, ...prevPosts]);
       setNewPostContent("");
       setSelectedFile(null);
       setImagePreview(null);
@@ -197,14 +198,20 @@ const WSHomepage = () => {
   const handleOpenComments = async (postId) => {
     setCurrentPostId(postId);
     try {
-      const response = await axios.get(`http://localhost:8080/posts/${postId}/comments`);
-      const commentsWithRelativeTime = response.data.map(comment => ({
-        ...comment,
-        relativeTime: moment(comment.timestamp).fromNow()
-      }));
-      setComments(commentsWithRelativeTime);
+      const [commentsResponse, postResponse] = await Promise.all([
+        axios.get(`http://localhost:8080/posts/${postId}/comments`),
+        axios.get(`http://localhost:8080/posts/${postId}`)
+      ]);
+      const sortedComments = commentsResponse.data
+        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+        .map(comment => ({
+          ...comment,
+          relativeTime: moment(comment.timestamp).fromNow()
+        }));
+      setComments(sortedComments);
+      setCurrentPostOwner(postResponse.data.userId);
     } catch (error) {
-      console.error("Error fetching comments:", error);
+      console.error("Error fetching comments or post details:", error);
     }
     setIsCommentDialogOpen(true);
   };
@@ -226,7 +233,11 @@ const WSHomepage = () => {
     
     try {
       const response = await axios.post(`http://localhost:8080/posts/${currentPostId}/comments`, comment);
-      setComments([...comments, response.data]);
+      const newCommentWithRelativeTime = {
+        ...response.data,
+        relativeTime: moment(response.data.timestamp).fromNow()
+      };
+      setComments(prevComments => [newCommentWithRelativeTime, ...prevComments]);
       setNewComment('');
     } catch (error) {
       console.error("Error adding comment:", error);
@@ -242,13 +253,17 @@ const WSHomepage = () => {
     setIsDeletePostDialogOpen(true);
   };
 
-  const handleDeleteComment = (commentId) => {
+  const handleDeleteComment = (commentId, commentUserId) => {
     if (!loggedInUser) {
       alert("Please log in to delete comments.");
       return;
     }
-    setItemToDelete(commentId);
-    setIsDeleteCommentDialogOpen(true);
+    if (loggedInUser.userId === commentUserId || loggedInUser.userId === currentPostOwner) {
+      setItemToDelete(commentId);
+      setIsDeleteCommentDialogOpen(true);
+    } else {
+      alert("You don't have permission to delete this comment.");
+    }
   };
 
   const confirmDeletePost = async () => {
@@ -373,9 +388,9 @@ const WSHomepage = () => {
                 )}
               </div>
               <div className="timestamp">
-              <span className="formatted-date">{formatTimestamp(post.timestamp)}</span>
-              <br />
-              <span className="relative-time">{getRelativeTime(post.timestamp)}</span>
+                <span className="formatted-date">{formatTimestamp(post.timestamp)}</span>
+                <br />
+                <span className="relative-time">{getRelativeTime(post.timestamp)}</span>
               </div>
               <div className="card-contents">
                 <p>{post.content}</p>
@@ -407,96 +422,98 @@ const WSHomepage = () => {
         ))}
       </div>
       <Dialog open={isCommentDialogOpen} onClose={handleCloseComments}>
-  <DialogTitle>
-    Comments
-    <img
-      src="/exit.png"
-      alt="Close"
-      className="exit-icon"
-      onClick={handleCloseComments}
-    />
-  </DialogTitle>
-  <DialogContent>
-    {comments.map((comment) => (
-      <div key={comment.commentId} className="comment">
-        <div className="comment-header">
-          <div className="user-and-timestamp">
-            <span className="user-info">{comment.fullName} ({comment.idNumber})</span>
-            <div className="timestamp-container">
-              <span className="comment-timestamp">
-                {formatTimestamp(comment.timestamp)}
-              </span>
-              <span className="comment-relative-time">
-                {comment.relativeTime}
-              </span>
-            </div>
-          </div>
-          {loggedInUser && loggedInUser.userId === comment.userId && (
-            <img
-              src="/delete.png"
-              alt="Delete"
-              className="delete-icon"
-              onClick={() => handleDeleteComment(comment.commentId)}
-              style={{ cursor: 'pointer', width: '20px', height: '20px', marginLeft: 'auto'}}
-            />
-          )}
-        </div>
-        <p>{comment.content}</p>
+        <DialogTitle>
+          Comments
+          <img
+            src="/exit.png"
+            alt="Close"
+            className="exit-icon"
+            onClick={handleCloseComments}
+          />
+        </DialogTitle>
+        <DialogContent>
+        {comments.map((comment) => (
+  <div key={comment.commentId} className="comment">
+    <div className="comment-header">
+      <div className="user-info-container">
+        <span className="user-info">
+          {comment.fullName} ({comment.idNumber})
+        </span>
+        {(loggedInUser && (loggedInUser.userId === comment.userId || loggedInUser.userId === currentPostOwner)) && (
+          <img
+            src="/delete.png"
+            alt="Delete"
+            className="delete-icon"
+            onClick={() => handleDeleteComment(comment.commentId, comment.userId)}
+          />
+        )}
       </div>
-    ))}
-    <div className="new-comment" style={{ display: 'flex', marginTop: '10px', alignItems: 'center' }}>
-  <input
-    type="text"
-    value={newComment}
-    onChange={(e) => setNewComment(e.target.value)}
-    placeholder="Add a comment..."
-    style={{
-      flex: 1,
-      padding: '8px 12px',
-      border: '1px solid #ffd700',
-      borderRadius: '20px',
-      outline: 'none',
-      marginRight: '10px', // This adds space between the input and the button
-    }}
-  />
-  <button
-    onClick={handleAddComment}
-    style={{
-      borderRadius: '20px',
-      border: 'none',
-      padding: '8px 15px',
-      cursor: 'pointer',
-      color: 'white',
-      backgroundColor: '#8A252C',
-      "&:hover": { backgroundColor: "f9d67b" }
-      
-    }}
-  >
-    COMMENT
-  </button>
-</div>
-  </DialogContent>
-</Dialog>
+      <div className="timestamp-container">
+        <span className="formatted-time">
+          {formatTimestamp(comment.timestamp)}
+        </span>
+        <span className="relative-time">
+          {comment.relativeTime}
+        </span>
+      </div>
+    </div>
+    <p>{comment.content}</p>
+  </div>
+))}
+          </DialogContent>
+          <DialogActions>
+          <div className="add-comment" style={{ display: 'flex', width: '100%', padding: '10px' }}>
+            <input
+              type="text"
+              value={newComment}
+              onChange={(e) => setNewComment(e.target.value)}
+              placeholder="Add a comment..."
+              style={{ 
+                flexGrow: 1, 
+                marginRight: '10px', 
+                padding: '8px', 
+                border: '1px solid #ccc', 
+                borderRadius: '4px' 
+              }}
+            />
+            <Button 
+              onClick={handleAddComment}
+              variant="contained"
+              style={{ 
+                backgroundColor: '#8A252C', 
+                color: 'white',
+                '&:hover': {
+                  backgroundColor: '#A91D3A'
+                }
+              }}
+            >
+              Comment
+            </Button>
+          </div>
+        </DialogActions>
+      </Dialog>
+
       <Dialog open={isDeletePostDialogOpen} onClose={() => setIsDeletePostDialogOpen(false)}>
-        <DialogTitle>Confirm Delete</DialogTitle>
-        <DialogContent>
-          Are you sure you want to delete this post?
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setIsDeletePostDialogOpen(false)}>Cancel</Button>
-          <Button onClick={confirmDeletePost} color="error">Delete</Button>
-        </DialogActions>
-      </Dialog>
+  <DialogTitle>Confirm Delete</DialogTitle>
+  <DialogContent>
+    Are you sure you want to delete this post?
+  </DialogContent>
+  <DialogActions className="delete-dialog-actions">
+    <Button onClick={() => setIsDeletePostDialogOpen(false)} className="cancel-button">Cancel</Button>
+    <Button onClick={confirmDeletePost} className="delete-button">Delete</Button>
+  </DialogActions>
+</Dialog>
+
       <Dialog open={isDeleteCommentDialogOpen} onClose={() => setIsDeleteCommentDialogOpen(false)}>
-        <DialogTitle>Confirm Delete</DialogTitle>
-        <DialogContent>
-          Are you sure you want to delete this comment?
-        </DialogContent>
-        <DialogActions>
-          <Button onClick={() => setIsDeleteCommentDialogOpen(false)}>Cancel</Button>
-          <Button onClick={confirmDeleteComment} color="error">Delete</Button>
-        </DialogActions>
-      </Dialog>
+  <DialogTitle>Confirm Delete</DialogTitle>
+  <DialogContent>
+    Are you sure you want to delete this comment?
+  </DialogContent>
+  <DialogActions className="delete-dialog-actions">
+    <Button onClick={() => setIsDeleteCommentDialogOpen(false)} className="cancel-button">Cancel</Button>
+    <Button onClick={confirmDeleteComment} className="delete-button">Delete</Button>
+  </DialogActions>
+</Dialog>
     </div>
   );
 };

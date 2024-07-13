@@ -8,7 +8,7 @@
   text-align: left;
   color: #8a252c;
   font-family: var(--font-montserrat);
-  padding-top: 76px; /* Add padding to account for fixed navbar */
+  padding-top: 76px;
 }
 
 /* Navbar */
@@ -308,7 +308,7 @@
 }
 
 /* Comment Dialog Styles */
-.MuiDialog-root .MuiDialog-paper {
+.MuiDialog-paper {
   background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b) !important;
   border-radius: 10px !important;
   max-width: 500px !important;
@@ -319,25 +319,13 @@
   background-color: #8A252C !important;
   color: white !important;
   padding: 16px 24px !important;
-}
-
-.MuiDialogActions-root button {
-  background-color: #8A252C !important;
-  color: white !important;
-  border: none !important;
-  border-radius: 5px !important;
-  padding: 8px 16px !important;
-  cursor: pointer !important;
-}
-
-.MuiDialogActions-root button:hover {
-  background-color: #f9d67b !important;
-  color: black !important;
+  text-align: center !important;
 }
 
 .MuiDialogContent-root {
-  padding: 20px !important;
-  background-color: transparent !important;
+  text-align: center !important;
+  font-size: 16px !important;
+  padding: 24px 24px 16px !important;
 }
 
 .comment {
@@ -354,109 +342,37 @@
   background-color: #f9d67b !important;
 }
 
-.comment-button:active {
-  transform: scale(0.95);
-}
-
 .comment-header {
   display: flex;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
-.user-and-timestamp {
+.user-info-container {
   display: flex;
-  flex-direction: column;
-  width: 100%;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .user-info {
-  color: #8A252C;
   font-weight: bold;
-  margin-bottom: 3px;
 }
 
 .timestamp-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  width: 100%;
   margin-top: 5px;
-}
-
-.comment-timestamp {
   font-size: 0.8em;
   color: #666;
+}
+
+.formatted-time {
   text-align: left;
 }
 
-.comment-relative-time {
-  font-size: 0.8em;
-  color: #666;
+.relative-time {
   text-align: right;
-}
-
-.comment-content {
-  margin-top: 10px;
-  word-wrap: break-word;
-}
-
-.comment .delete-icon {
-  margin-left: auto;
-  transition: opacity 0.2s, transform 0.3s;
-  width: 24px;
-  height: 24px;
-  cursor: pointer;
-}
-
-.MuiDialogActions-root {
-  padding: 16px !important;
-  display: flex;
-  justify-content: space-between;
-}
-
-.MuiDialogActions-root input {
-  flex-grow: 1;
-  margin-right: 10px;
-  padding: 8px;
-  border-radius: 5px;
-  border: 1px solid #8a252c;
-}
-
-.MuiDialogActions-root button {
-  background-color: #8a252c;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-.MuiDialogActions-root button:hover {
-  background-color: #f9d67b;
-}
-
-/* Overlay */
-.overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  z-index: 1001;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.overlay-content {
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  max-width: 80%;
-  max-height: 80%;
-  overflow-y: auto;
 }
 
 /* Exit Icon */
@@ -474,7 +390,61 @@
   transform: scale(1.5);
 }
 
-/* Adjust DialogTitle to accommodate the exit icon */
-.MuiDialogTitle-root {
-  padding-right: 48px !important;
+/* New Comment Button Styles */
+.new-comment button {
+  border-radius: 20px;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  color: white;
+  background-color: #8A252C;
+  transition: all 0.3s ease;
+}
+
+.new-comment button:hover {
+  background-color: #f9d67b;
+  color: #8A252C;
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.new-comment button:active {
+  transform: scale(0.95);
+}
+
+/* Delete Confirmation Dialog */
+.delete-dialog-actions {
+  display: flex !important;
+  justify-content: center !important;
+  padding: 16px 24px 24px !important;
+}
+
+.cancel-button, .delete-button {
+  margin: 0 8px !important;
+  padding: 6px 16px !important;
+  border-radius: 4px !important;
+  font-weight: bold !important;
+  text-transform: uppercase !important;
+}
+
+.cancel-button {
+  background-color: #8A252C;
+  color: white;
+}
+
+.cancel-button:active {
+  transform: scale(0.95);
+}
+
+.delete-button {
+  background-color: #8A252C;
+  color: white;
+}
+
+.cancel-button:hover, .delete-button:hover {
+  background-color: #f9d67b;
+  color: black;
+  transform: scale(1.05);
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  opacity: 0.9;
 }
