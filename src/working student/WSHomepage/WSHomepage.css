@@ -61,11 +61,29 @@
   text-align: center;
 }
 
+/* Content Wrapper */
+.content-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+/* Post Container and Post List */
+.post-container,
+.post-list {
+  width: 100%;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
 /* Post Container */
 .post-container {
   position: relative;
   margin: 20px auto;
-  width: 613px;
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 10px;
@@ -167,9 +185,6 @@
 
 /* Post List */
 .post-list {
-  width: 100%;
-  max-width: 613px;
-  margin: 0 auto;
   display: flex;
   flex-direction: column;
   gap: 20px;
