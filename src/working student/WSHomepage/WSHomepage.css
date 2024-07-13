@@ -149,6 +149,10 @@
   background-color: #a91d3a;
 }
 
+.post-button:active {
+  transform: scale(0.95);
+}
+
 /* Image Preview */
 .image-preview {
   margin-top: 10px;
@@ -229,7 +233,7 @@
 .formatted-date,
 .relative-time {
   font-size: 12px;
-  color: #696969; /* This is a gray color. Adjust the shade as needed */
+  color: #696969;
 }
 
 /* Card Contents */
@@ -290,11 +294,17 @@
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .comment-button:hover {
   transform: scale(1.2);
   background-color: #f9d67b;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.comment-button:active {
+  transform: scale(0.95);
 }
 
 /* Comment Dialog Styles */
@@ -334,33 +344,69 @@
   color: #8a252c;
   background-color: white;
   border-radius: 8px;
-  padding: 10px;
-  margin-bottom: 10px;
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
 }
 
-.comment:hover{
+.comment:hover {
   background-color: #f9d67b !important;
+}
+
+.comment-button:active {
+  transform: scale(0.95);
 }
 
 .comment-header {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 5px;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.user-and-timestamp {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .user-info {
   color: #8A252C;
   font-weight: bold;
+  margin-bottom: 3px;
+}
+
+.timestamp-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  margin-top: 5px;
 }
 
 .comment-timestamp {
   font-size: 0.8em;
   color: #666;
+  text-align: left;
 }
 
-.comment p {
-  margin: 5px 0 0 0;
+.comment-relative-time {
+  font-size: 0.8em;
+  color: #666;
+  text-align: right;
+}
+
+.comment-content {
+  margin-top: 10px;
+  word-wrap: break-word;
+}
+
+.comment .delete-icon {
+  margin-left: auto;
+  transition: opacity 0.2s, transform 0.3s;
+  width: 24px;
+  height: 24px;
+  cursor: pointer;
 }
 
 .MuiDialogActions-root {
@@ -387,7 +433,7 @@
 }
 
 .MuiDialogActions-root button:hover {
-  background-color: #8a252c;
+  background-color: #f9d67b;
 }
 
 /* Overlay */
