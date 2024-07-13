@@ -477,18 +477,20 @@ const WSHomepage = () => {
               }}
             />
             <Button 
-              onClick={handleAddComment}
-              variant="contained"
-              style={{ 
-                backgroundColor: '#8A252C', 
-                color: 'white',
-                '&:hover': {
-                  backgroundColor: '#A91D3A'
-                }
-              }}
-            >
-              Comment
-            </Button>
+  onClick={handleAddComment}
+  variant="contained"
+  sx={{ 
+    backgroundColor: '#8A252C', 
+    color: 'white',
+    '&:hover': {
+      backgroundColor: '#f9d67b',
+      color: 'black'
+    },
+    transition: 'all 0.3s ease'
+  }}
+>
+  Comment
+</Button>
           </div>
         </DialogActions>
       </Dialog>

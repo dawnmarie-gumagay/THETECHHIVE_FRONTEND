@@ -319,7 +319,7 @@
   background-color: #8A252C !important;
   color: white !important;
   padding: 16px 24px !important;
-  text-align: center !important;
+  text-align: left !important;
 }
 
 .MuiDialogContent-root {
@@ -403,13 +403,13 @@
 
 .new-comment button:hover {
   background-color: #f9d67b;
-  color: #8A252C;
-  transform: scale(1.05);
+  color: black;
+  transform: scale(1.1);
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
 }
 
 .new-comment button:active {
-  transform: scale(0.95);
+  transform: scale(0.97);
 }
 
 /* Delete Confirmation Dialog */
@@ -428,23 +428,29 @@
 }
 
 .cancel-button {
-  background-color: #8A252C;
-  color: white;
-}
-
-.cancel-button:active {
-  transform: scale(0.95);
+  background-color: #8A252C !important;
+  color: white !important;
 }
 
 .delete-button {
-  background-color: #8A252C;
-  color: white;
+  background-color: #8A252C !important;
+  color: white !important;
 }
 
 .cancel-button:hover, .delete-button:hover {
+  background-color: #f9d67b !important;
+  color: black !important;
+  opacity: 0.9;
+}
+
+/* New styles for the comment button in dialog */
+.MuiDialog-root .MuiButton-root {
+  background-color: #8A252C;
+  color: white;
+  transition: all 0.3s ease;
+}
+
+.MuiDialog-root .MuiButton-root:hover {
   background-color: #f9d67b;
   color: black;
-  transform: scale(1.05);
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-  opacity: 0.9;
 }
