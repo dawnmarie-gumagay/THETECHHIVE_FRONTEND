@@ -7,11 +7,17 @@ const ConfirmLogout = ({ onClose }) => {
   const navigate = useNavigate();
 
   const onLOGOUTTextClick = useCallback(() => {
+    // Perform any logout logic here
     navigate("/wslogout");
   }, [navigate]);
 
   const onCANCELTextClick = useCallback(() => {
-    onClose(); // Call the onClose function passed from the parent
+    if (typeof onClose === 'function') {
+      onClose();
+    } else {
+      console.warn('onClose prop is not a function or not provided');
+      // You might want to add a fallback behavior here
+    }
   }, [onClose]);
 
   return (
