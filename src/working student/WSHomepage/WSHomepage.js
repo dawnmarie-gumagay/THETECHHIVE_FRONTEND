@@ -173,30 +173,27 @@ const WSHomepage = () => {
     }
   };
 
-  const handleReaction = async (postId, reactionType) => {
-    if (!loggedInUser) {
-      alert("Please log in to react to posts.");
-      return;
-    }
-
+  const handleLike = async (postId) => {
     try {
-      const response = await axios.post(`http://localhost:8080/posts/${postId}/react`, null, {
-        params: {
-          userId: loggedInUser.userId,
-          reactionType: reactionType
-        }
-      });
-      
-      setPosts(prevPosts => prevPosts.map(post => 
-        post.postId === postId ? response.data : post
+      await axios.post(`http://localhost:8080/posts/${postId}/like`);
+      setPosts(posts.map(post => 
+        post.postId === postId ? { ...post, likes: post.likes + 1 } : post
       ));
     } catch (error) {
-      console.error(`Error reacting to post:`, error);
+      console.error("Error liking post:", error);
     }
   };
 
-  const handleLike = (postId) => handleReaction(postId, 'like');
-  const handleDislike = (postId) => handleReaction(postId, 'dislike');
+  const handleDislike = async (postId) => {
+    try {
+      await axios.post(`http://localhost:8080/posts/${postId}/dislike`);
+      setPosts(posts.map(post => 
+        post.postId === postId ? { ...post, dislikes: post.dislikes + 1 } : post
+      ));
+    } catch (error) {
+      console.error("Error disliking post:", error);
+    }
+  };
 
   const handleOpenComments = async (postId) => {
     setCurrentPostId(postId);
