@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useCallback } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -5,12 +6,10 @@ import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/
 import Loadable from 'react-loadable';
 import moment from 'moment';
 import "./WSHomepage.css";
-
 const WSComment = Loadable({
   loader: () => import('./WSComment'),
   loading: () => <div>Loading...</div>,
 });
-
 const WSHomepage = () => {
   const navigate = useNavigate();
   const [isOverlayVisible, setOverlayVisible] = useState(false);
@@ -28,7 +27,6 @@ const WSHomepage = () => {
   const [isDeleteCommentDialogOpen, setIsDeleteCommentDialogOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
   
-
   useEffect(() => {
     const fetchLoggedInUser = async () => {
       const storedUser = JSON.parse(localStorage.getItem("loggedInUser"));
@@ -43,7 +41,6 @@ const WSHomepage = () => {
     };
     fetchLoggedInUser();
   }, []);
-
   useEffect(() => {
     const fetchPosts = async () => {
       try {
@@ -56,13 +53,11 @@ const WSHomepage = () => {
     };
     fetchPosts();
   }, []);
-
   useEffect(() => {
     if (!("webkitSpeechRecognition" in window)) {
       console.log("Speech recognition not supported in this browser.");
     }
   }, []);
-
   useEffect(() => {
     const timer = setInterval(() => {
       setComments(prevComments => 
@@ -76,31 +71,24 @@ const WSHomepage = () => {
     }, 60000);
     return () => clearInterval(timer);
   }, []);
-
   const toggleOverlay = useCallback(() => {
     setOverlayVisible(!isOverlayVisible);
   }, [isOverlayVisible]);
-
   const onClose = useCallback(() => {
     setOverlayVisible(false);
   }, []);
-
   const onREPORTSClick = useCallback(() => {
     navigate("/wsreport");
   }, [navigate]);
-
   const onPROFILEClick = useCallback(() => {
     navigate("/wsprofile");
   }, [navigate]);
-
   const onLEADERBOARDSClick = useCallback(() => {
     navigate("/wsleaderboards");
   }, [navigate]);
-
   const handlePostInputChange = (e) => {
     setNewPostContent(e.target.value);
   };
-
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     setSelectedFile(file);
@@ -112,7 +100,6 @@ const WSHomepage = () => {
       reader.readAsDataURL(file);
     }
   };
-
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
     const recognition = new window.webkitSpeechRecognition();
@@ -128,7 +115,6 @@ const WSHomepage = () => {
     };
     recognition.start();
   };
-
   const handlePostSubmit = async (e) => {
     e.preventDefault();
     
@@ -141,7 +127,6 @@ const WSHomepage = () => {
       alert("Please log in to post.");
       return;
     }
-
     const newPost = {
       content: newPostContent,
       image: imagePreview,
@@ -172,29 +157,28 @@ const WSHomepage = () => {
       }
     }
   };
-
-  const handleLike = async (postId) => {
+  const handleReaction = async (postId, reactionType) => {
+    if (!loggedInUser) {
+      alert("Please log in to react to posts.");
+      return;
+    }
     try {
-      await axios.post(`http://localhost:8080/posts/${postId}/like`);
-      setPosts(posts.map(post => 
-        post.postId === postId ? { ...post, likes: post.likes + 1 } : post
+      const response = await axios.post(`http://localhost:8080/posts/${postId}/react`, null, {
+        params: {
+          userId: loggedInUser.userId,
+          reactionType: reactionType
+        }
+      });
+      
+      setPosts(prevPosts => prevPosts.map(post => 
+        post.postId === postId ? response.data : post
       ));
     } catch (error) {
-      console.error("Error liking post:", error);
+      console.error(`Error reacting to post:`, error);
     }
   };
-
-  const handleDislike = async (postId) => {
-    try {
-      await axios.post(`http://localhost:8080/posts/${postId}/dislike`);
-      setPosts(posts.map(post => 
-        post.postId === postId ? { ...post, dislikes: post.dislikes + 1 } : post
-      ));
-    } catch (error) {
-      console.error("Error disliking post:", error);
-    }
-  };
-
+  const handleLike = (postId) => handleReaction(postId, 'like');
+  const handleDislike = (postId) => handleReaction(postId, 'dislike');
   const handleOpenComments = async (postId) => {
     setCurrentPostId(postId);
     try {
@@ -215,12 +199,10 @@ const WSHomepage = () => {
     }
     setIsCommentDialogOpen(true);
   };
-
   const handleCloseComments = () => {
     setIsCommentDialogOpen(false);
     setCurrentPostId(null);
   };
-
   const handleAddComment = async () => {
     if (newComment.trim() === '') return;
     
@@ -243,7 +225,6 @@ const WSHomepage = () => {
       console.error("Error adding comment:", error);
     }
   };
-
   const handleDeletePost = (postId) => {
     if (!loggedInUser) {
       alert("Please log in to delete posts.");
@@ -252,7 +233,6 @@ const WSHomepage = () => {
     setItemToDelete(postId);
     setIsDeletePostDialogOpen(true);
   };
-
   const handleDeleteComment = (commentId, commentUserId) => {
     if (!loggedInUser) {
       alert("Please log in to delete comments.");
@@ -265,7 +245,6 @@ const WSHomepage = () => {
       alert("You don't have permission to delete this comment.");
     }
   };
-
   const confirmDeletePost = async () => {
     try {
       await axios.delete(`http://localhost:8080/posts/${itemToDelete}`);
@@ -275,7 +254,6 @@ const WSHomepage = () => {
       console.error("Error deleting post:", error);
     }
   };
-
   const confirmDeleteComment = async () => {
     try {
       await axios.delete(`http://localhost:8080/comments/${itemToDelete}`, {
@@ -289,16 +267,13 @@ const WSHomepage = () => {
       console.error("Error deleting comment:", error);
     }
   };
-
   const formatTimestamp = (timestamp) => {
     const momentDate = moment(timestamp);
     return momentDate.format('dddd, MMMM D, YYYY [at] h:mm A');
   };
-
   const getRelativeTime = (timestamp) => {
     return moment(timestamp).fromNow();
   };
-
   return (
     <div className="ws-homepage">
       <div className="WSNavbar" />
@@ -424,7 +399,6 @@ const WSHomepage = () => {
           ))}
         </div>
       </div>
-
       <Dialog open={isCommentDialogOpen} onClose={handleCloseComments}>
         <DialogTitle>
           Comments
@@ -498,7 +472,6 @@ const WSHomepage = () => {
           </div>
         </DialogActions>
       </Dialog>
-
       <Dialog open={isDeletePostDialogOpen} onClose={() => setIsDeletePostDialogOpen(false)}>
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
@@ -509,7 +482,6 @@ const WSHomepage = () => {
           <Button onClick={confirmDeletePost} className="delete-button">Delete</Button>
         </DialogActions>
       </Dialog>
-
       <Dialog open={isDeleteCommentDialogOpen} onClose={() => setIsDeleteCommentDialogOpen(false)}>
         <DialogTitle>Confirm Delete</DialogTitle>
         <DialogContent>
@@ -523,5 +495,4 @@ const WSHomepage = () => {
     </div>
   );
 };
-
 export default WSHomepage;
