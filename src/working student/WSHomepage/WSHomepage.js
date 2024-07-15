@@ -173,37 +173,30 @@ const WSHomepage = () => {
     }
   };
 
-  const handleLike = async (postId) => {
+  const handleReaction = async (postId, reactionType) => {
     if (!loggedInUser) {
-      alert("Please log in to like posts.");
+      alert("Please log in to react to posts.");
       return;
     }
+
     try {
-      const response = await axios.post(`http://localhost:8080/posts/${postId}/like?userId=${loggedInUser.userId}`);
-      const updatedPost = response.data;
-      setPosts(posts.map(post => 
-        post.postId === postId ? updatedPost : post
+      const response = await axios.post(`http://localhost:8080/posts/${postId}/react`, null, {
+        params: {
+          userId: loggedInUser.userId,
+          reactionType: reactionType
+        }
+      });
+      
+      setPosts(prevPosts => prevPosts.map(post => 
+        post.postId === postId ? response.data : post
       ));
     } catch (error) {
-      console.error("Error liking post:", error);
+      console.error(`Error reacting to post:`, error);
     }
   };
-  
-  const handleDislike = async (postId) => {
-    if (!loggedInUser) {
-      alert("Please log in to dislike posts.");
-      return;
-    }
-    try {
-      const response = await axios.post(`http://localhost:8080/posts/${postId}/dislike?userId=${loggedInUser.userId}`);
-      const updatedPost = response.data;
-      setPosts(posts.map(post => 
-        post.postId === postId ? updatedPost : post
-      ));
-    } catch (error) {
-      console.error("Error disliking post:", error);
-    }
-  };
+
+  const handleLike = (postId) => handleReaction(postId, 'like');
+  const handleDislike = (postId) => handleReaction(postId, 'dislike');
 
   const handleOpenComments = async (postId) => {
     setCurrentPostId(postId);
@@ -417,27 +410,21 @@ const WSHomepage = () => {
                 </div>
                 <div className="footer-line" />
                 <div className="footer-actions">
-                <div className="footer-icons">
-                  <button 
-                    onClick={() => handleLike(post.postId)} 
-                    className={`like-button ${post.likedBy.includes(loggedInUser?.userId) ? 'active' : ''}`}
-                  >
-                    <img src="/t-up.png" alt="Thumbs Up" /> {post.likes}
-                  </button>
-                  <button 
-                    onClick={() => handleDislike(post.postId)} 
-                    className={`dislike-button ${post.dislikedBy.includes(loggedInUser?.userId) ? 'active' : ''}`}
-                  >
-                    <img src="/t-down.png" alt="Thumbs Down" /> {post.dislikes}
-                  </button>
-                </div>
-                <div className="footer-comments">
-                  <button className="comment-button" onClick={() => handleOpenComments(post.postId)}>Comment</button>
+                  <div className="footer-icons">
+                    <button onClick={() => handleLike(post.postId)} className="like-button">
+                      <img src="/t-up.png" alt="Thumbs Up" /> {post.likes}
+                    </button>
+                    <button onClick={() => handleDislike(post.postId)} className="dislike-button">
+                      <img src="/t-down.png" alt="Thumbs Down" /> {post.dislikes}
+                    </button>
+                  </div>
+                  <div className="footer-comments">
+                    <button className="comment-button" onClick={() => handleOpenComments(post.postId)}>Comment</button>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
-        ))}
+          ))}
         </div>
       </div>
 
