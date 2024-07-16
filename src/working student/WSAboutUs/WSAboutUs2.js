@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./WSAboutUs2.css";
+import "./WSAboutUs.css";
 
 const WSAboutUs2 = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const WSAboutUs2 = () => {
       <img className="background" alt="" src="/bg1.png" />
 
       <div className="main-box" />
-      <img className="wildcat-cute" alt="" src="/wildcat-icon.png" />
+      <img className="wildcat-cuteAU" alt="" src="/wildcat-icon.png" />
       <div className="get-started2" onClick={onGETSTARTEDTextClick}>
         GET STARTED
       </div>

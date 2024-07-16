@@ -8,6 +8,16 @@
     font-family: var(--font-montserrat);
 }
 
+.wildcat-cuteC {
+    position: absolute;
+    top: 70px;
+    left: 280px;
+    width: 28px;
+    height: 25px;
+    object-fit: cover;
+    transition: all 0.5s ease; /* Smooth transition */
+  }
+
 .get-started {
     position: absolute;
     display: inline-block;
@@ -29,6 +39,12 @@
     width: 170px;
     height: 30px;
 }
+
+.get-started,
+.ContactUs-title,
+.cinfo {
+    transition: all 0.5s ease; /* Smooth transition */
+  }
 
 .cinfo {
     position: absolute;
@@ -66,7 +82,7 @@
     top: 290px;
     left: 340px;
     border-radius: 50%;
-    background-color: #8A252C;
+    background-color: #8a252c;
     width: 64px;
     height: 60px;
 }
@@ -192,7 +208,7 @@
     box-sizing: border-box;
     width: 347px;
     height: 39px;
-    padding-left: 15px; /* Add this line */
+    padding-left: 15px;
 }
 
 .eInput {
@@ -214,4 +230,340 @@
     left: 1105px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
     mix-blend-mode: normal;
+}
+
+
+@media (max-width: 768px) { 
+    .wildcat-cuteC {
+        display: none;
+    }
+
+    .get-started {
+        position: absolute;
+        display: inline-block;
+        top: 40px;
+        left: 73%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 16px;
+        cursor: pointer;
+    }
+
+    .ContactUs-title {
+        top: 13%;
+        left: 15%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 14px;
+    }
+
+    .cinfo {
+        top: 17%;
+        left: 10%;
+        width: 70%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .phone {
+        top: 22%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .phone-num {
+        top: 25%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .phone-bg {
+        top: 22%;
+        left: 10%;
+        width: 5.5%;
+        height: 5%;
+    }
+
+    .phone-icon {
+        top: 22.5%;
+        left: 11%;
+        width: 4%;
+        height: 4%;
+    }
+
+    .email {
+        top: 29%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .email-mail {
+        top: 32%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .email-bg {
+        top: 29%;
+        left: 10%;
+        width: 5%;
+        height: 5%;
+    }
+
+    .email-icon {
+        top: 30%;
+        left: 11%;
+        width: 3%;
+        height: 3%;
+    }
+
+    .location {
+        top: 36%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .location-name {
+        top: 39%;
+        left: 17%;
+        width: 70%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .location-bg {
+        top: 36%;
+        left: 10%;
+        width: 5%;
+        height: 5%;
+    }
+
+    .location-icon {
+        top: 36.5%;
+        left: 10.5%;
+        width: 4%;
+        height: 4%;
+    }
+
+    .Lets-title {
+        top: 45%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 14px;
+    }
+
+    .feel-free-to {
+        top: 49%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .ynInput,
+    .eInput,
+    .pnInput,
+    .mInput {
+        top: 54%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 30px;
+    }
+
+    .eInput {
+        top: 59%;
+    }
+
+    .pnInput {
+        top: 64%;
+    }
+
+    .mInput {
+        top: 69%;
+        height: 70px;
+    }
+
+    .submit-button {
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 14px;
+    }
+}
+
+@media (max-width: 500px) {
+    .get-started {
+        display: inline-block;
+        top: 40px !important;
+        left: 73% !important;
+        transform: translateX(-50%) !important;
+        width: auto !important;
+    }
+
+    .ContactUs-title {
+        top: 13%;
+        left: 15%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 14px;
+    }
+
+    .cinfo {
+        top: 17%;
+        left: 10%;
+        width: 70%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .phone {
+        top: 22%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .phone-num {
+        top: 25%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .phone-bg {
+        top: 22%;
+        left: 10%;
+        width: 5.5%;
+        height: 5%;
+    }
+
+    .phone-icon {
+        top: 22.5%;
+        left: 11%;
+        width: 4%;
+        height: 4%;
+    }
+
+    .email {
+        top: 29%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .email-mail {
+        top: 32%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .email-bg {
+        top: 29%;
+        left: 10%;
+        width: 5%;
+        height: 5%;
+    }
+
+    .email-icon {
+        top: 30%;
+        left: 11%;
+        width: 3%;
+        height: 3%;
+    }
+
+    .location {
+        top: 36%;
+        left: 17%;
+        width: 40%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .location-name {
+        top: 39%;
+        left: 17%;
+        width: 70%;
+        height: auto;
+        font-size: 14px;
+    }
+
+    .location-bg {
+        top: 36%;
+        left: 10%;
+        width: 5%;
+        height: 5%;
+    }
+
+    .location-icon {
+        top: 36.5%;
+        left: 10.5%;
+        width: 4%;
+        height: 4%;
+    }
+
+    .Lets-title {
+        top: 45%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 14px;
+    }
+
+    .feel-free-to {
+        top: 49%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .ynInput,
+    .eInput,
+    .pnInput,
+    .mInput {
+        top: 54%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+        height: 30px;
+    }
+
+    .eInput {
+        top: 59%;
+    }
+
+    .pnInput {
+        top: 64%;
+    }
+
+    .mInput {
+        top: 69%;
+        height: 70px;
+    }
+
+    .submit-button {
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: auto;
+        font-size: 14px;
+    }
 }

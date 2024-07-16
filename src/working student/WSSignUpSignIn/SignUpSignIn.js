@@ -22,9 +22,9 @@ const SignUpSignIn = () => {
     <div className="ws-sign-upsign-in">
       <img className="background" alt="" src="/bg1.png" />
 
-      <div className="main-box" />
-      <div className="back-bg" onClick={onWSLANDINGPAGEClick} />
-      <img className="back-icon" alt="" src="/back.png" onClick={onWSLANDINGPAGEClick} />
+      <div className="main-boxS" />
+      <div className="back-bgSS" onClick={onWSLANDINGPAGEClick} />
+      <img className="back-iconSS" alt="" src="/back.png" onClick={onWSLANDINGPAGEClick} />
 
       <img className="main-bg" alt="" src="/main-bg.png" />
       <img className="main-title" alt="" src="/TITLE.png" />
