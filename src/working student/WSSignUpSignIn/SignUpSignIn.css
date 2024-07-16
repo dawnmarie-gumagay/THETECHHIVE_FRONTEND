@@ -18,6 +18,19 @@
     height: 60px;
     cursor: pointer;
 }
+
+.main-boxS {
+    position: absolute;
+    top: 35px;
+    left: 240px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 1070px;
+    height: 655px;
+    transition: all 0.5s ease; /* Smooth transition */
+  }
+
 .back-icon {
     position: absolute;
     top: 75px;
@@ -39,6 +52,7 @@
     opacity: 0.9;
     mix-blend-mode: normal;
 }
+
 .main-title {
     position: absolute;
     top: 180px;
@@ -59,7 +73,6 @@
     height: 33px;
 }
 
-
 .signup-container {
     position: absolute;
     top: 300px;
@@ -68,7 +81,8 @@
     width: 347px;
     height: 39px;
 }
-.signup-box{
+
+.signup-box {
     position: absolute;
     box-sizing: border-box;
     top: 0;
@@ -79,6 +93,7 @@
     width: 347px;
     height: 39px;
 }
+
 .signup-name {
     position: absolute;
     top: 6px;
@@ -88,9 +103,7 @@
     display: inline-block;
     width: 87px;
     height: 23px;
-  }
-
- 
+}
 
 .line {
     position: absolute;
@@ -101,7 +114,6 @@
     width: 217px;
     height: 1px;
 }
-  
 
 .signin-container {
     position: absolute;
@@ -112,6 +124,7 @@
     cursor: pointer;
     color: white;
 }
+
 .signin-box {
     position: absolute;
     width: 347px;
@@ -121,6 +134,7 @@
     border-radius: 20px;
     background-color: #8a252c;
 }
+
 .signin-name {
     position: absolute;
     top: 6px;
@@ -131,8 +145,7 @@
     width: 79px;
     height: 23px;
 }
-  
-  
+
 .wildcat-cutie {
     position: absolute;
     top: 490px;
@@ -141,4 +154,204 @@
     height: 46px;
     object-fit: cover;
 }
-   
+
+
+
+@media (max-width: 768px) {
+    .main-boxS{
+        top: 6%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 87%;
+        height: 88%;
+    }
+
+    .back-bg {
+        top: 9%;
+        left: 9%;
+        width: 40px;
+        height: 40px;
+    }
+    .back-icon {
+        top: 9.7%;
+        left: 10%;
+        width: 24px;
+        height: 30px;
+    }
+
+    .main-bg {
+        top: 11.5%;
+        left: 32%;
+        transform: translateX(-50%);
+        width: 34%;
+        height: 78%;
+    }
+
+    .main-title {
+        top: 17%;
+        left: 32.5%;
+        transform: translateX(-50%);
+        width: 30%;
+        height: auto;
+    }
+
+    .welcome {
+        top: 30%;
+        left: 72%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 23px;
+        text-align: center;
+    }
+
+    .signup-container {
+        top: 45%;
+        left: 71%;
+        transform: translateX(-50%);
+        width: 33%;
+        height: auto;
+    }
+
+    .signup-box {
+        width: 100%;
+        height: 43px;
+    }
+
+    .signup-name {
+        top: 9px;
+        left: 54%;
+        transform: translateX(-50%);
+        font-size: 18px;
+    }
+
+    .line {
+        top: 55%;
+        left: 71%;
+        transform: translateX(-50%);
+        width: 31%;
+    }
+
+    .signin-container {
+        top: 59%;
+        left: 71%;
+        transform: translateX(-50%);
+        width: 33%;
+        height: auto;
+    }
+
+    .signin-box {
+        width: 100%;
+        height: 43px;
+    }
+
+    .signin-name {
+        top: 9px;
+        left: 53%;
+        transform: translateX(-50%);
+        font-size: 18px;
+    }
+
+    .wildcat-cutie {
+        top: 71%;
+        left: 71%;
+        transform: translateX(-50%);
+        width: 4%;
+        height: auto;
+    }
+}
+
+@media (max-width: 500px) {
+    .back-bg {
+        top: 3%;
+        left: 5%;
+        width: 30px;
+        height: 30px;
+    }
+
+    .back-icon {
+        top: 3.5%;
+        left: 6.5%;
+        width: 15px;
+        height: 20px;
+    }
+
+    .main-bg {
+        top: 5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 90%;
+        height: 90%;
+    }
+
+    .main-title {
+        top: 8%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        height: auto;
+    }
+
+    .welcome {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .signup-container {
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75%;
+        height: auto;
+    }
+
+    .signup-box {
+        width: 100%;
+        height: 50px;
+    }
+
+    .signup-name {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+    }
+
+    .line {
+        top: 61%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80%;
+    }
+
+    .signin-container {
+        top: 65%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 75%;
+        height: auto;
+    }
+
+    .signin-box {
+        width: 100%;
+        height: 50px;
+    }
+
+    .signin-name {
+        top: 10px;
+        left: 50%;
+        transform: translateX(-50%);
+        font-size: 16px;
+    }
+
+    .wildcat-cutie {
+        top: 80%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 10%;
+        height: auto;
+    }
+}
