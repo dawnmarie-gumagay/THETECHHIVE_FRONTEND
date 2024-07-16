@@ -209,7 +209,7 @@ const WSHomepage = () => {
     setCurrentPostId(postId);
     try {
       const [commentsResponse, postResponse] = await Promise.all([
-        axios.get(`http://localhost:8080/posts/${postId}/comments`),
+        axios.get(`http://localhost:8080/comments/${postId}`),
         axios.get(`http://localhost:8080/posts/${postId}`)
       ]);
       const sortedComments = commentsResponse.data
@@ -236,13 +236,14 @@ const WSHomepage = () => {
     
     const comment = {
       content: newComment,
+      postId: currentPostId,  // Add this line
       userId: loggedInUser.userId,
       fullName: loggedInUser.fullName,
       idNumber: loggedInUser.idNumber,
     };
     
     try {
-      const response = await axios.post(`http://localhost:8080/posts/${currentPostId}/comments`, comment);
+      const response = await axios.post('http://localhost:8080/comments/add', comment);
       const newCommentWithRelativeTime = {
         ...response.data,
         relativeTime: moment(response.data.timestamp).fromNow()
@@ -251,6 +252,10 @@ const WSHomepage = () => {
       setNewComment('');
     } catch (error) {
       console.error("Error adding comment:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
     }
   };
 
@@ -297,6 +302,7 @@ const WSHomepage = () => {
       setIsDeleteCommentDialogOpen(false);
     } catch (error) {
       console.error("Error deleting comment:", error);
+      alert("Failed to delete comment. You may not have permission.");
     }
   };
 
