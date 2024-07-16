@@ -8,18 +8,34 @@
   font-family: var(--font-montserrat);
 }
 
+.wildcat-cuteAU {
+  position: absolute;
+  top: 70px;
+  left: 280px;
+  width: 28px;
+  height: 25px;
+  object-fit: cover;
+  transition: all 0.5s ease; /* Smooth transition */
+}
 
 .get-started2 {
   position: absolute;
-    display: inline-block;
-    top: 70px;
-    left: 960px;
-    font-weight: 600;
-    font-size: 20px;
-    width: 144px;
-    height: 23px;
-    cursor: pointer;
+  display: inline-block;
+  top: 70px;
+  left: 960px;
+  font-weight: 600;
+  font-size: 20px;
+  width: 144px;
+  height: 23px;
+  cursor: pointer;
 } 
+
+.half3,
+.get-started2, 
+.contact-us2,
+.AboutUs-title {
+  transition: all 0.5s ease; /* Smooth transition */
+}
 
 .half3 {
   position: absolute;
@@ -209,4 +225,317 @@
   object-fit: contain;
   cursor: pointer;
 }
-  
+
+
+
+@media (max-width: 768px) {
+  .wildcat-cuteAU{
+    display: none;
+  }
+
+  .main-box {
+    top: 10px;
+    left: 10px;
+    width: 95%;
+    height: auto;
+  }
+
+  .half3 {
+    top: 50px;
+    left: 55%;
+    transform: translateX(-50%);
+  }
+
+  .contact-us2 {
+    top: 50px;
+    left: 25%;
+    transform: translateX(-50%);
+    width: auto;
+    font-size: 16px;
+  }
+
+  .get-started2 {
+    top: 40px;
+    left: 73%;
+    transform: translateX(-50%);
+    width: auto;
+    font-size: 16px;
+    cursor: pointer;
+  } 
+
+  .AboutUs-title {
+    top: 20%;
+    left: 15%;
+    transform: translateX(-50%);
+    width: auto;
+    font-size: 16px;
+  }
+
+  .member-name {
+    top: 23%;
+    left: 10%;
+    /* transform: translateX(-50%) !important; */
+    /* width: 70% !important;
+    height: auto !important; */
+  }
+
+  .members-dp {
+    /* position: absolute; */
+    top: 32%;
+    width: 40%;
+    height: 35%;
+    left: 10%;
+  }
+
+  .left-click {
+    /* position: absolute; */
+    top: 62%;
+    left: 55%;
+    border-radius: 2px;
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  .right-click {
+    /* position: absolute; */
+    top: 62%;
+    left: 70%;
+    border-radius: 2px;
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .role-name {
+    top: 33%;
+    left: 65%;
+  }
+
+  .role-bg {
+    top: 32%;
+    left: 55%;
+    height: 6%;
+    width: 7%;
+  }
+
+  .role-icon {
+    top: 33.5%;
+    left: 56.5%;
+    height: 3%;
+    width: 5%;
+  }
+
+  .role-info {
+    top: 40%;
+    left: 56%;
+    font-size: 16px;
+  }
+
+  .motto-bg {
+    top: 45%;
+    left: 55%;
+    height: 6%;
+    width: 7%;
+  }
+
+  .motto-icon {
+    top: 46.5%;
+    left: 56%;
+    height: 3%;
+    width: 5%;
+  }
+
+  .motto-info {
+    top: 52%;
+    left: 56%;
+    font-size: 16px;
+  }
+
+  .motto-name {
+    top: 46%;
+    left: 65%;
+  }
+
+  .hobbies-bg{
+    top: 70%;
+    left: 10%;
+    height: 6%;
+    width: 7%;
+  }
+  .hobbies-icon{
+    top: 71%;
+    left: 10.5%;
+    height: 4%;
+    width: 6%;
+  }
+  .hobbies-info{
+    top: 77%;
+    left: 10%;
+    font-size: 16px;
+  }
+  .hobbies-name{
+    top: 71%;
+    left: 20%;
+  }
+}
+
+@media (max-width: 500px) {
+  .wildcat-cuteAU{
+    display: none;
+  }
+  .main-box {
+    top: 10px;
+    left: 10px;
+    width: 95%;
+    height: auto;
+  }
+
+  .half3 {
+    top: 40px;
+    left: 60%;
+    transform: translateX(-50%);
+  }
+
+  .wildcat-cute2 {
+    top: 3% !important;
+    width: 65px !important;
+    height: 60px !important;
+    left: 43% !important;
+  }
+
+  .contact-us2 {
+    top: 40px !important;
+    left: 25% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    font-size: 16px !important;
+  }
+
+  .get-started2 {
+    top: 40px;
+    left: 73%;
+    transform: translateX(-50%);
+    width: auto;
+    height: 23px;
+  } 
+
+  .AboutUs-title {
+    top: 20% !important;
+    left: 18% !important;
+    transform: translateX(-50%) !important;
+    width: auto !important;
+    font-size: 16px !important;
+  }
+
+  .member-name {
+    top: 23% !important;
+    left: 10% !important;
+    /* transform: translateX(-50%) !important; */
+    /* width: 70% !important;
+    height: auto !important; */
+  }
+
+  .members-dp {
+    /* position: absolute; */
+    top: 32% !important;
+    width: 40% !important;
+    height: 35% !important;
+    left: 10% !important;
+  }
+
+  .left-click {
+    /* position: absolute; */
+    top: 62%;
+    left: 55%;
+    border-radius: 2px;
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+  .right-click {
+    /* position: absolute; */
+    top: 62%;
+    left: 70%;
+    border-radius: 2px;
+    width: 33px;
+    height: 33px;
+    object-fit: contain;
+    cursor: pointer;
+  }
+
+  .role-name {
+    top: 32%;
+    left: 66%;
+  }
+
+  .role-bg {
+    top: 32%;
+    left: 55%;
+    height: 5%;
+    width: 8%;
+  }
+
+  .role-icon {
+    top: 33%;
+    left: 57%;
+    height: 3%;
+    width: 5%;
+  }
+
+  .role-info {
+    top: 39%;
+    left: 54%;
+    font-size: 16px;
+  }
+
+  .motto-bg {
+    top: 45%;
+    left: 55%;
+    height: 5%;
+    width: 8%;
+  }
+
+  .motto-icon {
+    top: 46%;
+    left: 56.5%;
+    height: 3%;
+    width: 5%;
+  }
+
+  .motto-info {
+    top: 52%;
+    left: 54%;
+    font-size: 16px;
+  }
+
+  .motto-name {
+    top: 45%;
+    left: 66%;
+  }
+
+  .hobbies-bg{
+    top: 70%;
+    left: 10%;
+    height: 5%;
+    width: 8%;
+  }
+  .hobbies-icon{
+    top: 70.5%;
+    left: 11%;
+    height: 4%;
+    width: 6%;
+  }
+  .hobbies-info{
+    top: 77%;
+    left: 10%;
+    font-size: 16px;
+  }
+  .hobbies-name{
+    top: 70%;
+    left: 22%;
+  }
+
+}

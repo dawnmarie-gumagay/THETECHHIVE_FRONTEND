@@ -8,6 +8,16 @@
     font-family: var(--font-montserrat);
 }
 
+.wildcat-cuteC {
+    position: absolute;
+    top: 70px;
+    left: 280px;
+    width: 28px;
+    height: 25px;
+    object-fit: cover;
+    transition: all 0.5s ease; /* Smooth transition */
+  }
+
 .get-started {
     position: absolute;
     display: inline-block;
@@ -217,17 +227,20 @@
 }
 
 
-@media (max-width: 768px) {
-    .wildcat-cute {
+@media (max-width: 768px) { 
+    .wildcat-cuteC {
         display: none;
     }
+
     .get-started {
+        position: absolute;
+        display: inline-block;
         top: 40px;
         left: 73%;
         transform: translateX(-50%);
         width: auto;
-        font-size: 14px;
-        height: 23px;
+        font-size: 16px;
+        cursor: pointer;
     }
 
     .ContactUs-title {
@@ -386,16 +399,12 @@
 }
 
 @media (max-width: 500px) {
-    .wildcat-cute {
-        display: none;
-    }
     .get-started {
-        top: 40px;
-        left: 73%;
-        transform: translateX(-50%);
-        width: auto;
-        font-size: 14px;
-        height: 23px;
+        display: inline-block;
+        top: 40px !important;
+        left: 73% !important;
+        transform: translateX(-50%) !important;
+        width: auto !important;
     }
 
     .ContactUs-title {
