@@ -8,7 +8,7 @@
     font-family: var(--font-montserrat);
 }
 
-.main-box2 {
+.main-boxSU {
     position: absolute;
     top: 35px;
     left: 240px;
@@ -16,7 +16,29 @@
     border-radius: 10px;
     background-color: rgba(255, 255, 255, 0.3);
     width: 1070px;
-    height: 730px;
+    height: 655px;
+    transition: all 0.5s ease; /* Smooth transition */
+  }
+
+  .main-bgSU {
+    position: absolute;
+    top: 105px;
+    left: 390px;
+    border-radius: 100px;
+    width: 372px;
+    height: 526px;
+    object-fit: cover;
+    opacity: 0.9;
+    mix-blend-mode: normal;
+}
+
+.main-titleSU {
+    position: absolute;
+    top: 180px;
+    left: 455px;
+    width: 261px;
+    height: 206px;
+    object-fit: cover;
 }
 
 .welcome2 {
@@ -187,4 +209,173 @@
     width: 106px;
     height: 21px;
     cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+    .main-bgSU{
+        display: none;
+    }
+
+    .main-boxSU{
+        top: 6%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 87%;
+        height: 89.5%;
+    }
+
+    .main-titleSU{
+        display: none;
+    }
+
+    .back-bg {
+        top: 9%;
+        left: 9%;
+        width: 40px;
+        height: 40px;
+    }
+    .back-icon {
+        top: 9.7%;
+        left: 10%;
+        width: 24px;
+        height: 30px;
+    }
+
+    .welcome2 {
+        top: 13%;
+        left: 54%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .sub-title {
+        top: 18%;
+        left: 54%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .full-name,
+    .email-name,
+    .username-name,
+    .id-number-name,
+    .pass-name,
+    .cpass-name {
+        top: auto;
+        left: 61%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 18px;
+    }
+
+    .full-name {
+        top: 24%;
+    }
+
+    .email-name {
+        top: 34%;
+    }
+
+    .username-name {
+        top: 44%;
+    }
+
+    .id-number-name {
+        top: 54%;
+    }
+
+    .pass-name {
+        top: 64%;
+    }
+
+    .cpass-name {
+        top: 74%;
+    }
+
+    .full-name-box,
+    .email-box,
+    .username-box,
+    .id-number-box,
+    .pass-box,
+    .cpass-box {
+        top: auto;
+        left: 51%;
+        transform: translateX(-50%);
+        width: 53%;
+        height: 36px;
+    }
+
+    .full-name-box {
+        top: 27.5%;
+    }
+
+    .email-box {
+        top: 37.5%;
+    }
+
+    .username-box {
+        top: 47.5%;
+    }
+
+    .id-number-box {
+        top: 57.5%;
+    }
+
+    .pass-box {
+        top: 67.5%;
+    }
+
+    .cpass-box {
+        top: 77.5%;
+    }
+
+    .signupContainer {
+        top: 84%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20%;
+        height: auto;
+    }
+
+    .s-button {
+        width: 100%;
+        height: 40px;
+    }
+
+    .s-name {
+        top: 7px;
+        left: 54%;
+        transform: translateX(-50%);
+        font-size: 18px;
+    }
+
+    .error-message {
+        transform: translate(-0%, 50%);
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .q1,
+    .q2 {
+        top: auto;
+        left: 70%;
+        transform: translateX(-50%);
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .q1 {
+        top: 91%;
+    }
+
+    .q2 {
+        top: 91%;
+        left: 99%;
+    }
 }
