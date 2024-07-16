@@ -13,7 +13,7 @@ const SuccessfullyRegistered = () => {
     <div className="successfully-register">
       <img className="background" alt="" src="/bg1.png" />
 
-      <div className="main-box" />
+      <div className="main-boxSR" />
       <img className="main-bg" alt="" src="/main-bg.png" />
       <img className="main-title" alt="" src="/TITLE.png" />
 
