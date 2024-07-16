@@ -61,7 +61,6 @@
   text-align: center;
 }
 
-
 /* Post Container */
 .post-container {
   position: relative;
@@ -316,13 +315,30 @@
   text-align: left !important;
 }
 
+.MuiDialogContent-root {
+  text-align: center !important;
+  font-size: 16px !important;
+  padding: 24px 24px 16px !important;
+  background-color: transparent !important;
+  color: black !important;
+}
+
+.MuiDialogActions-root {
+  display: flex;
+  justify-content: center !important;
+  padding: 16px !important;
+}
+
 .MuiDialogActions-root button {
+  margin: 0 10px !important;
+  min-width: 100px !important;
   background-color: #8A252C !important;
   color: white !important;
   border: none !important;
   border-radius: 5px !important;
   padding: 8px 16px !important;
   cursor: pointer !important;
+  transition: all 0.3s ease !important;
 }
 
 .MuiDialogActions-root button:hover {
@@ -330,11 +346,18 @@
   color: black !important;
 }
 
-.MuiDialogContent-root {
-  text-align: center !important;
-  font-size: 16px !important;
-  padding: 24px 24px 16px !important;
-  background-color: transparent !important;
+.MuiDialogActions-root .cancel-button {
+  background-color: #8A252C !important;
+}
+
+.MuiDialogActions-root .delete-button {
+  background-color: #8A252C !important;
+}
+
+.MuiDialogActions-root .cancel-button:hover,
+.MuiDialogActions-root .delete-button:hover {
+  background-color: #f9d67b !important;
+  color: black !important;
 }
 
 .comment {
@@ -384,17 +407,12 @@
 }
 
 .formatted-time {
+  font-size: 0.8em;
   text-align: left;
 }
 
 .comment p {
   margin: 5px 0 0 0;
-}
-
-.MuiDialogActions-root {
-  padding: 16px !important;
-  display: flex;
-  justify-content: space-between;
 }
 
 .MuiDialogActions-root input {
@@ -403,20 +421,6 @@
   padding: 8px;
   border-radius: 5px;
   border: 1px solid #8a252c;
-}
-
-.MuiDialogActions-root button {
-  background-color: #8a252c;
-  color: white;
-  border: none;
-  border-radius: 5px;
-  padding: 8px 16px;
-  cursor: pointer;
-}
-
-
-.MuiDialogActions-root button:hover {
-  background-color: #8a252c;
 }
 
 /* Overlay */
@@ -466,77 +470,76 @@
   background-color: #8A252C;
   transition: all 0.3s ease;
 }
+
 /* Adjust DialogTitle to accommodate the exit icon */
 .MuiDialogTitle-root {
   padding-right: 48px !important;
 }
 
-
 @media (max-width: 768px) {
-.NHome, .NReports, .NLeaderboards, .NProfile {
-  position: fixed;
-  display: inline-block;
-  top: 26px;
-  font-size: 17px;
-  height: 23px;
-  cursor: pointer;
-  z-index: 1001;
-}
+  .NHome, .NReports, .NLeaderboards, .NProfile {
+    position: fixed;
+    display: inline-block;
+    top: 26px;
+    font-size: 17px;
+    height: 23px;
+    cursor: pointer;
+    z-index: 1001;
+  }
   
-.NHome { left: 350px; width: 63px; }
-.NReports { left: 440px; width: 82px; }
-.NLeaderboards { left: 515px; width: 100px; }
-.NProfile { left: 650px; width: 65px; }
+  .NHome { left: 350px; width: 63px; }
+  .NReports { left: 440px; width: 82px; }
+  .NLeaderboards { left: 515px; width: 100px; }
+  .NProfile { left: 650px; width: 65px; }
 
-.HWildcat {
-  position: relative;
-  left: 33%;
-  transform: translateX(-50%);
-  width: 323px;
-  height: 77px;
+  .HWildcat {
+    position: relative;
+    left: 33%;
+    transform: translateX(-50%);
+    width: 323px;
+    height: 77px;
   }
 
-.post-list {
-  width: 100%;
-  left: 8%;
+  .post-list {
+    width: 100%;
+    left: 8%;
   }
 }
-
 
 @media (max-width: 500px) {
-.NHome, .NReports, .NLeaderboards, .NProfile {
-  position: fixed;
-  display: inline-block;
-  top: 26px;
-  font-size: 15px;
-  height: 23px;
-  cursor: pointer;
-  z-index: 1001;
-}
+  .NHome, .NReports, .NLeaderboards, .NProfile {
+    position: fixed;
+    display: inline-block;
+    top: 26px;
+    font-size: 15px;
+    height: 23px;
+    cursor: pointer;
+    z-index: 1001;
+  }
   
-.NHome { left: 163px; width: 63px; }
-.NReports { left: 240px; width: 82px; }
-.NLeaderboards { left: 299px; width: 100px; }
-.NProfile { left: 420px; width: 65px; }
+  .NHome { left: 163px; width: 63px; }
+  .NReports { left: 240px; width: 82px; }
+  .NLeaderboards { left: 299px; width: 100px; }
+  .NProfile { left: 420px; width: 65px; }
 
-.WSTitle{
-  position: fixed;
-  display: inline-block;
-  top: 3px;
-  left: 5%;
-  width: 17%;
-  height: 12%;
-}
-.HWildcat {
-  position: relative;
-  margin-top: 24px;
-  left: 20%;
-  transform: translateX(-50%);
-  font-size: 64px;
-  width: 323px;
-  height: 77px;
-  text-align: center;
-}
+  .WSTitle{
+    position: fixed;
+    display: inline-block;
+    top: 3px;
+    left: 5%;
+    width: 17%;
+    height: 12%;
+  }
+  .HWildcat {
+    position: relative;
+    margin-top: 24px;
+    left: 20%;
+    transform: translateX(-50%);
+    font-size: 64px;
+    width: 323px;
+    height: 77px;
+    text-align: center;
+  }
 
   .post-container {
     position: fixed;
@@ -550,12 +553,13 @@
     border-radius: 10px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
-.post-input {
-  max-width: 380px;
-  height: 60px;
-  margin: 5px auto;
-  padding: 2px;
-}
+  .post-input {
+    max-width: 380px;
+    height: 60px;
+    margin: 5px auto;
+    padding: 2px;
+  }
+
   .post-card {
     position: relative;
     display: inline-block;
