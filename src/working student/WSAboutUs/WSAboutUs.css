@@ -255,7 +255,7 @@
   }
 
   .get-started2 {
-    top: 40px;
+    top: 50px;
     left: 73%;
     transform: translateX(-50%);
     width: auto;
@@ -288,9 +288,8 @@
   }
 
   .left-click {
-    /* position: absolute; */
-    top: 62%;
-    left: 55%;
+    top: 70%;
+    left: 24%;
     border-radius: 2px;
     width: 33px;
     height: 33px;
@@ -298,9 +297,8 @@
     cursor: pointer;
   }
   .right-click {
-    /* position: absolute; */
-    top: 62%;
-    left: 70%;
+    top: 70%;
+    left: 31%;
     border-radius: 2px;
     width: 33px;
     height: 33px;
@@ -308,78 +306,76 @@
     cursor: pointer;
   }
 
-  .role-name {
-    top: 33%;
-    left: 65%;
-  }
-
   .role-bg {
     top: 32%;
     left: 55%;
-    height: 6%;
+    height: 7%;
     width: 7%;
   }
-
   .role-icon {
     top: 33.5%;
     left: 56.5%;
-    height: 3%;
+    height: 4%;
     width: 5%;
   }
-
-  .role-info {
-    top: 40%;
-    left: 56%;
-    font-size: 16px;
+  .role-name {
+    top: 32%;
+    left: 65%;
   }
+  .role-info {
+    top: 37%;
+    left: 65%;
+    font-size: 17px;
+  }
+
 
   .motto-bg {
-    top: 45%;
+    top: 46%;
     left: 55%;
-    height: 6%;
+    height: 7%;
     width: 7%;
   }
-
   .motto-icon {
-    top: 46.5%;
+    top: 47.5%;
     left: 56%;
-    height: 3%;
+    height: 4%;
     width: 5%;
   }
-
-  .motto-info {
-    top: 52%;
-    left: 56%;
-    font-size: 16px;
-  }
-
   .motto-name {
     top: 46%;
     left: 65%;
   }
+  .motto-info {
+    top: 51%;
+    left: 65%;
+    font-size: 16px;
+  }
+
 
   .hobbies-bg{
-    top: 70%;
-    left: 10%;
-    height: 6%;
+    top: 60%;
+    left: 55%;
+    height: 7%;
     width: 7%;
   }
   .hobbies-icon{
-    top: 71%;
-    left: 10.5%;
-    height: 4%;
-    width: 6%;
-  }
-  .hobbies-info{
-    top: 77%;
-    left: 10%;
-    font-size: 16px;
+    top: 61%;
+    left: 56%;
+    height: 5%;
+    width: 5%;
   }
   .hobbies-name{
-    top: 71%;
-    left: 20%;
+    top: 60%;
+    left: 65%;
   }
+  .hobbies-info{
+    top: 65%;
+    left: 65%;
+    font-size: 16px;
+  }
+
 }
+
 
 @media (max-width: 500px) {
   .wildcat-cuteAU{
@@ -446,9 +442,8 @@
   }
 
   .left-click {
-    /* position: absolute; */
-    top: 62%;
-    left: 55%;
+    top: 70%;
+    left: 23%;
     border-radius: 2px;
     width: 33px;
     height: 33px;
@@ -456,9 +451,8 @@
     cursor: pointer;
   }
   .right-click {
-    /* position: absolute; */
-    top: 62%;
-    left: 70%;
+    top: 70%;
+    left: 30%;
     border-radius: 2px;
     width: 33px;
     height: 33px;
@@ -466,76 +460,75 @@
     cursor: pointer;
   }
 
-  .role-name {
-    top: 32%;
-    left: 66%;
-  }
-
   .role-bg {
     top: 32%;
     left: 55%;
     height: 5%;
-    width: 8%;
+    width: 7%;
   }
-
   .role-icon {
-    top: 33%;
+    top: 33.5%;
     left: 57%;
-    height: 3%;
-    width: 5%;
+    height: 2.5%;
+    width: 4.5%;
   }
-
+  .role-name {
+    top: 31%;
+    left: 65%;
+    font-size: 19px;
+  }
   .role-info {
-    top: 39%;
-    left: 54%;
+    top: 35.5%;
+    left: 65%;
     font-size: 16px;
   }
+
 
   .motto-bg {
-    top: 45%;
+    top: 46%;
     left: 55%;
     height: 5%;
-    width: 8%;
+    width: 7%;
   }
-
   .motto-icon {
-    top: 46%;
+    top: 47.5%;
     left: 56.5%;
-    height: 3%;
-    width: 5%;
+    height: 2.5%;
+    width: 4.5%;
   }
-
+  .motto-name {
+    top: 44.5%;
+    left: 65%;
+    font-size: 19px;
+  }
   .motto-info {
-    top: 52%;
-    left: 54%;
+    top: 49.5%;
+    left: 65%;
     font-size: 16px;
   }
 
-  .motto-name {
-    top: 45%;
-    left: 66%;
-  }
 
   .hobbies-bg{
-    top: 70%;
-    left: 10%;
+    top: 60%;
+    left: 55%;
     height: 5%;
-    width: 8%;
+    width: 7%;
   }
   .hobbies-icon{
-    top: 70.5%;
-    left: 11%;
+    top: 60.5%;
+    left: 56%;
     height: 4%;
-    width: 6%;
-  }
-  .hobbies-info{
-    top: 77%;
-    left: 10%;
-    font-size: 16px;
+    width: 5.5%;
   }
   .hobbies-name{
-    top: 70%;
-    left: 22%;
+    top: 59%;
+    left: 65%;
+    font-size: 19px;
+  }
+  .hobbies-info{
+    top: 64.5%;
+    left: 65%;
+    font-size: 16px;
   }
 
 }
