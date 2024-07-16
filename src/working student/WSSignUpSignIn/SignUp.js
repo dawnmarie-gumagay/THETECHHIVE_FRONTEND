@@ -105,7 +105,7 @@ const SignUp = () => {
     <div className="ws-sign-up">
       <img className="background" alt="" src="/bg1.png" />
 
-      <div className="main-box" />
+      <div className="main-box2" />
       <div className="back-bg" onClick={onSIGNUPSIGNINClick} />
       <img className="back-icon" alt="" src="/back.png" onClick={onSIGNUPSIGNINClick} />
 

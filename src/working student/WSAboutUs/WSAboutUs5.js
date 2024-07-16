@@ -1,6 +1,6 @@
 import { useCallback } from "react";
 import { useNavigate } from "react-router-dom";
-import "./WSAboutUs5.css";
+import "./WSAboutUs.css";
 
 const WSAboutUs5 = () => {
   const navigate = useNavigate();
