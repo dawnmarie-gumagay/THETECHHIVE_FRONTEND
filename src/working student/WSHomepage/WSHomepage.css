@@ -61,6 +61,7 @@
   text-align: center;
 }
 
+
 /* Post Container */
 .post-container {
   position: relative;
@@ -219,8 +220,18 @@
 
 /* Timestamp */
 .timestamp {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.formatted-date,
+.relative-time {
+  display: flex;
+  justify-content: space-between;
   font-size: 0.8em;
   color: #666;
+  margin-top: 10px;
   margin-bottom: 10px;
 }
 
@@ -282,6 +293,7 @@
   border-radius: 5px;
   padding: 5px 10px;
   cursor: pointer;
+  transition: all 0.3s ease;
 }
 
 .comment-button:hover {
@@ -301,6 +313,7 @@
   background-color: #8A252C !important;
   color: white !important;
   padding: 16px 24px !important;
+  text-align: left !important;
 }
 
 .MuiDialogActions-root button {
@@ -318,7 +331,9 @@
 }
 
 .MuiDialogContent-root {
-  padding: 20px !important;
+  text-align: center !important;
+  font-size: 16px !important;
+  padding: 24px 24px 16px !important;
   background-color: transparent !important;
 }
 
@@ -327,14 +342,23 @@
   background-color: white;
   border-radius: 8px;
   padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #e0e0e0;
+  transition: all 0.3s ease;
   margin-bottom: 10px;
 }
 
-.comment:hover{
+.comment:hover {
   background-color: #f9d67b !important;
 }
 
 .comment-header {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 10px;
+}
+
+.user-info-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -346,9 +370,21 @@
   font-weight: bold;
 }
 
+.timestamp-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.8em;
+  color: #666;
+}
+
 .comment-timestamp {
   font-size: 0.8em;
   color: #666;
+}
+
+.formatted-time {
+  text-align: left;
 }
 
 .comment p {
@@ -378,6 +414,7 @@
   cursor: pointer;
 }
 
+
 .MuiDialogActions-root button:hover {
   background-color: #8a252c;
 }
@@ -397,7 +434,6 @@
 }
 
 .overlay-content {
-  background-color: white;
   padding: 20px;
   border-radius: 10px;
   max-width: 80%;
@@ -420,6 +456,16 @@
   transform: scale(1.5);
 }
 
+/* New Comment Button Styles */
+.new-comment button {
+  border-radius: 20px;
+  border: none;
+  padding: 8px 15px;
+  cursor: pointer;
+  color: white;
+  background-color: #8A252C;
+  transition: all 0.3s ease;
+}
 /* Adjust DialogTitle to accommodate the exit icon */
 .MuiDialogTitle-root {
   padding-right: 48px !important;
