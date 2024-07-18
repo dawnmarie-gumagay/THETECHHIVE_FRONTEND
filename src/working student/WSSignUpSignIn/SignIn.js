@@ -33,7 +33,7 @@ const SignIn = () => {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
         navigate("/wshomepage", { state: { loggedInUser: user } });
       } else {
-        alert("Invalid ID Number or Password. Please try again.");
+        alert("Invalid ID Number or Password. Please enter both fields correctly.");
       }
     } catch (error) {
       console.error("Sign-in Error:", error);
