@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect, useRef  } from "react";
+import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UpdatedPopUp from './UpdatedPopUp';  
@@ -27,20 +27,40 @@ const WSProfile = ({ className = "" }) => {
   const [error, setError] = useState("");
   const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null); // State to hold logged in user data
+  const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
   const navigate = useNavigate();
-  const [profilePicture, setProfilePicture] = useState("/ex-dp.png");
-  const fileInputRef = useRef(null);
 
   // Function to fetch and set logged in user data
   const fetchLoggedInUser = useCallback(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser")) || null;
     setLoggedInUser(user);
+    return user;
   }, []);
 
-  // Fetch logged in user data on component mount
+  // Function to fetch profile picture
+  const fetchProfilePicture = useCallback(async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
+      if (response.ok) {
+        const imageBlob = await response.blob();
+        const imageUrl = URL.createObjectURL(imageBlob);
+        setProfilePicture(imageUrl);
+      } else {
+        setProfilePicture(null);
+      }
+    } catch (error) {
+      console.error('Failed to fetch profile picture:', error);
+      setProfilePicture(null);
+    }
+  }, []);
+
+  // Fetch logged in user data and profile picture on component mount
   useEffect(() => {
-    fetchLoggedInUser();
-  }, [fetchLoggedInUser]);
+    const user = fetchLoggedInUser();
+    if (user) {
+      fetchProfilePicture(user.userId);
+    }
+  }, [fetchLoggedInUser, fetchProfilePicture]);
 
   const openLOGOUTConfirmation = () => {
     setIsConfirmLogoutVisible(true);
@@ -111,28 +131,39 @@ const WSProfile = ({ className = "" }) => {
     setIsEditable(!isEditable);
   };
 
+  const handleProfilePictureChange = async (event) => {
+    const file = event.target.files[0];
+    if (file && loggedInUser) {
+      const formData = new FormData();
+      formData.append('userId', loggedInUser.userId);
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('http://localhost:8080/user/profile/uploadProfilePicture', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          fetchProfilePicture(loggedInUser.userId);
+        } else {
+          console.error('Failed to upload profile picture');
+        }
+      } catch (error) {
+        console.error('Upload error:', error);
+      }
+    }
+  };
+
   if (!loggedInUser) {
     return null; // Handle case where user is not logged in
   }
-
-  const handleProfilePictureChange = (event) => {
-    const file = event.target.files[0];
-    if (file) {
-      const reader = new FileReader();
-      reader.onloadend = () => {
-        setProfilePicture(reader.result);
-        // Here you would typically upload the file to your server
-        // and update the user's profile in your database
-      };
-      reader.readAsDataURL(file);
-    }
-  };
 
   return (
     <>
       <div className={`ws-profile ${className}`}>
         <div className="WSNavbar" />
-        <img className="WSTitleP" alt="" src="/TITLE.png" />
+        <img className="WSTitle" alt="" src="/TITLE.png" />
         <div className="NHome" onClick={onHomeTextClick}>
           Home
         </div>
@@ -145,28 +176,36 @@ const WSProfile = ({ className = "" }) => {
         </div>
 
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
-        <Button 
-          className="WSProfileUser"
-          onClick={() => fileInputRef.current.click()}
-            sx={{
-                padding: 0,
-                borderRadius: '50%',
-                overflow: 'hidden',
-                          '&:hover': {
-                                  opacity: 0.8,
-                                    },
-                }}
-        >
-          <img src={profilePicture} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-        </Button>
+        <div className="ProfilePictureContainer">
+        <img className="WSProfileUser" alt="" src={profilePicture ? profilePicture : "/public/dp.png"} />
+
+
         <input
           type="file"
-          accept="image/*"
-          style={{ display: 'none' }}
-          ref={fileInputRef}
           onChange={handleProfilePictureChange}
+          style={{ display: 'none' }}
+          id="profilePictureUpload"
         />
-        
+        <label htmlFor="profilePictureUpload">
+          <Button
+            className="UploadButton"
+            variant="contained"
+            sx={{
+              borderRadius: "10px",
+              width: 75,
+              height: 25,
+              backgroundColor: "#8A252C",
+              "&:hover": { backgroundColor: "#A91D3A" },
+              fontSize: "10px"
+            }}
+            component="span"
+          >
+            Upload
+          </Button>
+        </label>
+      </div>
+
+
         <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
         <div className="WSID">{loggedInUser.idNumber}</div>
         <div className="WSName">{loggedInUser.fullName}</div>
@@ -242,14 +281,14 @@ const WSProfile = ({ className = "" }) => {
         </div>
       )}
 
-{isConfirmLogoutVisible && (
-  <div className="popup-overlay">
-    <ConfirmLogout
-      onLOGOUTTextClick={onLOGOUTTextClick}
-      onClose={() => setIsConfirmLogoutVisible(false)}
-    />
-  </div>
-)}
+      {isConfirmLogoutVisible && (
+        <div className="popup-overlay">
+          <ConfirmLogout
+            onLOGOUTTextClick={onLOGOUTTextClick}
+            onCANCELTextClick={() => setIsConfirmLogoutVisible(false)}
+          />
+        </div>
+      )}
 
       {isErrorPopUpVisible && (
         <div className="popup-overlay">

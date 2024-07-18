@@ -88,6 +88,18 @@
   color: white !important;
 }
 
+.ProfilePictureContainer {
+  position: relative;
+}
+.UploadButton {
+  position: absolute;
+  top: 300px;
+  bottom: 10px; /* Adjust as needed */
+  left: 25%; /* Center horizontally, adjust as needed */
+  transform: translateX(-50%);
+  z-index: 1001;
+}
+
 .PasswordGroup {
   position: absolute;
   top: 210px;
