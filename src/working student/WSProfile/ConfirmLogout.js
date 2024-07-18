@@ -1,4 +1,4 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useEffect  } from "react";
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import "./ConfirmLogout.css";
@@ -13,22 +13,27 @@ const ConfirmLogout = ({ onClose }) => {
   }, [navigate]);
 
   const onCANCELTextClick = useCallback(() => {
-    console.log("Cancel button clicked"); // Debugging line
-    
-    // Navigate to the WSProfile page
-    navigate("/wsprofile");
-    
-    // Also call onClose if it's provided
-    if (typeof onClose === 'function') {
-      onClose();
+    console.log("Cancel button clicked");
+  if (typeof onClose === 'function') {
+    onClose();
+  }
+  setIsOpen(false);
+}, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      // Use a small delay to ensure state update has occurred
+      const timer = setTimeout(() => {
+        if (typeof onClose === 'function') {
+          onClose();
+        }
+        navigate("/wsprofile");
+      }, 0);
+      return () => clearTimeout(timer);
     }
-    
-    // Set isOpen to false
-    setIsOpen(false);
-  }, [navigate, onClose]);
+  }, [isOpen, onClose, navigate]);
 
   if (!isOpen) {
-    console.log("Component is not open, returning null"); // Debugging line
     return null;
   }
 
