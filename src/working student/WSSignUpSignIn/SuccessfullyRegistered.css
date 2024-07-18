@@ -131,7 +131,7 @@
     } 
 
     .si-button {
-        top: 0;
+        top: 0 !important;
         left: 0;
         border-radius: 20px;
         background-color: #8a252c;

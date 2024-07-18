@@ -8,6 +8,17 @@
     font-family: var(--font-montserrat);
 }
 
+.main-boxL {
+    position: absolute;
+    top: 35px;
+    left: 240px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 1070px;
+    height: 655px;
+    transition: all 0.5s ease; /* Smooth transition */
+  }
 
 .wildcatbye {
     position: absolute;
@@ -38,6 +49,76 @@
     width: 347px;
     height: 39px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 16px;
     color: white;
+}
+
+@media (max-width: 768px) {
+    .main-boxL {
+        top: 6%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 87%;
+        height: 88%;
+    }
+
+    .wildcatbye{
+        top: 28%;
+        left: 72%;
+        transform: translateX(-50%);
+        width: 19%;
+    }
+
+    .OnProwl{
+        top: 55%;
+        left: 58%;
+        width: 250px;
+        height: 23px;
+        font-size: 19px;
+    }
+
+    .ReturnHomeContainer{
+        top: 63%;
+        left: 71%;
+        transform: translateX(-50%);
+        width: 220px; /* Further reduced for mobile */
+        height: 35px;
+    }
+
+
+    @media (max-width: 500px) {
+        .main-boxL {
+            top: 5%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 90%;
+            height: 90%;
+        }
+    
+        .wildcatbye {
+            top: 33%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 31%;
+        }
+    
+        .OnProwl {
+            top: 59%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 200px;
+            height: 20px;
+            font-size: 18px;
+            text-align: center;
+        }
+    
+        .ReturnHomeContainer {
+            top: 67%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 32px;
+        }
+
+    }
 }

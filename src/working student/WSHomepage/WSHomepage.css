@@ -478,7 +478,7 @@
 
 @media (max-width: 768px) {
   .NHome, .NReports, .NLeaderboards, .NProfile {
-    position: fixed;
+    position: fixed !important;
     display: inline-block;
     top: 26px;
     font-size: 17px;
@@ -487,13 +487,13 @@
     z-index: 1001;
   }
   
-  .NHome { left: 350px; width: 63px; }
+  .NHome { left: 350px; width: 63px !important; }
   .NReports { left: 440px; width: 82px; }
   .NLeaderboards { left: 515px; width: 100px; }
   .NProfile { left: 650px; width: 65px; }
 
   .HWildcat {
-    position: relative;
+    position: relative !important;
     left: 33%;
     transform: translateX(-50%);
     width: 323px;
@@ -501,14 +501,14 @@
   }
 
   .post-list {
-    width: 100%;
+    width: 100% !important;
     left: 8%;
   }
 }
 
 @media (max-width: 500px) {
   .NHome, .NReports, .NLeaderboards, .NProfile {
-    position: fixed;
+    position: fixed !important;
     display: inline-block;
     top: 26px;
     font-size: 15px;
@@ -517,21 +517,13 @@
     z-index: 1001;
   }
   
-  .NHome { left: 163px; width: 63px; }
-  .NReports { left: 240px; width: 82px; }
-  .NLeaderboards { left: 299px; width: 100px; }
+  .NHome { left: 200px; width: 63px !important; }
+  .NReports { left: 260px; width: 82px; }
+  .NLeaderboards { left: 310px; width: 100px; }
   .NProfile { left: 420px; width: 65px; }
 
-  .WSTitle{
-    position: fixed;
-    display: inline-block;
-    top: 3px;
-    left: 5%;
-    width: 17%;
-    height: 12%;
-  }
   .HWildcat {
-    position: relative;
+    position: relative !important;
     margin-top: 24px;
     left: 20%;
     transform: translateX(-50%);
@@ -542,33 +534,22 @@
   }
 
   .post-container {
-    position: fixed;
-    display: inline-block;
-    margin: 10px auto;
-    top: 15%;
-    max-width: 430px;
-    max-height: 30vh;
+    width: 85% !important;
+    max-width: 425px;
+    overflow-y: auto;
     padding: 10px;
-    background-color: rgba(255, 255, 255, 0.25);
-    border-radius: 10px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   }
-  .post-input {
-    max-width: 380px;
-    height: 60px;
-    margin: 5px auto;
-    padding: 2px;
+  .post-list {
+    left: 5% !important;
   }
 
   .post-card {
-    position: relative;
-    display: inline-block;
-    top: 60%;
-    left: 1%;
-    transform: translateX(-10%);
-    max-width: 400px;
-    height: 40vh;
-    margin: 10px auto;
+    width: 85% !important;
+    max-width: 425px;
+    left: 50%;
+    top: 45%;
+    height: 45%;
     overflow-y: auto;
+    padding: 10px;
   }
 }

@@ -9,6 +9,16 @@
   font-family: var(--font-montserrat);
 }
 
+.WSTitleP {
+  position: fixed;
+  top: -19px;
+  left: 31px;
+  width: 115px;
+  height: 113px;
+  object-fit: cover;
+  z-index: 1001;
+}
+
 .WSProfileBg {
   position: absolute;
   object-fit: cover;
@@ -68,14 +78,14 @@
 }
 
 .WSPLogout {
-  position: absolute;
-  top: 565px;
-  left: 305px;
-  width: 90px;
-  height: 20px;
-  text-align: center;
-  cursor: pointer;
-  color: white;
+  position: absolute !important;
+  top: 565px !important;
+  left: 305px !important;
+  width: 90px !important;
+  height: 20px !important;
+  text-align: center !important;
+  cursor: pointer !important;
+  color: white !important;
 }
 
 .PasswordGroup {
@@ -165,7 +175,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: rgba(0, 0, 0, 0.5);
+  background: rgba(0, 0, 0, 0.2);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -180,4 +190,212 @@
   color: red; /* Optional: to make the text color stand out */
   border: 1px solid rgb(0, 0, 0);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+@media (max-width: 768px) {
+  .WSTitleP {
+    position: fixed !important;
+    display: inline-block !important;
+    top: 0px !important;
+    left: 3% !important;
+    width: 17% !important;
+    height: 12% !important;
+  }
+
+  .WSProfileBg {
+    top: 21%;
+    left: 25%;
+    transform: translateX(-50%);
+    max-width: 300px;
+    height: auto;
+  }
+
+  .WSProfileUser {
+    top: 25%;
+    left: 25%;
+    transform: translateX(-50%);
+    width: 120px;
+    height: 120px;
+  }
+
+  .WSProfileBadge {
+    top: 38%;
+    left: 28%;
+    width: 30px;
+    height: 30px;
+  }
+
+  .WSID, .WSName, .WSPoints, .WSEdu {
+    left: 25%;
+    transform: translateX(-50%);
+    width: 80%;
+    text-align: center;
+  }
+
+  .WSID { top: 45%; }
+  .WSName { top: 50%; font-size: 20px; }
+  .WSPoints { top: 57%; }
+  .WSEdu { top: 64%; }
+
+  .WSPLogout {
+    top: 75% !important;
+    left: 24% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .PasswordGroup {
+    top: 25%;
+    left: 74%;
+    transform: translateX(-50%) ;
+    font-size: 20px;
+    width: 90%;
+    max-width: 400px;
+  }
+
+  .PasswordBox {
+    top: 10%;
+    width: 330px;
+    height: 295px;
+    padding: 20px;
+  }
+
+  .PasswordName, .OldPass, .NewPass {
+    left: 30px;
+    margin-bottom: 15px;
+  }
+
+  .PasswordName{ top: 18%;}
+  .OldPass{ font-size: 18px;}
+  .NewPass{ top: 67%; font-size: 18px;}
+
+  .OldPassInput, .NewPassInput {
+    left: 30px;
+    width: 40%;
+    margin-bottom: 15px;
+  }
+
+  .OldPassInput{ left: 51%; height: 28px;}
+  .NewPassInput{ top: 65%; left: 51%; height: 28px;}
+
+  .edit, .UpdateContainer {
+    top: 72%;
+    left: 51%;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .edit{ left: 68%;}
+  .UpdateContainer{ left: 77.5%;}
+}
+
+
+
+@media (max-width: 500px) {
+  .ws-profile {
+    height: 130vh !important;
+  }
+  .WSTitleP {
+    position: fixed !important;
+    display: inline-block !important;
+    top: 8px !important;
+    left: 25px !important;
+    width: 13% !important;
+    height: 8% !important;
+  }
+
+  .WSProfileBg {
+    top: 25%;
+    width: 45%;
+    height: 56%;
+
+  }
+
+  .WSProfileUser {
+    top: 30%;
+    width: 85px;
+    height: 85px;
+  }
+
+  .WSProfileBadge {
+    top: 38.5%;
+    width: 25px;
+    height: 25px;
+  }
+
+  .WSID, .WSName, .WSPoints, .WSEdu {
+    width: 90%;
+  }
+
+  .WSID { font-size: 13px; }
+  .WSName { font-size: 15px; }
+  .WSPoints { top: 56%; font-size: 13px; }
+  .WSEdu { top: 62%; font-size: 13px; }
+
+  .WSPLogout {
+    font-size: 12px !important;
+    padding: 5px !important;
+    top: 70% !important;
+    left: 23% !important;
+    transform: translateX(-50%) !important;
+  }
+
+  .PasswordGroup {
+    top: 22% !important;
+    left: 92% !important;
+  }
+
+  .PasswordBox {
+    width: 180px !important;
+    height: 295px !important;
+    padding: 20px !important;
+  }
+
+  .PasswordName, .OldPass, .NewPass {
+    left: 25px !important;
+    margin-bottom: 15px !important;
+  }
+
+  .PasswordName{ top: 28%; font-size: 16px;}
+  .OldPass{ top: 43%; font-size: 14px;}
+  .NewPass{ top: 65%; font-size: 14px;}
+
+  .OldPassInput, .NewPassInput {
+    width: 35% !important;
+    margin-bottom: 15px !important;
+  }
+
+  .OldPassInput{ 
+    top: 48% !important; 
+    left: 56% !important; 
+    height: 16px !important;
+  }
+
+  .NewPassInput{ 
+    top: 59.5% !important; 
+    left: 56% !important; 
+    height: 16px !important;
+  }
+
+
+  .edit{ 
+    top: 28% !important; 
+    left: 85% !important; 
+    font-size: 13px !important;
+  }
+  .UpdateContainer{ 
+    top: 67% !important; 
+    left: 63% !important;
+  }
+
+  .error-popup{
+    position: fixed !important;
+    top: 35%;
+    left: 38%;
+    transform: translateX(-50%);
+    width: 85%;
+    max-width: 400px;
+    overflow-y: auto;
+    padding: 10px
+  }
 }

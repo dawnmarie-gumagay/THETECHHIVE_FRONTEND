@@ -117,7 +117,7 @@ const WSProfile = ({ className = "" }) => {
     <>
       <div className={`ws-profile ${className}`}>
         <div className="WSNavbar" />
-        <img className="WSTitle" alt="" src="/TITLE.png" />
+        <img className="WSTitleP" alt="" src="/TITLE.png" />
         <div className="NHome" onClick={onHomeTextClick}>
           Home
         </div>

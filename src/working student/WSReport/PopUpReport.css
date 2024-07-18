@@ -233,7 +233,7 @@
   .error-message {
     position: absolute;
     top: 50px;
-    left: 85px;
+    left: 10px;
     color: red;
     white-space: pre-wrap;
     word-break: break-word;
@@ -316,7 +316,7 @@
   .error-message {
     position: absolute;
     top: 50px !important;
-    left: 85px;
+    left: 5%;
     color: red;
     white-space: pre-wrap;
     word-break: break-word;
