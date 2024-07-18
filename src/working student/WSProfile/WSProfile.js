@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import React, { useState, useCallback, useEffect, useRef  } from "react";
 import { useNavigate } from "react-router-dom";
 import Button from '@mui/material/Button';
 import UpdatedPopUp from './UpdatedPopUp';  
@@ -28,6 +28,8 @@ const WSProfile = ({ className = "" }) => {
   const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null); // State to hold logged in user data
   const navigate = useNavigate();
+  const [profilePicture, setProfilePicture] = useState("/ex-dp.png");
+  const fileInputRef = useRef(null);
 
   // Function to fetch and set logged in user data
   const fetchLoggedInUser = useCallback(() => {
@@ -113,6 +115,19 @@ const WSProfile = ({ className = "" }) => {
     return null; // Handle case where user is not logged in
   }
 
+  const handleProfilePictureChange = (event) => {
+    const file = event.target.files[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setProfilePicture(reader.result);
+        // Here you would typically upload the file to your server
+        // and update the user's profile in your database
+      };
+      reader.readAsDataURL(file);
+    }
+  };
+
   return (
     <>
       <div className={`ws-profile ${className}`}>
@@ -130,7 +145,28 @@ const WSProfile = ({ className = "" }) => {
         </div>
 
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
-        <img className="WSProfileUser" alt="" src="/ex-dp.png" />
+        <Button 
+          className="WSProfileUser"
+          onClick={() => fileInputRef.current.click()}
+            sx={{
+                padding: 0,
+                borderRadius: '50%',
+                overflow: 'hidden',
+                          '&:hover': {
+                                  opacity: 0.8,
+                                    },
+                }}
+        >
+          <img src={profilePicture} alt="Profile" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+        </Button>
+        <input
+          type="file"
+          accept="image/*"
+          style={{ display: 'none' }}
+          ref={fileInputRef}
+          onChange={handleProfilePictureChange}
+        />
+        
         <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
         <div className="WSID">{loggedInUser.idNumber}</div>
         <div className="WSName">{loggedInUser.fullName}</div>
