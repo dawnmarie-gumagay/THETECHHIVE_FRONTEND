@@ -28,6 +28,9 @@ const WSHomepage = () => {
   const [isDeleteCommentDialogOpen, setIsDeleteCommentDialogOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
   const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
+
+  const [userProfilePictures, setUserProfilePictures] = useState({});
+  const defaultProfilePicture = '/role.png'; // Path to the default profile picture
   
 
   useEffect(() => {
@@ -44,6 +47,68 @@ const WSHomepage = () => {
     };
     fetchLoggedInUser();
   }, []);
+
+  const fetchUserProfilePicture = useCallback(async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
+      if (response.ok) {
+        const imageBlob = await response.blob();
+        const imageUrl = URL.createObjectURL(imageBlob);
+        setUserProfilePictures(prev => ({ ...prev, [userId]: imageUrl }));
+      } else {
+        setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfilePicture }));
+      }
+    } catch (error) {
+      console.error('Failed to fetch user profile picture:', error);
+      setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfilePicture }));
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchPostsAndPictures = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/posts");
+        const sortedPosts = response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        setPosts(sortedPosts);
+  
+        // Fetch profile pictures for each post owner
+        const userIds = new Set(sortedPosts.map(post => post.userId));
+        userIds.forEach(userId => fetchUserProfilePicture(userId));
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchPostsAndPictures();
+  }, [fetchUserProfilePicture]);
+  
+  useEffect(() => {
+    if (currentPostId) {
+      const fetchCommentsAndPictures = async () => {
+        try {
+          const [commentsResponse, postResponse] = await Promise.all([
+            axios.get(`http://localhost:8080/comments/${currentPostId}`),
+            axios.get(`http://localhost:8080/posts/${currentPostId}`)
+          ]);
+          const sortedComments = commentsResponse.data
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+            .map(comment => ({
+              ...comment,
+              relativeTime: moment(comment.timestamp).fromNow()
+            }));
+          setComments(sortedComments);
+          setCurrentPostOwner(postResponse.data.userId);
+  
+          // Fetch profile pictures for each comment owner
+          const commentUserIds = new Set(sortedComments.map(comment => comment.userId));
+          commentUserIds.forEach(userId => fetchUserProfilePicture(userId));
+        } catch (error) {
+          console.error("Error fetching comments or post details:", error);
+        }
+      };
+      fetchCommentsAndPictures();
+    }
+  }, [currentPostId, fetchUserProfilePicture]);  
+  
 
   const fetchLoggedInUsers = useCallback(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser")) || null;
@@ -366,7 +431,7 @@ const WSHomepage = () => {
       <div className="content-wrapper">
         <div className="post-container">
           <div className="logo-container">
-          <img src={profilePicture} alt="User Avatar" className="users-dp" />
+          <img src={userProfilePictures[loggedInUser?.userId] || defaultProfilePicture} alt="User Avatar" className="users-dp" />
           </div>
           <div className="post-form">
             <form onSubmit={handlePostSubmit}>
@@ -425,7 +490,7 @@ const WSHomepage = () => {
             <div key={post.postId} className="post-card">
               <div className="card-container">
                 <div className="name-container">
-                <img src={profilePicture} alt="User Avatar" />
+                <img src={userProfilePictures[post.userId] || defaultProfilePicture} alt="User Avatar" />
                   <h5>{post.fullName} ({post.idNumber})</h5>
                   {loggedInUser && loggedInUser.userId === post.userId && (
                     <img
