@@ -192,8 +192,8 @@ const WSProfile = ({ className = "" }) => {
             variant="contained"
             sx={{
               borderRadius: "10px",
-              width: 75,
-              height: 25,
+              width: 65,
+              height: 22,
               backgroundColor: "#8A252C",
               "&:hover": { backgroundColor: "#A91D3A" },
               fontSize: "10px"

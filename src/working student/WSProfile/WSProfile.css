@@ -48,33 +48,35 @@
   object-fit: cover;
 }
 
-.WSID {
+.WSID, .WSName, .WSPoints, .WSEdu {
   position: absolute;
-  font-weight: 600;
+  left: 190px; /* Adjust this value as needed */
+  width: 350px; /* Set a fixed width for the text area */
+  text-align: center; /* Center the text within the area */
+}
+
+.WSID {
   top: 340px;
-  left: 315px;
+  font-weight: 600;
   font-size: 16px;
 }
+
 .WSName {
-  position: absolute;
   top: 375px;
-  left: 250px;
   font-size: 25px;
   font-weight: 650;
 }
+
 .WSPoints {
-  position: absolute;
   top: 425px;
-  left: 319px;
   font-size: 16px;
   font-weight: 600;
 }
+
 .WSEdu {
-  position: absolute;
+  top: 490px;
   font-weight: 600;
   font-size: 15px;
-  top: 490px;
-  left: 250px;
 }
 
 .WSPLogout {
@@ -93,9 +95,9 @@
 }
 .UploadButton {
   position: absolute;
-  top: 300px;
+  top: 150px;
   bottom: 10px; /* Adjust as needed */
-  left: 25%; /* Center horizontally, adjust as needed */
+  left: 33%; /* Center horizontally, adjust as needed */
   transform: translateX(-50%);
   z-index: 1001;
 }
@@ -216,7 +218,7 @@
   }
 
   .WSProfileBg {
-    top: 21%;
+    top: 21% !important;
     left: 25%;
     transform: translateX(-50%);
     max-width: 300px;
@@ -224,11 +226,19 @@
   }
 
   .WSProfileUser {
-    top: 25%;
+    top: 160px !important;
     left: 25%;
     transform: translateX(-50%);
     width: 120px;
     height: 120px;
+  }
+
+  .UploadButton {
+    position: absolute !important;
+    top: 180px !important;
+    bottom: 10px; /* Adjust as needed */
+    left: 39%; /* Center horizontally, adjust as needed */
+    z-index: 1001;
   }
 
   .WSProfileBadge {
@@ -317,29 +327,29 @@
   }
 
   .WSProfileBg {
-    top: 25%;
+    top: 25% !important;
     width: 45%;
     height: 56%;
 
   }
 
   .WSProfileUser {
-    top: 30%;
+    top: 190px !important;
     width: 85px;
     height: 85px;
   }
 
   .WSProfileBadge {
-    top: 38.5%;
+    top: 38.5% !important;
     width: 25px;
     height: 25px;
   }
 
   .WSID, .WSName, .WSPoints, .WSEdu {
-    width: 90%;
+    width: 90% !important;
   }
 
-  .WSID { font-size: 13px; }
+  .WSID { font-size: 13px!important; }
   .WSName { font-size: 15px; }
   .WSPoints { top: 56%; font-size: 13px; }
   .WSEdu { top: 62%; font-size: 13px; }
