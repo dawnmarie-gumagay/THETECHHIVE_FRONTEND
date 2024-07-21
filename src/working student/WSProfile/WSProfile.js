@@ -28,6 +28,7 @@ const WSProfile = ({ className = "" }) => {
   const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null); // State to hold logged in user data
   const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
+  const defaultProfilePicture = 'default.png'; // Path to the default profile picture
   const navigate = useNavigate();
 
   // Function to fetch and set logged in user data
@@ -43,16 +44,20 @@ const WSProfile = ({ className = "" }) => {
       const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
       if (response.ok) {
         const imageBlob = await response.blob();
-        const imageUrl = URL.createObjectURL(imageBlob);
-        setProfilePicture(imageUrl);
+        if (imageBlob.size > 0) {
+          const imageUrl = URL.createObjectURL(imageBlob);
+          setProfilePicture(imageUrl);
+        } else {
+          setProfilePicture(defaultProfilePicture);
+        }
       } else {
-        setProfilePicture(null);
+        setProfilePicture(defaultProfilePicture);
       }
     } catch (error) {
       console.error('Failed to fetch profile picture:', error);
-      setProfilePicture(null);
+      setProfilePicture(defaultProfilePicture);
     }
-  }, []);
+  }, [defaultProfilePicture]);
 
   // Fetch logged in user data and profile picture on component mount
   useEffect(() => {
@@ -177,7 +182,7 @@ const WSProfile = ({ className = "" }) => {
 
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
         <div className="ProfilePictureContainer">
-        <img className="WSProfileUser" alt="" src={profilePicture ? profilePicture : "/public/dp.png"} />
+        <img className="WSProfileUser" alt="" src={profilePicture || defaultProfilePicture } />
 
 
         <input

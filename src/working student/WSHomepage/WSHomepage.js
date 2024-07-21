@@ -30,7 +30,7 @@ const WSHomepage = () => {
   const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
 
   const [userProfilePictures, setUserProfilePictures] = useState({});
-  const defaultProfilePicture = '/role.png'; // Path to the default profile picture
+  const defaultProfilePicture = '/default.png'; // Path to the default profile picture
   
 
   useEffect(() => {
@@ -185,30 +185,6 @@ const WSHomepage = () => {
     }
   };
 
-  // Function to fetch profile picture
-  const fetchProfilePicture = useCallback(async (userId) => {
-    try {
-      const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
-      if (response.ok) {
-        const imageBlob = await response.blob();
-        const imageUrl = URL.createObjectURL(imageBlob);
-        setProfilePicture(imageUrl);
-      } else {
-        setProfilePicture(null);
-      }
-    } catch (error) {
-      console.error('Failed to fetch profile picture:', error);
-      setProfilePicture(null);
-    }
-  }, []);
-
-  // Fetch logged in user data and profile picture on component mount
-  useEffect(() => {
-    const user = fetchLoggedInUsers();
-    if (user) {
-      fetchProfilePicture(user.userId);
-    }
-  }, [fetchLoggedInUsers, fetchProfilePicture]); 
   
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
