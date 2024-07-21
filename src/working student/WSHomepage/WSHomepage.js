@@ -30,7 +30,7 @@ const WSHomepage = () => {
   const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
 
   const [userProfilePictures, setUserProfilePictures] = useState({});
-  const defaultProfilePicture = '/default.png'; // Path to the default profile picture
+  const defaultProfile = '/dp.png'; // Path to the default profile picture
   
 
   useEffect(() => {
@@ -56,11 +56,11 @@ const WSHomepage = () => {
         const imageUrl = URL.createObjectURL(imageBlob);
         setUserProfilePictures(prev => ({ ...prev, [userId]: imageUrl }));
       } else {
-        setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfilePicture }));
+        setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfile }));
       }
     } catch (error) {
       console.error('Failed to fetch user profile picture:', error);
-      setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfilePicture }));
+      setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfile }));
     }
   }, []);
 
@@ -184,7 +184,6 @@ const WSHomepage = () => {
       reader.readAsDataURL(file);
     }
   };
-
   
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
@@ -407,7 +406,7 @@ const WSHomepage = () => {
       <div className="content-wrapper">
         <div className="post-container">
           <div className="logo-container">
-          <img src={userProfilePictures[loggedInUser?.userId] || defaultProfilePicture} alt="User Avatar" className="users-dp" />
+          <img src={userProfilePictures[loggedInUser?.userId] || defaultProfile} alt="User Avatar" className="users-dp" />
           </div>
           <div className="post-form">
             <form onSubmit={handlePostSubmit}>
@@ -466,7 +465,7 @@ const WSHomepage = () => {
             <div key={post.postId} className="post-card">
               <div className="card-container">
                 <div className="name-container">
-                <img src={userProfilePictures[post.userId] || defaultProfilePicture} alt="User Avatar" />
+                <img src={userProfilePictures[post.userId] || defaultProfile} alt="User Avatar" />
                   <h5>{post.fullName} ({post.idNumber})</h5>
                   {loggedInUser && loggedInUser.userId === post.userId && (
                     <img
