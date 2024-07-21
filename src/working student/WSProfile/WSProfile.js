@@ -281,14 +281,14 @@ const WSProfile = ({ className = "" }) => {
         </div>
       )}
 
-      {isConfirmLogoutVisible && (
-        <div className="popup-overlay">
-          <ConfirmLogout
-            onLOGOUTTextClick={onLOGOUTTextClick}
-            onCANCELTextClick={() => setIsConfirmLogoutVisible(false)}
-          />
-        </div>
-      )}
+{isConfirmLogoutVisible && (
+  <div className="popup-overlay">
+    <ConfirmLogout
+      onLOGOUTTextClick={onLOGOUTTextClick}
+      onClose={() => setIsConfirmLogoutVisible(false)}
+    />
+  </div>
+)}
 
       {isErrorPopUpVisible && (
         <div className="popup-overlay">

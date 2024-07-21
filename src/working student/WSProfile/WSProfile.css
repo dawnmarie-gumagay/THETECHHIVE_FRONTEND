@@ -99,7 +99,6 @@
   bottom: 10px; /* Adjust as needed */
   left: 33%; /* Center horizontally, adjust as needed */
   transform: translateX(-50%);
-  z-index: 1001;
 }
 
 .PasswordGroup {
@@ -238,7 +237,6 @@
     top: 180px !important;
     bottom: 10px; /* Adjust as needed */
     left: 39%; /* Center horizontally, adjust as needed */
-    z-index: 1001;
   }
 
   .WSProfileBadge {
