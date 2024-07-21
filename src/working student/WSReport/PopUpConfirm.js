@@ -8,12 +8,13 @@ const PopUpSuccess = Loadable({
   loading: () => <div>Loading...</div>,
 });
 
-const PopUpConfirm = ({ onClose }) => {
+const PopUpConfirm = ({ onClose, onSubmit }) => {
   const [isConfirmVisible, setConfirmVisible] = useState(false);
 
   const onConfirm = useCallback(() => {
+    onSubmit();
     setConfirmVisible(true);
-  }, []);
+  }, [onSubmit]);
 
   const closeSuccessPopup = useCallback(() => {
     setConfirmVisible(false);

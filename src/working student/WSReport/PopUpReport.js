@@ -36,14 +36,15 @@ const PopUpReport = () => {
     fetchLoggedInUser();
   }, []);
 
-  const toggleConfirm = useCallback(() => {
+  const toggleConfirm = useCallback((callback) => {
     if (selectedLevel && selectedType && uploadedImage) {
-      setConfirmVisible(!isConfirmVisible);
+      setConfirmVisible((prev) => !prev);
       setErrorMessage('');
+      if (callback) callback();
     } else {
       setErrorMessage('Please fill out all fields and upload an image before submitting.');
     }
-  }, [isConfirmVisible, selectedLevel, selectedType, uploadedImage]);
+  }, [selectedLevel, selectedType, uploadedImage]);
 
   const handleSubmit = async () => {
     if (selectedLevel && selectedType && uploadedImage && loggedInUser) {
@@ -53,9 +54,9 @@ const PopUpReport = () => {
         const blob = await imageResponse.blob();
   
         const formData = new FormData();
-        formData.append('user', loggedInUser.id.toString());
+        formData.append('user', loggedInUser.userId);
         formData.append('idNumber', loggedInUser.idNumber);
-        formData.append('fullName', `${loggedInUser.firstName} ${loggedInUser.lastName}`);
+        formData.append('fullName', loggedInUser.fullName);
         formData.append('level', selectedLevel);
         formData.append('type', selectedType);
         formData.append('photo', blob, 'image.jpg');
