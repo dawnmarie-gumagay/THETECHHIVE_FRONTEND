@@ -25,11 +25,11 @@ import WSLogout from './working student/WSProfile/WSLogout';
 import ConfirmLogout from './working student/WSProfile/ConfirmLogout';
 import ADSignIn from './admin pages/ADSignIn/SignIn';
 import AdHome from './admin pages/ADHome/AdHome';
-import AdEntry from './admin pages/ADEntry/AdEntry';
 import AdLeaderboard from './admin pages/ADLeaderboard/AdLeaderboard';
 import AdProfile from './admin pages/ADProfile/AdProfile';
 import AdLogout from './admin pages/ADLogout/Logout';
 import LogoutDialog from './components/LogoutDialog'; // Corrected import path
+import AdReport from './admin pages/ADReport/AdReport';
 
 
 const App = () => {
@@ -62,7 +62,7 @@ const App = () => {
         <Route path="/confirmlogout" element={<ConfirmLogout />} />
         <Route path="/adsignin" element={<ADSignIn />}/>
         <Route path="/adhome" element={<AdHome />}/>
-        <Route path="/adentry" element={<AdEntry />}/>
+        <Route path="/adreport" element={<AdReport />}/>
         <Route path="/adleaderboard" element={<AdLeaderboard />}/>
         <Route path="/adprofile" element={<AdProfile />}/>
         <Route path="/adlogout" element={<AdLogout />}/>

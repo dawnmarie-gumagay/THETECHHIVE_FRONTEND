@@ -58,7 +58,7 @@ const RespondDialog = () => {
           </div>
         </div>
         <div className="entrychecking-container">
-          <h4>Verification Desicion</h4>
+          <h4>Verification Decision</h4>
           <div className="approval-design">
             <div>
               <input type="checkbox" id="verify" name="verify" value="verify" />{" "}

@@ -37,7 +37,7 @@ const PublishSuccessfulDialog = () => {
           <h4>Published Successfully!</h4>
           <img src={WildLike} alt="like"/>
           <div className="successful-btn">
-            <button >OK</button>
+            <button>OK</button>
           </div>
         </div>
       </Modal>
