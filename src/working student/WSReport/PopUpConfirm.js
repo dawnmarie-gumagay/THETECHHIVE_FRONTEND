@@ -21,6 +21,11 @@ const PopUpConfirm = ({ onClose, onSubmit }) => {
     onClose(); // Close the confirmation popup as well
   }, [onClose]);
 
+  const handleCancel = useCallback(() => {
+    console.log("Cancel button clicked"); // Add this line for debugging
+    onClose();
+  }, [onClose]);
+
   return (
     <div className="pop-up-confirm">
       <div className="PUConfirm" />
@@ -28,7 +33,6 @@ const PopUpConfirm = ({ onClose, onSubmit }) => {
         Are you sure you want to confirm the report?
       </div>
       <img className="PUConfirmPic" alt="" src="/wreport-icon.png" />
-
       <Button
         className="PUCReportButton"
         variant="contained"
@@ -43,7 +47,6 @@ const PopUpConfirm = ({ onClose, onSubmit }) => {
       >
         CONFIRM
       </Button>
-
       <Button
         className="PUCCancelButton"
         variant="contained"
@@ -54,11 +57,10 @@ const PopUpConfirm = ({ onClose, onSubmit }) => {
           backgroundColor: "#8A252C",
           "&:hover": { backgroundColor: "#A91D3A" }
         }}
-        onClick={onClose}
+        onClick={handleCancel} // Changed to handleCancel
       >
         CANCEL
       </Button>
-
       {isConfirmVisible && (
         <div className="overlay" onClick={closeSuccessPopup}>
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
