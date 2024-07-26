@@ -185,6 +185,36 @@ const WSHomepage = () => {
     }
   };
   
+  // Function to fetch profile picture
+  const fetchProfilePicture = useCallback(async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
+      if (response.ok) {
+        const imageBlob = await response.blob();
+        if (imageBlob.size > 0) {
+          const imageUrl = URL.createObjectURL(imageBlob);
+          setProfilePicture(imageUrl);
+        } else {
+          setProfilePicture(defaultProfile);
+        }
+      } else {
+        setProfilePicture(defaultProfile);
+      }
+    } catch (error) {
+      console.error('Failed to fetch profile picture:', error);
+      setProfilePicture(defaultProfile);
+    }
+  }, [defaultProfile]);
+  
+
+  // Fetch logged in user data and profile picture on component mount
+  useEffect(() => {
+    const user = fetchLoggedInUsers();
+    if (user) {
+      fetchProfilePicture(user.userId);
+    }
+  }, [fetchLoggedInUsers, fetchProfilePicture]); 
+
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
     const recognition = new window.webkitSpeechRecognition();
@@ -406,7 +436,7 @@ const WSHomepage = () => {
       <div className="content-wrapper">
         <div className="post-container">
           <div className="logo-container">
-          <img src={userProfilePictures[loggedInUser?.userId] || defaultProfile} alt="User Avatar" className="users-dp" />
+          <img src={profilePicture || defaultProfile} alt="User Avatar" className="users-dp" />
           </div>
           <div className="post-form">
             <form onSubmit={handlePostSubmit}>
