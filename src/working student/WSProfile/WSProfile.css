@@ -255,13 +255,6 @@
     height: 120px !important;
   }
 
-  .UploadButton {
-    position: absolute !important;
-    top: 180px !important;
-    bottom: 10px !important; /* Adjust as needed */
-    left: 39% !important; /* Center horizontally, adjust as needed */
-  }
-
   .WSProfileBadge {
     top: 38%!important;
     left: 28% !important;
