@@ -36,15 +36,15 @@ const PopUpReport = () => {
     fetchLoggedInUser();
   }, []);
 
-  const toggleConfirm = useCallback((callback) => {
+  const toggleConfirm = useCallback(() => {
     if (selectedLevel && selectedType && uploadedImage) {
       setConfirmVisible((prev) => !prev);
       setErrorMessage('');
-      if (callback) callback();
     } else {
       setErrorMessage('Please fill out all fields and upload an image before submitting.');
     }
   }, [selectedLevel, selectedType, uploadedImage]);
+  
 
   const handleSubmit = async () => {
     if (selectedLevel && selectedType && uploadedImage && loggedInUser) {
