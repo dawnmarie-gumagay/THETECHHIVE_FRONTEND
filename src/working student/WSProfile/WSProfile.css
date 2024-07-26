@@ -101,6 +101,29 @@
   transform: translateX(-50%);
 }
 
+.upload-img-bg {
+  position: absolute;
+  top: 170px;
+  left: 405px;
+  border-radius: 50%;
+  background-color: #fdfbc9;
+  width: 19.7px;
+  height: 20px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.upload-img-bg:hover {
+  transform: scale(1.1);
+  opacity: 0.8;
+}
+
+.mageimage-upload-icon {
+  position: absolute;
+  overflow: hidden;
+  max-width: 100%;
+  display: block;
+}
+
 .PasswordGroup {
   position: absolute;
   top: 210px;
@@ -218,45 +241,45 @@
 
   .WSProfileBg {
     top: 21% !important;
-    left: 25%;
-    transform: translateX(-50%);
-    max-width: 300px;
-    height: auto;
+    left: 25% !important;
+    transform: translateX(-50%) !important;
+    max-width: 300px !important;
+    height: auto !important;
   }
 
   .WSProfileUser {
     top: 160px !important;
-    left: 25%;
-    transform: translateX(-50%);
-    width: 120px;
-    height: 120px;
+    left: 25% !important;
+    transform: translateX(-50%) !important;
+    width: 120px !important;
+    height: 120px !important;
   }
 
   .UploadButton {
     position: absolute !important;
     top: 180px !important;
-    bottom: 10px; /* Adjust as needed */
-    left: 39%; /* Center horizontally, adjust as needed */
+    bottom: 10px !important; /* Adjust as needed */
+    left: 39% !important; /* Center horizontally, adjust as needed */
   }
 
   .WSProfileBadge {
-    top: 38%;
-    left: 28%;
-    width: 30px;
-    height: 30px;
+    top: 38%!important;
+    left: 28% !important;
+    width: 30px !important;
+    height: 30px !important;
   }
 
   .WSID, .WSName, .WSPoints, .WSEdu {
-    left: 25%;
-    transform: translateX(-50%);
-    width: 80%;
-    text-align: center;
+    left: 25% !important;
+    transform: translateX(-50%) !important;
+    width: 80% !important;
+    text-align: center !important;
   }
 
-  .WSID { top: 45%; }
-  .WSName { top: 50%; font-size: 20px; }
-  .WSPoints { top: 57%; }
-  .WSEdu { top: 64%; }
+  .WSID { top: 45% !important; }
+  .WSName { top: 50% !important; font-size: 20px !important; }
+  .WSPoints { top: 57% !important; }
+  .WSEdu { top: 64% !important; }
 
   .WSPLogout {
     top: 75% !important;
@@ -265,48 +288,48 @@
   }
 
   .PasswordGroup {
-    top: 25%;
-    left: 74%;
-    transform: translateX(-50%) ;
-    font-size: 20px;
-    width: 90%;
-    max-width: 400px;
+    top: 25%!important;
+    left: 74% !important;
+    transform: translateX(-50%)!important;
+    font-size: 20px !important;
+    width: 90% !important;
+    max-width: 400px !important;
   }
 
   .PasswordBox {
-    top: 10%;
-    width: 330px;
-    height: 295px;
-    padding: 20px;
+    top: 10% !important;
+    width: 330px !important;
+    height: 295px !important;
+    padding: 20px !important;
   }
 
   .PasswordName, .OldPass, .NewPass {
-    left: 30px;
-    margin-bottom: 15px;
+    left: 30px !important;
+    margin-bottom: 15px !important;
   }
 
-  .PasswordName{ top: 18%;}
-  .OldPass{ font-size: 18px;}
-  .NewPass{ top: 67%; font-size: 18px;}
+  .PasswordName{ top: 18% !important;}
+  .OldPass{ font-size: 18px !important;}
+  .NewPass{ top: 67% !important; font-size: 18px !important;}
 
   .OldPassInput, .NewPassInput {
-    left: 30px;
-    width: 40%;
-    margin-bottom: 15px;
+    left: 30px !important;
+    width: 40% !important;
+    margin-bottom: 15px !important;
   }
 
-  .OldPassInput{ left: 51%; height: 28px;}
-  .NewPassInput{ top: 65%; left: 51%; height: 28px;}
+  .OldPassInput{ left: 51% !important; height: 28px !important;}
+  .NewPassInput{ top: 65% !important; left: 51% !important; height: 28px !important;}
 
   .edit, .UpdateContainer {
-    top: 72%;
-    left: 51%;
-    margin: 10px auto;
-    display: block;
+    top: 72% !important;
+    left: 51% !important;
+    margin: 10px auto !important;
+    display: block !important;
   }
 
-  .edit{ left: 68%;}
-  .UpdateContainer{ left: 77.5%;}
+  .edit{ left: 68% !important;}
+  .UpdateContainer{ left: 77.5% !important;}
 }
 
 
@@ -326,21 +349,21 @@
 
   .WSProfileBg {
     top: 25% !important;
-    width: 45%;
-    height: 56%;
+    width: 45% !important;
+    height: 56% !important;
 
   }
 
   .WSProfileUser {
     top: 190px !important;
-    width: 85px;
-    height: 85px;
+    width: 85px !important;
+    height: 85px !important;
   }
 
   .WSProfileBadge {
     top: 38.5% !important;
-    width: 25px;
-    height: 25px;
+    width: 25px !important;
+    height: 25px !important;
   }
 
   .WSID, .WSName, .WSPoints, .WSEdu {
@@ -348,9 +371,9 @@
   }
 
   .WSID { font-size: 13px!important; }
-  .WSName { font-size: 15px; }
-  .WSPoints { top: 56%; font-size: 13px; }
-  .WSEdu { top: 62%; font-size: 13px; }
+  .WSName { font-size: 15px !important; }
+  .WSPoints { top: 56% !important; font-size: 13px !important; }
+  .WSEdu { top: 62% !important; font-size: 13px !important; }
 
   .WSPLogout {
     font-size: 12px !important;
@@ -376,9 +399,9 @@
     margin-bottom: 15px !important;
   }
 
-  .PasswordName{ top: 28%; font-size: 16px;}
-  .OldPass{ top: 43%; font-size: 14px;}
-  .NewPass{ top: 65%; font-size: 14px;}
+  .PasswordName{ top: 28% !important; font-size: 16px !important;}
+  .OldPass{ top: 43% !important; font-size: 14px !important;}
+  .NewPass{ top: 65% !important; font-size: 14px !important;}
 
   .OldPassInput, .NewPassInput {
     width: 35% !important;
@@ -410,12 +433,12 @@
 
   .error-popup{
     position: fixed !important;
-    top: 35%;
-    left: 38%;
-    transform: translateX(-50%);
-    width: 85%;
-    max-width: 400px;
-    overflow-y: auto;
-    padding: 10px
+    top: 35% !important;
+    left: 38% !important;
+    transform: translateX(-50%) !important;
+    width: 85% !important;
+    max-width: 400px !important;
+    overflow-y: auto !important;
+    padding: 10px !important;
   }
 }

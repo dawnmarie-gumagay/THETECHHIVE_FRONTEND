@@ -165,7 +165,7 @@ const WSProfile = ({ className = "" }) => {
   }
 
   return (
-    <>
+    <div>
       <div className={`ws-profile ${className}`}>
         <div className="WSNavbar" />
         <img className="WSTitle" alt="" src="/TITLE.png" />
@@ -184,32 +184,34 @@ const WSProfile = ({ className = "" }) => {
         <div className="ProfilePictureContainer">
         <img className="WSProfileUser" alt="" src={profilePicture || defaultProfilePicture } />
 
-
-        <input
-          type="file"
-          onChange={handleProfilePictureChange}
-          style={{ display: 'none' }}
-          id="profilePictureUpload"
-        />
+        <div className="upload-img-bg">
+          <input
+            type="file"
+            onChange={handleProfilePictureChange}
+            style={{ display: 'none' }}
+            id="profilePictureUpload"
+          />
         <label htmlFor="profilePictureUpload">
           <Button
-            className="UploadButton"
-            variant="contained"
-            sx={{
-              borderRadius: "10px",
-              width: 65,
-              height: 22,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" },
-              fontSize: "10px"
-            }}
             component="span"
+            sx={{
+              width: '100%',
+              height: '100%',
+              top: '-10%',
+              padding: 0,
+              minWidth: 'unset',
+              backgroundColor: 'transparent',
+              '&:hover': { backgroundColor: 'transparent' }
+            }}
           >
-            Upload
+            <img
+              className="mageimage-upload-icon"
+              alt="Upload"
+              src="/upload_img.png"
+            />
           </Button>
         </label>
       </div>
-
 
         <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
         <div className="WSID">{loggedInUser.idNumber}</div>
@@ -303,7 +305,8 @@ const WSProfile = ({ className = "" }) => {
           />
         </div>
       )}
-    </>
+      </div>
+    </div>
   );
 };
 
