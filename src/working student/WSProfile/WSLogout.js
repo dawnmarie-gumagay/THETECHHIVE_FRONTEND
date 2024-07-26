@@ -14,7 +14,7 @@ const WSLogout = () => {
     <div className="logged-out">
       <img className="background" alt="" src="/bg1.png" />
 
-      <div className="main-box" />
+      <div className="main-boxL" />
       <img className="main-bg" alt="" src="/main-bg.png" />
       <img className="main-title" alt="" src="/TITLE.png" />
 
@@ -32,11 +32,14 @@ const WSLogout = () => {
         variant="contained"
         sx={{
           borderRadius: "30px",
-          width: 350,
+          width: '100%',
           height: 40,
           backgroundColor: "#8A252C",
           "&:hover": { backgroundColor: "#A91D3A" },
-          fontSize: "20px",
+          fontSize: {
+            xs: '14px', // for extra-small devices (mobile)
+            sm: '16px'  // for small devices and up
+          },
           fontWeight: "500"
         }}
         onClick={onGroupContainerClick}

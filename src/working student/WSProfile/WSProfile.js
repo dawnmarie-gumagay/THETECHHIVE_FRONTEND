@@ -27,18 +27,45 @@ const WSProfile = ({ className = "" }) => {
   const [error, setError] = useState("");
   const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
   const [loggedInUser, setLoggedInUser] = useState(null); // State to hold logged in user data
+  const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
+  const defaultProfilePicture = 'default.png'; // Path to the default profile picture
   const navigate = useNavigate();
 
   // Function to fetch and set logged in user data
   const fetchLoggedInUser = useCallback(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser")) || null;
     setLoggedInUser(user);
+    return user;
   }, []);
 
-  // Fetch logged in user data on component mount
+  // Function to fetch profile picture
+  const fetchProfilePicture = useCallback(async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
+      if (response.ok) {
+        const imageBlob = await response.blob();
+        if (imageBlob.size > 0) {
+          const imageUrl = URL.createObjectURL(imageBlob);
+          setProfilePicture(imageUrl);
+        } else {
+          setProfilePicture(defaultProfilePicture);
+        }
+      } else {
+        setProfilePicture(defaultProfilePicture);
+      }
+    } catch (error) {
+      console.error('Failed to fetch profile picture:', error);
+      setProfilePicture(defaultProfilePicture);
+    }
+  }, [defaultProfilePicture]);
+
+  // Fetch logged in user data and profile picture on component mount
   useEffect(() => {
-    fetchLoggedInUser();
-  }, [fetchLoggedInUser]);
+    const user = fetchLoggedInUser();
+    if (user) {
+      fetchProfilePicture(user.userId);
+    }
+  }, [fetchLoggedInUser, fetchProfilePicture]);
 
   const openLOGOUTConfirmation = () => {
     setIsConfirmLogoutVisible(true);
@@ -109,12 +136,36 @@ const WSProfile = ({ className = "" }) => {
     setIsEditable(!isEditable);
   };
 
+  const handleProfilePictureChange = async (event) => {
+    const file = event.target.files[0];
+    if (file && loggedInUser) {
+      const formData = new FormData();
+      formData.append('userId', loggedInUser.userId);
+      formData.append('file', file);
+
+      try {
+        const response = await fetch('http://localhost:8080/user/profile/uploadProfilePicture', {
+          method: 'POST',
+          body: formData,
+        });
+
+        if (response.ok) {
+          fetchProfilePicture(loggedInUser.userId);
+        } else {
+          console.error('Failed to upload profile picture');
+        }
+      } catch (error) {
+        console.error('Upload error:', error);
+      }
+    }
+  };
+
   if (!loggedInUser) {
     return null; // Handle case where user is not logged in
   }
 
   return (
-    <>
+    <div>
       <div className={`ws-profile ${className}`}>
         <div className="WSNavbar" />
         <img className="WSTitle" alt="" src="/TITLE.png" />
@@ -130,7 +181,38 @@ const WSProfile = ({ className = "" }) => {
         </div>
 
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
-        <img className="WSProfileUser" alt="" src="/ex-dp.png" />
+        <div className="ProfilePictureContainer">
+        <img className="WSProfileUser" alt="" src={profilePicture || defaultProfilePicture } />
+
+        <div className="upload-img-bg">
+          <input
+            type="file"
+            onChange={handleProfilePictureChange}
+            style={{ display: 'none' }}
+            id="profilePictureUpload"
+          />
+        <label htmlFor="profilePictureUpload">
+          <Button
+            component="span"
+            sx={{
+              width: '100%',
+              height: '100%',
+              top: '-10%',
+              padding: 0,
+              minWidth: 'unset',
+              backgroundColor: 'transparent',
+              '&:hover': { backgroundColor: 'transparent' }
+            }}
+          >
+            <img
+              className="mageimage-upload-icon"
+              alt="Upload"
+              src="/upload_img.png"
+            />
+          </Button>
+        </label>
+      </div>
+
         <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
         <div className="WSID">{loggedInUser.idNumber}</div>
         <div className="WSName">{loggedInUser.fullName}</div>
@@ -206,14 +288,14 @@ const WSProfile = ({ className = "" }) => {
         </div>
       )}
 
-      {isConfirmLogoutVisible && (
-        <div className="popup-overlay">
-          <ConfirmLogout
-            onLOGOUTTextClick={onLOGOUTTextClick}
-            onCANCELTextClick={() => setIsConfirmLogoutVisible(false)}
-          />
-        </div>
-      )}
+{isConfirmLogoutVisible && (
+  <div className="popup-overlay">
+    <ConfirmLogout
+      onLOGOUTTextClick={onLOGOUTTextClick}
+      onClose={() => setIsConfirmLogoutVisible(false)}
+    />
+  </div>
+)}
 
       {isErrorPopUpVisible && (
         <div className="popup-overlay">
@@ -223,7 +305,8 @@ const WSProfile = ({ className = "" }) => {
           />
         </div>
       )}
-    </>
+      </div>
+    </div>
   );
 };
 

@@ -1,9 +1,10 @@
-import { useCallback } from "react";
+import { useState, useCallback, useEffect  } from "react";
 import Button from '@mui/material/Button';
 import { useNavigate } from "react-router-dom";
 import "./ConfirmLogout.css";
 
 const ConfirmLogout = ({ onClose }) => {
+  const [isOpen, setIsOpen] = useState(true);
   const navigate = useNavigate();
 
   const onLOGOUTTextClick = useCallback(() => {
@@ -12,13 +13,29 @@ const ConfirmLogout = ({ onClose }) => {
   }, [navigate]);
 
   const onCANCELTextClick = useCallback(() => {
-    if (typeof onClose === 'function') {
-      onClose();
-    } else {
-      console.warn('onClose prop is not a function or not provided');
-      // You might want to add a fallback behavior here
+    console.log("Cancel button clicked");
+  if (typeof onClose === 'function') {
+    onClose();
+  }
+  setIsOpen(false);
+}, [onClose]);
+
+  useEffect(() => {
+    if (!isOpen) {
+      // Use a small delay to ensure state update has occurred
+      const timer = setTimeout(() => {
+        if (typeof onClose === 'function') {
+          onClose();
+        }
+        navigate("/wsprofile");
+      }, 0);
+      return () => clearTimeout(timer);
     }
-  }, [onClose]);
+  }, [isOpen, onClose, navigate]);
+
+  if (!isOpen) {
+    return null;
+  }
 
   return (
     <div className="logout-popup">

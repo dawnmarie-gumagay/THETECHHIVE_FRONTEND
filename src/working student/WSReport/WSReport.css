@@ -56,3 +56,80 @@
   cursor: pointer;
 }
 
+@media (max-width: 768px) {
+  .IncidentReport-Pic {
+    top: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 25%;
+    object-fit: cover;
+  }
+
+  .INTitle1 {
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .INTitle2 {
+    top: 60%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .INReport {
+    top: 70%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 27%;
+    height: 25%;
+    object-fit: cover;
+  }
+}
+
+@media (max-width: 500px) {
+  .IncidentReport-Pic {
+    top: 20% !important;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50%;
+    height: 18%;
+    object-fit: cover;
+  }
+
+  .INTitle1 {
+    top: 50% !important;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .INTitle2 {
+    top: 60% !important;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 70%;
+    font-size: 20px;
+    text-align: center;
+  }
+
+  .INReport {
+    top: 70% !important;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 25%;
+    height: 15%;
+    object-fit: cover;
+    text-align: center;
+  }
+}
+

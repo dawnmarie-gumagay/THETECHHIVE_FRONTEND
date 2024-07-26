@@ -184,3 +184,343 @@
     height: 18px;
     
 }
+
+@media (max-width: 768px) {
+
+    .LeaderboardsTitle {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30%;
+        height: 18%;
+        object-fit: cover;
+      }
+
+    .WSLeaderboardsBox {
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 50%;
+      object-fit: cover;
+    }
+
+    .WSLUser1{
+        top: 300px;
+        left: 125px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 55px;
+        object-fit: cover;
+    }
+
+    .WSLUser2{
+        top: 425px;
+        left: 125px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLUser3{
+        top: 550px;
+        left: 125px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLGradient1 {
+        top: 310px;
+        left: 175px;
+    }
+
+    .WSLGradient2 {
+        top: 435px;
+        left: 175px;
+    }
+
+    .WSLGradient3 {
+        top: 560px;
+        left: 175px;
+    }
+
+    .WSLGradient1,
+    .WSLGradient2,
+    .WSLGradient3 {
+        position: absolute;
+        border-radius: 0 500px 500px 0;
+        width: 65%;
+        height: 45px;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.76) 12%,
+            rgba(255, 241, 205, 0.81) 32%,
+            rgba(255, 234, 180, 0.83) 65.5%,
+            rgba(255, 227, 155, 0.85) 88%
+        );
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .WSLNUser2,
+    .WSLNUser1,
+    .WSLNUser3 {
+        position: absolute;
+        font-weight: 500;
+        font-size: 20px;
+        display: inline-block;
+        width: 233px;
+        height: 23px;
+        color: #8a252c; /* Default text color */
+    }
+    .WSLNUser1 {
+        top: 320px;
+        left: 200px;
+    }
+    .WSLNUser2 {
+        top: 445px;
+        left: 200px;
+    }
+    .WSLNUser3 {
+        top: 570px;
+        left: 200px;
+    }
+
+    .WSLCircle1 {
+        position: absolute;
+        top: 310px;
+        left: 82%;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle2 {
+        position: absolute;
+        top: 435px;
+        left: 82%;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle3 {
+        position: absolute;
+        top: 560px;
+        left: 82%;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .WSLUser1Points {
+        position: absolute;
+        top: 324px;
+        left: 632px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser2Points {
+        position: absolute;
+        top: 450px;
+        left: 632px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser3Points {
+        position: absolute;
+        top: 575px;
+        left: 632px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+        
+    }
+  }
+
+@media (max-width: 500px) {
+
+    .LeaderboardsTitle {
+        top: 10% !important;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 18%;
+        object-fit: cover;
+      }
+
+    .WSLeaderboardsBox {
+      top: 30% !important;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 50%;
+      object-fit: cover;
+    }
+
+    .WSLUser1{
+        top: 300px !important;
+        left: 100px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 55px;
+        object-fit: cover;
+    }
+
+    .WSLUser2{
+        top: 425px !important;
+        left: 100px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLUser3{
+        top: 550px !important;
+        left: 100px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLGradient1 {
+        top: 310px !important;
+        left: 150px
+    }
+
+    .WSLGradient2 {
+        top: 435px !important;
+        left: 150px
+    }
+
+    .WSLGradient3 {
+        top: 560px !important;
+        left: 150px
+    }
+
+    .WSLGradient1,
+    .WSLGradient2,
+    .WSLGradient3 {
+        position: absolute;
+        border-radius: 0 500px 500px 0;
+        width: 275px;
+        height: 45px;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.76) 12%,
+            rgba(255, 241, 205, 0.81) 32%,
+            rgba(255, 234, 180, 0.83) 65.5%,
+            rgba(255, 227, 155, 0.85) 88%
+        );
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .WSLNUser2,
+    .WSLNUser1,
+    .WSLNUser3 {
+        position: absolute;
+        font-weight: 500;
+        font-size: 15px;
+        display: inline-block;
+        width: 233px;
+        height: 23px;
+        color: #8a252c; /* Default text color */
+    }
+    .WSLNUser1 {
+        top: 320px;
+        left: 165px;
+    }
+    .WSLNUser2 {
+        top: 445px;
+        left: 165px;
+    }
+    .WSLNUser3 {
+        top: 570px;
+        left: 165px;
+    }
+
+    .WSLCircle1 {
+        position: absolute;
+        top: 310px;
+        left: 385px;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle2 {
+        position: absolute;
+        top: 435px;
+        left: 385px;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle3 {
+        position: absolute;
+        top: 560px;
+        left: 385px;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .WSLUser1Points {
+        position: absolute;
+        top: 324px;
+        left: 387px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser2Points {
+        position: absolute;
+        top: 450px;
+        left: 387px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser3Points {
+        position: absolute;
+        top: 575px;
+        left: 387px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+        
+    }
+  }

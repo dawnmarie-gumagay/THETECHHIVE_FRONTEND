@@ -27,6 +27,10 @@ const WSHomepage = () => {
   const [isDeletePostDialogOpen, setIsDeletePostDialogOpen] = useState(false);
   const [isDeleteCommentDialogOpen, setIsDeleteCommentDialogOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
+  const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
+
+  const [userProfilePictures, setUserProfilePictures] = useState({});
+  const defaultProfile = '/dp.png'; // Path to the default profile picture
   
 
   useEffect(() => {
@@ -42,6 +46,74 @@ const WSHomepage = () => {
       }
     };
     fetchLoggedInUser();
+  }, []);
+
+  const fetchUserProfilePicture = useCallback(async (userId) => {
+    try {
+      const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
+      if (response.ok) {
+        const imageBlob = await response.blob();
+        const imageUrl = URL.createObjectURL(imageBlob);
+        setUserProfilePictures(prev => ({ ...prev, [userId]: imageUrl }));
+      } else {
+        setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfile }));
+      }
+    } catch (error) {
+      console.error('Failed to fetch user profile picture:', error);
+      setUserProfilePictures(prev => ({ ...prev, [userId]: defaultProfile }));
+    }
+  }, []);
+
+  useEffect(() => {
+    const fetchPostsAndPictures = async () => {
+      try {
+        const response = await axios.get("http://localhost:8080/posts");
+        const sortedPosts = response.data.sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp));
+        setPosts(sortedPosts);
+  
+        // Fetch profile pictures for each post owner
+        const userIds = new Set(sortedPosts.map(post => post.userId));
+        userIds.forEach(userId => fetchUserProfilePicture(userId));
+      } catch (error) {
+        console.error("Error fetching posts:", error);
+      }
+    };
+    fetchPostsAndPictures();
+  }, [fetchUserProfilePicture]);
+  
+  useEffect(() => {
+    if (currentPostId) {
+      const fetchCommentsAndPictures = async () => {
+        try {
+          const [commentsResponse, postResponse] = await Promise.all([
+            axios.get(`http://localhost:8080/comments/${currentPostId}`),
+            axios.get(`http://localhost:8080/posts/${currentPostId}`)
+          ]);
+          const sortedComments = commentsResponse.data
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+            .map(comment => ({
+              ...comment,
+              relativeTime: moment(comment.timestamp).fromNow()
+            }));
+          setComments(sortedComments);
+          setCurrentPostOwner(postResponse.data.userId);
+  
+          // Fetch profile pictures for each comment owner
+          const commentUserIds = new Set(sortedComments.map(comment => comment.userId));
+          commentUserIds.forEach(userId => fetchUserProfilePicture(userId));
+        } catch (error) {
+          console.error("Error fetching comments or post details:", error);
+        }
+      };
+      fetchCommentsAndPictures();
+    }
+  }, [currentPostId, fetchUserProfilePicture]);  
+  
+
+  const fetchLoggedInUsers = useCallback(() => {
+    const user = JSON.parse(localStorage.getItem("loggedInUser")) || null;
+    setLoggedInUser(user);
+    return user;
   }, []);
 
   useEffect(() => {
@@ -112,7 +184,7 @@ const WSHomepage = () => {
       reader.readAsDataURL(file);
     }
   };
-
+  
   const handleMicClick = () => {
     if (!("webkitSpeechRecognition" in window)) return;
     const recognition = new window.webkitSpeechRecognition();
@@ -199,7 +271,7 @@ const WSHomepage = () => {
     setCurrentPostId(postId);
     try {
       const [commentsResponse, postResponse] = await Promise.all([
-        axios.get(`http://localhost:8080/posts/${postId}/comments`),
+        axios.get(`http://localhost:8080/comments/${postId}`),
         axios.get(`http://localhost:8080/posts/${postId}`)
       ]);
       const sortedComments = commentsResponse.data
@@ -226,13 +298,14 @@ const WSHomepage = () => {
     
     const comment = {
       content: newComment,
+      postId: currentPostId,  // Add this line
       userId: loggedInUser.userId,
       fullName: loggedInUser.fullName,
       idNumber: loggedInUser.idNumber,
     };
     
     try {
-      const response = await axios.post(`http://localhost:8080/posts/${currentPostId}/comments`, comment);
+      const response = await axios.post('http://localhost:8080/comments/add', comment);
       const newCommentWithRelativeTime = {
         ...response.data,
         relativeTime: moment(response.data.timestamp).fromNow()
@@ -241,6 +314,10 @@ const WSHomepage = () => {
       setNewComment('');
     } catch (error) {
       console.error("Error adding comment:", error);
+      if (error.response) {
+        console.error("Response data:", error.response.data);
+        console.error("Response status:", error.response.status);
+      }
     }
   };
 
@@ -287,6 +364,7 @@ const WSHomepage = () => {
       setIsDeleteCommentDialogOpen(false);
     } catch (error) {
       console.error("Error deleting comment:", error);
+      alert("Failed to delete comment. You may not have permission.");
     }
   };
 
@@ -318,7 +396,7 @@ const WSHomepage = () => {
       <div className="content-wrapper">
         <div className="post-container">
           <div className="logo-container">
-            <img src="/dp.png" alt="User Avatar" className="users-dp" />
+          <img src={userProfilePictures[loggedInUser?.userId] || defaultProfile} alt="User Avatar" className="users-dp" />
           </div>
           <div className="post-form">
             <form onSubmit={handlePostSubmit}>
@@ -377,7 +455,7 @@ const WSHomepage = () => {
             <div key={post.postId} className="post-card">
               <div className="card-container">
                 <div className="name-container">
-                  <img src="/dp.png" alt="User Avatar" />
+                <img src={userProfilePictures[post.userId] || defaultProfile} alt="User Avatar" />
                   <h5>{post.fullName} ({post.idNumber})</h5>
                   {loggedInUser && loggedInUser.userId === post.userId && (
                     <img

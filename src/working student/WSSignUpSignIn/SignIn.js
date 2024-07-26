@@ -33,7 +33,7 @@ const SignIn = () => {
         localStorage.setItem("loggedInUser", JSON.stringify(user));
         navigate("/wshomepage", { state: { loggedInUser: user } });
       } else {
-        alert("Invalid ID Number or Password. Please try again.");
+        alert("Invalid ID Number or Password. Please enter both fields correctly.");
       }
     } catch (error) {
       console.error("Sign-in Error:", error);
@@ -60,14 +60,14 @@ const SignIn = () => {
     <div className="ws-sign-in">
       <img className="background" alt="" src="/bg1.png" />
 
-      <div className="main-box" />
-      <div className="back-bg" onClick={onLANDINGPAGEClick} />
-      <img className="back-icon" alt="" src="/back.png" onClick={onLANDINGPAGEClick} />
+      <div className="main-boxSI" />
+      <div className="back-bgSI" onClick={onLANDINGPAGEClick} />
+      <img className="back-iconSI" alt="" src="/back.png" onClick={onLANDINGPAGEClick} />
 
-      <img className="main-bg" alt="" src="/main-bg.png" />
-      <img className="main-title" alt="" src="/TITLE.png" />
+      <img className="main-bgSI" alt="" src="/main-bg.png" />
+      <img className="main-titleSI" alt="" src="/TITLE.png" />
 
-      <i className="welcome">WELCOME!</i>
+      <i className="welcomeSI">WELCOME!</i>
       <i className="sub-title2">Sign in to your Account</i>
 
       <div className="id-number-in">ID Number</div>
