@@ -30,6 +30,9 @@
     cursor: pointer;
 }
 
+.get-started:hover {
+    transform: scale(1.1);
+}
 .ContactUs-title {
     position: absolute;
     display: inline-block;
@@ -68,6 +71,10 @@
     height: 21px;
 }
 
+.phone:hover {
+    transform: scale(1.1);
+}
+
 .phone-num {
     top: 320px;
     width: 128px;
@@ -75,6 +82,10 @@
     left: 420px;
     display: inline-block;
     height: 21px;
+}
+
+.phone-num:hover {
+    transform: scale(1.1);
 }
 
 .phone-bg {
@@ -107,6 +118,10 @@
     height: 21px;
 }
 
+.email:hover {
+    transform: scale(1.1);
+}
+
 .email-mail {
     top: 430px;
     width: 128px;
@@ -114,6 +129,10 @@
     left: 420px;
     display: inline-block;
     height: 21px;
+}
+
+.email-mail:hover {
+    transform: scale(1.1);
 }
 
 .email-bg {
@@ -146,6 +165,10 @@
     height: 21px;
 }
 
+.location:hover {
+    transform: scale(1.1);
+}
+
 .location-name {
     position: absolute;
     top: 555px;
@@ -153,6 +176,10 @@
     display: inline-block;
     width: 233px;
     height: 47px;
+}
+
+.location-name:hover {
+    transform: scale(1.1);
 }
 
 .location-bg {
@@ -230,6 +257,10 @@
     left: 1105px;
     box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
     mix-blend-mode: normal;
+}
+
+.submit-button:hover {
+    transform: scale(1.1);
 }
 
 

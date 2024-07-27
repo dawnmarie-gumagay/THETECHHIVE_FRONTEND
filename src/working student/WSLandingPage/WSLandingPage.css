@@ -81,6 +81,10 @@
   cursor: pointer;
 }
 
+.contact-us-name:hover {
+  transform: scale(1.1);
+}
+
 .about-us-name {
   top: 70px;
   left: 1146px;
@@ -92,6 +96,10 @@
   cursor: pointer;
 }
 
+.about-us-name:hover {
+  transform: scale(1.1);
+}
+
 .title-icon {
   position: absolute;
   top: 200px;
@@ -99,6 +107,10 @@
   width: 354px;
   height: 237px;
   object-fit: cover;
+}
+
+.title-icon:hover {
+  transform: scale(1.1);
 }
 
 .get-started-button {
@@ -110,6 +122,10 @@
   cursor: pointer;
 }
 
+.get-started-button:hover {
+  transform: scale(1.1);
+}
+
 .app-info {
   top: 350px;
   left: 10px;
@@ -119,6 +135,10 @@
   text-align: justify;
   width: 494px;
   height: 127px;
+}
+
+.app-info:hover {
+  transform: scale(1.1);
 }
 
 .badge-container {
@@ -184,7 +204,7 @@
 .badge1-bar:hover,
 .badge2-bar:hover,
 .badge3-bar:hover {
-  background-color: #d1a501; /* Darker shade on hover */
+  background-color: #8a252c; /* Darker shade on hover */
 }
 
 .badge2-bar,

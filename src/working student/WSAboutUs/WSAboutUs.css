@@ -30,6 +30,10 @@
   cursor: pointer;
 } 
 
+.get-started2:hover {
+  transform: scale(1.1);
+}
+
 .half3,
 .get-started2, 
 .contact-us2,
@@ -60,6 +64,9 @@
   cursor: pointer;
 }
 
+.contact-us2:hover {
+  transform: scale(1.1);
+}
 
 .AboutUs-title {
   position: absolute;
@@ -119,7 +126,6 @@
   height: 31px;
   overflow: hidden;
 }
-
 
 .motto-name {
   position: absolute;
@@ -215,6 +221,11 @@
   object-fit: contain;
   cursor: pointer;
 }
+
+.left-click:hover {
+  transform: scale(1.2);
+}
+
 .right-click {
   position: absolute;
   top: 600px;
@@ -226,7 +237,9 @@
   cursor: pointer;
 }
 
-
+.right-click:hover {
+  transform: scale(1.2);
+}
 
 @media (max-width: 768px) {
   .wildcat-cuteAU{
