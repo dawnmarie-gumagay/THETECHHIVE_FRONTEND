@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { Button, Dialog, DialogTitle, DialogContent, DialogActions } from "@mui/material";
@@ -28,10 +28,13 @@ const WSHomepage = () => {
   const [isDeleteCommentDialogOpen, setIsDeleteCommentDialogOpen] = useState(false);
   const [itemToDelete, setItemToDelete] = useState(null);
   const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
-
   const [userProfilePictures, setUserProfilePictures] = useState({});
   const defaultProfile = '/dp.png'; // Path to the default profile picture
-  
+
+  const [inputHasContent, setInputHasContent] = useState(false);
+
+  const [showCancelButton, setShowCancelButton] = useState(false);
+  const [showCloseButton, setShowCloseButton] = useState(false);
 
   useEffect(() => {
     const fetchLoggedInUser = async () => {
@@ -170,16 +173,18 @@ const WSHomepage = () => {
   }, [navigate]);
 
   const handlePostInputChange = (e) => {
-    setNewPostContent(e.target.value);
+    const content = e.target.value;
+    setNewPostContent(content);
+    setShowCloseButton(content.length > 0 || imagePreview !== null);
   };
 
-  const handleFileChange = (e) => {
-    const file = e.target.files[0];
-    setSelectedFile(file);
+  const handleFileChange = (event) => {
+    const file = event.target.files[0];
     if (file) {
       const reader = new FileReader();
       reader.onloadend = () => {
         setImagePreview(reader.result);
+        setShowCloseButton(true);
       };
       reader.readAsDataURL(file);
     }
@@ -417,6 +422,17 @@ const WSHomepage = () => {
     return moment(timestamp).fromNow();
   };
 
+  const handleClosePost = () => {
+    setNewPostContent('');
+    setImagePreview(null);
+    setShowCloseButton(false);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+  };
+
+  const fileInputRef = useRef(null);
+
   return (
     <div className="ws-homepage">
       <div className="WSNavbar" />
@@ -434,62 +450,71 @@ const WSHomepage = () => {
       <b className="HWildcat">WILDCAT</b>
       
       <div className="content-wrapper">
-        <div className="post-container">
-          <div className="logo-container">
-          <img src={profilePicture || defaultProfile} alt="User Avatar" className="users-dp" />
-          </div>
-          <div className="post-form">
-            <form onSubmit={handlePostSubmit}>
-              <input
-                type="text"
-                className="post-input"
-                value={newPostContent}
-                onChange={handlePostInputChange}
-                placeholder="What's happening in your day, Wildcat?"
-              />
-              <div className="post-subcontainer">
-                <div className="post-subcontainer-icons">
-                  <label htmlFor="file-upload">
-                    <img className="gallery-icon" alt="" src="/gallery.png" />
-                  </label>
-                  <input
-                    id="file-upload"
-                    type="file"
-                    className="file-input"
-                    style={{ display: "none" }}
-                    onChange={handleFileChange}
-                  />
-                  <img
-                    className="mic-icon"
-                    alt="Mic"
-                    src="/mic.png"
-                    onClick={handleMicClick}
-                    style={{ cursor: "pointer" }}
-                  />
-                </div>
-                <Button
-                  type="submit"
-                  className="post-button"
-                  variant="contained"
-                  sx={{
-                    borderRadius: "10px",
-                    width: 60,
-                    height: 30,
-                    backgroundColor: "#8A252C",
-                    "&:hover": { backgroundColor: "#A91D3A" }
-                  }}
-                >
-                  POST
-                </Button>
-              </div>
-            </form>
-            {imagePreview && (
-              <div className="image-preview">
-                <img src={imagePreview} alt="Preview" style={{ width: '100px', height: '100px' }} />
-              </div>
-            )}
-          </div>
+      <div className="post-container">
+        <div className="post-header">
+          {showCloseButton && (
+              <button className="close-button" onClick={handleClosePost}>
+                ×
+              </button>
+          )}
         </div>
+        <div className="logo-container">
+          <img src={profilePicture || defaultProfile} alt="User Avatar" className="users-dp" />
+        </div>
+        <div className="post-form">
+          <form onSubmit={handlePostSubmit}>
+            <input
+              type="text"
+              className="post-input"
+              value={newPostContent}
+              onChange={handlePostInputChange}
+              placeholder="What's happening in your day, Wildcat?"
+            />
+            <div className="post-subcontainer">
+              <div className="post-subcontainer-icons">
+                <label htmlFor="file-upload">
+                  <img className="gallery-icon" alt="" src="/gallery.png" />
+                </label>
+                <input
+                  ref={fileInputRef}
+                  id="file-upload"
+                  type="file"
+                  className="file-input"
+                  style={{ display: "none" }}
+                  onChange={handleFileChange}
+                  onClick={(e) => { e.target.value = null }}
+                />
+                <img
+                  className="mic-icon"
+                  alt="Mic"
+                  src="/mic.png"
+                  onClick={handleMicClick}
+                  style={{ cursor: "pointer" }}
+                />
+              </div>
+              <Button
+                type="submit"
+                className="post-button"
+                variant="contained"
+                sx={{
+                  borderRadius: "10px",
+                  width: 60,
+                  height: 30,
+                  backgroundColor: "#8A252C",
+                  "&:hover": { backgroundColor: "#A91D3A" }
+                }}
+              >
+                POST
+              </Button>
+            </div>
+          </form>
+          {imagePreview && (
+            <div className="image-preview">
+              <img src={imagePreview} alt="Preview" style={{ width: '100px', height: '100px' }} />
+            </div>
+          )}
+        </div>
+      </div>
         <div className="post-list">
           {posts.map((post) => (
             <div key={post.postId} className="post-card">
