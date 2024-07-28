@@ -48,48 +48,56 @@ const ConfirmLogout = ({ onClose }) => {
           src="wildcat-crying.png"
         />
 
-        <div className="LogoutPopUpContainer">
-          <Button
-            className="LogoutButton"
-            variant="contained"
-            sx={{
-              borderRadius: "10px",
-              width: 110,
-              height: 35,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" },
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "white",
-            }}
-            onClick={onLOGOUTTextClick}
-          >
-            LOG OUT
-          </Button>
-        </div>
+<div className="LogoutPopUpContainer">
+  <Button
+    className="LogoutButton"
+    variant="contained"
+    sx={{
+      borderRadius: "10px",
+      width: 110,
+      height: 35,
+      backgroundColor: "#8A252C",
+      "&:hover": { 
+        backgroundColor: "#A91D3A",
+        transform: "scale(1.1)",
+        transition: "transform 0.3s ease"  // Added for smooth transition
+      },
+      fontSize: "15px",
+      fontWeight: "bold",
+      color: "white",
+    }}
+    onClick={onLOGOUTTextClick}
+  >
+    LOG OUT
+  </Button>
+</div>
 
         <div className="CancelButtonContainer">
-          <Button
-            className="CancelButton"
-            variant="contained"
-            sx={{
-              borderRadius: "10px",
-              width: 110,
-              height: 35,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" },
-              fontSize: "15px",
-              fontWeight: "bold",
-              color: "white",
-            }}
-            onClick={onCANCELTextClick}
-          >
-            CANCEL
-          </Button>
-        </div>
-      </div>
-    </div>
-  );
+  <Button
+    className="CancelButton"
+    variant="contained"
+    sx={{
+      borderRadius: "10px",
+      width: 110,
+      height: 35,
+      backgroundColor: "#8A252C",
+      "&:hover": { 
+        backgroundColor: "#A91D3A",
+        transform: "scale(1.1)",
+        transition: "transform 0.3s ease"  // Added for smooth transition
+      },
+      fontSize: "15px",
+      fontWeight: "bold",
+      color: "white",
+    }}
+    onClick={onCANCELTextClick}
+  >
+    CANCEL
+  </Button>
+</div>
+</div>
+</div>
+ );
 };
 
 export default ConfirmLogout;
