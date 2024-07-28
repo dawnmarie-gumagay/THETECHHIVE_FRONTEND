@@ -35,7 +35,11 @@ const WSLogout = () => {
           width: '100%',
           height: 40,
           backgroundColor: "#8A252C",
-          "&:hover": { backgroundColor: "#A91D3A" },
+          "&:hover": { 
+            backgroundColor: "#A91D3A",
+            transform: "scale(1.1)"  // Add this line for the scale effect
+          },
+          transition: "transform 0.3s ease",  // Add this line for smooth transition
           fontSize: {
             xs: '14px', // for extra-small devices (mobile)
             sm: '16px'  // for small devices and up
