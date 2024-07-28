@@ -106,8 +106,10 @@ const SignUp = () => {
       <img className="background" alt="" src="/bg1.png" />
 
       <div className="main-boxSU" />
-      <div className="back-bgSU" onClick={onSIGNUPSIGNINClick} />
-      <img className="back-iconSU" alt="" src="/back.png" onClick={onSIGNUPSIGNINClick} />
+      <div className="back-button-container" onClick={onSIGNUPSIGNINClick}>
+        <div className="back-bgSU" />
+        <img className="back-iconSU" alt="Back" src="/back.png" />
+      </div>
 
       <img className="main-bgSU" alt="" src="/main-bg.png" />
       <img className="main-titleSU" alt="" src="/TITLE.png" />
