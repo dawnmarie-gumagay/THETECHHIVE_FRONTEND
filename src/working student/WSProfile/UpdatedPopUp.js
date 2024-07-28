@@ -26,7 +26,11 @@ const UpdatedPopUp = ({ className = "", onClose }) => {
             width: 90,
             height: 40,
             backgroundColor: "#8A252C",
-            "&:hover": { backgroundColor: "#A91D3A" }
+            "&:hover": { 
+              backgroundColor: "#A91D3A",
+              transform: "scale(1.1)"  // Add this line for the scale effect
+            },
+            transition: "transform 0.3s ease"  // Add this line for smooth transition
           }}
           onClick={onOKTextClick}
         >
