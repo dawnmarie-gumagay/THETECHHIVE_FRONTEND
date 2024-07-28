@@ -5,19 +5,6 @@ import UpdatedPopUp from './UpdatedPopUp';
 import ConfirmLogout from "./ConfirmLogout";
 import "./WSProfile.css";
 
-const ErrorPopUp = ({ message, onClose }) => {
-  return (
-    <div className="error-popup">
-      <div className="error-popup-content">
-        <p>{message}</p>
-        <Button onClick={onClose} variant="contained" color="primary">
-          Close
-        </Button>
-      </div>
-    </div>
-  );
-};
-
 const WSProfile = ({ className = "" }) => {
   const [isPopUpVisible, setIsPopUpVisible] = useState(false);
   const [isConfirmLogoutVisible, setIsConfirmLogoutVisible] = useState(false);
@@ -26,19 +13,17 @@ const WSProfile = ({ className = "" }) => {
   const [newPassword, setNewPassword] = useState("");
   const [error, setError] = useState("");
   const [isErrorPopUpVisible, setIsErrorPopUpVisible] = useState(false);
-  const [loggedInUser, setLoggedInUser] = useState(null); // State to hold logged in user data
-  const [profilePicture, setProfilePicture] = useState(null); // State to hold profile picture
-  const defaultProfilePicture = 'default.png'; // Path to the default profile picture
+  const [loggedInUser, setLoggedInUser] = useState(null);
+  const [profilePicture, setProfilePicture] = useState(null);
+  const defaultProfilePicture = 'default.png';
   const navigate = useNavigate();
 
-  // Function to fetch and set logged in user data
   const fetchLoggedInUser = useCallback(() => {
     const user = JSON.parse(localStorage.getItem("loggedInUser")) || null;
     setLoggedInUser(user);
     return user;
   }, []);
 
-  // Function to fetch profile picture
   const fetchProfilePicture = useCallback(async (userId) => {
     try {
       const response = await fetch(`http://localhost:8080/user/profile/getProfilePicture/${userId}`);
@@ -59,7 +44,6 @@ const WSProfile = ({ className = "" }) => {
     }
   }, [defaultProfilePicture]);
 
-  // Fetch logged in user data and profile picture on component mount
   useEffect(() => {
     const user = fetchLoggedInUser();
     if (user) {
@@ -97,7 +81,7 @@ const WSProfile = ({ className = "" }) => {
       setIsErrorPopUpVisible(true);
     } else {
       try {
-        const userId = loggedInUser.userId; // Use the actual user ID from loggedInUser
+        const userId = loggedInUser.userId;
         console.log('Sending update request:', { userId, currentPassword, newPassword });
         const response = await fetch(`http://localhost:8080/user/updateUser?userId=${userId}`, {
           method: 'PUT',
@@ -161,7 +145,7 @@ const WSProfile = ({ className = "" }) => {
   };
 
   if (!loggedInUser) {
-    return null; // Handle case where user is not logged in
+    return null;
   }
 
   return (
@@ -182,132 +166,162 @@ const WSProfile = ({ className = "" }) => {
 
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
         <div className="ProfilePictureContainer">
-        <img className="WSProfileUser" alt="" src={profilePicture || defaultProfilePicture } />
+          <img className="WSProfileUser" alt="" src={profilePicture || defaultProfilePicture } />
 
-        <div className="upload-img-bg">
-          <input
-            type="file"
-            onChange={handleProfilePictureChange}
-            style={{ display: 'none' }}
-            id="profilePictureUpload"
-          />
-        <label htmlFor="profilePictureUpload">
-          <Button
-            component="span"
-            sx={{
-              width: '100%',
-              height: '100%',
-              top: '-10%',
-              padding: 0,
-              minWidth: 'unset',
-              backgroundColor: 'transparent',
-              '&:hover': { backgroundColor: 'transparent' }
-            }}
-          >
-            <img
-              className="mageimage-upload-icon"
-              alt="Upload"
-              src="/upload_img.png"
+          <div className="upload-img-bg">
+            <input
+              type="file"
+              onChange={handleProfilePictureChange}
+              style={{ display: 'none' }}
+              id="profilePictureUpload"
             />
-          </Button>
-        </label>
-      </div>
+            <label htmlFor="profilePictureUpload">
+              <Button
+                component="span"
+                sx={{
+                  width: '100%',
+                  height: '100%',
+                  top: '-10%',
+                  padding: 0,
+                  minWidth: 'unset',
+                  backgroundColor: 'transparent',
+                  '&:hover': { backgroundColor: 'transparent' }
+                }}
+              >
+                <img
+                  className="mageimage-upload-icon"
+                  alt="Upload"
+                  src="/upload_img.png"
+                />
+              </Button>
+            </label>
+          </div>
 
-        <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
-        <div className="WSID">{loggedInUser.idNumber}</div>
-        <div className="WSName">{loggedInUser.fullName}</div>
-        <div className="WSEdu">{loggedInUser.email}</div>
+          <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
+          <div className="WSID">{loggedInUser.idNumber}</div>
+          <div className="WSName">{loggedInUser.fullName}</div>
+          <div className="WSEdu">{loggedInUser.email}</div>
 
-        <div className="WSPoints">2500 points</div>
+          <div className="WSPoints">2500 points</div>
 
-        <div className="WSPLogout">
-          <Button
-            className="LogoutButton"
-            variant="contained"
-            sx={{
-              borderRadius: "10px",
-              width: 110,
-              height: 40,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" },
-              fontSize: "17px"
-            }}
-            onClick={openLOGOUTConfirmation}
-          >
-            Logout
-          </Button>
-        </div>
+          <div className="WSPLogout">
+            <Button
+              className="LogoutButton"
+              variant="contained"
+              sx={{
+                borderRadius: "10px",
+                width: 110,
+                height: 40,
+                backgroundColor: "#8A252C",
+                "&:hover": { 
+                  backgroundColor: "#A91D3A",
+                  transform: "scale(1.1)",
+                  transition: "transform 0.3s ease"
+                },
+                fontSize: "17px"
+              }}
+              onClick={openLOGOUTConfirmation}
+            >
+              Logout
+            </Button>
+          </div>
+          <div className="PasswordGroup">
+            <div className="PasswordBox" />
+            <b className="PasswordName">Password</b>
+            <div className="OldPass">Current Password</div>
+            <div className="NewPass">New Password</div>
+          </div>
 
-        <div className="PasswordGroup">
-          <div className="PasswordBox" />
-          <b className="PasswordName">Password</b>
-          <div className="OldPass">Current Password</div>
-          <div className="NewPass">New Password</div>
-        </div>
-
-        <input
-          type="password"
-          className="OldPassInput"
-          disabled={!isEditable}
-          value={currentPassword}
-          onChange={(e) => setCurrentPassword(e.target.value)}
-        />
-        <input
-          type="password"
-          className="NewPassInput"
-          disabled={!isEditable}
-          value={newPassword}
-          onChange={(e) => setNewPassword(e.target.value)}
-        />
-
-        <b className="edit" onClick={onEditClick}>Edit</b>
-
-        <div className="UpdateContainer">
-          <Button
-            className="UpdateButton"
-            variant="contained"
-            sx={{
-              borderRadius: "10px",
-              width: 110,
-              height: 35,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" },
-              fontSize: "17px"
-            }}
-            onClick={openUpdatedPopUp}
+          <input
+            type="password"
+            className="OldPassInput"
             disabled={!isEditable}
-          >
-            Update
-          </Button>
-        </div>
-      </div>
-
-      {isPopUpVisible && (
-        <div className="popup-overlay">
-          <UpdatedPopUp onClose={closeUpdatedPopUp} />
-        </div>
-      )}
-
-{isConfirmLogoutVisible && (
-  <div className="popup-overlay">
-    <ConfirmLogout
-      onLOGOUTTextClick={onLOGOUTTextClick}
-      onClose={() => setIsConfirmLogoutVisible(false)}
-    />
-  </div>
-)}
-
-      {isErrorPopUpVisible && (
-        <div className="popup-overlay">
-          <ErrorPopUp 
-            message={error} 
-            onClose={() => setIsErrorPopUpVisible(false)} 
+            value={currentPassword}
+            onChange={(e) => setCurrentPassword(e.target.value)}
           />
+          <input
+            type="password"
+            className="NewPassInput"
+            disabled={!isEditable}
+            value={newPassword}
+            onChange={(e) => setNewPassword(e.target.value)}
+          />
+
+          <b className="edit" onClick={onEditClick}>Edit</b>
+
+          <div className="UpdateContainer">
+            <Button
+              className="UpdateButton"
+              variant="contained"
+              sx={{
+                borderRadius: "10px",
+                width: 110,
+                height: 35,
+                backgroundColor: "#8A252C",
+                "&:hover": { backgroundColor: "#A91D3A" },
+                fontSize: "17px"
+              }}
+              onClick={openUpdatedPopUp}
+              disabled={!isEditable}
+            >
+              Update
+            </Button>
+          </div>
         </div>
-      )}
+
+        {isPopUpVisible && (
+          <div className="popup-overlay">
+            <UpdatedPopUp onClose={closeUpdatedPopUp} />
+          </div>
+        )}
+
+        {isConfirmLogoutVisible && (
+          <div className="popup-overlay">
+            <ConfirmLogout
+              onLOGOUTTextClick={onLOGOUTTextClick}
+              onClose={closeLOGOUTConfirmation}
+            />
+          </div>
+        )}
+
+        {isErrorPopUpVisible && (
+          <div className="popup-overlay">
+            <ErrorPopUp 
+              message={error} 
+              onClose={() => setIsErrorPopUpVisible(false)} 
+            />
+          </div>
+        )}
       </div>
     </div>
   );
 };
 
+// ErrorPopUp component moved to the end of the file
+const ErrorPopUp = ({ message, onClose }) => {
+  return (
+    <div className="error-popup">
+      <div className="error-popup-content">
+        <p>{message}</p>
+        <div style={{ display: 'flex', justifyContent: 'center' }}>
+          <Button 
+            onClick={onClose} 
+            variant="contained" 
+            sx={{
+              backgroundColor: '#8a252c',
+              color: 'white',
+              '&:hover': {
+                backgroundColor: '#a91d3a',
+                transform: 'scale(1.1)'
+              },
+              transition: 'transform 0.3s ease'
+            }}
+          >
+            Close
+          </Button>
+        </div>
+      </div>
+    </div>
+  );
+};
 export default WSProfile;
