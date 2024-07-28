@@ -48,8 +48,8 @@ const SignIn = () => {
     setPasswordValue(event.target.value);
   };
 
-  const onLANDINGPAGEClick = useCallback(() => {
-    navigate("/wslandingpage");
+  const onSIGNUPSIGNINClick = useCallback(() => {
+    navigate("/wssignupsignin");
   }, [navigate]);
 
   const onSIGNUPClick = useCallback(() => {
@@ -61,8 +61,10 @@ const SignIn = () => {
       <img className="background" alt="" src="/bg1.png" />
 
       <div className="main-boxSI" />
-      <div className="back-bgSI" onClick={onLANDINGPAGEClick} />
-      <img className="back-iconSI" alt="" src="/back.png" onClick={onLANDINGPAGEClick} />
+      <div className="back-button-container" onClick={onSIGNUPSIGNINClick}>
+        <div className="back-bgSI" />
+        <img className="back-iconSI" alt="Back" src="/back.png" />
+      </div>
 
       <img className="main-bgSI" alt="" src="/main-bg.png" />
       <img className="main-titleSI" alt="" src="/TITLE.png" />
