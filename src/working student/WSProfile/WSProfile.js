@@ -10,7 +10,11 @@ const ErrorPopUp = ({ message, onClose }) => {
     <div className="error-popup">
       <div className="error-popup-content">
         <p>{message}</p>
-        <Button onClick={onClose} variant="contained" color="primary">
+        <Button 
+          onClick={onClose} 
+          variant="contained" 
+          style={{ backgroundColor: '#8a252c', color: 'white' }}
+        >
           Close
         </Button>
       </div>
@@ -221,23 +225,26 @@ const WSProfile = ({ className = "" }) => {
         <div className="WSPoints">2500 points</div>
 
         <div className="WSPLogout">
-          <Button
-            className="LogoutButton"
-            variant="contained"
-            sx={{
-              borderRadius: "10px",
-              width: 110,
-              height: 40,
-              backgroundColor: "#8A252C",
-              "&:hover": { backgroundColor: "#A91D3A" },
-              fontSize: "17px"
-            }}
-            onClick={openLOGOUTConfirmation}
-          >
-            Logout
-          </Button>
-        </div>
-
+  <Button
+    className="LogoutButton"
+    variant="contained"
+    sx={{
+      borderRadius: "10px",
+      width: 110,
+      height: 40,
+      backgroundColor: "#8A252C",
+      "&:hover": { 
+        backgroundColor: "#A91D3A",
+        transform: "scale(1.1)",
+        transition: "transform 0.3s ease"  // Added for smooth transition
+      },
+      fontSize: "17px"
+    }}
+    onClick={openLOGOUTConfirmation}
+  >
+    Logout
+  </Button>
+</div>
         <div className="PasswordGroup">
           <div className="PasswordBox" />
           <b className="PasswordName">Password</b>

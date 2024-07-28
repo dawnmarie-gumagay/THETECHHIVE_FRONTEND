@@ -195,6 +195,10 @@
   cursor: pointer;
 }
 
+.edit:hover {
+  transform: scale(1.1);
+}
+
 .UpdateContainer {
   position: absolute;
   top: 470px;
@@ -203,6 +207,10 @@
   height: 39px;
   cursor: pointer;
   color: white;
+}
+
+.UpdateContainer:hover {
+  transform: scale(1.1);
 }
 
 .popup-overlay {
@@ -219,12 +227,11 @@
 }
 
 .error-popup {
-  font-weight: bold;
-  background-color: white;
+  font-weight: 500;
+  background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
   padding: 10px;
   border-radius: 5px;
-  color: red; /* Optional: to make the text color stand out */
-  border: 1px solid rgb(0, 0, 0);
+  color: #8a252c; /* Optional: to make the text color stand out */
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
