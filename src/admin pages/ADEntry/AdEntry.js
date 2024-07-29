@@ -2,10 +2,10 @@ import React from "react";
 import AdNavBar from "../../components/AdNavBar";
 import IncomingReportText from "../../assets/image/reportsTitle.png";
 import AdReportContainer from "../../components/AdReportContainer";
-import "./AdReport.css";
+import "./AdEntry.css";
 
 
-const AdReport = () => {
+const AdEntry = () => {
   return (
     <div className="main-container">
       <header>
@@ -19,4 +19,4 @@ const AdReport = () => {
   );
 };
 
-export default AdReport;
+export default AdEntry;

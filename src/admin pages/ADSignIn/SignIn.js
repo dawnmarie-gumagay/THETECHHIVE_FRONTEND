@@ -1,10 +1,8 @@
 import React from "react";
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import "./SignIn.css";
 import WildCatText from "../../assets/image/TITLE.png";
 import WildAdmin from "../../assets/image/wildcat-admin.png";
-import SignInForm from "./AdSignInForm";
-import AdHome from "../ADHome/AdHome"; // Adjust the import path accordingly
+import AdSignInForm from "./AdSignInForm";
 
 const AdSignIn = () => {
   return (
@@ -21,7 +19,7 @@ const AdSignIn = () => {
               Sign in to your Account
             </span>
           </div>
-          <SignInForm />
+          <AdSignInForm />
         </div>
       </div>
     </div>
