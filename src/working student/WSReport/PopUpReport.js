@@ -76,6 +76,8 @@ const PopUpReport = () => {
         if (fileInputRef.current) {
           fileInputRef.current.value = '';
         }
+        // Notify of new report
+        localStorage.setItem("newReport", "true");
       } catch (error) {
         console.error('Error creating entry:', error);
         setErrorMessage('Error submitting report. Please try again.');

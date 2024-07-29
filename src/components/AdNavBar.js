@@ -21,7 +21,7 @@ const Navbar = () => {
             <a href="/adhome">Home</a>
           </li>
           <li>
-            <a href="/adentry">Report</a>
+            <a href="/adreport">Report</a>
           </li>
           <li>
             <a href="/adleaderboard">Leaderboard</a>
