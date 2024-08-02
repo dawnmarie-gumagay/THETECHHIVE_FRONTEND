@@ -12,10 +12,8 @@
     position: absolute;
     top: 70px;
     left: 280px;
-    width: 28px;
-    height: 25px;
-    object-fit: cover;
-    transition: all 0.5s ease; /* Smooth transition */
+    width: 40px;
+    height: 40px;
   }
 
 .get-started {
@@ -226,7 +224,7 @@
 .eInput,
 .pnInput,
 .mInput {
-    position: fixed;
+    position: absolute;
     top: 290px;
     left: 850px;
     border-radius: 15px;
