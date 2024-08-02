@@ -226,7 +226,7 @@
 .eInput,
 .pnInput,
 .mInput {
-    position: absolute;
+    position: fixed;
     top: 290px;
     left: 850px;
     border-radius: 15px;
@@ -236,8 +236,11 @@
     width: 347px;
     height: 39px;
     padding-left: 15px;
+    resize: none;
 }
-
+.mInput:focus {
+    outline: none;
+}
 .eInput {
     top: 350px;
 }
