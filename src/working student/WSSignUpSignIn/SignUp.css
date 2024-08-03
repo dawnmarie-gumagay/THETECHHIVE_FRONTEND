@@ -252,14 +252,16 @@
 
 @media (max-width: 768px) {
     .back-bgSU {
-        top: 9%;
-        left: 9%;
+        top: 10%;
+        left: 10px;
+        transform: translate(-550%);
         width: 40px;
         height: 40px;
     }
     .back-iconSU {
-        top: 9.7%;
-        left: 10%;
+        top: 20%;
+        left: 10px;
+        transform: translate(-885%);
         width: 24px;
         height: 30px;
     }
@@ -426,7 +428,7 @@
         height: 41px;
     }
     .back-iconSU {
-        top: 9.7%;
+        top: 10px;
         left: 11.9%;
         width: 26px;
         height: 30px;
