@@ -38,14 +38,22 @@ const WSLandingPage = () => {
         className="get-started-button"
         variant="contained"
         sx={{
-            borderRadius: "10px",
-            width: 165,
-            height: 40,
-            backgroundColor: "#8A252C",
-            "&:hover": { backgroundColor: "#A91D3A" },
-            }}
-         onClick={onGroupButtonClick}
-        >
+          borderRadius: "10px",
+          width: 165,
+          height: 40,
+          backgroundColor: "#8A252C",
+          transition: "all 0.3s ease",
+          "&:hover, &:active": {
+            backgroundColor: "#A91D3A",
+            transform: "scale(1.05)",
+          },
+          "@media (max-width: 500px)": {
+            width: 140,
+            height: 36,
+          }
+        }}
+        onClick={onGroupButtonClick}
+      >
         <span style={{ fontSize: "15px" }}>GET STARTED</span>
       </Button>
 

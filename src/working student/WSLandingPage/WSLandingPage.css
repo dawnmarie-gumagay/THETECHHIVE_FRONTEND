@@ -272,7 +272,7 @@
   }
 
   .get-started-button {
-    top: 85%;
+    top: 75%;
     left: 50%;
     transform: translateX(-50%);
   }
@@ -333,12 +333,6 @@
     transform: translateX(-50%) !important;
     width: 70% !important;
     height: auto !important;
-  }
-
-  .get-started-button {
-    top: 75% !important;
-    left: 50% !important;
-    transform: translateX(-50%) !important;
   }
 
   .badge-container,
