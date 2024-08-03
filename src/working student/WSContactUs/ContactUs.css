@@ -260,9 +260,6 @@
     mix-blend-mode: normal;
 }
 
-.submit-button:hover {
-    transform: scale(1.1);
-}
 
 
 @media (max-width: 768px) { 

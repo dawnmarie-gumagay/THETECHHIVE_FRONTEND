@@ -120,9 +120,6 @@
   cursor: pointer;
 }
 
-.get-started-button:hover {
-  transform: scale(1.1);
-}
 
 .app-info {
   top: 350px;
