@@ -116,11 +116,20 @@ const ContactUs = () => {
             width: 90,
             height: 30,
             backgroundColor: "#8A252C",
-            "&:hover": { backgroundColor: "#A91D3A" },
+            transition: "all 0.3s ease",
             position: "absolute",
             bottom: "20px",
             right: "20px",
-            zIndex: 10
+            zIndex: 10,
+            "&:hover, &:active": {
+              backgroundColor: "#A91D3A",
+              transform: "scale(1.05)",
+            },
+            "@media (max-width: 500px)": {
+              width: 80,
+              height: 28,
+              fontSize: "12px",
+            }
           }}
         >
           SUBMIT
