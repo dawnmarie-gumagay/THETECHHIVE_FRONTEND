@@ -20,8 +20,9 @@
 
 .back-iconSS {
     position: absolute;
-    top: 10px;
-    left: 15px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     width: 35px;
     height: 41px;
     overflow: hidden;
@@ -34,6 +35,7 @@
     width: 64px;
     height: 60px;
     cursor: pointer;
+    transition: transform 0.3s ease;
 }
 
 .back-button-container:hover {
@@ -105,6 +107,7 @@
     border: 3px solid #8a252c;
     width: 347px;
     height: 39px;
+    transition: transform 0.3s ease;
 }
 
 .signup-name {
@@ -146,6 +149,7 @@
     left: 0;
     border-radius: 20px;
     background-color: #8a252c;
+    transition: transform 0.3s ease;
 }
 
 .signin-name {
@@ -299,17 +303,16 @@
 }
 
 @media (max-width: 500px) {
-    .back-bgSS {
-        top: 9% !important;
-        left: 10% !important;
-        width: 43px !important;
-        height: 41px !important;
+    .back-button-container {
+        top: 20px;
+        left: 20px;
+        width: 50px;
+        height: 50px;
     }
+
     .back-iconSS {
-        top: 10px !important;
-        left: 11.9% !important;
-        width: 26px !important;
-        height: 30px !important;
+        width: 25px;
+        height: 30px;
     }
 
     .main-bg {

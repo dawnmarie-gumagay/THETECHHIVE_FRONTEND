@@ -24,6 +24,7 @@ const SignUpSignIn = () => {
       <div className="back-button-container" onClick={onWSLANDINGPAGEClick}>
         <div className="back-bgSS" />
         <img className="back-iconSS" alt="Back" src="/back.png" />
+        
       </div>
 
       <img className="main-bg" alt="" src="/main-bg.png" />
