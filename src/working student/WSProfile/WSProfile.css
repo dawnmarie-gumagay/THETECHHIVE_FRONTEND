@@ -92,37 +92,47 @@
 
 .ProfilePictureContainer {
   position: relative;
-}
-.UploadButton {
-  position: absolute;
-  top: 150px;
-  bottom: 10px; /* Adjust as needed */
-  left: 33%; /* Center horizontally, adjust as needed */
-  transform: translateX(-50%);
+  width: 100%;
+  height: 100%;
 }
 
-.upload-img-bg {
+.WSProfileUserContainer {
   position: absolute;
-  top: 170px;
-  left: 405px;
-  border-radius: 50%;
-  background-color: #fdfbc9;
-  width: 19.7px;
-  height: 20px;
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
-.upload-img-bg:hover {
-  transform: scale(1.1);
-  opacity: 0.8;
-}
-
-.mageimage-upload-icon {
-  position: absolute;
+  cursor: pointer;
   overflow: hidden;
-  max-width: 100%;
-  display: block;
+  width: 157px;
+  height: 152px;
+  top: 160px;
+  left: 280px; 
+  z-index: 10;
 }
+
+.upload-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 11;
+}
+
+.upload-overlay span {
+  color: white;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.WSProfileUserContainer:hover .upload-overlay {
+  opacity: 1;
+}
+
 
 .PasswordGroup {
   position: absolute;

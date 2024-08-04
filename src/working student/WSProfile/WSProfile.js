@@ -166,36 +166,23 @@ const WSProfile = ({ className = "" }) => {
 
         <img className="WSProfileBg" alt="" src="/profilebg.png" />
         <div className="ProfilePictureContainer">
-          <img className="WSProfileUser" alt="" src={profilePicture || defaultProfilePicture } />
+          <img 
+            className="WSProfileUser" 
+            alt="" 
+            src={profilePicture || defaultProfilePicture} 
+          />
+        <label htmlFor="profilePictureUpload" className="WSProfileUserContainer">
+        <div className="upload-overlay">
+          <span>Upload</span>
+        </div>
+        </label>
 
-          <div className="upload-img-bg">
-            <input
-              type="file"
-              onChange={handleProfilePictureChange}
-              style={{ display: 'none' }}
-              id="profilePictureUpload"
-            />
-            <label htmlFor="profilePictureUpload">
-              <Button
-                component="span"
-                sx={{
-                  width: '100%',
-                  height: '100%',
-                  top: '-10%',
-                  padding: 0,
-                  minWidth: 'unset',
-                  backgroundColor: 'transparent',
-                  '&:hover': { backgroundColor: 'transparent' }
-                }}
-              >
-                <img
-                  className="mageimage-upload-icon"
-                  alt="Upload"
-                  src="/upload_img.png"
-                />
-              </Button>
-            </label>
-          </div>
+        <input
+          type="file"
+          onChange={handleProfilePictureChange}
+          style={{ display: 'none' }}
+          id="profilePictureUpload"
+        />
 
           <img className="WSProfileBadge" alt="" src="/Wildcat-Pub.png" />
           <div className="WSID">{loggedInUser.idNumber}</div>
