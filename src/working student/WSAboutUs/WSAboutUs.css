@@ -430,7 +430,7 @@
 
   .AboutUs-title {
     top: 20% !important;
-    left: 18% !important;
+    left: 15% !important;
     transform: translateX(-50%) !important;
     width: auto !important;
     font-size: 16px !important;
@@ -438,7 +438,7 @@
 
   .member-name {
     top: 23% !important;
-    left: 10% !important;
+    left: 7% !important;
     /* transform: translateX(-50%) !important; */
     /* width: 70% !important;
     height: auto !important; */
@@ -448,13 +448,13 @@
     /* position: absolute; */
     top: 32% !important;
     width: 40% !important;
-    height: 35% !important;
-    left: 10% !important;
+    height: 30% !important;
+    left: 7% !important;
   }
 
   .left-click {
-    top: 70%;
-    left: 23%;
+    top: 65%;
+    left: 20%;
     border-radius: 2px;
     width: 33px;
     height: 33px;
@@ -462,8 +462,8 @@
     cursor: pointer;
   }
   .right-click {
-    top: 70%;
-    left: 30%;
+    top: 65%;
+    left: 27%;
     border-radius: 2px;
     width: 33px;
     height: 33px;
@@ -473,73 +473,74 @@
 
   .role-bg {
     top: 32%;
-    left: 55%;
+    left: 50%;
     height: 5%;
     width: 7%;
   }
   .role-icon {
-    top: 33.5%;
-    left: 57%;
+    top: 33.3%;
+    left: 51.8%;
     height: 2.5%;
     width: 4.5%;
   }
   .role-name {
-    top: 31%;
-    left: 65%;
+    top: 32.5%;
+    left: 59%;
     font-size: 19px;
   }
   .role-info {
-    top: 35.5%;
-    left: 65%;
-    font-size: 16px;
+    top: 36.5%;
+    left: 59%;
+    font-size: 13px;
   }
 
 
   .motto-bg {
-    top: 46%;
-    left: 55%;
+    top: 44%;
+    left: 50%;
     height: 5%;
     width: 7%;
   }
   .motto-icon {
-    top: 47.5%;
-    left: 56.5%;
+    top: 45.3%;
+    left: 51.3%;
     height: 2.5%;
     width: 4.5%;
   }
   .motto-name {
     top: 44.5%;
-    left: 65%;
+    left: 59%;
     font-size: 19px;
   }
   .motto-info {
-    top: 49.5%;
-    left: 65%;
-    font-size: 16px;
+    top: 48.5%;
+    left: 59%;
+    font-size: 13px;
   }
 
 
   .hobbies-bg{
-    top: 60%;
-    left: 55%;
+    top: 57%;
+    left: 50%;
     height: 5%;
     width: 7%;
   }
   .hobbies-icon{
-    top: 60.5%;
-    left: 56%;
+    top: 57.5%;
+    left: 50.5%;
     height: 4%;
-    width: 5.5%;
+    width: 6%;
   }
   .hobbies-name{
-    top: 59%;
-    left: 65%;
+    top: 57.5%;
+    left: 59%;
     font-size: 19px;
   }
   .hobbies-info{
-    top: 64.5%;
-    left: 65%;
-    font-size: 16px;
+    top: 61.5%;
+    left: 59%;
+    font-size: 13px;
+    
   }
 
 }
