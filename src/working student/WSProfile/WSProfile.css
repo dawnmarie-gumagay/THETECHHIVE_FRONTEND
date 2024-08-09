@@ -179,19 +179,22 @@
   position: absolute;
   top: 320px;
   left: 930px;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: white;
   width: 339px;
   height: 40px;
+  border: 2px solid #8a252c; 
 }
+
 .NewPassInput {
   position: absolute;
   top: 380px;
   left: 930px;
-  border-radius: 20px;
+  border-radius: 25px;
   background-color: white;
   width: 339px;
   height: 40px;
+  border: 2px solid #8a252c; 
 }
 
 .edit {
