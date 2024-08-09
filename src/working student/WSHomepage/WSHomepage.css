@@ -63,9 +63,9 @@
 
 /* Post Container */
 .post-container {
-  position: relative;
-  margin: 20px auto;
-  width: 613px;
+  width: 100%;
+  max-width: 613px;
+  margin: 20px auto; 
   padding: 20px;
   background-color: rgba(255, 255, 255, 0.25);
   border-radius: 10px;
@@ -186,13 +186,24 @@
 
 /* Post List */
 .post-list {
-  position: relative;
-  left: 435px;
+  display: flex;
+  flex-direction: column;
+  align-items: center; 
   width: 100%;
-  max-width: 613px;
-  gap: 20px;
+  max-width: 613px; 
   padding-bottom: 40px;
   padding-top: 10px;
+  margin: 0 auto; 
+}
+
+.post-container .post-header {
+  position: relative;
+}
+
+.post-list .post-card {
+  width: 100%;
+  max-width: 613px; 
+  margin-bottom: 5px; 
 }
 
 /* Post Card */
@@ -519,7 +530,7 @@
 
   .HWildcat {
     position: relative !important;
-    left: 33%;
+    left: 31%;
     transform: translateX(-50%);
     width: 323px;
     height: 77px;
