@@ -116,24 +116,20 @@ const ContactUs = () => {
             width: 90,
             height: 30,
             backgroundColor: "#8A252C",
-            transition: "all 0.3s ease",
+            transition: "transform 0.3s ease, background-color 0.3s ease",
             position: "absolute",
             bottom: "20px",
             right: "20px",
             zIndex: 10,
-            "&:hover, &:active": {
-              backgroundColor: "#A91D3A",
-              transform: "scale(1.05)",
-            },
-            "@media (max-width: 500px)": {
-              width: 80,
-              height: 28,
-              fontSize: "12px",
+            "&:hover": {
+              backgroundColor: "#B02644", 
+              transform: "scale(1.05)", 
             }
           }}
         >
           SUBMIT
         </Button>
+
       </form>
     </div>
   );

@@ -426,8 +426,7 @@
 
     .submit-button {
         top: 80%;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 45%;
         width: auto;
         font-size: 14px;
     }
@@ -590,9 +589,8 @@
 
     .submit-button {
         top: 80%;
-        left: 50%;
-        transform: translateX(-50%);
+        left: 40%;
         width: auto;
         font-size: 14px;
-    }
+      }
 }
