@@ -30,6 +30,11 @@ import AdProfile from './admin pages/ADProfile/AdProfile';
 import AdLogout from './admin pages/ADLogout/Logout';
 import LogoutDialog from './components/LogoutDialog'; // Corrected import path
 import AdReport from './admin pages/ADReport/AdReport';
+import PopUpReport2 from './working student/WSReport/PopUpReport2';
+import PopUpCE from './working student/WSReport/PopUpCE';
+import PopUpUS from './working student/WSReport/PopUpUS';
+import PopUpGR from './working student/WSReport/PopUpGR';
+import PopUpReportFinal from './working student/WSReport/PopUpReportFinal';
 
 
 const App = () => {
@@ -52,7 +57,13 @@ const App = () => {
         <Route path="/wshomepage" element={<WSHomepage />} />
         <Route path="/wscomment" element={<WSComment />} />
         <Route path="/wsreport" element={<WSReport />} />
+        <Route path="/wsreport2" element={<PopUpReport2 />} />
         <Route path="/popupreport" element={<PopUpReport />} />
+        <Route path="/popupce" element={<PopUpCE />} />
+        <Route path="/popupus" element={<PopUpUS />} />
+        <Route path="/popupgr" element={<PopUpGR />} />
+        <Route path="/popupfinal" element={<PopUpReportFinal />} />
+
         <Route path="/popupconfirm" element={<PopUpConfirm />} />
         <Route path="/popupsuccess" element={<PopUpSuccess />} />
         <Route path="/wsleaderboards" element={<WSLeaderboards />} />
