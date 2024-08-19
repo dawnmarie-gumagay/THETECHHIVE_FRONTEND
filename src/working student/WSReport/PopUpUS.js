@@ -1,80 +1,146 @@
-import { useCallback } from "react";
-import { Radio, FormControlLabel } from "@mui/material";
+import { useCallback, useState } from "react";
+import { Radio, FormControlLabel, RadioGroup } from "@mui/material";
+import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./PopUpUS.css";
 
 const PopUpUS = () => {
   const navigate = useNavigate();
+  const [selectedValue, setSelectedValue] = useState("");
 
-  const onGroupContainerClick = useCallback(() => {
-    navigate("/pop-upreport");
+  const onWSReportClick = useCallback(() => {
+    navigate("/wsreport");
   }, [navigate]);
 
-  const onGroupIconClick = useCallback(() => {
-    navigate("/pop-upcategory1");
+  const onPopUpReportClick = useCallback(() => {
+    navigate("/popupfinal");
   }, [navigate]);
+
+  const handleRadioChange = (event) => {
+    setSelectedValue(event.target.value); // Update the selected radio button
+  };
 
   return (
-    <div className="pop-up-urgent-situation2">
-      <div className="pop-up-urgent-situation2-child" />
-      <div className="group-container">
-        <div className="ellipse-parent3">
+    <div className="PopUpUSPage">
+      <div className="US-Container">
+      <div className="Urgent-Situation-Name">Urgent Situation</div>
+
+        {/* RadioGroup ensures only one radio button can be selected */}
+        <RadioGroup value={selectedValue} onChange={handleRadioChange}>
+        <div className="PA-Container2">
           <FormControlLabel
-            className="group-child8"
+            className="radio-container2"
             label=""
-            control={<Radio color="success" />}
+            value="PhysicalAccidents"
+            control={<Radio sx={{
+              color: "#000000", // Default unchecked color
+              "&.Mui-checked": {
+                color: "#8A252C", // Checked color
+              },
+            }}
           />
-          <div className="physical-accidents1">Physical Accidents</div>
-          <img className="group-child9" alt="" src="/rectangle-22.svg" />
-        </div>
-        <div className="ellipse-parent4">
-          <FormControlLabel
-            className="group-child8"
-            label=""
-            control={<Radio color="success" />}
-          />
-          <div className="vehicle-accidents">Vehicle Accidents</div>
-        </div>
-        <div className="ellipse-parent5">
-          <FormControlLabel
-            className="group-child8"
-            label=""
-            control={<Radio color="success" />}
-          />
-          <div className="facility-related-accidents1">
-            Facility-Related Accidents
-          </div>
-        </div>
-        <div className="ellipse-parent6">
-          <FormControlLabel
-            className="group-child8"
-            label=""
-            control={<Radio color="success" />}
-          />
-          <div className="laboratory-accidents1">Laboratory Accidents</div>
-        </div>
-        <div className="ellipse-parent7">
-          <FormControlLabel
-            className="group-child8"
-            label=""
-            control={<Radio color="success" />}
-          />
-          <div className="equipment-related-accidents">
-            Equipment-Related Accidents
-          </div>
-        </div>
-        <div className="urgent-situation1">Urgent Situation</div>
-      </div>
-      <div className="rectangle-parent7" onClick={onGroupContainerClick}>
-        <div className="group-child14" />
-        <div className="next1">NEXT</div>
-      </div>
-      <img
-        className="pop-up-urgent-situation2-item"
-        alt=""
-        src="/group-56.svg"
-        onClick={onGroupIconClick}
+        }
       />
+          <div className="Physical-Accidents-US">Physical Accidents</div>
+        </div>
+
+        <div className="LA-Container2">
+          <FormControlLabel
+            className="radio-container2"
+            label=""
+            value="LaboratoryAccidents"
+            control={<Radio sx={{
+              color: "#000000", // Default unchecked color
+              "&.Mui-checked": {
+                color: "#8A252C", // Checked color
+              },
+            }}
+          />
+        }
+      />
+          <div className="Laboratory-Accidents-US">Laboratory Accidents</div>
+        </div>
+
+        <div className="VA-Container">
+          <FormControlLabel
+            className="radio-container2"
+            label=""
+            value="VehicleAccidents"
+            control={<Radio sx={{
+              color: "#000000", // Default unchecked color
+              "&.Mui-checked": {
+                color: "#8A252C", // Checked color
+              },
+            }}
+          />
+        }
+      />
+          <div className="Vehicle-Accidents-US">Vehicle Accidents</div>
+        </div>
+
+        <div className="ER-Container">
+          <FormControlLabel
+            className="radio-container2"
+            label=""
+            value="EquipmentRelatedAccidents"
+            control={<Radio sx={{
+              color: "#000000", // Default unchecked color
+              "&.Mui-checked": {
+                color: "#8A252C", // Checked color
+              },
+            }}
+          />
+        }
+      />
+          <div className="Equipment-Related-Accidents-US">Equipment-Related Accidents</div>
+        </div>
+
+        <div className="FR-Container2">
+          <FormControlLabel
+            className="radio-container2"
+            label=""
+            value="FacilityRelatedAccidents"
+            control={<Radio sx={{
+              color: "#000000", // Default unchecked color
+              "&.Mui-checked": {
+                color: "#8A252C", // Checked color
+              },
+            }}
+          />
+        }
+      />
+          <div className="Facility-Related-Accidents-US">Facility-Related Accidents</div>
+      </div>
+      </RadioGroup>
+
+      <Button
+          className="US-next-button"
+          variant="contained"
+          sx={{
+            borderRadius: "10px",
+            width: 165,
+            height: 40,
+            backgroundColor: "#8A252C",
+            transition: "all 0.3s ease",
+            "&:hover, &:active": {
+              backgroundColor: "#A91D3A",
+              transform: "scale(1.05)",
+            },
+            "@media (max-width: 500px)": {
+              width: 140,
+              height: 36,
+            },
+          }}
+          onClick={onPopUpReportClick}
+        >
+          <span style={{ fontSize: "15px" }}>NEXT</span>
+        </Button>
+
+      <div className="back-button-containerUS" onClick={onWSReportClick}>
+          <div className="back-bgUS" />
+          <img className="back-iconUS" alt="Back" src="/back.png" />
+        </div>
+      </div>
     </div>
   );
 };
