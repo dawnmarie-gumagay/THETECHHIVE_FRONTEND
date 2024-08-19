@@ -1,176 +1,215 @@
-.pop-up-general-report2-child {
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
-    border-radius: var(--br-3xs);
-    background: linear-gradient(180deg, #fdfbc9 54%, #f9d67b);
-    width: 585px;
-    height: 717px;
-  }
-  .group-child8,
-  .group-child9,
-  .pop-up-general-report2-child {
-    position: absolute;
-    top: 0;
-    left: 0;
-  }
-  .group-child9 {
-    top: 6px;
-    left: 6px;
-    border-radius: var(--br-xl);
-    width: 13px;
-    height: 13px;
-  }
-  .ellipse-parent3 {
-    position: absolute;
-    top: 97px;
-    left: 0;
-    width: 351px;
-    height: 25px;
-  }
-  .vehicle-accidents {
-    position: absolute;
-    top: 1px;
-    left: 36px;
-    display: inline-block;
-    width: 182px;
-    height: 23px;
-  }
-  .ellipse-parent4 {
-    position: absolute;
-    top: 235px;
-    left: 0;
-    width: 218px;
-    height: 25px;
-  }
-  .group-child12,
-  .group-child13 {
-    position: absolute;
-    top: 62.2px;
-    left: 0;
-  }
-  .group-child13 {
-    top: 124px;
-  }
-  .environmental-accidents1,
-  .facility-related-accidents1,
-  .health-related-accidents1 {
+.PopUpGRPage {
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: var(--br-3xs);
+  background: linear-gradient(180deg, #fdfbc9 54%, #f9d67b);
+  width: 585px;
+  height: 717px;
+  color: #8a252c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button-containerGR {
+  position: absolute;
+  top: -15px; /* Adjust this value to move the button further up */
+  left: -10px;
+  width: 64px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.back-bgGR {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #8a252c;
+  width: 70%;
+  height: 70%;
+}
+.back-iconGR {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 27.6px;
+  height: 27.4px;
+  cursor: pointer;
+}
+.back-button-containerGR:hover {
+   transform: scale(1.0);
+}
+
+
+.GR-Container {
+  position: absolute;
+  top: 45px;
+  left: 48px;
+  width: 445px;
+  height: 522.5px;
+}
+
+.General-Report-Name {
+  position: absolute;
+  top: 0;
+  left: 90px;
+  font-size: 28px;
+  font-weight: 600;
+  text-align: center;
+  display: inline-block;
+  width: 350px;
+  height: 30px;
+}
+
+
+.PA-Container3 {
+  position: absolute;
+  top: 97px;
+  left: 0;
+  font-size: 20px;
+  width: 351px;
+  height: 25px;
+}
+.Physical-Accidents-GR {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 315px;
+  height: 23px;
+}
+.radio-container3 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.LA-Container3 {
+  position: absolute;
+  top: 166px;
+  left: 0;
+  font-size: 20px;
+  width: 308px;
+  height: 25px;
+}
+.Laboratory-Accidents-GR {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 272px;
+  height: 23px;
+}
+
+
+.VA-Container2 {
+  position: absolute;
+  top: 235px;
+  left: 0;
+  font-size: 20px;
+  width: 218px;
+  height: 25px;
+}
+.Vehicle-Accidents-GR {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 182px;
+  height: 23px;
+}
+
+
+.ER-Container2 {
+  position: absolute;
+  top: 304px;
+  left: 0;
+  font-size: 20px;
+  width: 351px;
+  height: 25px;
+}
+.Equipment-Related-Accidents-GR{
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 315px;
+  height: 23px;
+}
+
+
+.FR-Container3 {
+  position: absolute;
+  top: 373px;
+  left: 0;
+  font-size: 20px;
+  width: 308px;
+  height: 149.5px;
+}
+.Facility-Related-Accidents-GR {
     position: absolute;
     top: 1px;
     left: 36px;
     display: inline-block;
     width: 272px;
     height: 23.5px;
-  }
-  .environmental-accidents1,
-  .health-related-accidents1 {
+}
+
+
+.Environmental-Accidents-GR {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  font-size: 20px;
+  display: inline-block;
+  width: 272px;
+  height: 23.5px;
+}
+.Environmental-Accidents-GR {
+  top: 62.2px;
+  width: 265px;
+}
+
+
+.Health-Related-Accidents-GR {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  font-size: 20px;
+  display: inline-block;
+  width: 272px;
+  height: 23.5px;
+}
+.Health-Related-Accidents-GR {
+  top: 62.2px;
+  width: 265px;
+}
+.Health-Related-Accidents-GR {
+  top: 126px;
+}
+
+
+.radio-container4,
+.radio-container5 {
+    position: absolute;
     top: 62.2px;
-    width: 265px;
-  }
-  .health-related-accidents1 {
-    top: 126px;
-  }
-  .ellipse-parent5 {
-    position: absolute;
-    top: 373px;
     left: 0;
-    width: 308px;
-    height: 149.5px;
-  }
-  .laboratory-accidents1 {
-    position: absolute;
-    top: 1px;
-    left: 36px;
-    display: inline-block;
-    width: 272px;
-    height: 23px;
-  }
-  .ellipse-parent6 {
-    position: absolute;
-    top: 166px;
-    left: 0;
-    width: 308px;
-    height: 25px;
-  }
-  .equipment-related-accidents {
-    position: absolute;
-    top: 1px;
-    left: 36px;
-    display: inline-block;
-    width: 315px;
-    height: 23px;
-  }
-  .ellipse-parent7,
-  .general-report1 {
-    position: absolute;
-    top: 304px;
-    left: 0;
-    width: 351px;
-    height: 25px;
-  }
-  .general-report1 {
-    top: 0;
-    left: 95px;
-    font-size: var(--font-size-13xl);
-    font-weight: 600;
-    text-align: center;
-    display: inline-block;
-    width: 350px;
-    height: 30px;
-  }
-  .group-child16,
-  .group-container {
-    position: absolute;
-    top: 45px;
-    left: 48px;
-    width: 445px;
-    height: 522.5px;
-  }
-  .group-child16 {
-    top: 0;
-    left: 0;
-    border-radius: var(--br-61xl);
-    background-color: var(--color-brown);
-    width: 114px;
-    height: 31px;
-  }
-  .next1 {
-    position: absolute;
-    top: 1px;
-    left: 10px;
-    font-weight: 500;
-    display: inline-block;
-    width: 94px;
-    height: 30px;
-  }
-  .rectangle-parent7 {
-    position: absolute;
-    top: 626px;
-    left: 236px;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
-    width: 114px;
-    height: 31px;
-    mix-blend-mode: normal;
-    cursor: pointer;
-    text-align: center;
-    color: var(--color-white);
-    font-family: var(--font-poppins);
-  }
-  .pop-up-general-report2-item {
-    position: absolute;
-    top: 14px;
-    left: 28px;
-    width: 37.6px;
-    height: 37.4px;
-    cursor: pointer;
-  }
-  .pop-up-general-report2 {
-    width: 100%;
-    position: relative;
-    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25), 0 4px 4px rgba(0, 0, 0, 0.25);
-    height: 725px;
-    overflow: hidden;
-    text-align: left;
-    font-size: var(--font-size-xl);
-    color: var(--color-brown);
-    font-family: var(--font-montserrat);
-  }
+}
+.radio-container5 {
+    top: 124px;
+}
+
+
+.GR-next-button {
+  position: absolute;
+  top: 570px;
+  left: 180px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  mix-blend-mode: normal;
+  cursor: pointer;
+}
   
