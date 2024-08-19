@@ -95,7 +95,7 @@ const PopUpCE = () => {
             <div className="Environmental-Accidents-CE">Environmental Accidents</div>
           </div>
 
-          <div className="FR-HR-Container">
+          <div className="FR-Container2">
             <FormControlLabel
               className="radio-container"
               label=""
@@ -109,10 +109,14 @@ const PopUpCE = () => {
             />
           }
         />
+        <div className="Fire-Related-Accidents-CE">Fire-Related Accidents</div>
+        </div>
+
+        <div className="HR-Container">
             <FormControlLabel
-              className="radio-container2"
+              className="radio-container"
               label=""
-              value="HealthRelated"
+              value="HealthRelatedAccidents"
               control={<Radio sx={{
                 color: "#000000", // Default unchecked color
                 "&.Mui-checked": {
@@ -122,9 +126,8 @@ const PopUpCE = () => {
             />
           }
         />
-            <div className="Fire-Related-Accidents-CE">Fire-Related Accidents</div>
-            <div className="Health-Related-Accidents-CE">Health-Related Accidents</div>
-          </div>
+        <div className="Health-Related-Accidents-CE">Health-Related Accidents</div>
+        </div>
         </RadioGroup>
 
         <Button
