@@ -35,6 +35,8 @@ import PopUpCE from './working student/WSReport/PopUpCE';
 import PopUpUS from './working student/WSReport/PopUpUS';
 import PopUpGR from './working student/WSReport/PopUpGR';
 import PopUpReportFinal from './working student/WSReport/PopUpReportFinal';
+import PopUpPermission from './working student/WSReport/PopUpPermission';
+import PopUpPermissionLoc from './working student/WSReport/PopUpPermissionLoc';
 
 
 const App = () => {
@@ -63,6 +65,8 @@ const App = () => {
         <Route path="/popupus" element={<PopUpUS />} />
         <Route path="/popupgr" element={<PopUpGR />} />
         <Route path="/popupfinal" element={<PopUpReportFinal />} />
+        <Route path="/popuppermission" element={<PopUpPermission />} />
+        <Route path="/popuppermissionloc" element={<PopUpPermissionLoc />} />
 
         <Route path="/popupconfirm" element={<PopUpConfirm />} />
         <Route path="/popupsuccess" element={<PopUpSuccess />} />
