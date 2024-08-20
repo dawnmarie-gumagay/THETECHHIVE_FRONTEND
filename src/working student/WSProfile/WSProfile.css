@@ -300,6 +300,15 @@
     transform: translateX(-50%) !important;
   }
 
+  .WSProfileUserContainer {
+    top: 160px !important;
+    left: 25% !important;
+    width: 15.5% !important;
+    height: 16.5% !important;
+    transform: translateX(-50%) !important;
+    z-index: 10 !important;
+  }
+
   .PasswordGroup {
     top: 150px!important;
     left: 74% !important;
@@ -377,6 +386,14 @@
     top: 190px !important;
     width: 85px !important;
     height: 85px !important;
+  }
+
+  .WSProfileUserContainer {
+    top: 190px !important;
+    left: 25% !important;
+    width: 17% !important;
+    height: 10.2% !important;
+    z-index: 10 !important;
   }
 
   .WSProfileBadge {
