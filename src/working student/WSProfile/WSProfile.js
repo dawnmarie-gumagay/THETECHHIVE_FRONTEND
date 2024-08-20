@@ -98,6 +98,7 @@ const WSProfile = ({ className = "" }) => {
           setIsPopUpVisible(true);
           setCurrentPassword("");
           setNewPassword("");
+          setIsEditable(false); // Reset to initial state
         } else {
           const errorData = await response.text();
           console.error('Update failed:', errorData);
@@ -114,10 +115,19 @@ const WSProfile = ({ className = "" }) => {
 
   const closeUpdatedPopUp = useCallback(() => {
     setIsPopUpVisible(false);
+    setIsEditable(false); // Ensure editable state is reset
+    setCurrentPassword("");
+    setNewPassword("");
   }, []);
 
   const onEditClick = () => {
-    setIsEditable(!isEditable);
+    setIsEditable(!isEditable); 
+  };
+
+  const onCancelClick = () => {
+    setIsEditable(false);
+    setCurrentPassword("");
+    setNewPassword("");
   };
 
   const handleProfilePictureChange = async (event) => {
@@ -234,7 +244,18 @@ const WSProfile = ({ className = "" }) => {
             onChange={(e) => setNewPassword(e.target.value)}
           />
 
-          <b className="edit" onClick={onEditClick}>Edit</b>
+          <b
+  className="edit"
+  onClick={onEditClick}
+  style={{
+    display: 'inline-block',
+    marginTop: '-20px', // Adjust the value to move it up
+    cursor: 'pointer'
+  }}
+>
+  Edit
+</b>
+
 
           <div className="UpdateContainer">
             <Button
@@ -246,13 +267,32 @@ const WSProfile = ({ className = "" }) => {
                 height: 35,
                 backgroundColor: "#8A252C",
                 "&:hover": { backgroundColor: "#A91D3A" },
-                fontSize: "17px"
+                fontSize: "17px",
+                marginRight: "10px",
+                marginTop: "-30px"
               }}
               onClick={openUpdatedPopUp}
               disabled={!isEditable}
             >
               Update
             </Button>
+            {isEditable && (
+              <Button
+                className="CancelButton"
+                variant="contained"
+                sx={{
+                  borderRadius: "10px",
+                  width: 110,
+                  height: 35,
+                  backgroundColor: "#8A252C",
+                  "&:hover": { backgroundColor: "#AAAAAA" },
+                  fontSize: "17px"
+                }}
+                onClick={onCancelClick}
+              >
+                Cancel
+              </Button>
+            )}
           </div>
         </div>
 
@@ -284,7 +324,7 @@ const WSProfile = ({ className = "" }) => {
   );
 };
 
-// ErrorPopUp component moved to the end of the file
+// ErrorPopUp component
 const ErrorPopUp = ({ message, onClose }) => {
   return (
     <div className="error-popup">
@@ -311,4 +351,5 @@ const ErrorPopUp = ({ message, onClose }) => {
     </div>
   );
 };
+
 export default WSProfile;
