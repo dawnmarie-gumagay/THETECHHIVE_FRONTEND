@@ -439,7 +439,7 @@ const WSHomepage = () => {
       <img className="WSTitle" alt="" src="/TITLE.png" />
       <b className="NHome">Home</b>
       <div className="NReports" onClick={onREPORTSClick}>
-        Entry
+        Report
       </div>
       <div className="NProfile" onClick={onPROFILEClick}>
         Profile

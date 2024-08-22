@@ -39,7 +39,7 @@ const WSReport = () => {
         <div className="NHome" onClick={onHomeTextClick}>
           Home
         </div>
-        <b className="NReports">Entry</b>
+        <b className="NReports">Report</b>
         <div className="NProfile" onClick={onPROFILEClick}>
           Profile
         </div>

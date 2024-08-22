@@ -25,7 +25,7 @@ const WSLeaderboards = () => {
         Home
       </div>
       <div className="NReports" onClick={onREPORTSClick}>
-        Entry
+        Report
       </div>
       <div className="NProfile" onClick={onPROFILEClick}>
         Profile

@@ -167,7 +167,7 @@ const WSProfile = ({ className = "" }) => {
           Home
         </div>
         <div className="NReports" onClick={onReportsTextClick}>
-          Entry
+          Report
         </div>
         <b className="NProfile">Profile</b>
         <div className="NLeaderboards" onClick={onLeaderboardsTextClick}>
