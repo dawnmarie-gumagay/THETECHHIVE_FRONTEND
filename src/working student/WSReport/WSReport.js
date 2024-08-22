@@ -49,8 +49,8 @@ const WSReport = () => {
 
         <img className="IncidentReport-Pic" alt="" src="/IN.png" />
 
-        <b className="INTitle1">{`Caught an issue or incident? `}</b>
-        <b className="INTitle2">Press here!</b>
+        <b className="INTitle1">{`See something? Say something. `}</b>
+        <b className="INTitle2">Report here!</b>
         <img
           className="INReport"
           alt=""
