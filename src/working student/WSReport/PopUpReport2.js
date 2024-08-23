@@ -64,7 +64,7 @@ const PopUpReport2 = () => {
           />
         }
       />
-          <div className="LA-Category">Laboratory Accidents</div>
+          <div className="LA-Category">Urgent Situation</div>
           <div className="LA-Category-Info">
             Accidents that require prompt attention but do not pose an immediate
             threat to life, ensuring timely response and care to prevent the
@@ -87,7 +87,7 @@ const PopUpReport2 = () => {
         }
       />
           <div className="FR-Category">
-            Facility-Related Accidents
+            General Report
           </div>
           <div className="FR-Category-Info">
             Accidents that are minor and do not require immediate action but
