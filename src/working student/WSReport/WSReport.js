@@ -24,6 +24,10 @@ const WSReport = () => {
   const onLEADERBOARDSClick = useCallback(() => {
     navigate("/wsleaderboards");
   }, [navigate]);
+  
+  const onINSIGHTClick = useCallback(() => {
+    navigate("/wsinsight");
+  }, [navigate]);
 
   const onPROFILEClick = useCallback(() => {
     navigate("/wsprofile");
@@ -45,6 +49,9 @@ const WSReport = () => {
         </div>
         <div className="NLeaderboards" onClick={onLEADERBOARDSClick}>
           Leaderboard
+        </div>
+        <div className="NInsight" onClick={onINSIGHTClick}>
+        Insight
         </div>
 
         <img className="IncidentReport-Pic" alt="" src="/IN.png" />

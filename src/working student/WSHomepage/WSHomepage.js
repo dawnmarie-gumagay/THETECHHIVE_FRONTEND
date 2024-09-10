@@ -172,6 +172,10 @@ const WSHomepage = () => {
     navigate("/wsleaderboards");
   }, [navigate]);
 
+  const onINSIGHTClick = useCallback(() => {
+    navigate("/wsinsight");
+  }, [navigate]);
+
   const handlePostInputChange = (e) => {
     const content = e.target.value;
     setNewPostContent(content);
@@ -446,6 +450,9 @@ const WSHomepage = () => {
       </div>
       <div className="NLeaderboards" onClick={onLEADERBOARDSClick}>
         Leaderboard
+      </div>
+      <div className="NInsight" onClick={onINSIGHTClick}>
+        Insight
       </div>
       <b className="HWildcat">WILDCAT</b>
       

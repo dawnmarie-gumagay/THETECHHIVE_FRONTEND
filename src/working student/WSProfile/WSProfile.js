@@ -75,6 +75,10 @@ const WSProfile = ({ className = "" }) => {
     navigate("/wsleaderboards");
   }, [navigate]);
 
+  const onINSIGHTClick = useCallback(() => {
+    navigate("/wsinsight");
+  }, [navigate]);
+
   const openUpdatedPopUp = useCallback(async () => {
     if (!currentPassword || !newPassword) {
       setError("Please enter both current and new passwords.");
@@ -168,6 +172,9 @@ const WSProfile = ({ className = "" }) => {
         </div>
         <div className="NReports" onClick={onReportsTextClick}>
           Report
+        </div>
+        <div className="NInsight" onClick={onINSIGHTClick}>
+        Insight
         </div>
         <b className="NProfile">Profile</b>
         <div className="NLeaderboards" onClick={onLeaderboardsTextClick}>

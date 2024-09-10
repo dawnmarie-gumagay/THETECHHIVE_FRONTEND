@@ -33,6 +33,7 @@ import AdReport from './admin pages/ADReport/AdReport';
 import PopUpReportFinal from './working student/WSReport/PopUpReportFinal';
 import PopUpPermission from './working student/WSReport/PopUpPermission';
 import PopUpPermissionLoc from './working student/WSReport/PopUpPermissionLoc';
+import WSInsight from './working student/WSInsight/WSInsight';
 
 
 const App = () => {
@@ -63,6 +64,9 @@ const App = () => {
         <Route path="/popupconfirm" element={<PopUpConfirm />} />
         <Route path="/popupsuccess" element={<PopUpSuccess />} />
         <Route path="/wsleaderboards" element={<WSLeaderboards />} />
+
+        <Route path="/wsinsight" element={<WSInsight />} />
+
         <Route path="/wsprofile" element={<WSProfile />} />
         <Route path="/updatedpopup" element={<UpdatedPopUp />} />
         <Route path="/wslogout" element={<WSLogout />} />

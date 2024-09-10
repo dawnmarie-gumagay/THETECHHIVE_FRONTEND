@@ -13,6 +13,10 @@ const WSLeaderboards = () => {
     navigate("/wsreport");
   }, [navigate]);
 
+  const onINSIGHTClick = useCallback(() => {
+    navigate("/wsinsight");
+  }, [navigate]);
+
   const onPROFILEClick = useCallback(() => {
     navigate("/wsprofile");
   }, [navigate]);
@@ -26,6 +30,9 @@ const WSLeaderboards = () => {
       </div>
       <div className="NReports" onClick={onREPORTSClick}>
         Report
+      </div>
+      <div className="NInsight" onClick={onINSIGHTClick}>
+        Insight
       </div>
       <div className="NProfile" onClick={onPROFILEClick}>
         Profile
