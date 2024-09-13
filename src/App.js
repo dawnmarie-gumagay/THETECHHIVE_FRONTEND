@@ -65,7 +65,6 @@ const App = () => {
         <Route path="/popupsuccess" element={<PopUpSuccess />} />
         <Route path="/wsleaderboards" element={<WSLeaderboards />} />
 
-        <Route path="/wsinsight" element={<WSInsight />} />
 
         <Route path="/wsprofile" element={<WSProfile />} />
         <Route path="/updatedpopup" element={<UpdatedPopUp />} />
