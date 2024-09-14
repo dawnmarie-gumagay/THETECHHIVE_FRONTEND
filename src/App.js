@@ -33,7 +33,6 @@ import AdReport from './admin pages/ADReport/AdReport';
 import PopUpReportFinal from './working student/WSReport/PopUpReportFinal';
 import PopUpPermission from './working student/WSReport/PopUpPermission';
 import PopUpPermissionLoc from './working student/WSReport/PopUpPermissionLoc';
-import WSInsight from './working student/WSInsight/WSInsight';
 
 
 const App = () => {
