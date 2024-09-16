@@ -16,13 +16,13 @@ const PopUpSuccess = ({ onClose }) => {
     <div className="PopUpSuccess">
       <div className="PopUpSuccess-Box" />
       <div className="SuccessReportName-Container">
-        <p className="incident">Incident</p>
-        <p className="incident">Successfully Reported</p>
+        <p className="incident">Report Successfully</p>
+        <p className="incident">submitted!</p>
       </div>
       <img
         className="WildcatSuccess-icon"
         alt="Success Icon"
-        src="/success-icon.png"
+        src="/wreport-icon.png"
       />
 
       <Button

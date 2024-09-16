@@ -1,18 +1,18 @@
 .PopUpSuccess {
     position: fixed;
     top: 50%;
-    left: 215px;
+    left: 50%;
     transform: translate(-50%, -50%);
     background: white;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     padding: 20px;
-    width: 430px;
+    width: 421px;
     height: 209px;
     text-align: center;
     color: #8a252c;
-    font-family: var(--font-montserrat);
+    font-family: var(--font-poppins);
 }
   
 .PopUpSuccess-Box {
