@@ -45,91 +45,9 @@
 }
 
 
-.Severity-Name {
-  position: absolute;
-  top: 55px;
-  left: 125px;
-  font-size: 20px;
-  display: inline-block;
-  width: 300px;
-  height: 17px;
-}
-
-.Severity-Issue-Container {
-  position: absolute;
-  top: 95px;
-  left: 125px;
-  font-size: 10px;
-  display: inline-block;
-  width: 600px;
-  height: 17px;
-}
-.SeverityName {
-  font-weight: 600;
-}
-.Category {
-  font-weight: 500;
-  white-space: pre-wrap;
-}
-.Category {
-  font-weight: 500;
-}
-
-
-.Severity-Radio-Button-Container {
-  position: absolute;
-  top: 122px;
-  left: 144px;
-  width: 242px;
-  height: 17px;
-  text-align: center;
-  font-size: 15px;
-}
-.RadioButton-Low,
-.RadioButton-Medium,
-.RadioButton-High,
-.Low,
-.Medium,
-.High {
-  position: absolute;
-  top: 2px;
-  left: 0;
-  width: 15px;
-  height: 15px;
-}
-.RadioButton-Medium {
-  left: 108px;
-}
-.RadioButton-High {
-  left: 235px;
-}
-.Low,
-.Medium,
-.High {
-  top: 11px;
-  left: 130px;
-  font-weight: 500;
-  width: 68px;
-}
-.High {
-  top: 11px;
-  left: 245px;
-  width: 68px;
-}
-.Low {
-  top: 11px;
-  left: 6px;
-}
-.radio-container6 {
-  position: absolute;
-  top: 0;
-  left: 0;
-}
-
-
 .Description-Container {
   position: absolute;
-  top: 175px;
+  top: 130px;
   left: 139px;
   width: 308px;
   height: 71px;
@@ -165,7 +83,7 @@
   
 .Location-Container {
   position: absolute;
-  top: 275px;
+  top: 250px;
   left: 139px;
   width: 308px;
   height: 71px;
@@ -174,7 +92,7 @@
 
 .Choose-Location {
   position: absolute;
-  top: 315px;
+  top: 290px;
   left: 413px;
   width: 24px;
   height: 24px;
@@ -241,7 +159,7 @@
 .Upload-Container {
   position: absolute;
   top: 430px;
-  left: 295px;
+  left: 330px;
   width: 97px;
   height: 87px;
   cursor: pointer;
@@ -268,7 +186,7 @@
 
 .ReportFinal-next-button {
   position: absolute;
-  top: -100px;
+  top: 560px;
   left: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
   mix-blend-mode: normal;
