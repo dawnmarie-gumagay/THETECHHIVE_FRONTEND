@@ -148,7 +148,7 @@
 	width: 200.01px;
 	height: 25.99px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 22.599999999999998px;
 	font-weight: 500;
 	line-height: 27.549399051666256px;
@@ -206,7 +206,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -222,7 +222,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -238,7 +238,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -254,7 +254,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -270,7 +270,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -286,7 +286,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -302,7 +302,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -318,7 +318,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -334,7 +334,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -350,7 +350,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -366,7 +366,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -382,7 +382,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -396,7 +396,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -410,7 +410,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -424,7 +424,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -438,7 +438,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 400;
 	line-height: 16.529640293121336px;
@@ -540,7 +540,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -570,7 +570,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -600,7 +600,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -630,7 +630,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -660,7 +660,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -690,7 +690,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -720,7 +720,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -750,7 +750,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -780,7 +780,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 10.169999999999998px;
 	font-weight: 700;
 	line-height: 12.397229681015013px;
@@ -801,7 +801,7 @@
 	width: 367.24999999999994px;
 	height: 25.99px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 22.599999999999998px;
 	font-weight: 600;
 	line-height: 27.549399051666256px;
@@ -857,7 +857,7 @@
 	width: 56.49999999999999px;
 	height: 25.99px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 22.599999999999998px;
 	font-weight: 600;
 	line-height: 27.549399051666256px;
@@ -869,7 +869,7 @@
 	width: 50.849999999999994px;
 	height: 23.729999999999997px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 22.599999999999998px;
 	font-weight: 600;
 	line-height: 27.549399051666256px;
@@ -925,7 +925,7 @@
 	width: 325.43999999999994px;
 	height: 25.99px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 22.599999999999998px;
 	font-weight: 600;
 	line-height: 27.549399051666256px;
@@ -957,7 +957,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 700;
 	line-height: 16.529640293121336px;
@@ -980,7 +980,7 @@
 	display: flex;
 	align-items: center;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 700;
 	line-height: 16.529640293121336px;
@@ -1010,7 +1010,7 @@
 	width: 30.509999999999998px;
 	height: 18.08px;
 	color: rgba(254,176,16,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 700;
 	line-height: 16.529640293121336px;
@@ -1031,7 +1031,7 @@
 	width: 30.509999999999998px;
 	height: 18.08px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 13.559999999999999px;
 	font-weight: 700;
 	line-height: 16.529640293121336px;
@@ -1076,7 +1076,7 @@
 	width: 303.23861053466794px;
 	height: 23.178781013488766px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 19.209999999999997px;
 	font-weight: 500;
 	line-height: 23.416989517211913px;
@@ -1088,7 +1088,7 @@
 	width: 249.08884017944334px;
 	height: 23.178781013488766px;
 	color: rgba(138,37,44,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 19.209999999999997px;
 	font-weight: 500;
 	line-height: 23.416989517211913px;
@@ -1112,7 +1112,7 @@
 	justify-content: center;
 	text-align: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 24.86px;
 	font-weight: 600;
 	line-height: 30.304338741302487px;
@@ -1127,7 +1127,7 @@
 	justify-content: center;
 	text-align: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 24.86px;
 	font-weight: 600;
 	line-height: 30.304338741302487px;
@@ -1166,7 +1166,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 700;
 	line-height: 20.662049827575682px;
@@ -1191,7 +1191,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 700;
 	line-height: 20.662049827575682px;
@@ -1216,7 +1216,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 700;
 	line-height: 20.662049827575682px;
@@ -1241,7 +1241,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 700;
 	line-height: 20.662049827575682px;
@@ -1266,7 +1266,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1291,7 +1291,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1316,7 +1316,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1350,7 +1350,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1375,7 +1375,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1400,7 +1400,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1425,7 +1425,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1450,7 +1450,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 700;
 	line-height: 20.662049827575682px;
@@ -1475,7 +1475,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
@@ -1500,7 +1500,7 @@
 	text-align: center;
 	align-items: center;
 	color: rgba(246,195,1,1.00);
-	font-family: Montserrat;
+	font-family: var(--font-montserrat);
 	font-size: 16.95px;
 	font-weight: 400;
 	line-height: 20.662049827575682px;
