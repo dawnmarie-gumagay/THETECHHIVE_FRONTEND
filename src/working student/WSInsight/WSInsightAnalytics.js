@@ -44,157 +44,201 @@ export default function WSInsightAnalytics () {
      
             <div className="WSInsightBox" />
 
-			<div className='Frame102'>
-				<span className='ReportFeedback'>Report Feedback</span>
-				<div className='Polygon1'/>
+			<div className="YearContainer">
+				<div className="YearBox"/>
+				<span className='Year'>Year</span>
+				<img class="Calendar" alt="" src="/WSInsight_Calendar.png"/>
+				<img class="arrow_left" alt="" src="/WsInsight_Leftbtn.png"/>
+				<span className='_2024'>2024</span>
+				<img class="arrow_right" alt="" src="/WsInsight_Rightbtn.png"/>
 			</div>
-			<div className='Frame120'>
-				<div className='Rectangle67'/>
-				<div className='Frame104'>
+
+			<div className="BarGraphContainer">
+				<div className="BarBox"/>
+				<span className='MonthlyAccidentEventStats'>Monthly Accident & Event Stats<br/> </span>
+				<div className="BarGraph">
 					<span className='_20'>20</span>
+					<span className='_40'>40</span>
+					<span className='_60'>60</span>
+					<span className='_80'>80</span>
+					<span className='_100'>100</span>
+					<img className='B1'  />
+
 					<span className='Jan'>Jan</span>
+					<div className='Rectangle84'/>
+					<div className='Rectangle85'/>
+
 					<span className='Feb'>Feb</span>
+					<div className='Rectangle70'/>
+
 					<span className='Mar'>Mar</span>
+					<div className='Rectangle71'/>
+					<div className='Rectangle86'/>
+					
 					<span className='Apr'>Apr</span>
+					<div className='Rectangle72'/>
+
 					<span className='May'>May</span>
+					<div className='Rectangle73'/>
+
 					<span className='June'>June</span>
 					<span className='July'>July</span>
 					<span className='Aug'>Aug</span>
 					<span className='Sept'>Sept</span>
 					<span className='Nov'>Nov</span>
 					<span className='Dec'>Dec</span>
-					<span className='_40'>40</span>
-					<span className='_60'>60</span>
-					<span className='_80'>80</span>
-					<span className='_100'>100</span>
-					<img className='Line11'  />
-					<img className='Line12' />
-					<div className='Rectangle70'/>
-					<div className='Rectangle86'/>
-					<div className='Rectangle85'/>
-					<div className='Rectangle84'/>
-					<div className='Rectangle71'/>
-					<div className='Rectangle72'/>
-					<div className='Rectangle73'/>
-					<div className='Rectangle74'/>
-					<div className='Frame106'>
+					<img className='B2' />
+
+					<div className='grayline'/>
+
+					<div className='PAContainer'>
 						<span className='PhysicalAccident'>Physical Accident</span>
-						<div className='Rectangle76'/>
+						<div className='PABox'/>
 					</div>
-					<div className='Frame109'>
+
+					<div className='EAContainer'>
 						<span className='EnvironmentalAccident'>Environmental Accident</span>
-						<div className='Rectangle79'/>
+						<div className='EABox'/>
 					</div>
-					<div className='Frame112'>
+
+					<div className='VAContainer'>
 						<span className='VehicleAccident'>Vehicle Accident</span>
-						<div className='Rectangle82'/>
+						<div className='VABox'/>
 					</div>
-					<div className='Frame107'>
+
+					<div className='LAContainer'>
 						<span className='LaboratoryAccident'>Laboratory Accident</span>
-						<div className='Rectangle77'/>
+						<div className='LABox'/>
 					</div>
-					<div className='Frame110'>
+
+					<div className='FireRelatedContainer'>
 						<span className='FireRelatedAccident'>Fire-Related Accident</span>
-						<div className='Rectangle80'/>
+						<div className='FireRelatedBox'/>
 					</div>
-					<div className='Frame113'>
+
+					<div className='EquipmentRelatedContainer'>
 						<span className='EquipmentRelatedAccident'>Equipment-Related Accident</span>
-						<div className='Rectangle83'/>
+						<div className='EquipmentRelatedBox'/>
 					</div>
-					<div className='Frame114'>
-						<span className='Event'>Event</span>
-						<div className='Rectangle83_1'/>
-					</div>
-					<div className='Frame108'>
+
+					<div className='FacilityRelatedContainer'>
 						<span className='FacilityRelatedAccident'>Facility-Related Accident</span>
-						<div className='Rectangle78'/>
+						<div className='FacilityRelatedBox'/>
 					</div>
-					<div className='Frame111'>
+
+					<div className='HRContainer'>
 						<span className='HealthRelatedAccident'>Health-Related Accident</span>
-						<div className='Rectangle81'/>
+						<div className='HRBox'/>
+					</div>
+
+					<div className='EventContainer'>
+						<span className='Event'>Event</span>
+						<div className='EventBox'/>
 					</div>
 				</div>
-				<span className='MonthlyAccidentEventStats'>Monthly Accident & Event Stats<br/> </span>
 			</div>
-			<div className='Frame122'>
-				<div className='Rectangle64'/>
-				<arrow_left className='arrow_left'/>
-				<arrow_right className='arrow_right'/>
-				<span className='_2024'>2024</span>
-				<span className='Year'>Year</span>
-			</div>
-			<div className='Frame123'>
-				<div className='Rectangle68'/>
-				<div className='Frame118'>
-					<div className='Frame121'>
+			
+
+			<div className='PieChartContainer'>
+				<div className='PieBackground'/>
+				<div className='PieContainer'>
+					<div className='PieGroup'>
 						<span className='ApprovedDeniedReports'>Approved & Denied Reports</span>
-						<div className='Ellipse14'/>
-						<div className='Ellipse15'/>
+					
 						<span className='Approved'>Approved</span>
-						<div className='Rectangle67_1'/>
+						<div className='ApprovedCircle'/>
+						<div className='ApprovedBox'/>
+
 						<span className='Denied'>Denied</span>
-						<div className='Rectangle68_1'/>
-						<div className='Rectangle87'/>
-						<span className='_80_1'>80%</span>
-						<div className='Rectangle87_1'/>
-						<span className='_20_1'>20%</span>
+						<div className='DeniedCircle'/>
+						<div className='DeniedBox'/>
+
+						<div className='Abg'/>
+						<span className='ApprovedPercentage'>80%</span>
+
+						<div className='Dbg'/>
+						<span className='DeniedPercentage'>20%</span>
 					</div>
 				</div>
 			</div>
-			<div className='Group47781'>
-				<img className='Rectangle64_1'  />
-				<div className='Ellipse12'/>
+
+			<div className="WSInsightBox2" />
+
+			<div className='ReportFeedbackContainer'>
+				<span className='ReportFeedback'>Report Feedback</span>
+				<img class="Toggle" alt="" src="/Toggledown.png"/>
+			</div>
+			
+			<div className='TableContainer'>
 				<span className='TOTALREPORTSSUBMITTED'>TOTAL REPORTS SUBMITTED</span>
+				<div className='Total1'/>
+				<span className='TotalNumber1'>2</span>
+
 				<span className='TOTALPOINTSEARNED'>TOTAL POINTS EARNED</span>
-				<div className='Ellipse13'/>
-				<span className='_2'>2</span>
-				<span className='_5'>5</span>
-				<div className='Group47780'>
-					<div className='table'>
+				<div className='Total2'/>
+				<span className='TotalNumber2'>5</span>
+
+				<div className='GroupTable'>
+					<div className='Table'>
 						<div className='_1'>
 							<span className='SubmissionDate'>Submission Date</span>
 						</div>
+
 						<div className='_2_1'>
 							<span className='DateVerified'>Date Verified</span>
 						</div>
+
 						<div className='_3'>
 							<span className='Status'>Status</span>
 						</div>
+
 						<div className='_4'>
 							<span className='Reason'>Reason</span>
 						</div>
+
 						<div className='_6'>
 							<span className='_20240116'>2024-01-16</span>
 						</div>
+
 						<div className='_7'>
 							<span className='_20240116_1'>2024-01-16 | 10:05 AM</span>
 						</div>
+
 						<div className='_8'>
 							<span className='Approved_1'>Approved</span>
 						</div>
+
 						<div className='_9'>
 						</div>
+
 						<div className='_11'>
 							<span className='_20240116_2'>2024-01-16</span>
 						</div>
+
 						<div className='_12'>
 							<span className='_20240116_3'>2024-01-16 | 10:05 AM</span>
 						</div>
+
 						<div className='_13'>
 							<span className='Denied_1'>Denied</span>
 						</div>
+
 						<div className='_14'>
 							<span className='Fakenews'>Fake news</span>
 						</div>
+
 						<div className='_15'>
 							<span className='PointsEarned'>Points Earned</span>
 						</div>
+
 						<div className='_16'>
 							<span className='_5_1'>5</span>
 						</div>
+
 						<div className='_17'>
 							<span className='_0'>0</span>
 						</div>
+						
 					</div>
 				</div>
 			</div>
