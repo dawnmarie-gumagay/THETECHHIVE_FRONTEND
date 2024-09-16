@@ -21,29 +21,33 @@ export default function WSInsightAnalytics () {
     navigate("/wsprofile");
   }, [navigate]);
 
-	return (
-		<div className='WSInsightAnalytics_WSInsightAnalytics'>
-            
-        <div className="WSNavbar" />
-      <img className="WSTitle" alt="" src="/TITLE.png" />
-      <div className="NHome" onClick={onHomeTextClick}>
-        Home
-      </div>
-      <div className="NReports" onClick={onREPORTSClick}>
-        Report
-      </div>
-      <div className="NLeaderboards" onClick={onLEADERBOARDClick}>
-        Leaderboard
-      </div>
-      <div className="NProfile" onClick={onPROFILEClick}>
-        Profile
-      </div>
-      <b className="NInsight">Insight</b>
+    return (
+        <div className='WSInsightAnalytics_WSInsightAnalytics'>
+            <div className="WSNavbar" />
+            <img className="WSTitle" alt="" src="/TITLE.png" />
+            <div className="NHome" onClick={onHomeTextClick}>
+                Home
+            </div>
+            <div className="NReports" onClick={onREPORTSClick}>
+                Report
+            </div>
+            <div className="NLeaderboards" onClick={onLEADERBOARDClick}>
+                Leaderboard
+            </div>
+            <div className="NProfile" onClick={onPROFILEClick}>
+                Profile
+            </div>
+            <b className="NInsight">Insight</b>
+
+            <img className="InsightTitle" alt="" src="/WSInsightAnalytics_insight.png" />
+            <b className="AnalyticsTitle">{`Analytics `}</b>
+     
+            <div className="WSInsightBox" />
+
 			<div className='Frame102'>
 				<span className='ReportFeedback'>Report Feedback</span>
 				<div className='Polygon1'/>
 			</div>
-			<span className='Analytics'>Analytics</span>
 			<div className='Frame120'>
 				<div className='Rectangle67'/>
 				<div className='Frame104'>
@@ -137,7 +141,6 @@ export default function WSInsightAnalytics () {
 					</div>
 				</div>
 			</div>
-			<img className='insight'  />
 			<div className='Group47781'>
 				<img className='Rectangle64_1'  />
 				<div className='Ellipse12'/>
