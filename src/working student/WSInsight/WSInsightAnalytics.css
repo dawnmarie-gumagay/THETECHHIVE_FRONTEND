@@ -1,0 +1,1477 @@
+
+.WSInsightAnalytics_WSInsightAnalytics {
+	width: 100%;
+    position: relative;
+    background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
+    height: 2340px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Rectangle66 {
+	position: absolute;
+	left: 146.89999999999998px;
+	top: 416.96999999999997px;
+	width: 1122.09px;
+	height: 1241.87px;
+	border-radius: 22.599999999999998px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Rectangle35 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1446.3999999999999px;
+	height: 85.88px;
+	background: rgba(255,254,233,1.00);
+}
+.WSInsightAnalytics_WSInsightAnalytics .WILDCAT3 {
+	position: absolute;
+	left: 35.029999999999994px;
+	top: -21.47px;
+	width: 129.95px;
+	height: 127.68999999999998px;
+	object-fit: cover;
+	overflow: hidden;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame91 {
+	position: absolute;
+	left: 499.46px;
+	top: 29.379999999999995px;
+	width: 897.2199999999999px;
+	height: 27.119999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame91 .Home {
+	position: absolute;
+	left: 0px;
+	top: 1.13px;
+	width: 71.19px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 400;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame91 .Report {
+	position: absolute;
+	left: 179.67px;
+	top: 0px;
+	width: 92.66px;
+	height: 25.99px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 400;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame91 .Profile {
+	position: absolute;
+	left: 823.7699999999999px;
+	top: 0px;
+	width: 73.44999999999999px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 400;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame91 .Leaderboard {
+	position: absolute;
+	left: 380.80999999999995px;
+	top: 1.13px;
+	width: 145.76999999999998px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 400;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame91 .Insight {
+	position: absolute;
+	left: 635.06px;
+	top: 0px;
+	width: 83.61999999999999px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 700;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame102 {
+	position: absolute;
+	left: 146.89999999999998px;
+	top: 1736.81px;
+	width: 236.17px;
+	height: 36.15073003768921px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame102 .ReportFeedback {
+	position: absolute;
+	right: 0px;
+	top: 4.52px;
+	width: 200.01px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 500;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame102 .Polygon1 {
+	position: absolute;
+	left: -7.910002681505191px;
+	top: 2.2599859767051904px;
+	width: 38.506499339830384px;
+	height: 32.341962134647105px;
+	background: rgba(138,37,44,1.00);
+	border-radius: 5.6499999999999995px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Analytics {
+	position: absolute;
+	right: 1137.9099999999999px;
+	top: 352.55999999999995px;
+	width: 129.95px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 25.99px;
+	font-weight: 700;
+	line-height: 31.681808586120603px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 {
+	position: absolute;
+	left: 244.07999999999998px;
+	top: 584.2099999999999px;
+	width: 961.6299999999999px;
+	height: 523.1899999999999px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Rectangle67 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 961.6299999999999px;
+	height: 523.1899999999999px;
+	background: rgba(255,255,255,0.65);
+	border-radius: 13.559999999999999px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 {
+	position: absolute;
+	left: 21.47px;
+	top: 94.91999999999999px;
+	width: 917.5597930908202px;
+	height: 402.2800344848632px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 ._20 {
+	position: absolute;
+	left: 0px;
+	top: 210.93332183837887px;
+	width: 34.36077596664428px;
+	height: 14.501667385101317px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Jan {
+	position: absolute;
+	left: 75.08444458007811px;
+	top: 247.8466436767578px;
+	width: 33.08815519332885px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Feb {
+	position: absolute;
+	left: 148.897794342041px;
+	top: 247.8466436767578px;
+	width: 35.63339889526367px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Mar {
+	position: absolute;
+	left: 221.43554901123045px;
+	top: 247.8466436767578px;
+	width: 36.9060196685791px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Apr {
+	position: absolute;
+	left: 297.7933471679687px;
+	top: 247.8466436767578px;
+	width: 33.08815519332885px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .May {
+	position: absolute;
+	left: 369.0600070190429px;
+	top: 247.8466436767578px;
+	width: 38.17864044189453px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .June {
+	position: absolute;
+	left: 444.14445159912106px;
+	top: 247.8466436767578px;
+	width: 45.814369392395015px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .July {
+	position: absolute;
+	left: 525.5933535766601px;
+	top: 247.8466436767578px;
+	width: 36.9060196685791px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Aug {
+	position: absolute;
+	left: 604.4955828857421px;
+	top: 247.8466436767578px;
+	width: 39.45126121520996px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Sept {
+	position: absolute;
+	left: 683.3977777099609px;
+	top: 247.8466436767578px;
+	width: 41.99650707244873px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Nov {
+	position: absolute;
+	left: 768.6622229003906px;
+	top: 247.8466436767578px;
+	width: 36.9060196685791px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Dec {
+	position: absolute;
+	left: 851.3844439697265px;
+	top: 247.8466436767578px;
+	width: 36.9060196685791px;
+	height: 19.775px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 ._40 {
+	position: absolute;
+	left: 0px;
+	top: 167.42835632324218px;
+	width: 34.36077596664428px;
+	height: 14.501667385101317px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 ._60 {
+	position: absolute;
+	left: 0px;
+	top: 126.55999999999999px;
+	width: 34.36077596664428px;
+	height: 14.501667385101317px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 ._80 {
+	position: absolute;
+	left: 0px;
+	top: 85.6916436767578px;
+	width: 34.36077596664428px;
+	height: 14.501667385101317px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 ._100 {
+	position: absolute;
+	left: 0px;
+	top: 39.55px;
+	width: 34.36077596664428px;
+	height: 14.501667385101317px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 400;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Line11 {
+	position: absolute;
+	left: 43.26887357302443px;
+	top: 0px;
+	width: 0.000012878696756501993px;
+	height: 238.61833908081053px;
+	border: 2px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Line12 {
+	position: absolute;
+	left: 43.26888645172119px;
+	top: 238.61835632324198px;
+	width: 874.2908764648437px;
+	height: 1.9269918993813915e-13px;
+	border: 2px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle70 {
+	position: absolute;
+	left: 142.53332832336423px;
+	top: 39.55px;
+	width: 47.086990165710446px;
+	height: 192.47666091918944px;
+	background: rgba(243,114,44,1.00);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle86 {
+	position: absolute;
+	left: 216.3466694641113px;
+	top: 139.7433218383789px;
+	width: 47.086990165710446px;
+	height: 27.685px;
+	background: rgba(67,170,139,1.00);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle85 {
+	position: absolute;
+	left: 68.72222869873046px;
+	top: 126.55999999999999px;
+	width: 47.086990165710446px;
+	height: 68.55333045959472px;
+	background: rgba(144,190,109,1.00);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle84 {
+	position: absolute;
+	left: 68.72222869873046px;
+	top: 189.83999999999997px;
+	width: 47.086990165710446px;
+	height: 42.186665229797356px;
+	background: rgba(249,65,68,1.00);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle71 {
+	position: absolute;
+	left: 216.3466694641113px;
+	top: 167.42835632324218px;
+	width: 47.086990165710446px;
+	height: 64.59833045959472px;
+	background: rgba(248,150,30,1.00);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle72 {
+	position: absolute;
+	left: 290.1577777099609px;
+	top: 116.01335632324218px;
+	width: 47.086990165710446px;
+	height: 116.01333908081054px;
+	background: rgba(249,132,74,0.78);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle73 {
+	position: absolute;
+	left: 363.96886871337887px;
+	top: 92.28335632324217px;
+	width: 47.086990165710446px;
+	height: 139.74333045959472px;
+	background: rgba(249,199,79,1.00);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Rectangle74 {
+	position: absolute;
+	left: 43.26888645172119px;
+	top: 284.76px;
+	width: 874.2908764648437px;
+	height: 10.546666307449339px;
+	background: rgba(217,217,217,1.00);
+	border-radius: 6.779999999999999px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame106 {
+	position: absolute;
+	left: 42.94px;
+	top: 315.27px;
+	width: 125.98880134582518px;
+	height: 14.501667385101317px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame106 .PhysicalAccident {
+	position: absolute;
+	left: 19.088613281249998px;
+	top: 0px;
+	width: 106.90018806457519px;
+	height: 14.501667385101317px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame106 .Rectangle76 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(249,65,68,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame109 {
+	position: absolute;
+	left: 263.28999999999996px;
+	top: 316.4px;
+	width: 155.22712890625px;
+	height: 14.878321838378906px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame109 .EnvironmentalAccident {
+	position: absolute;
+	left: 19.627128906249997px;
+	top: 0.18832183837890623px;
+	width: 135.6px;
+	height: 14.689999999999998px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame109 .Rectangle79 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(249,132,74,0.78);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame112 {
+	position: absolute;
+	left: 513.02px;
+	top: 316.4px;
+	width: 125.98880134582518px;
+	height: 14.501667385101317px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame112 .VehicleAccident {
+	position: absolute;
+	left: 19.088613281249998px;
+	top: 0px;
+	width: 106.90018806457519px;
+	height: 14.501667385101317px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame112 .Rectangle82 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(67,170,139,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame107 {
+	position: absolute;
+	left: 42.94px;
+	top: 351.42999999999995px;
+	width: 128.82px;
+	height: 14.689999999999998px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame107 .LaboratoryAccident {
+	position: absolute;
+	left: 19.209999999999997px;
+	top: 0px;
+	width: 109.60999999999999px;
+	height: 14.689999999999998px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame107 .Rectangle77 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(243,114,44,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame110 {
+	position: absolute;
+	left: 263.28999999999996px;
+	top: 351.42999999999995px;
+	width: 136.01712890624998px;
+	height: 14.689999999999998px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame110 .FireRelatedAccident {
+	position: absolute;
+	left: 19.627128906249997px;
+	top: 0px;
+	width: 116.38999999999999px;
+	height: 14.689999999999998px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame110 .Rectangle80 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(249,199,79,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame113 {
+	position: absolute;
+	left: 513.02px;
+	top: 351.42999999999995px;
+	width: 178.94609375px;
+	height: 14.689999999999998px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame113 .EquipmentRelatedAccident {
+	position: absolute;
+	left: 19.616093749999997px;
+	top: 0px;
+	width: 159.32999999999998px;
+	height: 14.689999999999998px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame113 .Rectangle83 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(77,144,142,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame114 {
+	position: absolute;
+	left: 513.02px;
+	top: 387.59px;
+	width: 55.37px;
+	height: 14.689999999999998px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame114 .Event {
+	position: absolute;
+	left: 19.209999999999997px;
+	top: 0px;
+	width: 36.16px;
+	height: 14.689999999999998px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame114 .Rectangle83_1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(43,93,138,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame108 {
+	position: absolute;
+	left: 42.94px;
+	top: 387.59px;
+	width: 153.67999999999998px;
+	height: 14.690023708343505px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame108 .FacilityRelatedAccident {
+	position: absolute;
+	left: 18.08px;
+	top: 0px;
+	width: 135.6px;
+	height: 14.689999999999998px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame108 .Rectangle78 {
+	position: absolute;
+	left: 0px;
+	top: 0.18835632324218748px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(248,150,30,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame111 {
+	position: absolute;
+	left: 263.28999999999996px;
+	top: 387.59px;
+	width: 152.96712890625px;
+	height: 14.690023708343505px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame111 .HealthRelatedAccident {
+	position: absolute;
+	left: 19.627128906249997px;
+	top: 0px;
+	width: 133.33999999999997px;
+	height: 14.689999999999998px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 10.169999999999998px;
+	font-weight: 700;
+	line-height: 12.397229681015013px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .Frame104 .Frame111 .Rectangle81 {
+	position: absolute;
+	left: 0px;
+	top: 0.18835632324218748px;
+	width: 13.99883497238159px;
+	height: 14.501667385101317px;
+	background: rgba(144,190,109,1.00);
+	border-radius: 3.3899999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame120 .MonthlyAccidentEventStats {
+	position: absolute;
+	right: 244.07999999999998px;
+	top: 40.67999999999999px;
+	width: 367.24999999999994px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 600;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 {
+	position: absolute;
+	left: 244.07999999999998px;
+	top: 455.38999999999993px;
+	width: 282.5px;
+	height: 90.39999999999999px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .Rectangle64 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 282.5px;
+	height: 90.39999999999999px;
+	background: rgba(255,255,255,0.70);
+	border-radius: 11.299999999999999px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .arrow_left {
+	position: absolute;
+	left: 73.44999999999999px;
+	top: 46.33px;
+	width: 27.119999999999997px;
+	height: 27.119999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .arrow_left .icon {
+	position: absolute;
+	left: 10.169999999999998px;
+	top: 7.909999999999999px;
+	width: 20.833333333333336%;
+	height: 41.66666666666667%;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .arrow_right {
+	position: absolute;
+	left: 166.10999999999999px;
+	top: 46.33px;
+	width: 27.119999999999997px;
+	height: 27.119999999999997px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .arrow_right .icon_1 {
+	position: absolute;
+	left: 11.299999999999999px;
+	top: 7.909999999999999px;
+	width: 20.833333333333336%;
+	height: 41.66666666666667%;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 ._2024 {
+	position: absolute;
+	left: 105.08999999999999px;
+	top: 46.33px;
+	width: 56.49999999999999px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 600;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .Year {
+	position: absolute;
+	left: 19.209999999999997px;
+	top: 9.04px;
+	width: 50.849999999999994px;
+	height: 23.729999999999997px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 600;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .Calendar {
+	position: absolute;
+	left: 19.209999999999997px;
+	top: 42.94px;
+	width: 36.16px;
+	height: 33.9px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame122 .Calendar .Icon {
+	position: absolute;
+	left: 4.52px;
+	top: 2.8249999999999997px;
+	width: 75%;
+	height: 83.33333333333334%;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 {
+	position: absolute;
+	left: 244.07999999999998px;
+	top: 1161.6399999999999px;
+	width: 961.6299999999999px;
+	height: 441.83px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Rectangle68 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 961.6299999999999px;
+	height: 441.83px;
+	background: rgba(255,255,255,0.65);
+	border-radius: 13.559999999999999px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 {
+	position: absolute;
+	left: 325.43999999999994px;
+	top: 38.419999999999995px;
+	width: 325.43999999999994px;
+	height: 362.72999999999996px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 325.43999999999994px;
+	height: 362.72999999999996px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .ApprovedDeniedReports {
+	position: absolute;
+	right: 0px;
+	top: 0px;
+	width: 325.43999999999994px;
+	height: 25.99px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 22.599999999999998px;
+	font-weight: 600;
+	line-height: 27.549399051666256px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Ellipse14 {
+	position: absolute;
+	left: 42.94px;
+	top: 64.41px;
+	width: 227.12999999999997px;
+	height: 227.12999999999997px;
+	background: rgba(254,176,16,1.00);
+	border-radius: 50%;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Ellipse15 {
+	position: absolute;
+	left: 42.94px;
+	top: 64.41px;
+	width: 227.12999999999997px;
+	height: 227.12999999999997px;
+	background: rgba(138,37,44,1.00);
+	border-radius: 50%;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Approved {
+	position: absolute;
+	left: 74.58px;
+	top: 338.99999999999994px;
+	width: 72.32px;
+	height: 15.819999999999999px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 700;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Rectangle67_1 {
+	position: absolute;
+	left: 27.119999999999997px;
+	top: 329.96px;
+	width: 33.9px;
+	height: 32.769999999999996px;
+	background: rgba(254,176,16,1.00);
+	border-radius: 4.52px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Denied {
+	position: absolute;
+	left: 238.42999999999998px;
+	top: 338.99999999999994px;
+	width: 54.239999999999995px;
+	height: 15.819999999999999px;
+	display: flex;
+	align-items: center;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 700;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Rectangle68_1 {
+	position: absolute;
+	left: 186.45px;
+	top: 329.96px;
+	width: 33.9px;
+	height: 32.769999999999996px;
+	background: rgba(138,37,44,1.00);
+	border-radius: 4.52px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Rectangle87 {
+	position: absolute;
+	left: 37.29px;
+	top: 218.08999999999997px;
+	width: 46.33px;
+	height: 29.379999999999995px;
+	background: rgba(245,245,245,0.83);
+	border-radius: 5.6499999999999995px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 ._80_1 {
+	position: absolute;
+	left: 46.33px;
+	top: 223.73999999999998px;
+	width: 30.509999999999998px;
+	height: 18.08px;
+	color: rgba(254,176,16,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 700;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 .Rectangle87_1 {
+	position: absolute;
+	left: 221.48px;
+	top: 92.66px;
+	width: 46.33px;
+	height: 29.379999999999995px;
+	background: rgba(245,245,245,0.83);
+	border-radius: 5.6499999999999995px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Frame123 .Frame118 .Frame121 ._20_1 {
+	position: absolute;
+	left: 230.51999999999998px;
+	top: 98.30999999999999px;
+	width: 30.509999999999998px;
+	height: 18.08px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 13.559999999999999px;
+	font-weight: 700;
+	line-height: 16.529640293121336px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .insight {
+	position: absolute;
+	left: 543.53px;
+	top: 106.21999999999998px;
+	width: 363.85999999999996px;
+	height: 201.14px;
+	object-fit: cover;
+	overflow: hidden;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 {
+	position: absolute;
+	left: 125.42999999999999px;
+	top: 1832.86px;
+	width: 1194.4099999999999px;
+	height: 480.24999999999994px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Rectangle64_1 {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1194.4099999999999px;
+	height: 480.24999999999994px;
+	border-radius: 22.599999999999998px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Ellipse12 {
+	position: absolute;
+	right: 907.1897593307494px;
+	top: 140.11999999999998px;
+	width: 63.480240669250485px;
+	height: 50.388652877807615px;
+	background: rgba(138,37,44,1.00);
+	border-radius: 50%;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .TOTALREPORTSSUBMITTED {
+	position: absolute;
+	right: 770.261389465332px;
+	top: 90.39999999999999px;
+	width: 303.23861053466794px;
+	height: 23.178781013488766px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 19.209999999999997px;
+	font-weight: 500;
+	line-height: 23.416989517211913px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .TOTALPOINTSEARNED {
+	position: absolute;
+	right: 123.81115982055663px;
+	top: 90.39999999999999px;
+	width: 249.08884017944334px;
+	height: 23.178781013488766px;
+	color: rgba(138,37,44,1.00);
+	font-family: Montserrat;
+	font-size: 19.209999999999997px;
+	font-weight: 500;
+	line-height: 23.416989517211913px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Ellipse13 {
+	position: absolute;
+	right: 216.7597593307495px;
+	top: 140.11999999999998px;
+	width: 63.480240669250485px;
+	height: 50.388652877807615px;
+	background: rgba(138,37,44,1.00);
+	border-radius: 50%;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 ._2 {
+	position: absolute;
+	right: 919.7335119628906px;
+	top: 152.54999999999998px;
+	width: 38.50648803710937px;
+	height: 24.186553726196287px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 24.86px;
+	font-weight: 600;
+	line-height: 30.304338741302487px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 ._5 {
+	position: absolute;
+	right: 229.3035119628906px;
+	top: 152.54999999999998px;
+	width: 38.50648803710937px;
+	height: 24.186553726196287px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 24.86px;
+	font-weight: 600;
+	line-height: 30.304338741302487px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 {
+	position: absolute;
+	left: 94.91999999999999px;
+	top: 240.68999999999997px;
+	width: 1004.5699999999999px;
+	height: 186.45037933349607px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table {
+	position: absolute;
+	left: 0px;
+	top: 0px;
+	width: 1004.5699999999999px;
+	height: 186.45037933349607px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._1 {
+	position: absolute;
+	left: 0px;
+	top: 0.000137939453125px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(138,37,44,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._1 .SubmissionDate {
+	position: absolute;
+	left: 9.04px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 700;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._2_1 {
+	position: absolute;
+	left: 200.912003326416px;
+	top: 0px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(138,37,44,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._2_1 .DateVerified {
+	position: absolute;
+	left: 9.26953125px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 700;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._3 {
+	position: absolute;
+	left: 401.82814483642574px;
+	top: 0px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(138,37,44,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._3 .Status {
+	position: absolute;
+	left: 9.490234374999998px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 700;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._4 {
+	position: absolute;
+	left: 602.7401654052734px;
+	top: 0px;
+	width: 200.91362411499023px;
+	height: 61.812371635437px;
+	background: rgba(138,37,44,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._4 .Reason {
+	position: absolute;
+	left: 8.589765625px;
+	top: 12.43px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 700;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._6 {
+	position: absolute;
+	left: 0px;
+	top: 62.14999999999999px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._6 ._20240116 {
+	position: absolute;
+	left: 9.04px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._7 {
+	position: absolute;
+	left: 200.912003326416px;
+	top: 62.14999999999999px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._7 ._20240116_1 {
+	position: absolute;
+	left: 9.26953125px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._8 {
+	position: absolute;
+	left: 401.82814483642574px;
+	top: 62.14999999999999px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._8 .Approved_1 {
+	position: absolute;
+	left: 9.490234374999998px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._9 {
+	position: absolute;
+	left: 602.7401654052734px;
+	top: 62.14999999999999px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._11 {
+	position: absolute;
+	left: 0px;
+	top: 124.29999999999998px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._11 ._20240116_2 {
+	position: absolute;
+	left: 9.04px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._12 {
+	position: absolute;
+	left: 200.912003326416px;
+	top: 124.29999999999998px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._12 ._20240116_3 {
+	position: absolute;
+	left: 9.26953125px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._13 {
+	position: absolute;
+	left: 401.82814483642574px;
+	top: 124.29999999999998px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._13 .Denied_1 {
+	position: absolute;
+	left: 9.490234374999998px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._14 {
+	position: absolute;
+	left: 602.7401654052734px;
+	top: 124.29999999999998px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._14 .Fakenews {
+	position: absolute;
+	left: 8.589765625px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._15 {
+	position: absolute;
+	left: 803.6562896728515px;
+	top: 0px;
+	width: 200.91362411499023px;
+	height: 61.812371635437px;
+	background: rgba(138,37,44,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._15 .PointsEarned {
+	position: absolute;
+	left: 8.814882812499999px;
+	top: 12.43px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 700;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._16 {
+	position: absolute;
+	left: 803.6562896728515px;
+	top: 62.14999999999999px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._16 ._5_1 {
+	position: absolute;
+	left: 8.814882812499999px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._17 {
+	position: absolute;
+	left: 803.6562896728515px;
+	top: 124.29999999999998px;
+	width: 200.91374481201169px;
+	height: 62.15037071228027px;
+	background: rgba(255,254,233,1.00);
+	border: 1px solid rgba(0,0,0,1);
+}
+.WSInsightAnalytics_WSInsightAnalytics .Group47781 .Group47780 .table ._17 ._0 {
+	position: absolute;
+	left: 8.814882812499999px;
+	top: 13.559999999999999px;
+	width: 181.92999999999998px;
+	height: 36.16px;
+	display: flex;
+	justify-content: center;
+	text-align: center;
+	align-items: center;
+	color: rgba(246,195,1,1.00);
+	font-family: Montserrat;
+	font-size: 16.95px;
+	font-weight: 400;
+	line-height: 20.662049827575682px;
+}

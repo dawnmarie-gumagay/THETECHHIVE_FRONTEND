@@ -14,7 +14,7 @@ const WSLeaderboards = () => {
   }, [navigate]);
 
   const onINSIGHTClick = useCallback(() => {
-    navigate("/wsinsight");
+    navigate("/insightanalytics");
   }, [navigate]);
 
   const onPROFILEClick = useCallback(() => {
