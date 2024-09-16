@@ -359,6 +359,7 @@
   .motto-info {
     top: 51%;
     left: 65%;
+    width: 35%;
     font-size: 16px;
   }
 
@@ -382,6 +383,7 @@
   .hobbies-info{
     top: 65%;
     left: 65%;
+    width: 35%;
     font-size: 16px;
   }
 

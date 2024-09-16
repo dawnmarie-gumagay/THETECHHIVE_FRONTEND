@@ -49,7 +49,7 @@ const WSAboutUs5 = () => {
       <img className="motto-icon" alt="" src="/motto.png" />
 
       <div className="hobbies-name">Hobbies</div>
-      <div className="hobbies-info">Sometimes reading books, playing games <br></br> I like, and watching movies/series</div>
+      <div className="hobbies-info">Sometimes reading books, playing games <br></br> and watching movies/series</div>
       <div className="hobbies-bg" />
       <img className="hobbies-icon" alt="" src="/hobby.png" />
       
