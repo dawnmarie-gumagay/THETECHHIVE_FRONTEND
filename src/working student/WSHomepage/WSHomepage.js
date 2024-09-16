@@ -173,7 +173,7 @@ const WSHomepage = () => {
   }, [navigate]);
 
   const onINSIGHTClick = useCallback(() => {
-    navigate("/wsinsight");
+    navigate("/insightanalytics");
   }, [navigate]);
 
   const handlePostInputChange = (e) => {
