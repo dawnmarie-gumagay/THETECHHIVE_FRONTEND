@@ -49,7 +49,7 @@
 .PUCReportButton {
     position: absolute;
     top: 165px;
-    left: -30px;
+    left: 150px;
     text-align: center;
     width: 115px;
     height: 35px;
@@ -58,7 +58,7 @@
 .PUCCancelButton {
   position: absolute;
   top: 165px;
-  left: 45px;
+  left: -150px;
   text-align: center;
   width: 115px;
   height: 35px;
