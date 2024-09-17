@@ -39,17 +39,17 @@ const WSAboutUs = () => {
       <b className="member-name">Richard Molina</b>
 
       <div className="role-name">Role</div>
-      <div className="role-info">UI/UX Designer</div>
+      <div className="role-info">UI/UX Designer, Developer</div>
       <div className="role-bg" />
       <img className="role-icon" alt="" src="/role.png" />
 
       <div className="motto-name">Motto</div>
-      <div className="motto-info">UI/UX Designer, Developer</div>
+      <div className="motto-info">Leadership helps others find their hidden strengths.</div>
       <div className="motto-bg" />
       <img className="motto-icon" alt="" src="/motto.png" />
 
       <div className="hobbies-name">Hobbies</div>
-      <div className="hobbies-info">UI/UX Designer, Developer</div>
+      <div className="hobbies-info">Watching Movies</div>
       <div className="hobbies-bg" />
       <img className="hobbies-icon" alt="" src="/hobby.png" />
       
