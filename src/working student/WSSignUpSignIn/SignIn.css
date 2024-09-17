@@ -7,7 +7,6 @@
     color: #8a252c;
     font-family: var(--font-montserrat);
 }
-
 .back-bgSI {
     position: absolute;
     top: 0;
@@ -17,7 +16,6 @@
     width: 100%;
     height: 100%;
 }
-
 .back-iconSI {
     position: absolute;
     top: 10px;
@@ -26,7 +24,6 @@
     height: 41px;
     overflow: hidden;
 }
-
 .back-button-container {
     position: absolute;
     top: 65px;
@@ -35,11 +32,9 @@
     height: 60px;
     cursor: pointer;
 }
-
 .back-button-container:hover {
     transform: scale(1.1);
 }
-
 .main-boxSI {
     position: absolute;
     top: 35px;
@@ -49,9 +44,8 @@
     background-color: rgba(255, 255, 255, 0.3);
     width: 1070px;
     height: 655px;
-    transition: all 0.5s ease; /* Smooth transition */
+    transition: all 0.5s ease; 
 }
-
 .main-bgSI {
     position: absolute;
     top: 105px;
@@ -63,8 +57,6 @@
     opacity: 0.9;
     mix-blend-mode: normal;
 }
-
-
 .main-titleSI {
     position: absolute;
     top: 180px;
@@ -73,7 +65,6 @@
     height: 206px;
     object-fit: cover;
 }
-
 .welcomeSI {
     position: absolute;
     top: 190px;
@@ -84,7 +75,6 @@
     width: 178px;
     height: 33px;
 }
-
 .sub-title2 {
     position: absolute;
     display: inline-block;
@@ -95,7 +85,6 @@
     width: 231px;
     height: 21px;
 }
-
 .id-number-in,
 .P-name {
     position: absolute;
@@ -105,17 +94,14 @@
     width: 120px;
     height: 21px;
 }
-
 .id-number-in {
     left: 870px;
     top: 305px;
 }
-
 .P-name {
     top: 410px;
     left: 870px;
 }
-
 .id-number-b,
 .P-box {
     position: absolute;
@@ -126,17 +112,24 @@
     width: 347px;
     height: 39px;
     border-radius: 20px;
-    padding-left: 10px; /* Add padding for left alignment */
+    padding-left: 10px;
 }
-
 .id-number-b {
     top: 335px;
 }
-
 .P-box {
     top: 440px;
 }
-
+.forgot-password {
+    position: absolute;
+    top: 490px;
+    left: 1085px; 
+    color: #f6c301;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 13px;
+    text-decoration: underline;
+}
 .SIContainer {
     position: absolute;
     top: 510px;
@@ -146,24 +139,21 @@
     cursor: pointer;
     color: white;
 }
-
 .SIContainer:hover {
     transform: scale(1.1);
 }
-
 .SIButton {
     position: absolute;
-    top: 0;
+    top: 20px;
     left: 0;
     border-radius: 20px;
     background-color: #8a252c;
     width: 115px;
     height: 39px;
 }
-
 .SIName {
     position: absolute;
-    top: 5px;
+    top: 23px;
     left: 20px;
     font-weight: 600;
     font-size: 20px;
@@ -171,7 +161,6 @@
     width: 79px;
     height: 23px;
 }
-
 .q4 {
     position: absolute;
     top: 585px;
@@ -182,7 +171,6 @@
     width: 240px;
     height: 21px;
 }
-
 .q5 {
     position: absolute;
     top: 585px;
@@ -195,7 +183,6 @@
     height: 21px;
     cursor: pointer;
 }
-
 @media (max-width: 768px) {
     .back-bgSI {
         top: 10%;
@@ -211,7 +198,6 @@
         width: 24px;
         height: 30px;
     }
-
     .main-boxSI{
         top: 6%;
         left: 50%;
@@ -242,7 +228,6 @@
         font-size: 18px;
         text-align: center;
     }
-
     .id-number-in,
     .P-name {
         top: auto;
@@ -251,15 +236,12 @@
         width: 70%;
         font-size: 18px;
     }
-
     .id-number-in {
         top: 33%;
     }
-
     .P-name {
         top: 49%;
     }
-
     .id-number-b,
     .P-box {
         top: auto;
@@ -268,15 +250,12 @@
         width: 53%;
         height: 36px;
     }
-
     .id-number-b {
         top: 38%;
     }
-
     .P-box {
         top: 54%;
     }
-
     .SIContainer {
         top: 67%;
         left: 52%;
@@ -284,19 +263,16 @@
         width: 20%;
         height: auto;
     }
-
     .SIButton {
         width: 100%;
         height: 40px;
     }
-
     .SIName {
-        top: 7px;
+        top: 28px;
         left: 54%;
         transform: translateX(-50%);
         font-size: 18px;
     }
-
     .q4,
     .q5 {
         top: auto;
@@ -305,17 +281,21 @@
         width: 80%;
         font-size: 18px;
     }
-
     .q4 {
         top: 77%;
     }
-
     .q5 {
         top: 77%;
         left: 100%;
     }
+    .forgot-password {
+        top: 60%;
+        left: 100%; 
+        transform: translateX(-50%);
+        width: 80%;
+        font-size: 13px;
+    }
 }
-
 @media (max-width: 500px) {
     .back-bgSI {
         top: 9%;
@@ -329,7 +309,6 @@
         width: 26px;
         height: 30px;
     }
-
     .main-boxSI{
         top: 5.5%;
         left: 50%;
@@ -360,7 +339,6 @@
         font-size: 18px;
         text-align: center;
     }
-
     .id-number-in,
     .P-name {
         top: auto;
@@ -369,15 +347,15 @@
         width: 70%;
         font-size: 18px;
     }
-
+    
     .id-number-in {
         top: 33%;
     }
-
+    
     .P-name {
         top: 49%;
     }
-
+    
     .id-number-b,
     .P-box {
         top: auto;
@@ -386,50 +364,59 @@
         width: 53%;
         height: 36px;
     }
-
+    
     .id-number-b {
         top: 38%;
     }
-
+    
     .P-box {
         top: 54%;
     }
-
+    
     .SIContainer {
-        top: 65%;
+        top: 67%;
         left: 52%;
         transform: translateX(-50%);
         width: 20%;
         height: auto;
     }
-
+    
     .SIButton {
         width: 100%;
         height: 40px;
     }
-
+    
     .SIName {
-        top: 7px;
+        top: 28px;
         left: 54%;
         transform: translateX(-50%);
         font-size: 18px;
     }
-
+    
     .q4,
     .q5 {
         top: auto;
-        left: 60%;
+        left: 70%;
         transform: translateX(-50%);
         width: 80%;
         font-size: 18px;
     }
-
+    
     .q4 {
-        top: 75%;
+        top: 77%;
+        left: 60%
     }
-
+    
     .q5 {
-        top: 75%;
+        top: 77%;
         left: 105%;
     }
-}
+    
+    .forgot-password {
+        top: 60%;
+        left: 93%; 
+        transform: translateX(-50%);
+        width: 80%;
+        font-size: 13px;
+    }
+}    
