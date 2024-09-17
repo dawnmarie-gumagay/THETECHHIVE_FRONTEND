@@ -1,9 +1,10 @@
-import React, { useCallback } from "react";
+import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import './WSInsightAnalytics.css';
 
 const WSInsightAnalytics = () => {
   const navigate = useNavigate();
+  const [currentYear, setCurrentYear] = useState(2024);
 
   const onHomeTextClick = useCallback(() => {
     navigate("/wshomepage");
@@ -20,6 +21,14 @@ const WSInsightAnalytics = () => {
   const onPROFILEClick = useCallback(() => {
     navigate("/wsprofile");
   }, [navigate]);
+
+  const decrementYear = () => {
+    setCurrentYear(prev => prev - 1);
+  };
+
+  const incrementYear = () => {
+    setCurrentYear(prev => prev + 1);
+  };
 
   return (
     <div className='WSInsightAnalytics_WSInsightAnalytics'>
@@ -40,9 +49,9 @@ const WSInsightAnalytics = () => {
         <div className="YearBox"/>
         <span className='Year'>Year</span>
         <img className="Calendar" alt="" src="/WSInsight_Calendar.png"/>
-        <img className="arrow_left" alt="" src="/WsInsight_Leftbtn.png"/>
-        <span className='_2024'>2024</span>
-        <img className="arrow_right" alt="" src="/WsInsight_Rightbtn.png"/>
+        <img className="arrow_left" alt="" src="/WsInsight_Leftbtn.png" onClick={decrementYear}/>
+        <span className='_2024'>{currentYear}</span>
+        <img className="arrow_right" alt="" src="/WsInsight_Rightbtn.png" onClick={incrementYear}/>
       </div>
 
       <div className="BarGraphContainer">

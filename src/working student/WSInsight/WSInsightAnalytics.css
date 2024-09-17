@@ -80,6 +80,11 @@
 	width: 35px;
 	height: 30px;
 }
+
+.arrow_left:hover{
+	transform: scale(1.3);
+}
+
 ._2024 {
 	position: absolute;
 	left: 105px;
@@ -98,6 +103,9 @@
 	height: 30px;
 } 
 
+.arrow_right:hover {
+	transform: scale(1.3);
+}
 
 .BarGraphContainer {
 	position: absolute;
