@@ -273,7 +273,7 @@ const WSProfile = ({ className = "" }) => {
                 width: 110,
                 height: 35,
                 backgroundColor: "#8A252C",
-                "&:hover": { backgroundColor: "#A91D3A" },
+                "&:hover": { backgroundColor: "#AAAA" },
                 fontSize: "17px",
                 marginRight: "10px",
                 marginTop: "-30px"
