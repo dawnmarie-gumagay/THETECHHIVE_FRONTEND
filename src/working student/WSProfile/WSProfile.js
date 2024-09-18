@@ -264,43 +264,52 @@ const WSProfile = ({ className = "" }) => {
 </b>
 
 
-          <div className="UpdateContainer">
-            <Button
-              className="UpdateButton"
-              variant="contained"
-              sx={{
-                borderRadius: "10px",
-                width: 110,
-                height: 35,
-                backgroundColor: "#8A252C",
-                "&:hover": { backgroundColor: "#AAAA" },
-                fontSize: "17px",
-                marginRight: "10px",
-                marginTop: "-30px"
-              }}
-              onClick={openUpdatedPopUp}
-              disabled={!isEditable}
-            >
-              Update
-            </Button>
-            {isEditable && (
-              <Button
-                className="CancelButton"
-                variant="contained"
-                sx={{
-                  borderRadius: "10px",
-                  width: 110,
-                  height: 35,
-                  backgroundColor: "#8A252C",
-                  "&:hover": { backgroundColor: "#AAAAAA" },
-                  fontSize: "17px"
-                }}
-                onClick={onCancelClick}
-              >
-                Cancel
-              </Button>
-            )}
-          </div>
+<div className="UpdateContainer">
+  <Button
+    className="UpdateButton"
+    variant="contained"
+    sx={{
+      borderRadius: "10px",
+      width: 110,
+      height: 35,
+      backgroundColor: "#8A252C",
+      "&:hover": { 
+        backgroundColor: "#AAAAAA", 
+        transform: "scale(1.1)",
+        transition: "transform 0.3s ease"
+      },
+      fontSize: "17px",
+      marginRight: "10px",
+      marginTop: "-30px"
+    }}
+    onClick={openUpdatedPopUp}
+    disabled={!isEditable}
+  >
+    Update
+  </Button>
+  {isEditable && (
+    <Button
+      className="CancelButton"
+      variant="contained"
+      sx={{
+        borderRadius: "10px",
+        width: 110,
+        height: 35,
+        backgroundColor: "#8A252C",
+        "&:hover": { 
+          backgroundColor: "#AAAAAA", 
+          transform: "scale(1.1)",
+          transition: "transform 0.3s ease"
+        },
+        fontSize: "17px"
+      }}
+      onClick={onCancelClick}
+    >
+      Cancel
+    </Button>
+  )}
+</div>
+
         </div>
 
         {isPopUpVisible && (
