@@ -5,6 +5,7 @@ import './WSInsightAnalytics.css';
 const WSInsightAnalytics = () => {
   const navigate = useNavigate();
   const [currentYear, setCurrentYear] = useState(2024);
+  const [isFeedbackVisible, setFeedbackVisible] = useState(false);
 
   const onHomeTextClick = useCallback(() => {
     navigate("/wshomepage");
@@ -28,6 +29,10 @@ const WSInsightAnalytics = () => {
 
   const incrementYear = () => {
     setCurrentYear(prev => prev + 1);
+  };
+
+  const toggleFeedback = () => {
+    setFeedbackVisible(prev => !prev);
   };
 
   return (
@@ -162,84 +167,100 @@ const WSInsightAnalytics = () => {
         </div>
       </div>
 
-      <div className="WSInsightBox2" />
+      {isFeedbackVisible && (
+        <>
+          <div className="WSInsightBox2" />
+          <div className='TableContainer'>
+            <span className='TOTALREPORTSSUBMITTED'>TOTAL REPORTS SUBMITTED</span>
+            <div className='Total1'/>
+            <span className='TotalNumber1'>2</span>
+
+            <span className='TOTALPOINTSEARNED'>TOTAL POINTS EARNED</span>
+            <div className='Total2'/>
+            <span className='TotalNumber2'>5</span>
+
+            <div className='GroupTable'>
+              <div className='Table'>
+                <div className='_1'>
+                  <span className='SubmissionDate'>Submission Date</span>
+                </div>
+
+                <div className='_2_1'>
+                  <span className='DateVerified'>Date Verified</span>
+                </div>
+
+                <div className='_3'>
+                  <span className='Status'>Status</span>
+                </div>
+
+                <div className='_4'>
+                  <span className='Reason'>Reason</span>
+                </div>
+
+                <div className='_6'>
+                  <span className='_20240116'>2024-01-16</span>
+                </div>
+
+                <div className='_7'>
+                  <span className='_20240116_1'>2024-01-16 | 10:05 AM</span>
+                </div>
+
+                <div className='_8'>
+                  <span className='Approved_1'>Approved</span>
+                </div>
+
+                <div className='_9'>
+                </div>
+
+                <div className='_11'>
+                  <span className='_20240116_2'>2024-01-16</span>
+                </div>
+
+                <div className='_12'>
+                  <span className='_20240116_3'>2024-01-16 | 10:05 AM</span>
+                </div>
+
+                <div className='_13'>
+                  <span className='Denied_1'>Denied</span>
+                </div>
+
+                <div className='_14'>
+                  <span className='Fakenews'>Fake news</span>
+                </div>
+
+                <div className='_15'>
+                  <span className='PointsEarned'>Points Earned</span>
+                </div>
+
+                <div className='_16'>
+                  <span className='PointsReceived center-text'>5</span>
+                </div>
+
+                <div className='_17'>
+                  <span className='PointsReceived center-text'>0</span>
+                </div>
+
+                <div className='_18'>
+                  <span className='PointsEarned_1'>Points Earned</span>
+                </div>
+
+                <div className='_19'>
+                  <span className='PointsReceived'>0</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
+      )}
 
       <div className='ReportFeedbackContainer'>
         <span className='ReportFeedback'>Report Feedback</span>
-        <img className="Toggle" alt="" src="/Toggledown.png"/>
-      </div>
-      
-      <div className='TableContainer'>
-        <span className='TOTALREPORTSSUBMITTED'>TOTAL REPORTS SUBMITTED</span>
-        <div className='Total1'/>
-        <span className='TotalNumber1'>2</span>
-
-        <span className='TOTALPOINTSEARNED'>TOTAL POINTS EARNED</span>
-        <div className='Total2'/>
-        <span className='TotalNumber2'>5</span>
-
-        <div className='GroupTable'>
-          <div className='Table'>
-            <div className='_1'>
-              <span className='SubmissionDate'>Submission Date</span>
-            </div>
-
-            <div className='_2_1'>
-              <span className='DateVerified'>Date Verified</span>
-            </div>
-
-            <div className='_3'>
-              <span className='Status'>Status</span>
-            </div>
-
-            <div className='_4'>
-              <span className='Reason'>Reason</span>
-            </div>
-
-            <div className='_6'>
-              <span className='_20240116'>2024-01-16</span>
-            </div>
-
-            <div className='_7'>
-              <span className='_20240116_1'>2024-01-16 | 10:05 AM</span>
-            </div>
-
-            <div className='_8'>
-              <span className='Approved_1'>Approved</span>
-            </div>
-
-            <div className='_9'>
-            </div>
-
-            <div className='_11'>
-              <span className='_20240116_2'>2024-01-16</span>
-            </div>
-
-            <div className='_12'>
-              <span className='_20240116_3'>2024-01-16 | 10:05 AM</span>
-            </div>
-
-            <div className='_13'>
-              <span className='Denied_1'>Denied</span>
-            </div>
-
-            <div className='_14'>
-              <span className='Fakenews'>Fake news</span>
-            </div>
-
-            <div className='_15'>
-              <span className='PointsEarned'>Points Earned</span>
-            </div>
-
-            <div className='_16'>
-              <span className='_5_1'>5</span>
-            </div>
-
-            <div className='_17'>
-              <span className='_0'>0</span>
-            </div>
-          </div>
-        </div>
+        <img 
+          className="Toggle" 
+          alt="" 
+          src={isFeedbackVisible ? "/Toggledown.png" : "/Toggleright.png"}
+          onClick={toggleFeedback}
+        />
       </div>
     </div>
   );

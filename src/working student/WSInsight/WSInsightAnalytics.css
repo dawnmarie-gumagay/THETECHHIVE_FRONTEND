@@ -770,6 +770,15 @@
 	font-weight: 600;
 }
 
+
+.center-text {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100%;
+  }
+  
+
 .TOTALPOINTSEARNED {
 	position: absolute;
 	right: 110px;
