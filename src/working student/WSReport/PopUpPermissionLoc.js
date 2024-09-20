@@ -1,58 +1,68 @@
-import { useCallback } from "react";
-import { useNavigate } from "react-router-dom";
+import { useCallback, useState } from "react";
 import { Button } from "@mui/material";
+import PopUpReportFinal from "./PopUpReportFinal"; // Import PopUpReportFinal component
 import "./PopUpPermissionLoc.css";
 
-const PopUpPermissionLoc = ({ onClose }) => { // Changed to destructure onClose from props
-  const navigate = useNavigate();
-
-  const onGroupContainerClick = useCallback(() => {
-    navigate("/pop-upreport");
-  }, [navigate]);
+const PopUpPermissionLoc = ({ onClose }) => { 
+  const [showFinalPopup, setShowFinalPopup] = useState(false);
+  const [showPermissionPopup, setShowPermissionPopup] = useState(true);
 
   const handleCancel = useCallback(() => {
-    console.log("Cancel button clicked"); // Debugging log
+    console.log("Cancel button clicked");
     if (onClose) {
-      onClose(); // Ensure onClose is called if passed
+      onClose();
     }
   }, [onClose]);
 
+  const handleAllow = useCallback(() => {
+    console.log("Allow button clicked");
+    setShowPermissionPopup(false);
+    setShowFinalPopup(true);
+  }, []);
+
   return (
-    <div className="PermissionPage2">
-      <div className="allow-location">
-        Tap Allow to let the application use Location Services
-      </div>
+    <div>
+      {showPermissionPopup && (
+        <div className="PermissionPage2">
+          <div className="allow-location">
+            Tap Allow to let the application use Location Services
+          </div>
 
-      <Button
-        className="permission-cancel-button2"
-        variant="contained"
-        sx={{
-          borderRadius: "10px",
-          width: 115,
-          height: 40,
-          backgroundColor: "#8A252C",
-          "&:hover": { backgroundColor: "#A91D3A" }
-        }}
-        onClick={handleCancel} // Use handleCancel for the cancel action
-      >
-        CANCEL
-      </Button>
+          <Button
+            className="permission-cancel-button2"
+            variant="contained"
+            sx={{
+              borderRadius: "10px",
+              width: 115,
+              height: 40,
+              backgroundColor: "#8A252C",
+              "&:hover": { backgroundColor: "#A91D3A" }
+            }}
+            onClick={handleCancel}
+          >
+            CANCEL
+          </Button>
 
-      <Button
-        className="permission-allow-button2"
-        variant="contained"
-        sx={{
-          borderRadius: "10px",
-          width: 115,
-          height: 40,
-          backgroundColor: "#8A252C",
-          "&:hover": { backgroundColor: "#A91D3A" }
-        }}
-      >
-        ALLOW
-      </Button>
+          <Button
+            className="permission-allow-button2"
+            variant="contained"
+            sx={{
+              borderRadius: "10px",
+              width: 115,
+              height: 40,
+              backgroundColor: "#8A252C",
+              "&:hover": { backgroundColor: "#A91D3A" }
+            }}
+            onClick={handleAllow}
+          >
+            ALLOW
+          </Button>
 
-      <img className="permission-location" alt="Location" src="/location2.png" />
+          <img className="permission-location" alt="Location" src="/location2.png" />
+        </div>
+      )}
+
+      {showFinalPopup && <PopUpReportFinal onBack={handleCancel} />} {/* Pass handleCancel to PopUpReportFinal */}
     </div>
   );
 };

@@ -1,11 +1,13 @@
 .PopUpReportFinalPage {
-  position: relative;
-  margin: 0 auto;
+  position: fixed;
+  top: 54%;
+  left: 50%;
+  transform: translate(-50%, -50%);
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
   border-radius: 10px;
   background: linear-gradient(180deg, #fdfbc9 54%, #f9d67b);
   width: 585px;
-  height: 717px;
+  height: 580px;
   color: #8a252c;
   display: flex;
   flex-direction: column;
@@ -41,13 +43,13 @@
   cursor: pointer;
 }
 .back-button-containerFR:hover {
-   transform: scale(1.0);
+  transform: scale(1.1);
 }
 
 
 .Description-Container {
   position: absolute;
-  top: 130px;
+  top: 60px;
   left: 139px;
   width: 308px;
   height: 71px;
@@ -83,7 +85,7 @@
   
 .Location-Container {
   position: absolute;
-  top: 250px;
+  top: 170px;
   left: 139px;
   width: 308px;
   height: 71px;
@@ -92,7 +94,7 @@
 
 .Choose-Location {
   position: absolute;
-  top: 290px;
+  top: 210px;
   left: 413px;
   width: 24px;
   height: 24px;
@@ -103,7 +105,7 @@
 
 .Upload-Photo-Container {
   position: absolute;
-  top: 380px;
+  top: 285px;
   left: 139px;
   display: inline-block;
   width: 340px;
@@ -117,7 +119,7 @@
 
 .Camera-Container {
   position: absolute;
-  top: 430px;
+  top: 335px;
   left: 165px;
   width: 97px;
   height: 87px;
@@ -158,7 +160,7 @@
  
 .Upload-Container {
   position: absolute;
-  top: 430px;
+  top: 335px;
   left: 330px;
   width: 97px;
   height: 87px;
@@ -186,7 +188,7 @@
 
 .ReportFinal-next-button {
   position: absolute;
-  top: 560px;
+  top: 480px;
   left: 10px;
   box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
   mix-blend-mode: normal;
