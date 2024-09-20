@@ -233,12 +233,12 @@ const WSInsightAnalytics = () => {
                 </div>
 
                 <div className='_16'>
-                  <span className='PointsReceived center-text'>5</span>
-                </div>
+  <span className='PointsReceived center-text' style={{ color: '#F6C301' }}>5</span>
+</div>
 
-                <div className='_17'>
-                  <span className='PointsReceived center-text'>0</span>
-                </div>
+<div className='_17'>
+  <span className='PointsReceived center-text' style={{ color: '#F6C301' }}>0</span>
+</div>
 
                 <div className='_18'>
                   <span className='PointsEarned_1'>Points Earned</span>
