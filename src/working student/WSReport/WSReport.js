@@ -4,8 +4,8 @@ import Loadable from 'react-loadable';
 import "./WSReport.css";
 
 
-const PopUpReport = Loadable({
-  loader: () => import('./PopUpReport'),
+const PopUpPermissionLoc = Loadable({
+  loader: () => import('./PopUpPermissionLoc'),
   loading: () => <div>Loading...</div>,
 });
 
@@ -69,7 +69,7 @@ const WSReport = () => {
       {isPopupVisible && (
         <div className="overlay" onClick={togglePopup}>
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <PopUpReport onClose={togglePopup} />
+            <PopUpPermissionLoc onClose={togglePopup} />
           </div>
         </div>
       )}
