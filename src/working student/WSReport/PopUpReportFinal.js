@@ -1,10 +1,11 @@
-import { useCallback } from "react";
+import { useCallback, useState  } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./PopUpReportFinal.css";
 
 const PopUpReportFinal = ({ onBack }) => { // Accept onBack prop
   const navigate = useNavigate();
+  const [description, setDescription] = useState("");
 
   const onPopUpReportClick = useCallback(() => {
     navigate("/pop-upcritical-emergency");
@@ -21,9 +22,14 @@ const PopUpReportFinal = ({ onBack }) => { // Accept onBack prop
   return (
     <div className="PopUpReportFinalPage">
       <div className="Description-Container">
-        <div className="Description-Input" />
-        <b className="t-name">Description</b>
-        <div className="type-here">Type here</div>
+      <b className="t-name">Description</b>
+      <textarea
+          className="Description-Input"
+          value={description}
+          onChange={(e) => setDescription(e.target.value)} // Update state on input change
+          placeholder="Type here"
+          rows="5" // Number of visible rows
+        />
       </div>
 
       <div className="Location-Container">

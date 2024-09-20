@@ -57,11 +57,30 @@
 .Description-Input {
   position: absolute;
   top: 33px;
-  left: 0;
-  border-radius: 20px;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
   background-color: #FFFFFF;
   width: 308px;
-  height: 38px;
+  height: 40px;
+  resize: none;
+  box-sizing: border-box;
+}
+.Description-Input:focus {
+  border-color: #8A252C; 
+  outline: none; 
+}
+.Description-Input:focus::placeholder {
+  color: #8A252C; 
+}
+
+
+.Location-Container {
+  position: absolute;
+  top: 170px;
+  left: 139px;
+  width: 308px;
+  height: 71px;
 }
 .t-name {
   position: absolute;
@@ -81,14 +100,6 @@
   display: inline-block;
   width: 75px;
   height: 18px;
-}
-  
-.Location-Container {
-  position: absolute;
-  top: 170px;
-  left: 139px;
-  width: 308px;
-  height: 71px;
 }
 
 
