@@ -7,6 +7,7 @@
     color: #8a252c;
     font-family: var(--font-montserrat);
 }
+
 .back-bgSI {
     position: absolute;
     top: 0;
@@ -16,6 +17,7 @@
     width: 100%;
     height: 100%;
 }
+
 .back-iconSI {
     position: absolute;
     top: 10px;
@@ -24,6 +26,7 @@
     height: 41px;
     overflow: hidden;
 }
+
 .back-button-container {
     position: absolute;
     top: 65px;
@@ -32,9 +35,11 @@
     height: 60px;
     cursor: pointer;
 }
+
 .back-button-container:hover {
     transform: scale(1.1);
 }
+
 .main-boxSI {
     position: absolute;
     top: 35px;
@@ -46,6 +51,7 @@
     height: 655px;
     transition: all 0.5s ease; 
 }
+
 .main-bgSI {
     position: absolute;
     top: 105px;
@@ -57,6 +63,7 @@
     opacity: 0.9;
     mix-blend-mode: normal;
 }
+
 .main-titleSI {
     position: absolute;
     top: 180px;
@@ -65,6 +72,7 @@
     height: 206px;
     object-fit: cover;
 }
+
 .welcomeSI {
     position: absolute;
     top: 190px;
@@ -75,6 +83,7 @@
     width: 178px;
     height: 33px;
 }
+
 .sub-title2 {
     position: absolute;
     display: inline-block;
@@ -85,6 +94,7 @@
     width: 231px;
     height: 21px;
 }
+
 .id-number-in,
 .P-name {
     position: absolute;
@@ -94,14 +104,17 @@
     width: 120px;
     height: 21px;
 }
+
 .id-number-in {
     left: 870px;
     top: 305px;
 }
+
 .P-name {
     top: 410px;
     left: 870px;
 }
+
 .id-number-b,
 .P-box {
     position: absolute;
@@ -114,12 +127,15 @@
     border-radius: 20px;
     padding-left: 10px;
 }
+
 .id-number-b {
     top: 335px;
 }
+
 .P-box {
     top: 440px;
 }
+
 .forgot-password {
     position: absolute;
     top: 490px;
@@ -130,6 +146,7 @@
     font-size: 13px;
     text-decoration: underline;
 }
+
 .SIContainer {
     position: absolute;
     top: 510px;
@@ -139,9 +156,11 @@
     cursor: pointer;
     color: white;
 }
+
 .SIContainer:hover {
     transform: scale(1.1);
 }
+
 .SIButton {
     position: absolute;
     top: 20px;
@@ -151,6 +170,7 @@
     width: 115px;
     height: 39px;
 }
+
 .SIName {
     position: absolute;
     top: 23px;
@@ -161,6 +181,7 @@
     width: 79px;
     height: 23px;
 }
+
 .q4 {
     position: absolute;
     top: 585px;
@@ -171,6 +192,7 @@
     width: 240px;
     height: 21px;
 }
+
 .q5 {
     position: absolute;
     top: 585px;
@@ -183,6 +205,131 @@
     height: 21px;
     cursor: pointer;
 }
+
+/* Password reset components styles */
+.password-reset-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.password-reset-step {
+    background-color: #fdf6e3;
+    border-radius: 10px;
+    padding: 20px;
+    max-width: 300px;
+    width: 100%;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    position: relative;
+    padding-top: 40px;
+}
+
+.password-reset-step h2 {
+    color: #8a252c;
+    font-size: 20px;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.password-reset-step input {
+    width: 90%;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #8a252c;
+    border-radius: 20px;
+    font-size: 16px;
+}
+
+.password-reset-step button {
+    background-color: #8a252c;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 600;
+    transition: background-color 0.3s;
+    display: block;
+    margin: 0 auto;
+    width: fit-content;
+}
+
+.password-reset-step button:hover {
+    background-color: #6d1e23;
+}
+
+/* New styles for resend code and timer */
+.resend-code-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.resend-code {
+    color: #f6c301;
+    text-decoration: underline;
+    cursor: pointer;
+    font-size: 14px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.resend-code.disabled {
+    color: #ccc;
+    cursor: not-allowed;
+    text-decoration: none;
+}
+
+.countdown {
+    font-size: 14px;
+    color: #8a252c;
+}
+
+/* New styles for the password reset back button */
+.reset-back-button {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.reset-back-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 100%;
+    height: 100%;
+}
+
+.reset-back-icon {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    overflow: hidden;
+}
+
+.reset-back-button:hover {
+    transform: scale(1.1);
+}
+
+/* Media queries */
 @media (max-width: 768px) {
     .back-bgSI {
         top: 10%;
@@ -295,7 +442,26 @@
         width: 80%;
         font-size: 13px;
     }
+
+    .password-reset-overlay {
+        padding: 15px;
+    }
+
+    .password-reset-step h2 {
+        font-size: 18px;
+    }
+
+    .password-reset-step input,
+    .password-reset-step button {
+        font-size: 14px;
+    }
+
+    .resend-code,
+    .countdown {
+        font-size: 12px;
+    }
 }
+
 @media (max-width: 500px) {
     .back-bgSI {
         top: 9%;
@@ -419,4 +585,16 @@
         width: 80%;
         font-size: 13px;
     }
-}    
+    .password-reset-overlay {
+        padding: 15px;
+    }
+
+    .password-reset-step h2 {
+        font-size: 18px;
+    }
+
+    .password-reset-step input,
+    .password-reset-step button {
+        font-size: 14px;
+    }
+}
