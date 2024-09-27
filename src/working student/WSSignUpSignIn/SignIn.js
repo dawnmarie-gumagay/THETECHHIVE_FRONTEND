@@ -5,7 +5,6 @@ import "./SignIn.css";
 
 const SignIn = () => {
   const navigate = useNavigate();
-  const [users, setUsers] = useState([]);
   const [idNumberValue, setIdNumberValue] = useState("");
   const [passwordValue, setPasswordValue] = useState("");
   const [resetStep, setResetStep] = useState(0);
@@ -14,19 +13,6 @@ const SignIn = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [countdown, setCountdown] = useState(0);
-
-  const fetchUsers = async () => {
-    try {
-      const response = await axios.get("http://localhost:8080/user/getAllUsers");
-      setUsers(response.data);
-    } catch (error) {
-      console.error("Error fetching users:", error);
-    }
-  };
-
-  useEffect(() => {
-    fetchUsers();
-  }, []);
 
   useEffect(() => {
     let timer;
@@ -38,19 +24,28 @@ const SignIn = () => {
 
   const onSignInButtonClick = useCallback(async () => {
     try {
+      // Fetch all users
+      const response = await axios.get("http://localhost:8080/user/getAllUsers");
+      const users = response.data;
+
+      // Find the user with matching idNumber and password
       const user = users.find(
         (u) => u.idNumber === idNumberValue && u.password === passwordValue
       );
+
       if (user) {
+        // User found, proceed with sign-in
         localStorage.setItem("loggedInUser", JSON.stringify(user));
         navigate("/wshomepage", { state: { loggedInUser: user } });
       } else {
-        alert("Invalid ID Number or Password. Please enter both fields correctly.");
+        // User not found or credentials don't match
+        alert("Invalid ID Number or Password. Please try again.");
       }
     } catch (error) {
       console.error("Sign-in Error:", error);
+      alert("An error occurred during sign-in. Please try again later.");
     }
-  }, [navigate, users, idNumberValue, passwordValue]);
+  }, [navigate, idNumberValue, passwordValue]);
 
   const handleIdNumberChange = (event) => {
     setIdNumberValue(event.target.value);
@@ -75,7 +70,6 @@ const SignIn = () => {
   const handleSendCode = useCallback(async () => {
     // TODO: Implement API call to send reset code
     setResetStep(2);
-    // Note: We don't start the countdown here anymore
   }, [resetEmail]);
 
   const handleResendCode = useCallback(() => {
@@ -179,9 +173,9 @@ const SignIn = () => {
           {resetStep === 2 && (
             <div className="password-reset-step">
               <div className="reset-back-button" onClick={handleResetBack}>
-              <div className="reset-back-bg" />
-              <img className="reset-back-icon" alt="Back" src="/back.png" />
-            </div>
+                <div className="reset-back-bg" />
+                <img className="reset-back-icon" alt="Back" src="/back.png" />
+              </div>
               <h2>Enter verification code</h2>
               <input
                 type="text"
