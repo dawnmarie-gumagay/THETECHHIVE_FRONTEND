@@ -1,74 +1,78 @@
 import React, { useCallback, useState } from "react";
-import Loadable from 'react-loadable';
 import { Button } from "@mui/material";
+import Loadable from 'react-loadable';
 import "./PopUpConfirm.css";
 
+// Loadable to lazy-load PopUpSuccess
 const PopUpSuccess = Loadable({
   loader: () => import('./PopUpSuccess'),
   loading: () => <div>Loading...</div>,
 });
 
 const PopUpConfirm = ({ onClose, onSubmit }) => {
-  const [isConfirmVisible, setConfirmVisible] = useState(false);
+  const [isSuccessVisible, setSuccessVisible] = useState(false); // Track success popup visibility
 
-  const onConfirm = useCallback(() => {
-    onSubmit();
-    setConfirmVisible(true);
+  // Handle the Confirm button click
+  const handleConfirm = useCallback(() => {
+    if (onSubmit) {
+      onSubmit(); // Handle form/report submission
+    }
+    setSuccessVisible(true); // Show the success popup
   }, [onSubmit]);
 
+  // Close the success popup and the main pop-up
   const closeSuccessPopup = useCallback(() => {
-    setConfirmVisible(false);
-    onClose(); // Close the confirmation popup as well
-  }, [onClose]);
-
-  const handleCancel = useCallback(() => {
-    console.log("Cancel button clicked"); // Add this line for debugging
-    onClose();
+    setSuccessVisible(false); // Hide the success popup
+    onClose(); // Close the parent popup as well
   }, [onClose]);
 
   return (
-    <div className="pop-up-confirm">
-      <div className="PUConfirm" />
-      <div className="PUQuestion">
-        Are you sure you want to confirm the report?
-      </div>
-      <img className="PUConfirmPic" alt="" src="/wreport-icon.png" />
-      <Button
-        className="PUCReportButton"
-        variant="contained"
-        sx={{
-          borderRadius: "10px",
-          width: 115,
-          height: 40,
-          backgroundColor: "#8A252C",
-          "&:hover": { backgroundColor: "#A91D3A" }
-        }}
-        onClick={onConfirm}
-      >
-        CONFIRM
-      </Button>
-      <Button
-        className="PUCCancelButton"
-        variant="contained"
-        sx={{
-          borderRadius: "10px",
-          width: 115,
-          height: 40,
-          backgroundColor: "#8A252C",
-          "&:hover": { backgroundColor: "#A91D3A" }
-        }}
-        onClick={handleCancel} // Changed to handleCancel
-      >
-        CANCEL
-      </Button>
-      {isConfirmVisible && (
-        <div className="overlay" onClick={closeSuccessPopup}>
-          <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <PopUpSuccess onClose={closeSuccessPopup} />
+    <>
+      {!isSuccessVisible && (
+        <>
+          <div className="overlay" /> {/* Overlay */}
+          <div className="pop-up-confirm">
+            <div className="PUConfirm" />
+            <div className="PUQuestion">
+              Are you sure you want to confirm the report?
+            </div>
+            <img className="PUConfirmPic" alt="Confirmation Icon" src="/wreport-icon.png" />
+            <Button
+              className="PUCReportButton"
+              variant="contained"
+              sx={{
+                borderRadius: "10px",
+                width: 115,
+                height: 40,
+                backgroundColor: "#8A252C",
+                "&:hover": { backgroundColor: "#A91D3A" }
+              }}
+              onClick={handleConfirm} // Call handleConfirm on click
+            >
+              CONFIRM
+            </Button>
+            <Button
+              className="PUCCancelButton"
+              variant="contained"
+              sx={{
+                borderRadius: "10px",
+                width: 115,
+                height: 40,
+                backgroundColor: "#8A252C",
+                "&:hover": { backgroundColor: "#A91D3A" }
+              }}
+              onClick={onClose} // Handle cancel click
+            >
+              CANCEL
+            </Button>
           </div>
-        </div>
+        </>
       )}
-    </div>
+
+      {isSuccessVisible && (
+        <PopUpSuccess onClose={closeSuccessPopup} /> // Show the success popup without overlay
+      )}
+    </>
   );
 };
 
