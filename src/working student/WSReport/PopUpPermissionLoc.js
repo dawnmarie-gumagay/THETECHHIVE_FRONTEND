@@ -25,7 +25,7 @@ const PopUpPermissionLoc = ({ onClose }) => {
       {showPermissionPopup && (
         <div className="PermissionPage2">
           <div className="allow-location">
-            Tap Allow to let the application use Location Services
+          Allow location access to report incidents accurately in your area
           </div>
 
           <Button
