@@ -182,7 +182,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       {showImageLimitWarning && (
         <div className="modal-overlay">
           <div className="modal-content image-limit-warning">
-            <h2>You may add only up to 3 images</h2>
+            <h3>You may add only up to 3 images</h3>
             <button onClick={() => setShowImageLimitWarning(false)} className="ok-button">OK</button>
           </div>
         </div>

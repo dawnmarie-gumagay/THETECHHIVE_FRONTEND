@@ -302,6 +302,7 @@
   right: 0;
   bottom: 0;
   background-color: rgba(0, 0, 0, 0.5);
+  color: #8a252c;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -324,7 +325,7 @@
 
 .camera-icon {
   width: 105px;
-  height: 65px;
+  height: 55px;
   margin-bottom: 20px;
 }
 
@@ -339,10 +340,10 @@
 .ok-button {
   padding: 10px 20px;
   border: none;
-  border-radius: 5px;
+  border-radius: 10px;
   cursor: pointer;
   font-weight: bold;
-  transition: background-color 0.3s;
+  transition: 0.3s;
 }
 
 .cancel-button,
@@ -355,7 +356,7 @@
 .cancel-button:hover,
 .allow-button:hover,
 .ok-button:hover {
-  opacity: 0.9;
+  background-color: #A91D3A;
   transform: scale(1.05);
 }
 
