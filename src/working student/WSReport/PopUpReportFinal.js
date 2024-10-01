@@ -1,4 +1,4 @@
-import React, { useCallback, useState, useRef } from "react";
+import React, { useCallback, useState, useRef, useEffect } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./PopUpReportFinal.css";
@@ -7,13 +7,21 @@ import PopUpConfirm from "./PopUpConfirm";
 const PopUpReportFinal = ({ onBack, onClose }) => {
   const navigate = useNavigate();
   const [description, setDescription] = useState("");
-  const [location, setLocation] = useState("");
+  const [location, setLocation] = useState({
+    address: "",
+    latitude: null,
+    longitude: null
+  });
   const [showPopUpConfirm, setShowPopUpConfirm] = useState(false);
   const [isVisible, setIsVisible] = useState(true);
   const [images, setImages] = useState([]);
   const [showCameraPermission, setShowCameraPermission] = useState(false);
   const [showImageLimitWarning, setShowImageLimitWarning] = useState(false);
+  const [showCamera, setShowCamera] = useState(false);
+  const [cameraError, setCameraError] = useState(null);
   const fileInputRef = useRef(null);
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
 
   const hidePopUpReportFinal = useCallback(() => {
     setIsVisible(false);
@@ -37,6 +45,37 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     }
   }, [onBack, navigate]);
 
+  const getUserLocation = () => {
+    if ("geolocation" in navigator) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          try {
+            const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_GOOGLE_MAPS_API_KEY`);
+            const data = await response.json();
+            if (data.status === "OK") {
+              const address = data.results[0].formatted_address;
+              setLocation({ address, latitude, longitude });
+            } else {
+              console.error("Geocoding failed:", data.status);
+              setLocation({ address: "Location not found", latitude, longitude });
+            }
+          } catch (error) {
+            console.error("Error getting location:", error);
+            setLocation({ address: "Error getting location", latitude, longitude });
+          }
+        },
+        (error) => {
+          console.error("Error getting location:", error);
+          setLocation({ address: "Error getting location", latitude: null, longitude: null });
+        }
+      );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
+      setLocation({ address: "Geolocation not supported", latitude: null, longitude: null });
+    }
+  };
+
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
     if (images.length + files.length > 3) {
@@ -46,11 +85,10 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     const newImages = files.map(file => ({
       file,
       preview: URL.createObjectURL(file),
-      id: Date.now() + Math.random() // Add a unique id
+      id: Date.now() + Math.random()
     }));
     setImages(prevImages => [...prevImages, ...newImages]);
     
-    // Clear the file input value
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -64,15 +102,75 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     setShowCameraPermission(true);
   };
 
-  const handleCameraPermission = (allow) => {
+  const handleCameraPermission = async (allow) => {
     setShowCameraPermission(false);
     if (allow) {
-      // Implement camera access logic here
-      console.log("Camera access granted");
-    } else {
-      console.log("Camera access denied");
+      try {
+        console.log("Attempting to access camera...");
+        let stream;
+        try {
+          stream = await navigator.mediaDevices.getUserMedia({ video: true });
+        } catch (err) {
+          console.log("Failed with default constraints, trying fallback...");
+          stream = await navigator.mediaDevices.getUserMedia({
+            video: {
+              width: { ideal: 1280 },
+              height: { ideal: 720 },
+              facingMode: "user"
+            }
+          });
+        }
+        console.log("Camera access granted:", stream);
+        if (videoRef.current) {
+          videoRef.current.srcObject = stream;
+          console.log("Video element source set");
+          await videoRef.current.play();
+          console.log("Video playback initiated");
+        }
+        setShowCamera(true);
+        setCameraError(null);
+      } catch (err) {
+        console.error("Error accessing camera:", err);
+        setCameraError(`Camera error: ${err.name} - ${err.message}`);
+      }
     }
   };
+
+  const captureImage = () => {
+    if (videoRef.current && canvasRef.current && videoRef.current.videoWidth > 0) {
+      const context = canvasRef.current.getContext('2d');
+      canvasRef.current.width = videoRef.current.videoWidth;
+      canvasRef.current.height = videoRef.current.videoHeight;
+      context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
+      canvasRef.current.toBlob((blob) => {
+        const newImage = {
+          file: blob,
+          preview: URL.createObjectURL(blob),
+          id: Date.now() + Math.random()
+        };
+        setImages(prevImages => [...prevImages, newImage]);
+      }, 'image/jpeg');
+      setShowCamera(false);
+      if (videoRef.current.srcObject) {
+        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+      }
+    } else {
+      setCameraError("Failed to capture image. Please try again.");
+    }
+  };
+
+  useEffect(() => {
+    if (videoRef.current) {
+      videoRef.current.onloadedmetadata = () => {
+        console.log("Video stream is ready");
+      };
+    }
+    return () => {
+      if (videoRef.current && videoRef.current.srcObject) {
+        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, [showCamera]);
 
   return (
     <>
@@ -88,29 +186,30 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
               rows="5"
             />
           </div>
-
           <div className="Location-Container">
             <b className="t-name">Location</b>
             <input
               className="Location-Input"
-              value={location}
-              onChange={(e) => setLocation(e.target.value)}
-              placeholder="Type here"
+              value={location.address}
+              onChange={(e) => setLocation({ ...location, address: e.target.value })}
+              placeholder="Type here or click to get location"
             />
           </div>
-          <img className="Choose-Location" alt="" src="/r-location.png" />
-
+          <img
+            className="Choose-Location"
+            alt=""
+            src="/r-location.png"
+            onClick={getUserLocation}
+          />
           <div className="Upload-Photo-Container">
             <b>Upload photo</b>
             <span className="for-evidence"> (For evidence, max 5MB)</span>
           </div>
-
           <div className="Camera-Container" onClick={handleCameraClick}>
             <div className="bg-container" />
             <div className="n-camera">Camera</div>
             <img className="bicamera-icon" alt="" src="/cam2.png" />
           </div>
-
           <div className="Upload-Container">
             <input
               type="file"
@@ -126,7 +225,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
               <img className="symbolupload-icon" alt="" src="/rupload.png" />
             </label>
           </div>
-
           <div className="Image-Preview-Container">
             {images.map((image) => (
               <div key={image.id} className="Image-Preview">
@@ -135,7 +233,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
               </div>
             ))}
           </div>
-
           <Button
             className="ReportFinal-next-button"
             variant="contained"
@@ -158,14 +255,12 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
           >
             <span style={{ fontSize: "15px" }}>NEXT</span>
           </Button>
-
           <div className="back-button-containerFR" onClick={handleBack}>
             <div className="back-bgFR" />
             <img className="back-iconFR" alt="Back" src="/back.png" />
           </div>
         </div>
       )}
-
       {showCameraPermission && (
         <div className="modal-overlay">
           <div className="modal-content camera-permission">
@@ -178,7 +273,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
           </div>
         </div>
       )}
-
       {showImageLimitWarning && (
         <div className="modal-overlay">
           <div className="modal-content image-limit-warning">
@@ -187,7 +281,30 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
           </div>
         </div>
       )}
-
+      {showCamera && (
+        <div className="camera-modal">
+          <video 
+            ref={videoRef} 
+            autoPlay 
+            playsInline 
+            style={{ background: 'black', width: '100%', maxWidth: '640px' }}
+          />
+          <canvas ref={canvasRef} style={{ display: 'none' }} />
+          <button onClick={captureImage}>Capture</button>
+          <button onClick={() => {
+            setShowCamera(false);
+            if (videoRef.current && videoRef.current.srcObject) {
+              videoRef.current.srcObject.getTracks().forEach(track => track.stop());
+            }
+          }}>Close</button>
+          {cameraError && <p className="error-message">{cameraError}</p>}
+          <div className="debug-info">
+            <p>Video Ready: {videoRef.current && videoRef.current.readyState === 4 ? 'Yes' : 'No'}</p>
+            <p>Video Size: {videoRef.current ? `${videoRef.current.videoWidth}x${videoRef.current.videoHeight}` : 'Unknown'}</p>
+            <p>Stream Active: {videoRef.current && videoRef.current.srcObject ? 'Yes' : 'No'}</p>
+          </div>
+        </div>
+      )}
       {showPopUpConfirm && (
         <PopUpConfirm
           onClose={() => setShowPopUpConfirm(false)}
