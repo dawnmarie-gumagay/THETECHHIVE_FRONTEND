@@ -1170,3 +1170,165 @@
 	font-size: 16px;
 	font-weight: 400;
 }
+
+
+/* Mobile Responsive Styles */
+@media screen and (max-width: 768px) {
+    .WSInsightAnalytics_WSInsightAnalytics {
+        height: 400vh!important;
+    }
+
+    .InsightTitle {
+        top: 4%!important;
+        left: 38%!important;
+        width: 200px!important;
+        height: 180px!important;
+    }
+
+    .AnalyticsTitle {
+        top: 250px!important;
+        left: 8%!important;
+        font-size: 20px!important;
+        width: 90%!important;
+    }
+
+    .WSInsightBox {
+        top: 300px!important;
+        left: 5%!important;
+        width: 90%!important;
+        height: 54%!important;
+    }
+
+    .YearContainer {
+		top: 13%!important;
+        left: 10%!important;
+        width: 40%!important;
+		height: 20%!important;
+    }
+	.YearBox{
+		width: 70%!important;
+	}
+
+    .BarGraphContainer {
+        left: 10%;
+        width: 90%;
+        top: 400px;
+    }
+	.B1 {
+		left: 4%;
+	}
+	.Jan {
+		left: 5.5%;
+	}
+	.Rectangle84 {
+		left: 5.5%;
+		width: 4%;
+	}
+	.Rectangle85 {
+		top: 30.3%;
+		left: 5.5%;
+		width: 4%;
+	}
+
+	.Feb {
+		left: 11.6%;
+	}
+	.Rectangle70 {
+		left: 11.5%;
+		width: 4%;
+	}
+	.B2 {
+		left: 4%;
+		width: 58%;
+	}
+
+    .BarBox {
+		top: 10%;
+        width: 90%;
+        height: 90%;
+    }
+	.MonthlyAccidentEventStats {
+		top: 15%;
+		left: 28%;
+	}
+
+    .PAContainer, .EAContainer, .VAContainer, .LAContainer, .FireRelatedContainer, 
+    .EquipmentRelatedContainer, .FacilityRelatedContainer, .HRContainer, .EventContainer {
+        left: 20px;
+        width: calc(100% - 40px);
+    }
+
+    .MonthlyAccidentEventStats {
+        right: 20px;
+        font-size: 18px;
+    }
+
+    /* Adjust font sizes for mobile */
+    .PhysicalAccident, .EnvironmentalAccident, .VehicleAccident, .LaboratoryAccident, 
+    .FireRelatedAccident, .EquipmentRelatedAccident, .FacilityRelatedAccident, 
+    .HealthRelatedAccident, .Event {
+        font-size: 10px;
+    }
+}
+
+/* Smaller screen styles (500px width) */
+@media screen and (max-width: 500px) {
+    .WSInsightAnalytics_WSInsightAnalytics {
+        height: 1800px;
+    }
+
+    .InsightTitle {
+        top: 40px;
+        left: 10px;
+        width: 160px;
+        height: 140px;
+    }
+
+    .AnalyticsTitle {
+        top: 220px;
+        left: 10px;
+        font-size: 18px;
+        width: 100%;
+    }
+
+    .WSInsightBox {
+        top: 260px;
+        left: 5px;
+        width: calc(100% - 10px);
+        height: auto;
+    }
+
+    .YearContainer, .YearBox {
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .BarGraphContainer {
+        left: 10px;
+        width: calc(100% - 20px);
+        top: 340px;
+    }
+
+    .BarBox {
+        width: 100%;
+        height: auto;
+    }
+
+    .PAContainer, .EAContainer, .VAContainer, .LAContainer, .FireRelatedContainer, 
+    .EquipmentRelatedContainer, .FacilityRelatedContainer, .HRContainer, .EventContainer {
+        left: 10px;
+        width: calc(100% - 20px);
+    }
+
+    .MonthlyAccidentEventStats {
+        right: 10px;
+        font-size: 16px;
+    }
+
+    /* Adjust font sizes for smaller mobile */
+    .PhysicalAccident, .EnvironmentalAccident, .VehicleAccident, .LaboratoryAccident, 
+    .FireRelatedAccident, .EquipmentRelatedAccident, .FacilityRelatedAccident, 
+    .HealthRelatedAccident, .Event {
+        font-size: 8px;
+    }
+}
