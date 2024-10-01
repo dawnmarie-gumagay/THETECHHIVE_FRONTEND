@@ -1,5 +1,3 @@
-
-
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { Pie } from 'react-chartjs-2'; 
@@ -337,4 +335,3 @@ const WSInsightAnalytics = () => {
 };
 
 export default WSInsightAnalytics;
-
