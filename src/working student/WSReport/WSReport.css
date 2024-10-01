@@ -97,14 +97,22 @@
   }
 
   .INReport {
+    position: absolute;
     top: 70%;
     left: 50%;
     transform: translateX(-50%);
     width: 27%;
     height: 25%;
     object-fit: cover;
+    transition: none;
   }
-}
+  
+  .INReport:hover {
+      transform: translateX(-50%) scale(1.05); 
+      transition: transform 0.3s ease;
+    }
+  }
+  
 
 @media (max-width: 500px) {
   .IncidentReport-Pic {
@@ -142,6 +150,8 @@
     height: 15%;
     object-fit: cover;
     text-align: center;
+    transition: none;
+    position: absolute;
   }
 }
 
