@@ -36,7 +36,7 @@ const WSInsightAnalytics = () => {
   };
 
   return (
-    <div className='WSInsightAnalytics_WSInsightAnalytics'>
+    <div className={`WSInsightAnalytics_WSInsightAnalytics ${isFeedbackVisible ? 'expanded' : 'minimized'}`}>
       <div className="WSNavbar" />
       <img className="WSTitle" alt="" src="/TITLE.png" />
       <div className="NHome" onClick={onHomeTextClick}>Home</div>
@@ -169,6 +169,7 @@ const WSInsightAnalytics = () => {
 
       {isFeedbackVisible && (
         <>
+         <div className={`FeedbackSection ${isFeedbackVisible ? 'visible' : 'hidden'}`}></div>
           <div className="WSInsightBox2" />
           <div className='TableContainer'>
             <span className='TOTALREPORTSSUBMITTED'>TOTAL REPORTS SUBMITTED</span>

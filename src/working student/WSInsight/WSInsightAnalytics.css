@@ -1,14 +1,46 @@
 .WSInsightAnalytics_WSInsightAnalytics {
-	width: 100%;
+    width: 100%;
     position: relative;
     background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
-    height: 2340px;
     overflow: hidden;
     text-align: left;
     color: #8a252c;
     font-family: var(--font-montserrat);
+    transition: height 0.3s ease-in-out;
+}
+.WSInsightAnalytics_WSInsightAnalytics.minimized {
+    height: 1750px; /* Adjust this value as needed */
 }
 
+.WSInsightAnalytics_WSInsightAnalytics.expanded {
+    height: 2340px;
+}
+
+.FeedbackSection {
+    transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+}
+
+.FeedbackSection.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.FeedbackSection.visible {
+    opacity: 1;
+    visibility: visible;
+}
+
+.ReportFeedbackContainer {
+    transition: top 0.3s ease-in-out;
+}
+
+.minimized .ReportFeedbackContainer {
+    top: 1700px; /* Adjust this value as needed */
+}
+
+.expanded .ReportFeedbackContainer {
+    top: 1736px;
+}
 .InsightTitle {
     position: absolute;
     top: 71px;
