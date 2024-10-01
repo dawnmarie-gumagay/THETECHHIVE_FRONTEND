@@ -616,14 +616,16 @@
 }
 .ApprovedDeniedReports {
 	position: absolute;
-	right: 0px;
-	top: 0px;
+	left: 10px;
+	bottom: 370px;
 	width: 325px;
 	height: 25.99px;
 	font-size: 22px;
 	font-weight: 600;
 }
+
 .Approved {
+	margin-top: 10px;
 	position: absolute;
 	left: 74px;
 	top: 338px;
@@ -634,16 +636,9 @@
 	font-size: 13px;
 	font-weight: 700;
 }
-.ApprovedCircle {
-	position: absolute;
-	left: 42px;
-	top: 64px;
-	width: 227px;
-	height: 227px;
-	background: rgba(254,176,16,1.00);
-	border-radius: 50%;
-}
+
 .ApprovedBox {
+	margin-top: 10px;
 	position: absolute;
 	left: 27px;
 	top: 329px;
@@ -654,6 +649,7 @@
 }
 
 .Denied {
+	margin-top: 10px;
 	position: absolute;
 	left: 238px;
 	top: 338px;
@@ -664,16 +660,9 @@
 	font-size: 13px;
 	font-weight: 700;
 }
-.DeniedCircle {
-	position: absolute;
-	left: 42px;
-	top: 64px;
-	width: 227px;
-	height: 227px;
-	background: rgba(138,37,44,1.00);
-	border-radius: 50%;
-}
+
 .DeniedBox {
+	margin-top: 10px;
 	position: absolute;
 	left: 186px;
 	top: 329px;
@@ -698,7 +687,9 @@
 	top: 223px;
 	width: 30px;
 	height: 18px;
-	color: rgba(254,176,16,1.00);
+	color: #8A252C; /* Same as Approved Box */
+  font-size: 1.2rem; /* Adjust size as needed */
+  margin-top: 8px; /* Space above */
 	font-size: 13px;
 	font-weight: 700;
 }
@@ -718,7 +709,9 @@
 	top: 98px;
 	width: 30px;
 	height: 18px;
-	color: rgba(138,37,44,1.00);
+	color: #FEB010; /* Same as Denied Box */
+  font-size: 1.2rem; /* Adjust size as needed */
+  margin-top: 8px; /* Space above */
 	font-size: 13px;
 	font-weight: 700;
 }

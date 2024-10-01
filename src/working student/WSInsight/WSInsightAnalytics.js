@@ -1,6 +1,12 @@
+
+
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { Pie } from 'react-chartjs-2'; 
+import { Chart, ArcElement, Tooltip} from 'chart.js';
 import './WSInsightAnalytics.css';
+
+Chart.register(ArcElement, Tooltip);
 
 const WSInsightAnalytics = () => {
   const navigate = useNavigate();
@@ -34,6 +40,56 @@ const WSInsightAnalytics = () => {
   const toggleFeedback = () => {
     setFeedbackVisible(prev => !prev);
   };
+  
+   // Data for the donut chart
+   const approvedReports = 80; // Change these values dynamically as needed
+   const deniedReports = 20;
+   
+  const data = {
+    labels: ['Approved', 'Denied'],
+    datasets: [
+      {
+        data: [80, 20], // Adjust these values dynamically as needed
+        backgroundColor: ['#FEB010', '#8A252C'], // Updated colors
+        hoverBackgroundColor: ['#FEB010', '#8A252C'],
+      },
+    ],
+  };
+  const options = {
+    responsive: true,
+    cutout: '80', // This makes it a donut chart
+    plugins: {
+        legend: {
+            display: false, // Disable the legend display
+        },
+        tooltip: {
+            callbacks: {
+                label: (tooltipItem) => {
+                    const dataset = tooltipItem.dataset.data;
+                    const total = dataset.reduce((a, b) => a + b, 0);
+                    const currentValue = dataset[tooltipItem.dataIndex];
+                    const percentage = ((currentValue / total) * 100).toFixed(0);
+                    return `${percentage}%`; // Adjust tooltip text to show only percentage
+                },
+                // Maintain label colors without the color box
+                labelColor: (tooltipItem) => {
+                    return {
+                        borderColor: 'transparent', // Set border color to transparent
+                        backgroundColor: tooltipItem.dataset.backgroundColor[tooltipItem.dataIndex], // Keep original color
+                    };
+                },
+            },
+        },
+    },
+};
+
+
+
+  // Calculate percentages
+  const totalReports = approvedReports + deniedReports;
+  const approvedPercentage = ((approvedReports / totalReports) * 100).toFixed(0);
+  const deniedPercentage = ((deniedReports / totalReports) * 100).toFixed(0);
+
 
   return (
     <div className={`WSInsightAnalytics_WSInsightAnalytics ${isFeedbackVisible ? 'expanded' : 'minimized'}`}>
@@ -145,27 +201,40 @@ const WSInsightAnalytics = () => {
       </div>
       
       <div className='PieChartContainer'>
-        <div className='PieBackground'/>
-        <div className='PieContainer'>
-          <div className='PieGroup'>
-            <span className='ApprovedDeniedReports'>Approved & Denied Reports</span>
-          
-            <span className='Approved'>Approved</span>
-            <div className='ApprovedCircle'/>
-            <div className='ApprovedBox'/>
+  <div className='PieBackground'/>
+  <div className='PieContainer'>
+    <div className='PieGroup'>
+      <span className='ApprovedDeniedReports'>Approved & Denied Reports</span>
+      {/* Render the donut chart here */}
+      <Pie data={data} options={options} />
+      
+      {/* Container for percentages */}
+      <div className='PercentageContainer'>
+  {/* Display the approved percentage with a transparent background */}
+  <span 
+    className='ApprovedPercentage' 
+    style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', padding: '5px', borderRadius: '5px' }} // Adjust color and styles as needed
+  >
+    {approvedPercentage}%
+  </span>
+  {/* Display the denied percentage with a transparent background */}
+  <span 
+    className='DeniedPercentage' 
+    style={{ backgroundColor: 'rgba(255, 255, 255, 0.5)', padding: '5px', borderRadius: '5px' }} // Adjust color and styles as needed
+  >
+    {deniedPercentage}%
+  </span>
+</div>
 
-            <span className='Denied'>Denied</span>
-            <div className='DeniedCircle'/>
-            <div className='DeniedBox'/>
 
-            <div className='Abg'/>
-            <span className='ApprovedPercentage'>80%</span>
+      <span className='Approved'>Approved</span>
+      <div className='ApprovedBox'/>
+      <span className='Denied'>Denied</span>
+      <div className='DeniedBox'/>
+    </div>
+  </div>
+</div>
 
-            <div className='Dbg'/>
-            <span className='DeniedPercentage'>20%</span>
-          </div>
-        </div>
-      </div>
 
       {isFeedbackVisible && (
         <>
@@ -268,3 +337,4 @@ const WSInsightAnalytics = () => {
 };
 
 export default WSInsightAnalytics;
+
