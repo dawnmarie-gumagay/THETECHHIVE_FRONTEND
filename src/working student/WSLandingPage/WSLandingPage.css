@@ -105,7 +105,6 @@
   width: 354px;
   height: 237px;
   object-fit: cover;
-  transition: transform 0.3s ease; 
 }
 
 .title-icon:hover {
@@ -270,19 +269,12 @@
     transform: translateX(-50%);
     width: auto;
     height: auto;
-    transition: none; 
-  }
-
-  .title-icon:hover {
-    transform: translateX(-50%); 
   }
 
   .get-started-button {
-    position: absolute;
     top: 75%;
     left: 50%;
     transform: translateX(-50%);
-    transition: none;
   }
 
   .badge-container,
@@ -341,11 +333,6 @@
     transform: translateX(-50%) !important;
     width: 70% !important;
     height: auto !important;
-    transition: none !important; 
-  }
-
-  .title-icon:hover {
-    transform: translateX(-50%) !important; 
   }
 
   .badge-container,
