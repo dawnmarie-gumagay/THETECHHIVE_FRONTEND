@@ -20,12 +20,17 @@ const PopUpPermissionLoc = ({ onClose }) => {
     setShowFinalPopup(true);
   }, []);
 
+  // Prevent background clicks by stopping event propagation
+  const stopPropagation = (e) => {
+    e.stopPropagation();
+  };
+
   return (
-    <div>
+    <div className="overlay"> {/* Add an overlay that prevents background interactions */}
       {showPermissionPopup && (
-        <div className="PermissionPage2">
+        <div className="PermissionPage2" onClick={stopPropagation}> {/* Stop clicks from passing to the overlay */}
           <div className="allow-location">
-          Allow location access to report incidents accurately in your area
+            Allow location access to report incidents accurately in your area
           </div>
 
           <Button
