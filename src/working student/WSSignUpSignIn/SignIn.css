@@ -404,11 +404,18 @@
         top: 54%;
     }
     .SIContainer {
+        position: absolute;
         top: 67%;
         left: 52%;
-        transform: translateX(-50%);
+        transform: translateX(-50%); 
         width: 20%;
         height: auto;
+        transition: none;
+    }
+      
+    .SIContainer:hover {
+        transform: translateX(-50%) scale(1.05);
+        transition: transform 0.3s ease;
     }
     .SIButton {
         width: 100%;
@@ -540,13 +547,21 @@
     }
     
     .SIContainer {
+        position: absolute;
         top: 67%;
         left: 52%;
         transform: translateX(-50%);
         width: 20%;
         height: auto;
+        transition: none; 
     }
-    
+      
+      
+    .SIContainer {
+        width: 30%; 
+        transform: translateX(-50%); 
+        transition: none; 
+    }
     .SIButton {
         width: 100%;
         height: 40px;
