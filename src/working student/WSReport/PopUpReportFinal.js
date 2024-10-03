@@ -1,9 +1,9 @@
-
 import React, { useCallback, useState, useRef, useEffect } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./PopUpReportFinal.css";
 import PopUpConfirm from "./PopUpConfirm";
+
 const PopUpReportFinal = ({ onBack, onClose }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -21,30 +21,54 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   const fileInputRef = useRef(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+
   const hidePopUpReportFinal = useCallback(() => {
     setIsVisible(false);
     if (onClose) onClose();
   }, [onClose]);
+
   const handleConfirm = useCallback(() => {
     hidePopUpReportFinal();
     navigate("/wsreport");
   }, [hidePopUpReportFinal, navigate]);
+
   const validateInputs = () => {
     const errors = {};
-    if (formData.description.trim() === "") {
-      errors.description = "Description is required";
+    const descriptionEmpty = formData.description.trim() === "";
+    const locationEmpty = formData.location.address.trim() === "";
+    const imagesEmpty = formData.images.length === 0;
+    
+    const emptyFieldsCount = [descriptionEmpty, locationEmpty, imagesEmpty].filter(Boolean).length;
+  
+    if (emptyFieldsCount === 3) {
+      errors.general = "Please provide information regarding the incident.";
+    } else if (emptyFieldsCount === 2 || emptyFieldsCount === 1) {
+      if (emptyFieldsCount === 2) {
+        errors.general = "Please provide information regarding the incident.";
+      } else {
+        // Only one field is empty
+        if (descriptionEmpty) {
+          errors.description = "Please provide incident description.";
+        }
+        if (locationEmpty) {
+          errors.location = "Please provide your location.";
+        }
+        if (imagesEmpty) {
+          errors.images = "Please upload an image.";
+        }
+      }
     }
-    if (formData.location.address.trim() === "") {
-      errors.location = "Location is required";
-    }
+    
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
   };
+
   const onPopUpReportClick = useCallback(() => {
     if (validateInputs()) {
       setShowPopUpConfirm(true);
     }
   }, [formData]);
+
   const handleBack = useCallback(() => {
     if (onBack) {
       onBack();
@@ -52,6 +76,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       navigate("/wsreport");
     }
   }, [onBack, navigate]);
+
   const getUserLocation = async () => {
     if ("geolocation" in navigator) {
       try {
@@ -76,6 +101,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       setFormData(prev => ({ ...prev, location: { address: "Geolocation not supported", latitude: null, longitude: null } }));
     }
   };
+
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
     if (formData.images.length + files.length > 3) {
@@ -93,12 +119,15 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       fileInputRef.current.value = "";
     }
   };
+
   const removeImage = (id) => {
     setFormData(prev => ({ ...prev, images: prev.images.filter(image => image.id !== id) }));
   };
+
   const handleCameraClick = () => {
     setShowCameraPermission(true);
   };
+
   const handleCameraPermission = async (allow) => {
     setShowCameraPermission(false);
     if (allow) {
@@ -116,6 +145,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       }
     }
   };
+
   const captureImage = () => {
     if (videoRef.current && canvasRef.current && videoRef.current.videoWidth > 0) {
       const context = canvasRef.current.getContext('2d');
@@ -138,6 +168,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       setCameraError("Failed to capture image. Please try again.");
     }
   };
+
   useEffect(() => {
     return () => {
       if (videoRef.current && videoRef.current.srcObject) {
@@ -145,7 +176,9 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       }
     };
   }, [showCamera]);
+
   if (!isVisible) return null;
+
   return (
     <>
       <div className="PopUpReportFinalPage">
@@ -158,7 +191,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
             placeholder="Type here"
             rows="5"
           />
-          {validationErrors.description && <div className="error-message">{validationErrors.description}</div>}
         </div>
         <div className="Location-Container">
           <b className="t-name">Location</b>
@@ -168,7 +200,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
             onChange={(e) => setFormData(prev => ({ ...prev, location: { ...prev.location, address: e.target.value } }))}
             placeholder="Type here"
           />
-          {validationErrors.location && <div className="error-message">{validationErrors.location}</div>}
         </div>
         <img
           className="Choose-Location"
@@ -209,27 +240,51 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
           ))}
         </div>
         <Button
-          className="ReportFinal-next-button"
-          variant="contained"
-          sx={{
-            borderRadius: "10px",
-            width: 165,
-            height: 40,
-            backgroundColor: "#8A252C",
-            transition: "all 0.3s ease",
-            "&:hover, &:active": {
-              backgroundColor: "#A91D3A",
-              transform: "scale(1.05)",
-            },
-            "@media (max-width: 500px)": {
-              width: 140,
-              height: 36,
-            },
-          }}
-          onClick={onPopUpReportClick}
-        >
-          <span style={{ fontSize: "15px" }}>NEXT</span>
-        </Button>
+  className="ReportFinal-next-button"
+  variant="contained"
+  sx={{
+    position: 'absolute',
+    bottom: '60px',
+    left: '50%',
+    transform: 'translateX(-50%)',
+    borderRadius: "10px",
+    width: 165,
+    height: 40,
+    backgroundColor: "#8A252C",
+    transition: "all 0.3s ease",
+    "&:hover, &:active": {
+      backgroundColor: "#A91D3A",
+      transform: "translateX(-50%) scale(1.05)",
+    },
+    "@media (max-width: 500px)": {
+      width: 140,
+      height: 36,
+    },
+  }}
+  onClick={onPopUpReportClick}
+>
+  <span style={{ fontSize: "15px" }}>NEXT</span>
+</Button>
+
+{Object.keys(validationErrors).length > 0 && (
+  <div className="validation-errors-container">
+    {validationErrors.general ? (
+      <div className="error-message">{validationErrors.general}</div>
+    ) : (
+      <>
+        {validationErrors.description && (
+          <div className="error-message">{validationErrors.description}</div>
+        )}
+        {validationErrors.location && (
+          <div className="error-message">{validationErrors.location}</div>
+        )}
+        {validationErrors.images && (
+          <div className="error-message">{validationErrors.images}</div>
+        )}
+      </>
+    )}
+  </div>
+)}
         <div className="back-button-containerFR" onClick={handleBack}>
           <div className="back-bgFR" />
           <img className="back-iconFR" alt="Back" src="/back.png" />
@@ -259,6 +314,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     </>
   );
 };
+
 const CameraPermissionModal = ({ onAllow }) => (
   <div className="modal-overlay">
     <div className="modal-content camera-permission">
@@ -271,6 +327,7 @@ const CameraPermissionModal = ({ onAllow }) => (
     </div>
   </div>
 );
+
 const ImageLimitWarningModal = ({ onClose }) => (
   <div className="modal-overlay">
     <div className="modal-content image-limit-warning">
@@ -279,6 +336,7 @@ const ImageLimitWarningModal = ({ onClose }) => (
     </div>
   </div>
 );
+
 const CameraModal = ({ videoRef, canvasRef, onCapture, onClose, error }) => (
   <div className="camera-modal">
     <video 
@@ -293,4 +351,5 @@ const CameraModal = ({ videoRef, canvasRef, onCapture, onClose, error }) => (
     {error && <p className="error-message">{error}</p>}
   </div>
 );
+
 export default PopUpReportFinal;
