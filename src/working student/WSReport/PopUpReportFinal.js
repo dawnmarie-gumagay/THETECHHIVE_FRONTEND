@@ -19,8 +19,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   const [cameraError, setCameraError] = useState(null);
   const [validationErrors, setValidationErrors] = useState({});
   const fileInputRef = useRef(null);
-  const videoRef = useRef(null);
-  const canvasRef = useRef(null);
 
   const hidePopUpReportFinal = useCallback(() => {
     setIsVisible(false);
@@ -46,16 +44,9 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       if (emptyFieldsCount === 2) {
         errors.general = "Error: Incomplete Information Provided";
       } else {
-        // Only one field is empty
-        if (descriptionEmpty) {
-          errors.description = "It seems you're missing: Description. Please provide it to continue";
-        }
-        if (locationEmpty) {
-          errors.location = "It seems you're missing: Location. Please provide it to continue";
-        }
-        if (imagesEmpty) {
-          errors.images = "It seems you're missing: Image. Please provide it to continue";
-        }
+        if (descriptionEmpty) errors.description = "It seems you're missing: Description. Please provide it to continue";
+        if (locationEmpty) errors.location = "It seems you're missing: Location. Please provide it to continue";
+        if (imagesEmpty) errors.images = "It seems you're missing: Image. Please provide it to continue";
       }
     }
     
@@ -104,11 +95,10 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
-    const totalImages = formData.images.length + files.length;
-  
-    if (totalImages > 3) {
+    const remainingSlots = 3 - formData.images.length;
+    
+    if (files.length > remainingSlots) {
       setShowImageLimitWarning(true);
-      // Clear the file input
       if (fileInputRef.current) {
         fileInputRef.current.value = "";
       }
@@ -123,7 +113,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   
     setFormData(prev => ({ ...prev, images: [...prev.images, ...newImages] }));
     
-    // Clear the file input for next use
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
@@ -134,57 +123,47 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   };
 
   const handleCameraClick = () => {
-    setShowCameraPermission(true);
+    if (formData.images.length >= 3) {
+      setShowImageLimitWarning(true);
+    } else {
+      setShowCameraPermission(true);
+    }
   };
 
   const handleCameraPermission = async (allow) => {
     setShowCameraPermission(false);
     if (allow) {
-      try {
-        let stream = await navigator.mediaDevices.getUserMedia({ video: true });
-        if (videoRef.current) {
-          videoRef.current.srcObject = stream;
-          await videoRef.current.play();
-        }
-        setShowCamera(true);
-        setCameraError(null);
-      } catch (err) {
-        console.error("Error accessing camera:", err);
-        setCameraError(`Camera error: ${err.name} - ${err.message}`);
-      }
+      setShowCamera(true);
     }
   };
 
-  const captureImage = () => {
-    if (videoRef.current && canvasRef.current && videoRef.current.videoWidth > 0) {
-      const context = canvasRef.current.getContext('2d');
-      canvasRef.current.width = videoRef.current.videoWidth;
-      canvasRef.current.height = videoRef.current.videoHeight;
-      context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
-      canvasRef.current.toBlob((blob) => {
-        const newImage = {
-          file: blob,
-          preview: URL.createObjectURL(blob),
-          id: Date.now() + Math.random()
-        };
-        setFormData(prev => ({ ...prev, images: [...prev.images, newImage] }));
-      }, 'image/jpeg');
+  const handleCaptureImage = (image) => {
+    if (formData.images.length >= 3) {
+      setShowImageLimitWarning(true);
       setShowCamera(false);
-      if (videoRef.current.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-      }
-    } else {
-      setCameraError("Failed to capture image. Please try again.");
+      return;
     }
+
+    const newImage = {
+      file: dataURLtoFile(image, 'capture.png'),
+      preview: image,
+      id: Date.now() + Math.random()
+    };
+    setFormData(prev => ({ ...prev, images: [...prev.images, newImage] }));
+    setShowCamera(false);
   };
 
-  useEffect(() => {
-    return () => {
-      if (videoRef.current && videoRef.current.srcObject) {
-        videoRef.current.srcObject.getTracks().forEach(track => track.stop());
-      }
-    };
-  }, [showCamera]);
+  function dataURLtoFile(dataurl, filename) {
+    let arr = dataurl.split(','),
+        mime = arr[0].match(/:(.*?);/)[1],
+        bstr = atob(arr[1]), 
+        n = bstr.length, 
+        u8arr = new Uint8Array(n);
+    while(n--){
+        u8arr[n] = bstr.charCodeAt(n);
+    }
+    return new File([u8arr], filename, {type:mime});
+  }
 
   if (!isVisible) return null;
 
@@ -249,51 +228,50 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
           ))}
         </div>
         <Button
-  className="ReportFinal-next-button"
-  variant="contained"
-  sx={{
-    position: 'absolute',
-    bottom: '60px',
-    left: '50%',
-    transform: 'translateX(-50%)',
-    borderRadius: "10px",
-    width: 165,
-    height: 40,
-    backgroundColor: "#8A252C",
-    transition: "all 0.3s ease",
-    "&:hover, &:active": {
-      backgroundColor: "#A91D3A",
-      transform: "translateX(-50%) scale(1.05)",
-    },
-    "@media (max-width: 500px)": {
-      width: 140,
-      height: 36,
-    },
-  }}
-  onClick={onPopUpReportClick}
->
-  <span style={{ fontSize: "15px" }}>NEXT</span>
-</Button>
-
-{Object.keys(validationErrors).length > 0 && (
-  <div className="validation-errors-container">
-    {validationErrors.general ? (
-      <div className="error-message">{validationErrors.general}</div>
-    ) : (
-      <>
-        {validationErrors.description && (
-          <div className="error-message">{validationErrors.description}</div>
+          className="ReportFinal-next-button"
+          variant="contained"
+          sx={{
+            position: 'absolute',
+            bottom: '60px',
+            left: '50%',
+            transform: 'translateX(-50%)',
+            borderRadius: "10px",
+            width: 165,
+            height: 40,
+            backgroundColor: "#8A252C",
+            transition: "all 0.3s ease",
+            "&:hover, &:active": {
+              backgroundColor: "#A91D3A",
+              transform: "translateX(-50%) scale(1.05)",
+            },
+            "@media (max-width: 500px)": {
+              width: 140,
+              height: 36,
+            },
+          }}
+          onClick={onPopUpReportClick}
+        >
+          <span style={{ fontSize: "15px" }}>NEXT</span>
+        </Button>
+        {Object.keys(validationErrors).length > 0 && (
+          <div className="validation-errors-container">
+            {validationErrors.general ? (
+              <div className="error-message">{validationErrors.general}</div>
+            ) : (
+              <>
+                {validationErrors.description && (
+                  <div className="error-message">{validationErrors.description}</div>
+                )}
+                {validationErrors.location && (
+                  <div className="error-message">{validationErrors.location}</div>
+                )}
+                {validationErrors.images && (
+                  <div className="error-message">{validationErrors.images}</div>
+                )}
+              </>
+            )}
+          </div>
         )}
-        {validationErrors.location && (
-          <div className="error-message">{validationErrors.location}</div>
-        )}
-        {validationErrors.images && (
-          <div className="error-message">{validationErrors.images}</div>
-        )}
-      </>
-    )}
-  </div>
-)}
         <div className="back-button-containerFR" onClick={handleBack}>
           <div className="back-bgFR" />
           <img className="back-iconFR" alt="Back" src="/back.png" />
@@ -307,11 +285,8 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       )}
       {showCamera && (
         <CameraModal
-          videoRef={videoRef}
-          canvasRef={canvasRef}
-          onCapture={captureImage}
+          onCapture={handleCaptureImage}
           onClose={() => setShowCamera(false)}
-          error={cameraError}
         />
       )}
       {showPopUpConfirm && (
@@ -346,19 +321,67 @@ const ImageLimitWarningModal = ({ onClose }) => (
   </div>
 );
 
-const CameraModal = ({ videoRef, canvasRef, onCapture, onClose, error }) => (
-  <div className="camera-modal">
-    <video 
-      ref={videoRef} 
-      autoPlay 
-      playsInline 
-      style={{ background: 'black', width: '100%', maxWidth: '640px' }}
-    />
-    <canvas ref={canvasRef} style={{ display: 'none' }} />
-    <button onClick={onCapture}>Capture</button>
-    <button onClick={onClose}>Close</button>
-    {error && <p className="error-message">{error}</p>}
-  </div>
-);
+const CameraModal = ({ onCapture, onClose }) => {
+  const videoRef = useRef(null);
+  const canvasRef = useRef(null);
+  const [error, setError] = useState(null);
+  const [stream, setStream] = useState(null);
+
+  useEffect(() => {
+    const startCamera = async () => {
+      try {
+        const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
+        setStream(mediaStream);
+        if (videoRef.current) {
+          videoRef.current.srcObject = mediaStream;
+        }
+      } catch (err) {
+        setError('Unable to access the camera. Please check your permissions.');
+        console.error('Error accessing camera:', err);
+      }
+    };
+
+    startCamera();
+
+    return () => {
+      if (stream) {
+        stream.getTracks().forEach(track => track.stop());
+      }
+    };
+  }, []);
+
+  const handleCapture = () => {
+    if (canvasRef.current && videoRef.current) {
+      const context = canvasRef.current.getContext('2d');
+      canvasRef.current.width = videoRef.current.videoWidth;
+      canvasRef.current.height = videoRef.current.videoHeight;
+      context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
+      const image = canvasRef.current.toDataURL('image/png');
+      onCapture(image);
+    }
+  };
+
+  return (
+    <div className="camera-modal">
+      <div className="camera-feed-container">
+        {error ? (
+          <p className="error-message">{error}</p>
+        ) : (
+          <video 
+            ref={videoRef} 
+            autoPlay 
+            playsInline 
+            style={{ width: '100%', maxWidth: '640px', borderRadius: '10px' }}
+          />
+        )}
+      </div>
+      <canvas ref={canvasRef} style={{ display: 'none' }} />
+      <div className="camera-controls">
+        <button onClick={handleCapture} className="capture-button">Capture</button>
+        <button onClick={onClose} className="close-button">X</button>
+      </div>
+    </div>
+  );
+};
 
 export default PopUpReportFinal;
