@@ -41,20 +41,20 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     const emptyFieldsCount = [descriptionEmpty, locationEmpty, imagesEmpty].filter(Boolean).length;
   
     if (emptyFieldsCount === 3) {
-      errors.general = "Please provide information regarding the incident.";
+      errors.general = "Missing: description, location, image. Please provide to continue";
     } else if (emptyFieldsCount === 2 || emptyFieldsCount === 1) {
       if (emptyFieldsCount === 2) {
-        errors.general = "Please provide information regarding the incident.";
+        errors.general = "Error: Incomplete Information Provided";
       } else {
         // Only one field is empty
         if (descriptionEmpty) {
-          errors.description = "Please provide incident description.";
+          errors.description = "It seems you're missing: Description. Please provide it to continue";
         }
         if (locationEmpty) {
-          errors.location = "Please provide your location.";
+          errors.location = "It seems you're missing: Location. Please provide it to continue";
         }
         if (imagesEmpty) {
-          errors.images = "Please upload an image.";
+          errors.images = "It seems you're missing: Image. Please provide it to continue";
         }
       }
     }
@@ -188,7 +188,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
             className={`Description-Input ${validationErrors.description ? 'error' : ''}`}
             value={formData.description}
             onChange={(e) => setFormData(prev => ({ ...prev, description: e.target.value }))}
-            placeholder="Type here"
+            placeholder="What happened?"
             rows="5"
           />
         </div>
@@ -198,7 +198,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
             className={`Location-Input ${validationErrors.location ? 'error' : ''}`}
             value={formData.location.address}
             onChange={(e) => setFormData(prev => ({ ...prev, location: { ...prev.location, address: e.target.value } }))}
-            placeholder="Type here"
+            placeholder="Where it happened?"
           />
         </div>
         <img
