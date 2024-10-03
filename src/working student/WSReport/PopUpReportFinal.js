@@ -16,7 +16,6 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   const [showCameraPermission, setShowCameraPermission] = useState(false);
   const [showImageLimitWarning, setShowImageLimitWarning] = useState(false);
   const [showCamera, setShowCamera] = useState(false);
-  const [cameraError, setCameraError] = useState(null);
   const [validationErrors, setValidationErrors] = useState({});
   const fileInputRef = useRef(null);
 
@@ -232,6 +231,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
           variant="contained"
           sx={{
             position: 'absolute',
+            top: '580px',
             bottom: '60px',
             left: '50%',
             transform: 'translateX(-50%)',
@@ -324,45 +324,66 @@ const ImageLimitWarningModal = ({ onClose }) => (
 const CameraModal = ({ onCapture, onClose }) => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
+  const streamRef = useRef(null);
   const [error, setError] = useState(null);
-  const [stream, setStream] = useState(null);
 
   useEffect(() => {
-    const startCamera = async () => {
-      try {
-        const mediaStream = await navigator.mediaDevices.getUserMedia({ video: true });
-        setStream(mediaStream);
-        if (videoRef.current) {
-          videoRef.current.srcObject = mediaStream;
-        }
-      } catch (err) {
-        setError('Unable to access the camera. Please check your permissions.');
-        console.error('Error accessing camera:', err);
-      }
-    };
-
     startCamera();
-
-    return () => {
-      if (stream) {
-        stream.getTracks().forEach(track => track.stop());
-      }
-    };
+    return () => stopCamera();
   }, []);
+
+  const startCamera = async () => {
+    try {
+      const mediaStream = await navigator.mediaDevices.getUserMedia({ 
+        video: { facingMode: "user" }
+      });
+      streamRef.current = mediaStream;
+      if (videoRef.current) {
+        videoRef.current.srcObject = mediaStream;
+      }
+    } catch (err) {
+      setError('Unable to access the camera. Please check your permissions.');
+      console.error('Error accessing camera:', err);
+    }
+  };
+
+  const stopCamera = () => {
+    if (streamRef.current) {
+      streamRef.current.getTracks().forEach(track => track.stop());
+      if (videoRef.current) {
+        videoRef.current.srcObject = null;
+      }
+    }
+  };
 
   const handleCapture = () => {
     if (canvasRef.current && videoRef.current) {
       const context = canvasRef.current.getContext('2d');
       canvasRef.current.width = videoRef.current.videoWidth;
       canvasRef.current.height = videoRef.current.videoHeight;
+      
+      // Flip the image horizontally when capturing
+      context.translate(canvasRef.current.width, 0);
+      context.scale(-1, 1);
+      
       context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
+      
+      // Reset the transform
+      context.setTransform(1, 0, 0, 1, 0, 0);
+      
       const image = canvasRef.current.toDataURL('image/png');
       onCapture(image);
     }
   };
 
+  const handleClose = () => {
+    stopCamera();
+    onClose();
+  };
+
   return (
     <div className="camera-modal">
+      <button onClick={handleClose} className="camera-close-button">X</button>
       <div className="camera-feed-container">
         {error ? (
           <p className="error-message">{error}</p>
@@ -371,14 +392,16 @@ const CameraModal = ({ onCapture, onClose }) => {
             ref={videoRef} 
             autoPlay 
             playsInline 
-            style={{ width: '100%', maxWidth: '640px', borderRadius: '10px' }}
           />
         )}
       </div>
       <canvas ref={canvasRef} style={{ display: 'none' }} />
       <div className="camera-controls">
-        <button onClick={handleCapture} className="capture-button">Capture</button>
-        <button onClick={onClose} className="close-button">X</button>
+        <button onClick={handleCapture} className="camera-capture-button">
+          <div className="camera-capture-circle">
+            <img src="/cam2.png" alt="Capture" className="camera-capture-icon" />
+          </div>
+        </button>
       </div>
     </div>
   );
