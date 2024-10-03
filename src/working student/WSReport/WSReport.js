@@ -1,8 +1,7 @@
-import React, { useCallback, useState } from "react";
-import { useNavigate } from "react-router-dom";
+import React, { useCallback, useState, useEffect } from "react";
+import { useNavigate, useLocation } from "react-router-dom";
 import Loadable from 'react-loadable';
 import "./WSReport.css";
-
 
 const PopUpPermissionLoc = Loadable({
   loader: () => import('./PopUpPermissionLoc'),
@@ -11,11 +10,21 @@ const PopUpPermissionLoc = Loadable({
 
 const WSReport = () => {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isPopupVisible, setPopupVisible] = useState(false);
 
   const togglePopup = useCallback(() => {
-    setPopupVisible(!isPopupVisible);
-  }, [isPopupVisible]);
+    setPopupVisible(prev => !prev);
+  }, []);
+
+  const closePopup = useCallback(() => {
+    setPopupVisible(false);
+  }, []);
+
+  useEffect(() => {
+    // Close popup when location changes
+    return () => setPopupVisible(false);
+  }, [location]);
 
   const onHomeTextClick = useCallback(() => {
     navigate("/wshomepage");
@@ -67,9 +76,9 @@ const WSReport = () => {
       </div>
       
       {isPopupVisible && (
-        <div className="overlay" onClick={togglePopup}>
+        <div className="overlay" onClick={closePopup}>
           <div className="overlay-content" onClick={(e) => e.stopPropagation()}>
-            <PopUpPermissionLoc onClose={togglePopup} />
+            <PopUpPermissionLoc onClose={closePopup} />
           </div>
         </div>
       )}

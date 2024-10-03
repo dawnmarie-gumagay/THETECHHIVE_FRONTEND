@@ -9,7 +9,6 @@ const PopUpPermissionLoc = () => {
 
   const handleDeny = useCallback(() => {
     console.log("Deny button clicked");
-    // Close the permission popup and show the final report popup
     setShowPermissionPopup(false);
     setShowFinalPopup(true);
   }, []);
@@ -20,15 +19,11 @@ const PopUpPermissionLoc = () => {
     setShowFinalPopup(true);
   }, []);
 
-  // Prevent background clicks by stopping event propagation
-  const stopPropagation = (e) => {
-    e.stopPropagation();
-  };
 
   return (
-    <div className="overlay"> {/* Add an overlay that prevents background interactions */}
+    <div className="overlay">
       {showPermissionPopup && (
-        <div className="PermissionPage2" onClick={stopPropagation}> {/* Stop clicks from passing to the overlay */}
+        <div className="PermissionPage2">
           <div className="allow-location">
             Allow location access to report incidents accurately in your area
           </div>
@@ -43,11 +38,12 @@ const PopUpPermissionLoc = () => {
               backgroundColor: "#8A252C",
               "&:hover": { backgroundColor: "#A91D3A" }
             }}
-            onClick={handleDeny} // Update DENY button action
+            onClick={handleDeny}
           >
             DENY
           </Button>
 
+          
           <Button
             className="permission-allow-button2"
             variant="contained"
@@ -67,7 +63,7 @@ const PopUpPermissionLoc = () => {
         </div>
       )}
 
-      {showFinalPopup && <PopUpReportFinal />} {/* Show PopUpReportFinal */}
+      {showFinalPopup && <PopUpReportFinal />}
     </div>
   );
 };

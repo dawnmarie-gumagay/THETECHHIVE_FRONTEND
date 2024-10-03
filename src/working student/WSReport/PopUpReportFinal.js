@@ -59,13 +59,12 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     }
   }, [formData]);
 
+  // Function to handle back button press
   const handleBack = useCallback(() => {
-    if (onBack) {
-      onBack();
-    } else {
-      navigate("/wsreport");
-    }
-  }, [onBack, navigate]);
+    setIsVisible(false); // Hide the pop-up
+    navigate("/wsreport"); // Navigate back to the wsreport page
+  }, [navigate]);
+
 
   const getUserLocation = async () => {
     if ("geolocation" in navigator) {
