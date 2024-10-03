@@ -3,16 +3,16 @@ import { Button } from "@mui/material";
 import PopUpReportFinal from "./PopUpReportFinal"; // Import PopUpReportFinal component
 import "./PopUpPermissionLoc.css";
 
-const PopUpPermissionLoc = ({ onClose }) => { 
+const PopUpPermissionLoc = () => { 
   const [showFinalPopup, setShowFinalPopup] = useState(false);
   const [showPermissionPopup, setShowPermissionPopup] = useState(true);
 
-  const handleCancel = useCallback(() => {
+  const handleDeny = useCallback(() => {
     console.log("Deny button clicked");
-    if (onClose) {
-      onClose();
-    }
-  }, [onClose]);
+    // Close the permission popup and show the final report popup
+    setShowPermissionPopup(false);
+    setShowFinalPopup(true);
+  }, []);
 
   const handleAllow = useCallback(() => {
     console.log("Allow button clicked");
@@ -43,12 +43,11 @@ const PopUpPermissionLoc = ({ onClose }) => {
               backgroundColor: "#8A252C",
               "&:hover": { backgroundColor: "#A91D3A" }
             }}
-            onClick={handleCancel}
+            onClick={handleDeny} // Update DENY button action
           >
             DENY
           </Button>
 
-          
           <Button
             className="permission-allow-button2"
             variant="contained"
@@ -68,7 +67,7 @@ const PopUpPermissionLoc = ({ onClose }) => {
         </div>
       )}
 
-      {showFinalPopup && <PopUpReportFinal onBack={handleCancel} />} {/* Pass handleCancel to PopUpReportFinal */}
+      {showFinalPopup && <PopUpReportFinal />} {/* Show PopUpReportFinal */}
     </div>
   );
 };
