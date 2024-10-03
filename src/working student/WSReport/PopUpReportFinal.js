@@ -104,17 +104,26 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
 
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
-    if (formData.images.length + files.length > 3) {
+    const totalImages = formData.images.length + files.length;
+  
+    if (totalImages > 3) {
       setShowImageLimitWarning(true);
+      // Clear the file input
+      if (fileInputRef.current) {
+        fileInputRef.current.value = "";
+      }
       return;
     }
+  
     const newImages = files.map(file => ({
       file,
       preview: URL.createObjectURL(file),
       id: Date.now() + Math.random()
     }));
+  
     setFormData(prev => ({ ...prev, images: [...prev.images, ...newImages] }));
     
+    // Clear the file input for next use
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
