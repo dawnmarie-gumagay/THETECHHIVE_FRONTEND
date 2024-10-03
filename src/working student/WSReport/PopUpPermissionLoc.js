@@ -8,7 +8,7 @@ const PopUpPermissionLoc = ({ onClose }) => {
   const [showPermissionPopup, setShowPermissionPopup] = useState(true);
 
   const handleCancel = useCallback(() => {
-    console.log("Cancel button clicked");
+    console.log("Deny button clicked");
     if (onClose) {
       onClose();
     }
@@ -34,7 +34,7 @@ const PopUpPermissionLoc = ({ onClose }) => {
           </div>
 
           <Button
-            className="permission-cancel-button2"
+            className="permission-deny-button2"
             variant="contained"
             sx={{
               borderRadius: "10px",
@@ -45,9 +45,10 @@ const PopUpPermissionLoc = ({ onClose }) => {
             }}
             onClick={handleCancel}
           >
-            CANCEL
+            DENY
           </Button>
 
+          
           <Button
             className="permission-allow-button2"
             variant="contained"

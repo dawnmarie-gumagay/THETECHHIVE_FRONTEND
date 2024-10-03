@@ -305,7 +305,7 @@ const CameraPermissionModal = ({ onAllow }) => (
       <h2>Please allow access to your camera</h2>
       <img src="/camera.png" alt="Camera" className="camera-icon" />
       <div className="button-container">
-        <button onClick={() => onAllow(false)} className="cancel-button">CANCEL</button>
+        <button onClick={() => onAllow(false)} className="cancel-button">DENY</button>
         <button onClick={() => onAllow(true)} className="allow-button">ALLOW</button>
       </div>
     </div>
