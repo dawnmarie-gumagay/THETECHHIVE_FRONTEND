@@ -329,7 +329,7 @@ const CameraModal = ({ onCapture, onClose }) => {
 
   useEffect(() => {
     startCamera();
-    return () => stopCamera();
+    return () => stopCamera(); // Ensure camera is stopped when component unmounts
   }, []);
 
   const startCamera = async () => {
@@ -349,10 +349,14 @@ const CameraModal = ({ onCapture, onClose }) => {
 
   const stopCamera = () => {
     if (streamRef.current) {
-      streamRef.current.getTracks().forEach(track => track.stop());
+      const tracks = streamRef.current.getTracks();
+      tracks.forEach(track => {
+        track.stop();
+      });
       if (videoRef.current) {
         videoRef.current.srcObject = null;
       }
+      streamRef.current = null;
     }
   };
 
@@ -362,22 +366,21 @@ const CameraModal = ({ onCapture, onClose }) => {
       canvasRef.current.width = videoRef.current.videoWidth;
       canvasRef.current.height = videoRef.current.videoHeight;
       
-      // Flip the image horizontally when capturing
       context.translate(canvasRef.current.width, 0);
       context.scale(-1, 1);
       
       context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
       
-      // Reset the transform
       context.setTransform(1, 0, 0, 1, 0, 0);
       
       const image = canvasRef.current.toDataURL('image/png');
+      stopCamera(); // Stop camera before closing
       onCapture(image);
     }
   };
 
   const handleClose = () => {
-    stopCamera();
+    stopCamera(); // Stop camera before closing
     onClose();
   };
 
