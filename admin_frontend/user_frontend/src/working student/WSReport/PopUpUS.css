@@ -1,0 +1,167 @@
+.PopUpUSPage {
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #fdfbc9 54%, #f9d67b);
+  width: 585px;
+  height: 717px;
+  color: #8a252c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.back-button-containerUS {
+  position: absolute;
+  top: -15px; /* Adjust this value to move the button further up */
+  left: -10px;
+  width: 64px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.back-bgUS {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #8a252c;
+  width: 70%;
+  height: 70%;
+}
+.back-iconUS {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 27.6px;
+  height: 27.4px;
+  cursor: pointer;
+}
+.back-button-containerUS:hover {
+   transform: scale(1.0);
+}
+
+.US-Container {
+  position: absolute;
+  top: 45px;
+  left: 48px;
+  width: 467px;
+  height: 392px;
+}
+
+.Urgent-Situation-Name {
+  position: absolute;
+  top: 0;
+  left: 117px;
+  font-size: 28px;
+  font-weight: 600;
+  display: inline-block;
+  width: 350px;
+  height: 30px;
+}
+
+.PA-Container2 {
+  position: absolute;
+  top: 91px;
+  left: 0;
+  font-size: 20px;
+  width: 351px;
+  height: 25px;
+}
+.Physical-Accidents-US {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 315px;
+  height: 23px;
+}
+.radio-container2 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.LA-Container2 {
+  position: absolute;
+  top: 160px;
+  left: 0;
+  font-size: 20px;
+  width: 308px;
+  height: 25px;
+}
+.Laboratory-Accidents-US {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 272px;
+  height: 23px;
+}
+
+
+.VA-Container {
+  position: absolute;
+  top: 229px;
+  left: 0;
+  font-size: 20px;
+  width: 301px;
+  height: 25px;
+}
+.Vehicle-Accidents-US {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 265px;
+  height: 23px;
+}
+
+
+.ER-Container {
+  position: absolute;
+  top: 298px;
+  left: 0;
+  font-size: 20px;
+  width: 346px;
+  height: 25px;
+}
+.Equipment-Related-Accidents-US {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 310px;
+  height: 23px;
+}
+  
+
+.FR-Container2 {
+  position: absolute;
+  top: 367px;
+  left: 0;
+  font-size: 20px;
+  width: 302px;
+  height: 25px;
+}
+.Facility-Related-Accidents-US {
+  position: absolute;
+  top: 1px;
+  left: 36px;
+  display: inline-block;
+  width: 266px;
+  height: 23px;
+}
+
+
+.US-next-button {
+  position: absolute;
+  top: 570px;
+  left: 180px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  mix-blend-mode: normal;
+  cursor: pointer;
+}
