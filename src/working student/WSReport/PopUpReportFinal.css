@@ -375,7 +375,7 @@
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #fdfbc9;
+  background-color: #f9d67b;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
@@ -391,8 +391,8 @@
   position: absolute;
   top: 10px;
   right: 10px;
-  background-color: #8A252C;
-  color: white;
+  background-color: #fdfbc9;
+  color: black;
   border: none;
   border-radius: 50%;
   width: 30px;
@@ -401,12 +401,13 @@
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  font-weight: bold;
+  font-weight: bolder;
   z-index: 1;
 }
 
 .camera-close-button:hover {
-  background-color: #f9d67b;
+  background-color: #8A252C;
+  color: whitesmoke;
 }
 
 .camera-feed-container {
@@ -437,7 +438,7 @@
 .camera-capture-circle {
   width: 70px;
   height: 70px;
-  background-color: white;
+  background-color:  #fdfbc9;
   border-radius: 50%;
   display: flex;
   justify-content: center;

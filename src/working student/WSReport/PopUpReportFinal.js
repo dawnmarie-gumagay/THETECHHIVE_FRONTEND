@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 import "./PopUpReportFinal.css";
 import PopUpConfirm from "./PopUpConfirm";
 
+const IPSTACK_API_KEY = '0c8e5f05b9540853d776dd42254ca091';
+
 const PopUpReportFinal = ({ onBack, onClose }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
@@ -59,35 +61,25 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     }
   }, [formData]);
 
-  // Function to handle back button press
   const handleBack = useCallback(() => {
-    setIsVisible(false); // Hide the pop-up
-    navigate("/wsreport"); // Navigate back to the wsreport page
+    setIsVisible(false);
+    navigate("/wsreport");
   }, [navigate]);
 
-
   const getUserLocation = async () => {
-    if ("geolocation" in navigator) {
-      try {
-        const position = await new Promise((resolve, reject) => {
-          navigator.geolocation.getCurrentPosition(resolve, reject);
-        });
-        const { latitude, longitude } = position.coords;
-        const response = await fetch(`https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=YOUR_GOOGLE_MAPS_API_KEY`);
-        const data = await response.json();
-        if (data.status === "OK") {
-          const address = data.results[0].formatted_address;
-          setFormData(prev => ({ ...prev, location: { address, latitude, longitude } }));
-        } else {
-          throw new Error("Geocoding failed: " + data.status);
-        }
-      } catch (error) {
-        console.error("Error getting location:", error);
-        setFormData(prev => ({ ...prev, location: { address: "Error getting location", latitude: null, longitude: null } }));
+    try {
+      const response = await fetch(`http://api.ipstack.com/check?access_key=${IPSTACK_API_KEY}`);
+      const data = await response.json();
+      if (data.success !== false) {
+        const { latitude, longitude, city, region_name, country_name } = data;
+        const address = `${city}, ${region_name}, ${country_name}`;
+        setFormData(prev => ({ ...prev, location: { address, latitude, longitude } }));
+      } else {
+        throw new Error("Geolocation failed: " + data.error.info);
       }
-    } else {
-      console.error("Geolocation is not supported by this browser.");
-      setFormData(prev => ({ ...prev, location: { address: "Geolocation not supported", latitude: null, longitude: null } }));
+    } catch (error) {
+      console.error("Error getting location:", error);
+      setFormData(prev => ({ ...prev, location: { address: "Error getting location", latitude: null, longitude: null } }));
     }
   };
 
