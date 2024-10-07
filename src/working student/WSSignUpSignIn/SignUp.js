@@ -12,15 +12,35 @@ const SignUp = () => {
   const [passwordValue, setPasswordValue] = useState("");
   const [confirmPasswordValue, setConfirmPasswordValue] = useState("");
   const [idError, setIdError] = useState("");
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [isConfirmationModalOpen, setIsConfirmationModalOpen] = useState(false);
+
+  const openModal = (message) => {
+    setModalMessage(message);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+  };
+
+  const openConfirmationModal = () => {
+    setIsConfirmationModalOpen(true);
+  };
+
+  const closeConfirmationModal = () => {
+    setIsConfirmationModalOpen(false);
+  };
 
   const onSignUpButtonClick = async () => {
     if (!fullNameValue || !emailValue || !usernameValue || !idNumberValue || !passwordValue || !confirmPasswordValue) {
-      alert("All fields are required.");
+      openModal("All fields are required.");
       return;
     }
 
     if (passwordValue !== confirmPasswordValue) {
-      alert("Password and confirm password do not match.");
+      openModal("Password and confirm password do not match.");
       return;
     }
 
@@ -28,35 +48,38 @@ const SignUp = () => {
     const isPasswordValid = passwordRegex.test(passwordValue);
 
     if (!isPasswordValid) {
-      alert("Password must have a minimum of 8 characters, a combination of uppercase and lowercase letters, with special character/s.");
+      openModal("Password must have a minimum of 8 characters, including a combination of uppercase and lowercase letters, and at least one special character.");
       return;
     }
 
     const idPattern = /^[0-9]{2}-[0-9]{4}-[0-9]{3}$/;
     if (!idPattern.test(idNumberValue)) {
-      alert("ID Number format should be YY-NNNN-NNN");
+      openModal("ID number format should be YY-NNNN-NNN.");
       return;
     }
 
-    const confirmed = window.confirm("Are you sure you want to sign up?");
+    openConfirmationModal();
+  };
+
+  const handleConfirmSignUp = async () => {
+    closeConfirmationModal();
+
+    try {
+      const response = await axios.post("http://localhost:8080/user/insertUser", {
+        fullName: fullNameValue,
+        email: emailValue,
+        username: usernameValue,
+        idNumber: idNumberValue,
+        password: passwordValue,
+        isAdmin: false
+      });
   
-    if (confirmed) {
-      try {
-        const response = await axios.post("http://localhost:8080/user/insertUser", {
-          fullName: fullNameValue,
-          email: emailValue,
-          username: usernameValue,
-          idNumber: idNumberValue,
-          password: passwordValue,
-          isAdmin: false
-        });
-    
-        if (response.status === 200) {
-          navigate("/successfullyregistered");
-        }
-      } catch (error) {
-        console.error("Signup Error:", error);
+      if (response.status === 200) {
+        navigate("/successfullyregistered");
       }
+    } catch (error) {
+      console.error("Signup Error:", error);
+      openModal("An error occurred during sign up. Please try again.");
     }
   };
 
@@ -147,7 +170,6 @@ const SignUp = () => {
         type="text"
         value={idNumberValue}
         onChange={handleIdNumberChange}
-        
       />
       {idError && <p className="error-message">{idError}</p>}
 
@@ -176,6 +198,27 @@ const SignUp = () => {
       <div className="q2" onClick={onSIGNINClick}>
         Sign In
       </div>
+
+      {isModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>{modalMessage}</p>
+            <button className="modal-ok" onClick={closeModal}>OK</button>
+          </div>
+        </div>
+      )}
+
+      {isConfirmationModalOpen && (
+        <div className="modal-overlay">
+          <div className="modal-content">
+            <p>Are you sure you want to sign up?</p>
+            <div className="modal-buttons">
+              <button className="modal-confirm" onClick={handleConfirmSignUp}>YES</button>
+              <button className="modal-cancel" onClick={closeConfirmationModal}>NO</button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
