@@ -30,6 +30,7 @@
   opacity: 0.95;
   mix-blend-mode: normal;
 }
+
 .WSProfileUser {
   position: absolute;
   object-fit: cover;
@@ -39,6 +40,7 @@
   width: 157px;
   height: 152px;
 }
+
 .WSProfileBadge {
   position: absolute;
   top: 265px;
@@ -50,9 +52,9 @@
 
 .WSID, .WSName, .WSPoints, .WSEdu {
   position: absolute;
-  left: 190px; /* Adjust this value as needed */
-  width: 350px; /* Set a fixed width for the text area */
-  text-align: center; /* Center the text within the area */
+  left: 190px;
+  width: 350px;
+  text-align: center;
 }
 
 .WSID {
@@ -133,7 +135,6 @@
   opacity: 1;
 }
 
-
 .PasswordGroup {
   position: absolute;
   top: 210px;
@@ -141,6 +142,7 @@
   width: 625px;
   height: 333px;
 }
+
 .PasswordBox {
   position: absolute;
   top: 0;
@@ -151,6 +153,7 @@
   width: 625px;
   height: 333px;
 }
+
 .PasswordName {
   position: absolute;
   left: 45px;
@@ -161,6 +164,7 @@
   font-size: 22px;
   width: 113px;
 }
+
 .OldPass,
 .NewPass {
   position: absolute;
@@ -172,9 +176,11 @@
   display: inline-block;
   height: 32.3px;
 }
+
 .NewPass {
   top: 181.5px;
 }
+
 .OldPassInput {
   position: absolute;
   top: 320px;
@@ -199,7 +205,7 @@
 
 .edit {
   position: absolute;
-  top: 475px;
+  top: 455px;
   left: 1040px;
   display: inline-block;
   font-size: 20px;
@@ -222,8 +228,6 @@
   color: white;
 }
 
-
-
 .popup-overlay {
   position: fixed;
   top: 0;
@@ -242,10 +246,34 @@
   background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
   padding: 10px;
   border-radius: 5px;
-  color: #8a252c; /* Optional: to make the text color stand out */
+  color: #8a252c;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
+/* New styles for profile update success modal */
+.profile-update-success-modal {
+  background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
+  padding: 30px;
+  border-radius: 15px;
+  text-align: center;
+  max-width: 400px;
+  width: 90%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.profile-update-success-modal h2 {
+  color: #8a252c;
+  font-weight: bold;
+  margin-bottom: 20px;
+  font-size: 24px;
+}
+
+.profile-update-success-modal p {
+  color: black;
+  font-weight: bold;
+  margin-bottom: 25px;
+  font-size: 18px;
+}
 
 @media (max-width: 768px) {
   .WSTitleP {
@@ -341,12 +369,7 @@
   .OldPassInput{ top: 310px; left: 51% !important; height: 28px !important;}
   .NewPassInput{ top: 410px !important; left: 51% !important; height: 28px !important;}
 
-  .UpdateButton{
-    width: 110px !important;
-    height: 25px !important;
-    font-size: 15px !important;
-  }
-  .CancelButton {
+  .UpdateButton, .CancelButton {
     width: 110px !important;
     height: 25px !important;
     font-size: 15px !important;
@@ -362,19 +385,25 @@
   .edit{ left: 68% !important;}
   .UpdateContainer{ left: 77.5% !important;}
 
-  .upload-img-bg {
-    top: 165px !important;
-    left: 225px !important;
+  .profile-update-success-modal {
+    width: 80%;
+    padding: 20px;
   }
-  
+
+  .profile-update-success-modal h2 {
+    font-size: 20px;
+  }
+
+  .profile-update-success-modal p {
+    font-size: 16px;
+  }
 }
-
-
 
 @media (max-width: 500px) {
   .ws-profile {
     height: 130vh !important;
   }
+  
   .WSTitleP {
     position: fixed !important;
     display: inline-block !important;
@@ -388,7 +417,6 @@
     top: 25% !important;
     width: 45% !important;
     height: 56% !important;
-
   }
 
   .WSProfileUser {
@@ -402,7 +430,6 @@
     left: 25% !important;
     width: 17% !important;
     height: 10.2% !important;
-    z-index: 10 !important;
   }
 
   .WSProfileBadge {
@@ -425,7 +452,6 @@
     padding: 5px !important;
     top: 450px !important;
     left: 23% !important;
-    transform: translateX(-50%) !important;
   }
 
   .PasswordGroup {
@@ -439,18 +465,12 @@
     padding: 20px !important;
   }
 
-  .PasswordName, .OldPass, .NewPass {
-    left: 25px !important;
-    margin-bottom: 15px !important;
-  }
-
   .PasswordName{ top: 28% !important; font-size: 16px !important;}
   .OldPass{ top: 43% !important; font-size: 14px !important;}
   .NewPass{ top: 65% !important; font-size: 14px !important;}
 
   .OldPassInput, .NewPassInput {
     width: 35% !important;
-    margin-bottom: 15px !important;
   }
 
   .OldPassInput{ 
@@ -465,30 +485,27 @@
     height: 16px !important;
   }
 
-
   .edit{ 
     top: 425px !important; 
     left: 310px !important; 
     font-size: 13px !important;
   }
+  
   .UpdateContainer{ 
     top: 420px !important; 
     left: 355px !important;
   }
 
-  .upload-img-bg {
-    top: 190px !important;
-    left: 145px !important;
+  .profile-update-success-modal {
+    width: 70%;
+    padding: 15px;
   }
 
-  .error-popup{
-    position: fixed !important;
-    top: 35% !important;
-    left: 250px !important;
-    transform: translateX(-50%) !important;
-    width: 85% !important;
-    max-width: 400px !important;
-    overflow-y: auto !important;
-    padding: 10px !important;
+  .profile-update-success-modal h2 {
+    font-size: 18px;
+  }
+
+  .profile-update-success-modal p {
+    font-size: 14px;
   }
 }
