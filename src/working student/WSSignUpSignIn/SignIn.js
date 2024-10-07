@@ -1,6 +1,6 @@
 import React, { useState, useCallback, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
+import axios from "axios";
 import "./SignIn.css";
 
 const SignIn = () => {
@@ -13,6 +13,12 @@ const SignIn = () => {
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [countdown, setCountdown] = useState(0);
+  const [message, setMessage] = useState("");
+
+  // New state variables for modals
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [modalType, setModalType] = useState(""); // "error" or "success"
 
   useEffect(() => {
     let timer;
@@ -22,28 +28,37 @@ const SignIn = () => {
     return () => clearTimeout(timer);
   }, [countdown]);
 
+  const showModal = (message, type) => {
+    setModalMessage(message);
+    setModalType(type);
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setModalMessage("");
+    setModalType("");
+  };
+
   const onSignInButtonClick = useCallback(async () => {
     try {
-      // Fetch all users
-      const response = await axios.get("http://localhost:8080/user/getAllUsers");
-      const users = response.data;
+      const response = await axios.post("http://localhost:8080/user/login", {
+        idNumber: idNumberValue,
+        password: passwordValue,
+      });
 
-      // Find the user with matching idNumber and password
-      const user = users.find(
-        (u) => u.idNumber === idNumberValue && u.password === passwordValue
-      );
-
-      if (user) {
-        // User found, proceed with sign-in
+      if (response.status === 200) {
+        const user = response.data;
         localStorage.setItem("loggedInUser", JSON.stringify(user));
-        navigate("/wshomepage", { state: { loggedInUser: user } });
-      } else {
-        // User not found or credentials don't match
-        alert("Invalid ID Number or Password. Please try again.");
+        showModal("Sign-in successful!", "success");
+        setTimeout(() => {
+          closeModal();
+          navigate("/wshomepage", { state: { loggedInUser: user } });
+        }, 2000);
       }
     } catch (error) {
       console.error("Sign-in Error:", error);
-      alert("An error occurred during sign-in. Please try again later.");
+      showModal("Invalid ID number or password. Please try again.", "error");
     }
   }, [navigate, idNumberValue, passwordValue]);
 
@@ -65,33 +80,74 @@ const SignIn = () => {
 
   const handleForgotPasswordClick = useCallback(() => {
     setResetStep(1);
+    setMessage("");
   }, []);
 
   const handleSendCode = useCallback(async () => {
-    // TODO: Implement API call to send reset code
-    setResetStep(2);
+    try {
+      await axios.post("http://localhost:8080/user/requestPasswordReset", { email: resetEmail });
+      showModal("Reset code has been sent to your email.", "success");
+      setResetStep(2);
+      setCountdown(30);
+    } catch (error) {
+      console.error("Error sending reset code:", error);
+      showModal("Failed to send reset code. Please try again.", "error");
+    }
   }, [resetEmail]);
 
-  const handleResendCode = useCallback(() => {
+  const handleResendCode = useCallback(async () => {
     if (countdown === 0) {
-      // TODO: Implement API call to resend reset code
-      setCountdown(30); // Start the countdown when resend is clicked
+      try {
+        await axios.post("http://localhost:8080/user/requestPasswordReset", { email: resetEmail });
+        setCountdown(30);
+        showModal("Reset code has been resent to your email.", "success");
+      } catch (error) {
+        console.error("Error resending reset code:", error);
+        showModal("Failed to resend reset code. Please try again.", "error");
+      }
     }
-  }, [countdown]);
+  }, [countdown, resetEmail]);
 
   const handleVerifyCode = useCallback(async () => {
-    // TODO: Implement API call to verify reset code
-    setResetStep(3);
-  }, [resetCode]);
+    try {
+      const response = await axios.post("http://localhost:8080/user/verifyResetCode", null, {
+        params: {
+          email: resetEmail,
+          resetCode: resetCode,
+        },
+      });
+
+      if (response.status === 200) {
+        showModal("Verification successful! Please enter your new password.", "success");
+        setResetStep(3);
+      } else {
+        showModal("Invalid verification code.", "error");
+      }
+    } catch (error) {
+      console.error("Error verifying reset code:", error);
+      showModal("Failed to verify reset code. Please try again.", "error");
+    }
+  }, [resetCode, resetEmail]);
 
   const handleResetPassword = useCallback(async () => {
     if (newPassword !== confirmPassword) {
-      alert("Passwords do not match");
+      showModal("Passwords do not match.", "error");
       return;
     }
-    // TODO: Implement API call to reset password
-    setResetStep(4);
-  }, [newPassword, confirmPassword]);
+
+    try {
+      await axios.post("http://localhost:8080/user/resetPassword", {
+        email: resetEmail,
+        newPassword: newPassword,
+        confirmPassword: confirmPassword,
+      });
+      showModal("Password reset successfully!", "success");
+      setResetStep(4);
+    } catch (error) {
+      console.error("Error resetting password:", error);
+      showModal("Failed to reset password. Please try again.", "error");
+    }
+  }, [resetEmail, newPassword, confirmPassword]);
 
   const handleGoBack = useCallback(() => {
     setResetStep(0);
@@ -100,20 +156,16 @@ const SignIn = () => {
     setNewPassword("");
     setConfirmPassword("");
     setCountdown(0);
+    setMessage("");
   }, []);
 
   const handleResetBack = useCallback(() => {
     if (resetStep > 1) {
       setResetStep(resetStep - 1);
     } else {
-      setResetStep(0);
-      setResetEmail("");
-      setResetCode("");
-      setNewPassword("");
-      setConfirmPassword("");
-      setCountdown(0);
+      handleGoBack();
     }
-  }, [resetStep]);
+  }, [resetStep, handleGoBack]);
 
   return (
     <div className="ws-sign-in">
@@ -155,6 +207,7 @@ const SignIn = () => {
 
       {resetStep > 0 && (
         <div className="password-reset-overlay">
+          {message && <div className="message">{message}</div>}
           {resetStep === 1 && (
             <div className="password-reset-step">
               <div className="reset-back-button" onClick={handleResetBack}>
@@ -190,21 +243,26 @@ const SignIn = () => {
                 >
                   Resend code
                 </span>
-                {countdown > 0 && <span className="countdown">({countdown}s)</span>}
+                {countdown > 0 && <span className="countdown"> ({countdown}s)</span>}
               </div>
             </div>
           )}
           {resetStep === 3 && (
             <div className="password-reset-step">
-              <h2>Enter New Password</h2>
+              <div className="reset-back-button" onClick={handleResetBack}>
+                <div className="reset-back-bg" />
+                <img className="reset-back-icon" alt="Back" src="/back.png" />
+              </div>
+              <h2>Reset your password</h2>
               <input
                 type="password"
+                placeholder="New Password"
                 value={newPassword}
                 onChange={(e) => setNewPassword(e.target.value)}
               />
-              <h2>Confirm Password</h2>
               <input
                 type="password"
+                placeholder="Confirm Password"
                 value={confirmPassword}
                 onChange={(e) => setConfirmPassword(e.target.value)}
               />
@@ -213,10 +271,18 @@ const SignIn = () => {
           )}
           {resetStep === 4 && (
             <div className="password-reset-step">
-              <h2>Password reset successfully!</h2>
+              <h2>Password reset successful!</h2>
               <button onClick={handleGoBack}>GO BACK</button>
             </div>
           )}
+        </div>
+      )}
+       {isModalOpen && (
+        <div className="modal-overlay">
+          <div className={`modal-content ${modalType}`}>
+            <p>{modalMessage}</p>
+            <button className="modal-ok" onClick={closeModal}>OK</button>
+          </div>
         </div>
       )}
     </div>
