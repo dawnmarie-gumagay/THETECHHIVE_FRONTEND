@@ -319,23 +319,32 @@ const WSHomepage = () => {
   const handleOpenComments = async (postId) => {
     setCurrentPostId(postId);
     try {
-      const [commentsResponse, postResponse] = await Promise.all([
-        axios.get(`http://localhost:8080/comments/${postId}`),
-        axios.get(`http://localhost:8080/posts/${postId}`)
-      ]);
-      const sortedComments = commentsResponse.data
-        .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-        .map(comment => ({
-          ...comment,
-          relativeTime: moment(comment.timestamp).fromNow()
-        }));
-      setComments(sortedComments);
-      setCurrentPostOwner(postResponse.data.userId);
+        const [commentsResponse, postResponse] = await Promise.all([
+            axios.get(`http://localhost:8080/comments/${postId}`),
+            axios.get(`http://localhost:8080/posts/${postId}`)
+        ]);
+
+        const sortedComments = commentsResponse.data
+            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+            .map(comment => {
+                console.log("Raw timestamp:", comment.timestamp); // Log the raw timestamp
+                const momentTimestamp = moment(comment.timestamp, 'YYYY-MM-DD HH:mm:ss.SSSSSS');
+                console.log("Moment valid:", momentTimestamp.isValid()); // Log if the moment is valid
+                console.log("Formatted timestamp:", momentTimestamp.format()); // Log the formatted timestamp
+
+                return {
+                    ...comment,
+                    relativeTime: momentTimestamp.isValid() ? momentTimestamp.fromNow() : "Invalid date"
+                };
+            });
+
+        setComments(sortedComments);
+        setCurrentPostOwner(postResponse.data.userId);
     } catch (error) {
-      console.error("Error fetching comments or post details:", error);
+        console.error("Error fetching comments or post details:", error);
     }
     setIsCommentDialogOpen(true);
-  };
+};
 
   const handleCloseComments = () => {
     setIsCommentDialogOpen(false);
@@ -418,13 +427,28 @@ const WSHomepage = () => {
   };
 
   const formatTimestamp = (timestamp) => {
-    const momentDate = moment(timestamp);
-    return momentDate.format('dddd, MMMM D, YYYY [at] h:mm A');
-  };
+    console.log("Raw timestamp:", timestamp); // Log the raw timestamp
+    const momentDate = moment(timestamp, 'YYYY-MM-DD HH:mm:ss.SSSSSS');
+    
+    if (!momentDate.isValid()) {
+        console.log("Invalid date format for:", timestamp); // Log if the date is invalid
+        return "Invalid date"; // Handle invalid date
+    }
 
-  const getRelativeTime = (timestamp) => {
-    return moment(timestamp).fromNow();
-  };
+    return momentDate.format('dddd, MMMM D, YYYY [at] h:mm A');
+};
+
+const getRelativeTime = (timestamp) => {
+    console.log("Raw timestamp for relative time:", timestamp); // Log the raw timestamp for relative time
+    const momentDate = moment(timestamp, 'YYYY-MM-DD HH:mm:ss.SSSSSS');
+    
+    if (!momentDate.isValid()) {
+        console.log("Invalid date format for relative time:", timestamp); // Log if the date is invalid
+        return "Invalid date"; // Handle invalid date
+    }
+
+    return momentDate.fromNow();
+};
 
   const handleClosePost = () => {
     setNewPostContent('');

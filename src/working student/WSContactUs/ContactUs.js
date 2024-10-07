@@ -11,8 +11,11 @@ const ContactUs = () => {
     email: "",
     phoneNumber: "",
     message: "",
-    createdAt: new Date().toISOString() // Initialize with current timestamp
+    createdAt: new Date().toISOString()
   });
+  const [modalOpen, setModalOpen] = useState(false);
+  const [modalMessage, setModalMessage] = useState("");
+  const [isError, setIsError] = useState(false);
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -24,7 +27,6 @@ const ContactUs = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // Update the timestamp right before submission
     const updatedFormData = {
       ...formData,
       createdAt: new Date().toISOString()
@@ -32,13 +34,21 @@ const ContactUs = () => {
     try {
       const response = await axios.post('http://localhost:8080/contact', updatedFormData);
       if (response.status === 200) {
-        alert('Message sent successfully');
+        setModalMessage("Message sent successfully");
+        setIsError(false);
+        setModalOpen(true);
         setFormData({ name: "", email: "", phoneNumber: "", message: "", createdAt: new Date().toISOString() });
       }
     } catch (error) {
       console.error('Error submitting form:', error);
-      alert('There was an error submitting your message. Please try again.');
+      setModalMessage("There was an error submitting your message. Please try again.");
+      setIsError(true);
+      setModalOpen(true);
     }
+  };
+
+  const closeModal = () => {
+    setModalOpen(false);
   };
 
   const onGETSTARTEDTextClick = useCallback(() => {
@@ -129,8 +139,30 @@ const ContactUs = () => {
         >
           SUBMIT
         </Button>
-
       </form>
+
+      {modalOpen && (
+        <div className="modal-overlay">
+          <div className={`modal-content ${isError ? 'error' : 'success'}`}>
+            <h2>{isError ? 'Error' : 'Success!'}</h2>
+            <p>{modalMessage}</p>
+            <Button
+    onClick={closeModal}
+    sx={{ 
+        fontFamily: 'var(--font-montserrat)',
+        backgroundColor: "#8a252c",
+        color: "white",
+        '&:hover': {
+            backgroundColor: "#f9d67b",
+            color: "#8a252c"
+        }
+    }}
+>
+    Close
+</Button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
