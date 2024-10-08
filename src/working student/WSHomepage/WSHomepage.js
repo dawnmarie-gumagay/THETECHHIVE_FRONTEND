@@ -92,25 +92,35 @@ const WSHomepage = () => {
             axios.get(`http://localhost:8080/comments/${currentPostId}`),
             axios.get(`http://localhost:8080/posts/${currentPostId}`)
           ]);
-          const sortedComments = commentsResponse.data
-            .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
-            .map(comment => ({
-              ...comment,
-              relativeTime: moment(comment.timestamp).fromNow()
-            }));
+  
+         const sortedComments = commentsResponse.data
+  .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+  .map(comment => {
+    // Truncate the microseconds to milliseconds for moment.js compatibility
+    const truncatedTimestamp = comment.timestamp.substring(0, 23); // Keep only up to milliseconds
+
+    // Pass the truncated timestamp to moment
+    const momentTimestamp = moment(truncatedTimestamp, 'YYYY-MM-DD HH:mm:ss.SSS');
+    
+    console.log("Comment raw timestamp:", comment.timestamp); // Log the raw timestamp
+    console.log("Truncated timestamp:", truncatedTimestamp); // Log the truncated timestamp
+    console.log("Formatted timestamp for comment:", momentTimestamp.format()); // Log formatted timestamp
+    
+    return {
+      ...comment,
+      relativeTime: momentTimestamp.isValid() ? momentTimestamp.fromNow() : "Invalid date"
+    };
+            });
+  
           setComments(sortedComments);
           setCurrentPostOwner(postResponse.data.userId);
-  
-          // Fetch profile pictures for each comment owner
-          const commentUserIds = new Set(sortedComments.map(comment => comment.userId));
-          commentUserIds.forEach(userId => fetchUserProfilePicture(userId));
         } catch (error) {
           console.error("Error fetching comments or post details:", error);
         }
       };
       fetchCommentsAndPictures();
     }
-  }, [currentPostId, fetchUserProfilePicture]);  
+  }, [currentPostId, fetchUserProfilePicture]);
   
 
   const fetchLoggedInUsers = useCallback(() => {
@@ -140,15 +150,19 @@ const WSHomepage = () => {
 
   useEffect(() => {
     const timer = setInterval(() => {
-      setComments(prevComments => 
-        prevComments
-          .map(comment => ({
+      setComments(prevComments =>
+        prevComments.map(comment => {
+          const momentDate = moment(comment.timestamp, 'YYYY-MM-DD HH:mm:ss.SSSSSS');
+          const isValidDate = momentDate.isValid();
+  
+          return {
             ...comment,
-            relativeTime: moment(comment.timestamp).fromNow()
-          }))
-          .sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
+            relativeTime: isValidDate ? momentDate.fromNow() : 'Invalid date',
+          };
+        }).sort((a, b) => new Date(b.timestamp) - new Date(a.timestamp))
       );
-    }, 60000);
+    }, 60000); // Updates every minute
+  
     return () => clearInterval(timer);
   }, []);
 
