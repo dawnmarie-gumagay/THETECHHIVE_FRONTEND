@@ -167,164 +167,17 @@
 
 .BarGraph {
 	position: absolute;
-	left: 21px;
+	left: 45px;
 	top: 94px;
 	width: 917px;
 	height: 402px;
 }
-._20, ._40, ._60, ._80, ._100 {
-	position: absolute;
-	left: 0px;
-	top: 210px;
-	width: 34px;
-	height: 14px;
-	display: flex;
-	align-items: center;
-	font-size: 13px;
-	font-weight: 400;
-	line-height: 16px;
-}
-._40 {
-	top: 167px;
-}
-._60 {
-	top: 126px;
-}
-._80 {
-	top: 85px;
-}
-._100 {
-	top: 39px;
-}
-.B1 {
-	position: absolute;
-	left: 43px;
-	top: 0px;
-	width: 0px;
-	height: 238px;
-	border: 2px solid rgba(0,0,0,1);
-}
-
-.Jan, .Feb, .Mar, .Apr, .May, .June, .July, .Aug, .Sept, .Nov, .Dec {
-	position: absolute;
-	left: 75px;
-	top: 247px;
-	width: 33px;
-	height: 19px;
-	display: flex;
-	justify-content: center;
-	text-align: center;
-	align-items: center;
-	font-size: 13px;
-	font-weight: 400;
-	line-height: 16px;
-}
-.Feb {
-	left: 148px;
-}
-.Mar {
-	left: 221px;
-}
-.Apr {
-	left: 297px;
-}
-.May {
-	left: 369px;
-}
-.June {
-	left: 444px;
-}
-.July {
-	left: 525px;
-}
-.Aug {
-	left: 604px;
-}
-.Sept {
-	left: 683px;
-}
-.Nov {
-	left: 768px;
-}
-.Dec {
-	left: 851px;
-}
-.B2 {
-	position: absolute;
-	left: 43px;
-	top: 238px;
-	width: 875px;
-	height: 1.9269918993813915e-13px;
-	border: 2px solid rgba(0,0,0,1);
-}
-
-
-.Rectangle84 {
-	position: absolute;
-	left: 68px;
-	top: 189px;
-	width: 47px;
-	height: 42px;
-	background: rgba(249,65,68,1.00);
-}
-.Rectangle85 {
-	position: absolute;
-	left: 68px;
-	top: 126px;
-	width: 47px;
-	height: 68px;
-	background: rgba(144,190,109,1.00);
-}
-
-.Rectangle70 {
-	position: absolute;
-	left: 142px;
-	top: 39px;
-	width: 47px;
-	height: 192px;
-	background: rgba(243,114,44,1.00);
-}
-
-.Rectangle71 {
-	position: absolute;
-	left: 216px;
-	top: 167px;
-	width: 47px;
-	height: 64px;
-	background: rgba(248,150,30,1.00);
-}
-.Rectangle86 {
-	position: absolute;
-	left: 216px;
-	top: 139px;
-	width: 47px;
-	height: 27px;
-	background: rgba(67,170,139,1.00);
-}
-
-.Rectangle72 {
-	position: absolute;
-	left: 290px;
-	top: 116px;
-	width: 47px;
-	height: 116px;
-	background: rgba(249,132,74,0.78);
-}
-
-.Rectangle73 {
-	position: absolute;
-	left: 363px;
-	top: 92px;
-	width: 47px;
-	height: 139px;
-	background: rgba(249,199,79,1.00);
-}
 
 .grayline {
 	position: absolute;
-	left: 43px;
+	left: 28px;
 	top: 284px;
-	width: 874px;
+	width: 800px;
 	height: 10px;
 	background: rgba(217,217,217,1.00);
 	border-radius: 7px;
@@ -1219,20 +1072,20 @@
     }
 
     .WSInsightBox {
-        top: 300px!important;
-        left: 5%!important;
-        width: 90%!important;
-        height: 54%!important;
+        top: 300px;
+        left: 5%;
+        width: 90%;
+        height: 45%;
     }
 
     .YearContainer {
-		top: 13%!important;
-        left: 10%!important;
-        width: 40%!important;
-		height: 20%!important;
+		top: 13%;
+        left: 10%;
+        width: 40%;
+		height: 5%;
     }
 	.YearBox{
-		width: 70%!important;
+		width: 70%;
 	}
 
     .BarGraphContainer {
@@ -1240,33 +1093,7 @@
         width: 90%;
         top: 400px;
     }
-	.B1 {
-		left: 4%;
-	}
-	.Jan {
-		left: 5.5%;
-	}
-	.Rectangle84 {
-		left: 5.5%;
-		width: 4%;
-	}
-	.Rectangle85 {
-		top: 30.3%;
-		left: 5.5%;
-		width: 4%;
-	}
-
-	.Feb {
-		left: 11.6%;
-	}
-	.Rectangle70 {
-		left: 11.5%;
-		width: 4%;
-	}
-	.B2 {
-		left: 4%;
-		width: 58%;
-	}
+	
 
     .BarBox {
 		top: 10%;
@@ -1276,85 +1103,640 @@
 	.MonthlyAccidentEventStats {
 		top: 15%;
 		left: 28%;
+		font-size: 18px;
 	}
 
-    .PAContainer, .EAContainer, .VAContainer, .LAContainer, .FireRelatedContainer, 
-    .EquipmentRelatedContainer, .FacilityRelatedContainer, .HRContainer, .EventContainer {
-        left: 20px;
-        width: calc(100% - 40px);
-    }
+	.grayline {
+		left: 4%;
+		width: 530px;
+	}
 
-    .MonthlyAccidentEventStats {
-        right: 20px;
-        font-size: 18px;
-    }
+	.PAContainer, .LAContainer, .FacilityRelatedContainer {
+		left: 4%;
+	}
+	.EAContainer, .FireRelatedContainer, .HRContainer {
+		left: 38%;
+	}
+	.VAContainer, .EquipmentRelatedContainer, .EventContainer {
+		left: 70%;
+	}
 
-    /* Adjust font sizes for mobile */
     .PhysicalAccident, .EnvironmentalAccident, .VehicleAccident, .LaboratoryAccident, 
     .FireRelatedAccident, .EquipmentRelatedAccident, .FacilityRelatedAccident, 
     .HealthRelatedAccident, .Event {
         font-size: 10px;
     }
+
+	.PieChartContainer {
+		left: 10%;
+		top: 38%;
+	}
+	.PieBackground {
+		width: 65%;
+	}
+	.PieContainer {
+		left: 10%;
+	}
+	.ApprovedDeniedReports {
+		left: 7%;
+		top: -20%;
+		font-size: 18px;
+	}
+	.PieGroup {
+		left: 27%;
+		top: 10%;
+		height: 73%;
+	}
+	.ApprovedPercentage{
+		left: 55%;
+		top: 73%;
+	}
+	.ApprovedBox {
+		top: 105%;
+	}
+	.DeniedPercentage {
+		top: 10%;
+	}
+	.Approved {
+		top: 108%;
+		font-size: 15px;
+	}
+	.DeniedBox {
+		top: 105%;
+	}
+	.Denied {
+		top: 108%;
+		font-size: 15px;
+	}
+
+	.Toggle{
+		left: -40%;
+		top: -500%;
+	}
+	.ReportFeedback {
+		left: -20%;
+		top: -510%;
+	}
+
+	.WSInsightBox2 {
+		left: 5%;
+		top: 63%;
+		width: 90%;
+		height: 15%;
+	}
+	.TableContainer {
+		top: 63%;
+		left: -5%;
+	}
+	.TOTALREPORTSSUBMITTED {
+		top: 20%;
+		font-size: 15px;
+	}
+	.Total1 {
+		top: 29%;
+		left: 17%;
+		height: 10%;
+		width: 4%;
+	}
+	.TotalNumber1 {
+		top: 30%;
+		left: 17.5%;
+		font-size: 23px;
+	}
+	.TOTALPOINTSEARNED {
+		left: 44%;
+		top: 20%;
+		font-size: 15px;
+	}
+	.Total2 {
+		top: 29%;
+		left: 48%;
+		height: 10%;
+		width: 4%;
+		font-size: 23px;
+	}
+	.TotalNumber2 {
+		top: 30%;
+		left: 48.5%;
+	}
+	
+
+	._1 {
+		top: -23%;
+		left: 2%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.SubmissionDate {
+		top: 5%;
+		left: -22%;
+		font-size: 10px;
+	}
+	._6 {
+		top: -1.5%;
+		left: 2%;
+		width: 12.5%;
+		height: 21%;
+	}
+	._20240116 {
+		top: 5%;
+		left: -22%;
+		font-size: 13px;
+	}
+	._11 {
+		top: 19.9%;
+		left: 2%;
+		width: 12.5%;
+		height: 21%;
+	}
+	._20240116_2 {
+		top: 5%;
+		left: -22%;
+		font-size: 13px;
+	}
+
+
+	._2_1 {
+		top: -23%;
+		left: 14.5%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.DateVerified {
+		top: 5%;
+		left: -22%;
+		font-size: 10px;
+	}
+	._7 {
+		top: -1.5%;
+		left: 14.5%;
+		width: 12.5%;
+		height: 21%;
+	}
+	._20240116_1 {
+		top: 5%;
+		left: -22%;
+		font-size: 11px;
+	}
+	._12 {
+		top: 19.9%;
+		left: 14.5%;
+		width: 12.5%;
+		height: 21%;
+	}
+	._20240116_3 {
+		top: 5%;
+		left: -22%;
+		font-size: 11px;
+	}
+
+
+	._3{
+		top: -23%;
+		left: 27%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.Status {
+		top: 5%;
+		left: -22%;
+		font-size: 10px;
+	}
+	._8 {
+		top: -1.5%;
+		left: 27%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.Approved_1 {
+		top: 5%;
+		left: -22%;
+		font-size: 13px;
+	}
+	._13 {
+		top: 19.9%;
+		left: 27%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.Denied_1 {
+		top: 5%;
+		left: -22%;
+		font-size: 13px;
+	}
+
+
+	._4{
+		top: -23%;
+		left: 39.6%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.Reason {
+		top: 5%;
+		left: -22%;
+		font-size: 10px;
+	}
+	._9 {
+		top: -1.5%;
+		left: 39.6%;
+		width: 12.5%;
+		height: 21%;
+	}
+	._14 {
+		top: 19.9%;
+		left: 39.6%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.Fakenews {
+		top: 5%;
+		left: -22%;
+		font-size: 13px;
+	}
+
+
+	._15{
+		top: -23%;
+		left: 51.9%;
+		width: 12.5%;
+		height: 21%;
+	}
+	.PointsEarned {
+		top: 5%;
+		left: -22%;
+		font-size: 10px;
+	}
+	._16 {
+		top: -1.5%;
+		left: 51.9%;
+		width: 12.5%;
+		height: 21%;
+	}
+	._17 {
+		top: 19.9%;
+		left: 51.9%;
+		width: 12.5%;
+		height: 21%;
+	}	
 }
+
+
 
 /* Smaller screen styles (500px width) */
 @media screen and (max-width: 500px) {
-    .WSInsightAnalytics_WSInsightAnalytics {
-        height: 1800px;
+	.WSInsightAnalytics_WSInsightAnalytics {
+        height: 300vh!important; 
     }
 
     .InsightTitle {
-        top: 40px;
-        left: 10px;
-        width: 160px;
-        height: 140px;
+        top: 4%!important;
+        left: 35%!important;
+        width: 160px!important;
+        height: 140px!important; 
     }
 
     .AnalyticsTitle {
-        top: 220px;
-        left: 10px;
-        font-size: 18px;
-        width: 100%;
+        top: 210px!important; 
+        left: 7%!important;
+        font-size: 16px; 
+        width: 85%;
     }
 
     .WSInsightBox {
-        top: 260px;
-        left: 5px;
-        width: calc(100% - 10px);
-        height: auto;
+        top: 240px;  
+        left: 5%;
+        width: 90%;
+        height: 54%; 
     }
 
-    .YearContainer, .YearBox {
-        left: 10px;
-        width: calc(100% - 20px);
+    .YearContainer {
+        top: 13%!important;
+        left: 8%!important;
+        width: 38%!important;
+        height: 4%!important; 
+    }
+
+    .YearBox {
+        width: 120%!important;
     }
 
     .BarGraphContainer {
-        left: 10px;
-        width: calc(100% - 20px);
-        top: 340px;
+        left: 8%;
+        width: 85%;
+        top: 320px; 
     }
-
     .BarBox {
-        width: 100%;
-        height: auto;
-    }
-
-    .PAContainer, .EAContainer, .VAContainer, .LAContainer, .FireRelatedContainer, 
-    .EquipmentRelatedContainer, .FacilityRelatedContainer, .HRContainer, .EventContainer {
-        left: 10px;
-        width: calc(100% - 20px);
+        top: 8%;
+        width: 99%;
+        height: 93%; 
     }
 
     .MonthlyAccidentEventStats {
-        right: 10px;
-        font-size: 16px;
+        top: 12%;
+        left: 26%;
+        font-size: 14px; 
     }
 
-    /* Adjust font sizes for smaller mobile */
-    .PhysicalAccident, .EnvironmentalAccident, .VehicleAccident, .LaboratoryAccident, 
-    .FireRelatedAccident, .EquipmentRelatedAccident, .FacilityRelatedAccident, 
-    .HealthRelatedAccident, .Event {
-        font-size: 8px;
+    .grayline {
+        left: 3.5%;
+        width: 340px; 
+    }
+	
+
+    .PAContainer, .LAContainer, .FacilityRelatedContainer {
+        left: -5%;
+    }
+
+    .EAContainer, .FireRelatedContainer, .HRContainer {
+        left: 32%;
+    }
+
+    .VAContainer, .EquipmentRelatedContainer, .EventContainer {
+        left: 67%;
+    }
+
+    .PhysicalAccident, .EnvironmentalAccident, .VehicleAccident, 
+    .LaboratoryAccident, .FireRelatedAccident, .EquipmentRelatedAccident, 
+    .FacilityRelatedAccident, .HealthRelatedAccident, .Event {
+        font-size: 7.5px;
+    }
+
+    .PieChartContainer {
+        left: 8%;
+        top: 46%; 
+    }
+
+    .PieBackground {
+		height: 83%;
+        width: 43.5%;
+    }
+
+    .PieContainer {
+        left: 4%;
+    }
+
+    .ApprovedDeniedReports {
+        left: 2%;
+        top: -18%;
+        font-size: 16px; 
+    }
+
+    .PieGroup {
+        left: 22%;
+        top: 8%;
+        height: 65%!important; 
+    }
+
+    .ApprovedPercentage {
+        left: 50%;
+        top: 70%;
+    }
+
+    .ApprovedBox {
+		left: -2%;
+        top: 100%;
+    }
+
+    .DeniedPercentage {
+        top: 8%;
+    }
+
+    .Approved {
+		left: 11%;
+        top: 103%!important;
+        font-size: 13px!important; 
+    }
+
+    .DeniedBox {
+		left: 45%;
+        top: 100%!important;
+    }
+
+    .Denied {
+		left: 58%;
+        top: 103%!important;
+        font-size: 13px!important; 
+    }
+
+    .Toggle {
+        left: -50%!important;
+        top: -980%!important;
+    }
+
+    .ReportFeedback {
+        left: -33%!important;
+        top: -990%!important;
+    }
+
+    .WSInsightBox2 {
+        left: 5%!important;
+		top: 75%;
+        width: 90%!important;
+        height: 16%!important; 
+    }
+
+    .TableContainer {
+        top: 73%!important; 
+        left: -15%;
+    }
+
+    .TOTALREPORTSSUBMITTED {
+        top: 18%!important; 
+        font-size: 13px!important; 
+    }
+
+    .Total1 {
+        top: 26%!important; 
+        left: 16%!important;
+        height: 8%!important; 
+        width: 3.5%!important; 
+    }
+
+    .TotalNumber1 {
+        top: 26.3%!important; 
+        left: 16.2%!important;
+        font-size: 18px!important; 
+    }
+
+    .TOTALPOINTSEARNED {
+        left: 32%!important;
+        top: 18%!important;
+        font-size: 13px!important; 
+    }
+
+    .Total2 {
+        top: 26%!important; 
+        left: 37%!important;
+        height: 8%!important; 
+        width: 3.5%!important; 
+    }
+
+    .TotalNumber2 {
+        top: 27%!important; 
+        left: 37.2%!important;
+		font-size: 18px!important; 
+    }
+
+
+    ._1 {
+        top: -21%!important;
+        left: 3.7%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    .SubmissionDate {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 7.5px!important; 
+    }
+    ._6 {
+        top: -1.3%!important;
+        left: 3.7%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    ._20240116 {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 9px!important; 
+    }
+    ._11 {
+        top: 19.5%!important;
+        left: 3.7%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    ._20240116_2 {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 9px!important; 
+    }
+
+
+    ._2_1 {
+        top: -21%!important;
+        left: 11.3%!important;
+        width: 8.5%!important;
+        height: 20%!important; 
+    }
+    .DateVerified {
+        top: 5%!important;
+        left: -55%!important;
+        font-size: 9px!important; 
+    }
+    ._7 {
+        top: -1.3%!important;
+        left: 11.3%!important;
+        width: 8.5%!important;
+        height: 20%!important; 
+    }
+    ._20240116_1 {
+        top: 5%!important;
+        left: -55%!important;
+        font-size: 7.5px!important; 
+    }
+    ._12 {
+        top: 19.5%!important;
+        left: 11.3%!important;
+        width: 8.5%!important;
+        height: 20%!important; 
+    }
+    ._20240116_3 {
+        top: 5%!important;
+        left: -55%!important;
+        font-size: 7.5px!important; 
+    }
+
+
+    ._3 {
+        top: -21%!important;
+        left: 19.9%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    .Status {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 9px!important; 
+    }
+    ._8 {
+        top: -1.3%!important;
+        left: 19.9%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    .Approved_1 {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 8px!important; 
+    }
+    ._13 {
+        top: 19.5%!important;
+        left: 19.9%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    .Denied_1 {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 8px!important; 
+    }
+
+
+    ._4 {
+        top: -21%!important;
+        left: 27.5%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    .Reason {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 9px!important; 
+    }
+    ._9 {
+        top: -1.3%!important;
+        left: 27.5%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    ._14 {
+        top: 19.5%!important;
+        left: 27.5%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+    }
+    .Fakenews {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 9px!important; 
+    }
+
+
+    ._15 {
+        top: -21%!important;
+        left: 35%!important;
+        width: 7.5%!important;
+        height: 20%!important;
+    }
+    .PointsEarned {
+        top: 5%!important;
+        left: -69%!important;
+        font-size: 9px!important; 
+    }
+    ._16 {
+        top: -1.3%!important;
+        left: 35%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+		font-size: 14px;
+    }
+    ._17 {
+        top: 19.5%!important;
+        left: 35%!important;
+        width: 7.5%!important;
+        height: 20%!important; 
+		font-size: 14px;
     }
 }

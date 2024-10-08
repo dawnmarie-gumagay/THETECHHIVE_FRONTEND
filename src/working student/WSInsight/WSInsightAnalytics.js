@@ -1,10 +1,10 @@
 import React, { useCallback, useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Pie } from 'react-chartjs-2'; 
-import { Chart, ArcElement, Tooltip} from 'chart.js';
+import { Pie, Bar } from 'react-chartjs-2'; 
+import { Chart, ArcElement, BarElement, Tooltip, CategoryScale, LinearScale } from 'chart.js';
 import './WSInsightAnalytics.css';
 
-Chart.register(ArcElement, Tooltip);
+Chart.register(ArcElement, Tooltip, BarElement, CategoryScale, LinearScale);
 
 const WSInsightAnalytics = () => {
   const navigate = useNavigate();
@@ -40,7 +40,7 @@ const WSInsightAnalytics = () => {
   };
   
    // Data for the donut chart
-   const approvedReports = 80; // Change these values dynamically as needed
+   const approvedReports = 80; 
    const deniedReports = 20;
    
   const data = {
@@ -81,12 +81,67 @@ const WSInsightAnalytics = () => {
     },
 };
 
-
-
-  // Calculate percentages
+// Calculate percentages
   const totalReports = approvedReports + deniedReports;
   const approvedPercentage = ((approvedReports / totalReports) * 100).toFixed(0);
   const deniedPercentage = ((deniedReports / totalReports) * 100).toFixed(0);
+
+// Bar chart data with values within 100 and some months missing data
+const barData = {
+  labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'June', 'July', 'Aug', 'Sept', 'Oct', 'Nov', 'Dec'],
+  datasets: [
+    {
+      label: 'Physical Accidents',
+      data: [20, 30], // Some months have no data (null)
+      backgroundColor: 'rgba(249,65,68,1.00)',
+    },
+    {
+      label: 'Laboratory Accident',
+      data: [null, 25, null, null, null, 10], // Some months have no data (null)
+      backgroundColor: 'rgba(243,114,44,1.00)',
+    },
+    {
+      label: 'Facility-Related Accident',
+      data: [10, null, 60], // Some months have no data (null)
+      backgroundColor: 'rgba(248,150,30,1.00)',
+    },
+    {
+      label: 'Environmental Accident',
+      data: [null, null, null, 70], // Some months have no data (null)
+      backgroundColor: 'rgba(249,132,74,0.78)',
+    },
+    {
+      label: 'Health-Related Accident',
+      data: [null, null, null, null, 40], // Some months have no data (null)
+      backgroundColor: 'rgba(144,190,109,1.00)',
+    },
+    {
+      label: 'Vehicle Accident',
+      data: [null, null, null, null, null, 5], // Some months have no data (null)
+      backgroundColor: 'rgba(67,170,139,1.00)',
+    },
+  ],
+};
+
+const barOptions = {
+  responsive: true,
+  scales: {
+    x: { stacked: true },
+    y: {
+      stacked: true,
+      max: 100, // Reduced the max value to align the bar heights properly
+      ticks: {
+        beginAtZero: true,
+        stepSize: 20, // Keep a small step size to better align with the gray line
+      },
+    },
+  },
+  plugins: {
+    tooltip: {
+      enabled: true,
+    },
+  },
+};
 
 
   return (
@@ -113,41 +168,18 @@ const WSInsightAnalytics = () => {
         <img className="arrow_right" alt="" src="/WsInsight_Rightbtn.png" onClick={incrementYear}/>
       </div>
 
-      <div className="BarGraphContainer">
+      <div className="BarGraphContainer" >
         <div className="BarBox"/>
         <span className='MonthlyAccidentEventStats'>Monthly Accident & Event Stats<br/> </span>
-        <div className="BarGraph">
-          <span className='_20'>20</span>
-          <span className='_40'>40</span>
-          <span className='_60'>60</span>
-          <span className='_80'>80</span>
-          <span className='_100'>100</span>
-          <img className='B1' alt="" />
-
-          <span className='Jan'>Jan</span>
-          <div className='Rectangle84'/>
-          <div className='Rectangle85'/>
-
-          <span className='Feb'>Feb</span>
-          <div className='Rectangle70'/>
-
-          <span className='Mar'>Mar</span>
-          <div className='Rectangle71'/>
-          <div className='Rectangle86'/>
-          
-          <span className='Apr'>Apr</span>
-          <div className='Rectangle72'/>
-
-          <span className='May'>May</span>
-          <div className='Rectangle73'/>
-
-          <span className='June'>June</span>
-          <span className='July'>July</span>
-          <span className='Aug'>Aug</span>
-          <span className='Sept'>Sept</span>
-          <span className='Nov'>Nov</span>
-          <span className='Dec'>Dec</span>
-          <img className='B2' alt="" />
+        <div className="BarGraph" style={{ height: '280px', width: '83%' }}>
+        <Bar 
+          data={barData} 
+          options={{
+            ...barOptions,
+            maintainAspectRatio: false, // Make the graph responsive
+            responsive: true,
+          }} 
+        />
 
           <div className='grayline'/>
 
@@ -301,19 +333,11 @@ const WSInsightAnalytics = () => {
                 </div>
 
                 <div className='_16'>
-  <span className='PointsReceived center-text' style={{ color: '#F6C301' }}>5</span>
-</div>
-
-<div className='_17'>
-  <span className='PointsReceived center-text' style={{ color: '#F6C301' }}>0</span>
-</div>
-
-                <div className='_18'>
-                  <span className='PointsEarned_1'>Points Earned</span>
+  <               span className='PointsReceived center-text' style={{ color: '#F6C301' }}>5</span>
                 </div>
 
-                <div className='_19'>
-                  <span className='PointsReceived'>0</span>
+                <div className='_17'>
+                  <span className='PointsReceived center-text' style={{ color: '#F6C301' }}>0</span>
                 </div>
               </div>
             </div>
