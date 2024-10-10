@@ -2,9 +2,10 @@ import React, { useCallback, useState, useRef, useEffect } from "react";
 import { Button } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./PopUpReportFinal.css";
-import PopUpConfirm from "./PopUpConfirm";
+import axios from "axios";
+import PopUpConfirm from "./PopUpConfirm"; // Ensure PopUpConfirm is used properly
 
-const IPSTACK_API_KEY = '0c8e5f05b9540853d776dd42254ca091';
+const GOOGLE_API_KEY = 'AIzaSyAtkmuDufTv-ueuDwWdqrDJjR7_aEoGUYo'; // Google Places API key
 
 const PopUpReportFinal = ({ onBack, onClose }) => {
   const navigate = useNavigate();
@@ -21,24 +22,15 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   const [validationErrors, setValidationErrors] = useState({});
   const fileInputRef = useRef(null);
 
-  const hidePopUpReportFinal = useCallback(() => {
-    setIsVisible(false);
-    if (onClose) onClose();
-  }, [onClose]);
-
-  const handleConfirm = useCallback(() => {
-    hidePopUpReportFinal();
-    navigate("/wsreport");
-  }, [hidePopUpReportFinal, navigate]);
-
-  const validateInputs = () => {
+  // Memoize the validateInputs function with useCallback to avoid unnecessary re-renders
+  const validateInputs = useCallback(() => {
     const errors = {};
     const descriptionEmpty = formData.description.trim() === "";
     const locationEmpty = formData.location.address.trim() === "";
     const imagesEmpty = formData.images.length === 0;
-    
+
     const emptyFieldsCount = [descriptionEmpty, locationEmpty, imagesEmpty].filter(Boolean).length;
-  
+
     if (emptyFieldsCount === 3) {
       errors.general = "Missing: description, location, image. Please provide to continue";
     } else if (emptyFieldsCount === 2 || emptyFieldsCount === 1) {
@@ -50,43 +42,98 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
         if (imagesEmpty) errors.images = "It seems you're missing: Image. Please provide it to continue";
       }
     }
-    
+
     setValidationErrors(errors);
     return Object.keys(errors).length === 0;
-  };
-
-  const onPopUpReportClick = useCallback(() => {
-    if (validateInputs()) {
-      setShowPopUpConfirm(true);
-    }
   }, [formData]);
+
+  const hidePopUpReportFinal = useCallback(() => {
+    setIsVisible(false);
+    if (onClose) onClose();
+  }, [onClose]);
+
+  const handleConfirm = useCallback(() => {
+    hidePopUpReportFinal();
+    navigate("/wsreport");
+  }, [hidePopUpReportFinal, navigate]);
 
   const handleBack = useCallback(() => {
     setIsVisible(false);
     navigate("/wsreport");
   }, [navigate]);
 
+  // Get user location from browser's Geolocation API
   const getUserLocation = async () => {
-    try {
-      const response = await fetch(`http://api.ipstack.com/check?access_key=${IPSTACK_API_KEY}`);
-      const data = await response.json();
-      if (data.success !== false) {
-        const { latitude, longitude, city, region_name, country_name } = data;
-        const address = `${city}, ${region_name}, ${country_name}`;
-        setFormData(prev => ({ ...prev, location: { address, latitude, longitude } }));
-      } else {
-        throw new Error("Geolocation failed: " + data.error.info);
-      }
-    } catch (error) {
-      console.error("Error getting location:", error);
-      setFormData(prev => ({ ...prev, location: { address: "Error getting location", latitude: null, longitude: null } }));
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(
+        async (position) => {
+          const { latitude, longitude } = position.coords;
+          await fetchLocationDetails(latitude, longitude);
+        },
+        (error) => {
+          console.error("Geolocation error:", error);
+          setFormData((prev) => ({
+            ...prev,
+            location: { address: "Unable to get location", latitude: null, longitude: null },
+          }));
+        }
+      );
+    } else {
+      alert("Geolocation is not supported by this browser.");
     }
   };
 
+  // Fetch location details using Google Places API
+  const fetchLocationDetails = async (latitude, longitude) => {
+    try {
+      const response = await axios.get(
+        `https://maps.googleapis.com/maps/api/geocode/json?latlng=${latitude},${longitude}&key=${GOOGLE_API_KEY}`
+      );
+      if (response.data.status === "OK") {
+        const address = response.data.results[0].formatted_address;
+        setFormData((prev) => ({
+          ...prev,
+          location: { address, latitude, longitude },
+        }));
+      } else {
+        throw new Error("Unable to retrieve address.");
+      }
+    } catch (error) {
+      console.error("Error getting location details:", error);
+      setFormData((prev) => ({
+        ...prev,
+        location: { address: "Error getting location", latitude: null, longitude: null },
+      }));
+    }
+  };
+
+  // Submit form and send location to backend
+  const onPopUpReportClick = useCallback(async () => {
+    if (!validateInputs()) return;
+
+    try {
+      const { latitude, longitude } = formData.location;
+
+      // Send latitude and longitude to backend
+      const response = await axios.post(
+        "http://localhost:8080/api/locations/user-location", // Ensure your backend URL is correct
+        null, // No request body
+        {
+          params: { latitude, longitude },
+        }
+      );
+      console.log("Location saved successfully:", response.data);
+      navigate("/wsreport");
+    } catch (error) {
+      console.error("Error saving location:", error);
+    }
+  }, [formData.location, navigate, validateInputs]);
+
+  // Handle file upload
   const handleFileUpload = (event) => {
     const files = Array.from(event.target.files);
     const remainingSlots = 3 - formData.images.length;
-    
+
     if (files.length > remainingSlots) {
       setShowImageLimitWarning(true);
       if (fileInputRef.current) {
@@ -94,20 +141,21 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       }
       return;
     }
-  
+
     const newImages = files.map(file => ({
       file,
       preview: URL.createObjectURL(file),
       id: Date.now() + Math.random()
     }));
-  
+
     setFormData(prev => ({ ...prev, images: [...prev.images, ...newImages] }));
-    
+
     if (fileInputRef.current) {
       fileInputRef.current.value = "";
     }
   };
 
+  // Remove image
   const removeImage = (id) => {
     setFormData(prev => ({ ...prev, images: prev.images.filter(image => image.id !== id) }));
   };
@@ -145,14 +193,14 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
 
   function dataURLtoFile(dataurl, filename) {
     let arr = dataurl.split(','),
-        mime = arr[0].match(/:(.*?);/)[1],
-        bstr = atob(arr[1]), 
-        n = bstr.length, 
-        u8arr = new Uint8Array(n);
-    while(n--){
-        u8arr[n] = bstr.charCodeAt(n);
+      mime = arr[0].match(/:(.*?);/)[1],
+      bstr = atob(arr[1]),
+      n = bstr.length,
+      u8arr = new Uint8Array(n);
+    while (n--) {
+      u8arr[n] = bstr.charCodeAt(n);
     }
-    return new File([u8arr], filename, {type:mime});
+    return new File([u8arr], filename, { type: mime });
   }
 
   if (!isVisible) return null;
@@ -290,6 +338,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   );
 };
 
+// Camera permission modal
 const CameraPermissionModal = ({ onAllow }) => (
   <div className="modal-overlay">
     <div className="modal-content camera-permission">
@@ -303,6 +352,7 @@ const CameraPermissionModal = ({ onAllow }) => (
   </div>
 );
 
+// Image limit warning modal
 const ImageLimitWarningModal = ({ onClose }) => (
   <div className="modal-overlay">
     <div className="modal-content image-limit-warning">
@@ -312,6 +362,7 @@ const ImageLimitWarningModal = ({ onClose }) => (
   </div>
 );
 
+// Camera modal for capturing images
 const CameraModal = ({ onCapture, onClose }) => {
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
@@ -325,7 +376,7 @@ const CameraModal = ({ onCapture, onClose }) => {
 
   const startCamera = async () => {
     try {
-      const mediaStream = await navigator.mediaDevices.getUserMedia({ 
+      const mediaStream = await navigator.mediaDevices.getUserMedia({
         video: { facingMode: "user" }
       });
       streamRef.current = mediaStream;
@@ -356,14 +407,14 @@ const CameraModal = ({ onCapture, onClose }) => {
       const context = canvasRef.current.getContext('2d');
       canvasRef.current.width = videoRef.current.videoWidth;
       canvasRef.current.height = videoRef.current.videoHeight;
-      
+
       context.translate(canvasRef.current.width, 0);
       context.scale(-1, 1);
-      
+
       context.drawImage(videoRef.current, 0, 0, canvasRef.current.width, canvasRef.current.height);
-      
+
       context.setTransform(1, 0, 0, 1, 0, 0);
-      
+
       const image = canvasRef.current.toDataURL('image/png');
       stopCamera(); // Stop camera before closing
       onCapture(image);
@@ -382,10 +433,10 @@ const CameraModal = ({ onCapture, onClose }) => {
         {error ? (
           <p className="error-message">{error}</p>
         ) : (
-          <video 
-            ref={videoRef} 
-            autoPlay 
-            playsInline 
+          <video
+            ref={videoRef}
+            autoPlay
+            playsInline
           />
         )}
       </div>
