@@ -1,0 +1,590 @@
+.ws-sign-up {
+    width: 100%;
+    position: relative;
+    height: 800px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+
+.main-boxSU {
+    position: absolute;
+    top: 35px;
+    left: 240px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 10px;
+    background-color: rgba(255, 255, 255, 0.3);
+    width: 1070px;
+    height: 730px;
+    transition: all 0.5s ease; /* Smooth transition */
+}
+
+.back-bgSU {
+    position: absolute;
+    top: 0;
+    left: 0;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 100%;
+    height: 100%;
+}
+
+.back-iconSU {
+    position: absolute;
+    top: 10px;
+    left: 15px;
+    width: 35px;
+    height: 41px;
+    overflow: hidden;
+}
+
+.back-button-container {
+    position: absolute;
+    top: 65px;
+    left: 290px;
+    width: 64px;
+    height: 60px;
+    cursor: pointer;
+}
+
+.back-button-container:hover {
+    transform: scale(1.1);
+}
+
+  .main-bgSU {
+    position: absolute;
+    top: 105px;
+    left: 390px;
+    border-radius: 100px;
+    width: 372px;
+    height: 526px;
+    object-fit: cover;
+    opacity: 0.9;
+    mix-blend-mode: normal;
+}
+
+
+.main-titleSU {
+    position: absolute;
+    top: 180px;
+    left: 455px;
+    width: 261px;
+    height: 206px;
+    object-fit: cover;
+}
+
+.welcome2 {
+    position: absolute;
+    top: 65px;
+    left: 960px;
+    font-size: 30px;
+    display: inline-block;
+    font-weight: 700;
+    width: 178px;
+    height: 33px;
+}
+
+.sub-title {
+    position: absolute;
+    top: 105px;
+    left: 937px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 20px;
+    width: 210px;
+    height: 21px;
+}
+
+.full-name,
+.email-name,
+.username-name,
+.id-number-name,
+.pass-name,
+.cpass-name {
+    position: absolute;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 200px;
+    height: 21px;
+}
+
+.full-name {
+    top: 155px;
+    left: 875px;
+}
+
+.email-name {
+    top: 238px;
+    left: 875px;
+}
+
+.username-name {
+    top: 320px;
+    left: 875px;
+}
+
+.id-number-name {
+    top: 405px;
+    left: 875px;
+}
+
+.pass-name {
+    top: 487px;
+    left: 875px;
+}
+
+.cpass-name {
+    top: 570px;
+    left: 875px;
+}
+
+.full-name-box,
+.email-box,
+.username-box,
+.id-number-box,
+.pass-box,
+.cpass-box {
+    position: absolute;
+    left: 865px;
+    background-color: white;
+    border: 2px solid #8a252c;
+    box-sizing: border-box;
+    width: 335px;
+    border-radius: 20px;
+    height: 35px;
+    padding-left: 10px;
+}
+
+.full-name-box {
+    top: 185px;
+}
+
+.email-box {
+    top: 268px;
+}
+
+.username-box {
+    top: 350px;
+}
+
+.id-number-box {
+    top: 435px;
+}
+
+.pass-box {
+    top: 518px;
+}
+
+.cpass-box {
+    top: 603px;
+}
+
+.error-message {
+    position: absolute;
+    top: 670px;
+    left: 870px;
+    color: red;
+    font-size: 14px;
+}
+
+.signupContainer {
+    position: absolute;
+    top: 660px;
+    left: 980px;
+    width: 119px;
+    height: 39px;
+    cursor: pointer;
+    color: white;
+}
+
+.signupContainer:hover {
+    transform: scale(1.1);
+}
+
+.s-button {
+    position: absolute;
+    border-radius: 20px;
+    height: 39px;
+    top: 0;
+    left: 0;
+    background-color: #8a252c;
+    width: 115px;
+}
+
+.s-name {
+    position: absolute;
+    top: 5px;
+    left: 20px;
+    font-weight: 600;
+    font-size: 20px;
+    display: inline-block;
+    width: 79px;
+    height: 23px;
+}
+
+.q1 {
+    position: absolute;
+    top: 715px;
+    left: 860px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 270px;
+    height: 21px;
+}
+
+.q2 {
+    position: absolute;
+    top: 715px;
+    left: 1135px;
+    font-weight: 650;
+    font-size: 20px;
+    display: inline-block;
+    text-decoration: underline;
+    width: 106px;
+    height: 21px;
+    cursor: pointer;
+}
+
+
+
+@media (max-width: 768px) {
+    .back-bgSU {
+        top: 10%;
+        left: 10px;
+        transform: translate(-550%);
+        width: 40px;
+        height: 40px;
+    }
+    .back-iconSU {
+        top: 20%;
+        left: 10px;
+        transform: translate(-885%);
+        width: 24px;
+        height: 30px;
+    }
+
+    .main-boxSU{
+        top: 5.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 87%;
+        height: 89.5%;
+    }
+    .main-bgSU{
+        display: none;
+    }
+    .main-titleSU{
+        display: none;
+    }
+
+    
+    .welcome2 {
+        top: 13%;
+        left: 54%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .sub-title {
+        top: 18%;
+        left: 54%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .full-name,
+    .email-name,
+    .username-name,
+    .id-number-name,
+    .pass-name,
+    .cpass-name {
+        top: auto;
+        left: 61%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 18px;
+    }
+
+    .full-name {
+        top: 24%;
+    }
+
+    .email-name {
+        top: 34%;
+    }
+
+    .username-name {
+        top: 44%;
+    }
+
+    .id-number-name {
+        top: 54%;
+    }
+
+    .pass-name {
+        top: 64%;
+    }
+
+    .cpass-name {
+        top: 74%;
+    }
+
+    .full-name-box,
+    .email-box,
+    .username-box,
+    .id-number-box,
+    .pass-box,
+    .cpass-box {
+        top: auto;
+        left: 51%;
+        transform: translateX(-50%);
+        width: 53%;
+        height: 36px;
+    }
+
+    .full-name-box {
+        top: 27.5%;
+    }
+
+    .email-box {
+        top: 37.5%;
+    }
+
+    .username-box {
+        top: 47.5%;
+    }
+
+    .id-number-box {
+        top: 57.5%;
+    }
+
+    .pass-box {
+        top: 67.5%;
+    }
+
+    .cpass-box {
+        top: 77.5%;
+    }
+
+    .signupContainer {
+        top: 84%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20%;
+        height: auto;
+    }
+
+    .s-button {
+        width: 100%;
+        height: 40px;
+    }
+
+    .s-name {
+        top: 7px;
+        left: 54%;
+        transform: translateX(-50%);
+        font-size: 18px;
+    }
+
+    .error-message {
+        transform: translate(-0%, 50%);
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .q1,
+    .q2 {
+        top: auto;
+        left: 72%;
+        transform: translateX(-50%);
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .q1 {
+        top: 91%;
+    }
+
+    .q2 {
+        top: 91%;
+        left: 102%;
+    }
+}
+   
+    
+
+@media (max-width: 500px) {
+    .back-bgSU {
+        top: 9%;
+        left: 10%;
+        width: 43px;
+        height: 41px;
+    }
+    .back-iconSU {
+        top: 10px;
+        left: 11.9%;
+        width: 26px;
+        height: 30px;
+    }
+
+    .main-bgSU{
+        display: none;
+    }
+
+    .main-boxSU{
+        top: 5.5%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 87%;
+        height: 89.5%;
+    }
+
+    .main-titleSU{
+        display: none;
+    }
+
+    .welcome2 {
+        top: 13%;
+        left: 54%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 25px;
+        text-align: center;
+    }
+
+    .sub-title {
+        top: 18%;
+        left: 54%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 18px;
+        text-align: center;
+    }
+
+    .full-name,
+    .email-name,
+    .username-name,
+    .id-number-name,
+    .pass-name,
+    .cpass-name {
+        top: auto;
+        left: 61%;
+        transform: translateX(-50%);
+        width: 70%;
+        font-size: 18px;
+    }
+
+    .full-name {
+        top: 24%;
+    }
+
+    .email-name {
+        top: 34%;
+    }
+
+    .username-name {
+        top: 44%;
+    }
+
+    .id-number-name {
+        top: 54%;
+    }
+
+    .pass-name {
+        top: 64%;
+    }
+
+    .cpass-name {
+        top: 74%;
+    }
+
+    .full-name-box,
+    .email-box,
+    .username-box,
+    .id-number-box,
+    .pass-box,
+    .cpass-box {
+        top: auto;
+        left: 51%;
+        transform: translateX(-50%);
+        width: 53%;
+        height: 36px;
+    }
+
+    .full-name-box {
+        top: 27.5%;
+    }
+
+    .email-box {
+        top: 37.5%;
+    }
+
+    .username-box {
+        top: 47.5%;
+    }
+
+    .id-number-box {
+        top: 57.5%;
+    }
+
+    .pass-box {
+        top: 67.5%;
+    }
+
+    .cpass-box {
+        top: 77.5%;
+    }
+
+    .signupContainer {
+        top: 84%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 20%;
+        height: auto;
+    }
+
+    .s-button {
+        width: 100%;
+        height: 33px;
+    }
+
+    .s-name {
+        top: 5px;
+        left: 57%;
+        transform: translateX(-50%);
+        font-size: 17px;
+    }
+
+    .error-message {
+        transform: translate(-0%, 50%);
+        width: 80%;
+        font-size: 14px;
+    }
+
+    .q1,
+    .q2 {
+        top: auto;
+        left: 63%;
+        transform: translateX(-50%);
+        width: 80%;
+        font-size: 16px;
+    }
+
+    .q1 {
+        top: 90%;
+    }
+
+    .q2 {
+        top: 90%;
+        left: 106.5%;
+    }
+
+}
+       

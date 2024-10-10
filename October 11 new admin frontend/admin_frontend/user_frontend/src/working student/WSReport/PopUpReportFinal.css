@@ -1,0 +1,277 @@
+.PopUpReportFinalPage {
+  position: relative;
+  margin: 0 auto;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 10px;
+  background: linear-gradient(180deg, #fdfbc9 54%, #f9d67b);
+  width: 585px;
+  height: 717px;
+  color: #8a252c;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+}
+
+
+.back-button-containerFR {
+  position: absolute;
+  top: 30px; 
+  left: 38px;
+  width: 64px;
+  height: 60px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+.back-bgFR {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 50%;
+  background-color: #8a252c;
+  width: 70%;
+  height: 70%;
+}
+.back-iconFR {
+  position: absolute;
+  top: 8px;
+  left: 9px;
+  width: 27.6px;
+  height: 27.4px;
+  cursor: pointer;
+}
+.back-button-containerFR:hover {
+   transform: scale(1.0);
+}
+
+
+.Severity-Name {
+  position: absolute;
+  top: 55px;
+  left: 125px;
+  font-size: 20px;
+  display: inline-block;
+  width: 300px;
+  height: 17px;
+}
+
+.Severity-Issue-Container {
+  position: absolute;
+  top: 95px;
+  left: 125px;
+  font-size: 10px;
+  display: inline-block;
+  width: 600px;
+  height: 17px;
+}
+.SeverityName {
+  font-weight: 600;
+}
+.Category {
+  font-weight: 500;
+  white-space: pre-wrap;
+}
+.Category {
+  font-weight: 500;
+}
+
+
+.Severity-Radio-Button-Container {
+  position: absolute;
+  top: 122px;
+  left: 144px;
+  width: 242px;
+  height: 17px;
+  text-align: center;
+  font-size: 15px;
+}
+.RadioButton-Low,
+.RadioButton-Medium,
+.RadioButton-High,
+.Low,
+.Medium,
+.High {
+  position: absolute;
+  top: 2px;
+  left: 0;
+  width: 15px;
+  height: 15px;
+}
+.RadioButton-Medium {
+  left: 108px;
+}
+.RadioButton-High {
+  left: 235px;
+}
+.Low,
+.Medium,
+.High {
+  top: 11px;
+  left: 130px;
+  font-weight: 500;
+  width: 68px;
+}
+.High {
+  top: 11px;
+  left: 245px;
+  width: 68px;
+}
+.Low {
+  top: 11px;
+  left: 6px;
+}
+.radio-container6 {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+
+.Description-Container {
+  position: absolute;
+  top: 175px;
+  left: 139px;
+  width: 308px;
+  height: 71px;
+}
+.Description-Input {
+  position: absolute;
+  top: 33px;
+  left: 0;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  width: 308px;
+  height: 38px;
+}
+.t-name {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-size: 17px;
+  display: inline-block;
+  width: 146px;
+  height: 17px;
+}
+.type-here {
+  position: absolute;
+  top: 43px;
+  left: 11px;
+  font-size: 15px;
+  font-weight: 500;
+  display: inline-block;
+  width: 75px;
+  height: 18px;
+}
+  
+.Location-Container {
+  position: absolute;
+  top: 275px;
+  left: 139px;
+  width: 308px;
+  height: 71px;
+}
+
+
+.Choose-Location {
+  position: absolute;
+  top: 315px;
+  left: 413px;
+  width: 24px;
+  height: 24px;
+  overflow: hidden;
+  cursor: pointer;
+}
+  
+
+.Upload-Photo-Container {
+  position: absolute;
+  top: 380px;
+  left: 139px;
+  display: inline-block;
+  width: 340px;
+  height: 17px;
+}
+.for-evidence {
+  font-size: 14px;
+  font-weight: 600;
+}
+  
+
+.Camera-Container {
+  position: absolute;
+  top: 430px;
+  left: 165px;
+  width: 97px;
+  height: 87px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.bg-container {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 20px;
+  background-color: #FFFFFF;
+  width: 97px;
+  height: 87px;
+}
+.n-camera {
+  position: absolute;
+  top: 52px;
+  left: 17px;
+  font-weight: 500;
+  display: inline-block;
+  width: 64px;
+  height: 18px;
+}
+.bicamera-icon {
+  position: absolute;
+  height: 44.83%;
+  width: 41.24%;
+  top: 5.75%;
+  right: 28.87%;
+  bottom: 49.43%;
+  left: 29.9%;
+  max-width: 100%;
+  overflow: hidden;
+  max-height: 100%;
+}
+
+ 
+.Upload-Container {
+  position: absolute;
+  top: 430px;
+  left: 295px;
+  width: 97px;
+  height: 87px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.n-upload {
+  position: absolute;
+  top: 52px;
+  left: 7px;
+  font-weight: 500;
+  display: inline-block;
+  width: 82px;
+  height: 18px;
+}
+.symbolupload-icon {
+  position: absolute;
+  top: 5px;
+  left: 28px;
+  width: 40px;
+  height: 39px;
+  overflow: hidden;
+}
+
+
+.ReportFinal-next-button {
+  position: absolute;
+  top: -100px;
+  left: 10px;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25) inset;
+  mix-blend-mode: normal;
+  cursor: pointer;
+}
+  

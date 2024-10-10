@@ -1,0 +1,526 @@
+.ws-leaderboards {
+    width: 100%;
+    position: relative;
+    background: linear-gradient(180deg, #fdfbc9 54.1%, #f9d67b);
+    height: 841px;
+    overflow: hidden;
+    text-align: left;
+    color: #8a252c;
+    font-family: var(--font-montserrat);
+}
+
+.LeaderboardsTitle {
+    position: absolute;
+    top: 71px;
+    left: 660px;
+    width: 276px;
+    height: 231px;
+    object-fit: cover;
+}
+
+.WSLeaderboardsBox {
+    position: absolute;
+    top: 324px;
+    left: 400px;
+    box-shadow: 0 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 20px;
+    background-color: rgba(255, 255, 255, 0.4);
+    width: 789px;
+    height: 435px;
+}
+  
+.WSLUser1 {
+    position: absolute;
+    top: 373px;
+    left: 450px;
+    width: 90px;
+    height: 87px;
+    object-fit: cover;
+}
+.WSLUser2 {
+    position: absolute;
+    top: 503px;
+    left: 450px;
+    width: 90px;
+    height: 86.3px;
+    object-fit: cover;
+}
+.WSLUser3 {
+    position: absolute;
+    top: 636px;
+    left: 450px;
+    width: 90px;
+    height: 86.3px;
+    object-fit: cover;
+}
+
+.WSLGradient1,
+.WSLGradient2,
+.WSLGradient3 {
+    position: absolute;
+    border-radius: 0 500px 500px 0;
+    width: 577px;
+    height: 50px;
+    background: linear-gradient(
+        90deg,
+        rgba(255, 255, 255, 0.76) 12%,
+        rgba(255, 241, 205, 0.81) 32%,
+        rgba(255, 234, 180, 0.83) 65.5%,
+        rgba(255, 227, 155, 0.85) 88%
+    );
+    transition: background-color 0.3s; /* Smooth transition for background color */
+}
+
+.WSLGradient1 {
+    top: 391px;
+    left: 570px;
+}
+
+.WSLGradient2 {
+    top: 523px;
+    left: 570px;
+}
+
+.WSLGradient3 {
+    top: 655px;
+    left: 570px;
+}
+
+/* Hover effect to change background to solid maroon */
+.WSLGradient1:hover,
+.WSLGradient2:hover,
+.WSLGradient3:hover {
+    background: maroon; /* Solid maroon background on hover */
+}
+
+/* Change text color to white when WSLGradient is hovered */
+.WSLGradient1:hover + .WSLNUser1,
+.WSLGradient2:hover + .WSLNUser2,
+.WSLGradient3:hover + .WSLNUser3 {
+    color: white;
+}
+
+.WSLNUser2,
+.WSLNUser1,
+.WSLNUser3 {
+    position: absolute;
+    top: 404px;
+    left: 595px;
+    font-weight: 500;
+    font-size: 20px;
+    display: inline-block;
+    width: 233px;
+    height: 23px;
+    color: #8a252c; /* Default text color */
+}
+.WSLNUser2 {
+    top: 535px;
+}
+.WSLNUser3 {
+    top: 665px;
+}
+
+.WSLCircle1 {
+    position: absolute;
+    top: 391px;
+    left: 1100px;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 52.8px;
+    height: 50px;
+}
+.WSLCircle2 {
+    position: absolute;
+    top: 523px;
+    left: 1100px;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 52.8px;
+    height: 50px;
+}
+.WSLCircle3 {
+    position: absolute;
+    top: 655px;
+    left: 1100px;
+    border-radius: 50%;
+    background-color: #8a252c;
+    width: 52.8px;
+    height: 50px;
+}
+
+.WSLUser1Points {
+    position: absolute;
+    top: 406px;
+    left: 1109px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f6c301;
+    display: inline-block;
+    width: 41px;
+    height: 18px;
+}
+.WSLUser2Points {
+    position: absolute;
+    top: 538px;
+    left: 1105px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f6c301;
+    text-align: center;
+    display: inline-block;
+    width: 41px;
+    height: 18px;
+}
+.WSLUser3Points {
+    position: absolute;
+    top: 670px;
+    left: 1105px;
+    font-size: 15px;
+    font-weight: 600;
+    color: #f6c301;
+    text-align: center;
+    display: inline-block;
+    width: 41px;
+    height: 18px;
+    
+}
+
+@media (max-width: 768px) {
+
+    .LeaderboardsTitle {
+        top: 10%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 30%;
+        height: 18%;
+        object-fit: cover;
+      }
+
+    .WSLeaderboardsBox {
+      top: 30%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 50%;
+      object-fit: cover;
+    }
+
+    .WSLUser1{
+        top: 300px;
+        left: 125px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 55px;
+        object-fit: cover;
+    }
+
+    .WSLUser2{
+        top: 425px;
+        left: 125px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLUser3{
+        top: 550px;
+        left: 125px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLGradient1 {
+        top: 310px;
+        left: 175px;
+    }
+
+    .WSLGradient2 {
+        top: 435px;
+        left: 175px;
+    }
+
+    .WSLGradient3 {
+        top: 560px;
+        left: 175px;
+    }
+
+    .WSLGradient1,
+    .WSLGradient2,
+    .WSLGradient3 {
+        position: absolute;
+        border-radius: 0 500px 500px 0;
+        width: 65%;
+        height: 45px;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.76) 12%,
+            rgba(255, 241, 205, 0.81) 32%,
+            rgba(255, 234, 180, 0.83) 65.5%,
+            rgba(255, 227, 155, 0.85) 88%
+        );
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .WSLNUser2,
+    .WSLNUser1,
+    .WSLNUser3 {
+        position: absolute;
+        font-weight: 500;
+        font-size: 20px;
+        display: inline-block;
+        width: 233px;
+        height: 23px;
+        color: #8a252c; /* Default text color */
+    }
+    .WSLNUser1 {
+        top: 320px;
+        left: 200px;
+    }
+    .WSLNUser2 {
+        top: 445px;
+        left: 200px;
+    }
+    .WSLNUser3 {
+        top: 570px;
+        left: 200px;
+    }
+
+    .WSLCircle1 {
+        position: absolute;
+        top: 310px;
+        left: 82%;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle2 {
+        position: absolute;
+        top: 435px;
+        left: 82%;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle3 {
+        position: absolute;
+        top: 560px;
+        left: 82%;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .WSLUser1Points {
+        position: absolute;
+        top: 324px;
+        left: 632px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser2Points {
+        position: absolute;
+        top: 450px;
+        left: 632px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser3Points {
+        position: absolute;
+        top: 575px;
+        left: 632px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+        
+    }
+  }
+
+@media (max-width: 500px) {
+
+    .LeaderboardsTitle {
+        top: 10% !important;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 50%;
+        height: 18%;
+        object-fit: cover;
+      }
+
+    .WSLeaderboardsBox {
+      top: 30% !important;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 85%;
+      height: 50%;
+      object-fit: cover;
+    }
+
+    .WSLUser1{
+        top: 300px !important;
+        left: 100px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 55px;
+        object-fit: cover;
+    }
+
+    .WSLUser2{
+        top: 425px !important;
+        left: 100px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLUser3{
+        top: 550px !important;
+        left: 100px;
+        transform: translateX(-50%);
+        width: 60px;
+        height: 60px;
+        object-fit: cover;
+    }
+
+    .WSLGradient1 {
+        top: 310px !important;
+        left: 150px
+    }
+
+    .WSLGradient2 {
+        top: 435px !important;
+        left: 150px
+    }
+
+    .WSLGradient3 {
+        top: 560px !important;
+        left: 150px
+    }
+
+    .WSLGradient1,
+    .WSLGradient2,
+    .WSLGradient3 {
+        position: absolute;
+        border-radius: 0 500px 500px 0;
+        width: 275px;
+        height: 45px;
+        background: linear-gradient(
+            90deg,
+            rgba(255, 255, 255, 0.76) 12%,
+            rgba(255, 241, 205, 0.81) 32%,
+            rgba(255, 234, 180, 0.83) 65.5%,
+            rgba(255, 227, 155, 0.85) 88%
+        );
+        transition: background-color 0.3s; /* Smooth transition for background color */
+    }
+
+    .WSLNUser2,
+    .WSLNUser1,
+    .WSLNUser3 {
+        position: absolute;
+        font-weight: 500;
+        font-size: 15px;
+        display: inline-block;
+        width: 233px;
+        height: 23px;
+        color: #8a252c; /* Default text color */
+    }
+    .WSLNUser1 {
+        top: 320px;
+        left: 165px;
+    }
+    .WSLNUser2 {
+        top: 445px;
+        left: 165px;
+    }
+    .WSLNUser3 {
+        top: 570px;
+        left: 165px;
+    }
+
+    .WSLCircle1 {
+        position: absolute;
+        top: 310px;
+        left: 385px;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle2 {
+        position: absolute;
+        top: 435px;
+        left: 385px;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    .WSLCircle3 {
+        position: absolute;
+        top: 560px;
+        left: 385px;
+        border-radius: 50%;
+        background-color: #8a252c;
+        width: 45px;
+        height: 45px;
+    }
+    
+    .WSLUser1Points {
+        position: absolute;
+        top: 324px;
+        left: 387px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser2Points {
+        position: absolute;
+        top: 450px;
+        left: 387px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+    }
+    .WSLUser3Points {
+        position: absolute;
+        top: 575px;
+        left: 387px;
+        font-size: 13px;
+        font-weight: 600;
+        color: #f6c301;
+        text-align: center;
+        display: inline-block;
+        width: 41px;
+        height: 18px;
+        
+    }
+  }
