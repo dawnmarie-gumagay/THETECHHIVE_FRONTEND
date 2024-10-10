@@ -370,7 +370,7 @@ const WSHomepage = () => {
     
     const comment = {
       content: newComment,
-      postId: currentPostId,  // Add this line
+      postId: currentPostId,  
       userId: loggedInUser.userId,
       fullName: loggedInUser.fullName,
       idNumber: loggedInUser.idNumber,
@@ -380,7 +380,8 @@ const WSHomepage = () => {
       const response = await axios.post('http://localhost:8080/comments/add', comment);
       const newCommentWithRelativeTime = {
         ...response.data,
-        relativeTime: moment(response.data.timestamp).fromNow()
+        relativeTime: moment().fromNow(),
+        timestamp: moment().format('YYYY-MM-DD HH:mm:ss.SSSSSS')
       };
       setComments(prevComments => [newCommentWithRelativeTime, ...prevComments]);
       setNewComment('');
