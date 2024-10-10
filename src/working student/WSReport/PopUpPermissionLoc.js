@@ -6,17 +6,27 @@ import "./PopUpPermissionLoc.css";
 const PopUpPermissionLoc = () => { 
   const [showFinalPopup, setShowFinalPopup] = useState(false);
   const [showPermissionPopup, setShowPermissionPopup] = useState(true);
+  const [locationDenied, setLocationDenied] = useState(false);
 
   const handleDeny = useCallback(() => {
     console.log("Deny button clicked");
     setShowPermissionPopup(false);
+    setLocationDenied(true);
     setShowFinalPopup(true);
   }, []);
 
   const handleAllow = useCallback(() => {
     console.log("Allow button clicked");
     setShowPermissionPopup(false);
+    setLocationDenied(false);
     setShowFinalPopup(true);
+  }, []);
+
+  const handleLocationRetry = useCallback(() => {
+    console.log("Retrying location access");
+    setShowPermissionPopup(true);
+    setShowFinalPopup(false);
+    setLocationDenied(false);
   }, []);
 
 
@@ -63,7 +73,12 @@ const PopUpPermissionLoc = () => {
         </div>
       )}
 
-      {showFinalPopup && <PopUpReportFinal />}
+      {showFinalPopup && (
+          <PopUpReportFinal 
+            locationDenied={locationDenied} 
+            onLocationRetry={handleLocationRetry}
+          />
+        )}
     </div>
   );
 };
