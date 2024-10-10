@@ -1,5 +1,5 @@
 import React, { useCallback, useState, useRef, useEffect } from "react";
-import { Button } from "@mui/material";
+import { Button, Select, MenuItem, FormControl, InputLabel } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import "./PopUpReportFinal.css";
 import axios from "axios";
@@ -7,7 +7,7 @@ import PopUpConfirm from "./PopUpConfirm"; // Ensure PopUpConfirm is used proper
 
 const GOOGLE_API_KEY = 'AIzaSyAtkmuDufTv-ueuDwWdqrDJjR7_aEoGUYo'; // Google Places API key
 
-const PopUpReportFinal = ({ onBack, onClose }) => {
+const PopUpReportFinal = ({ onBack, onClose, locationDenied = false, onLocationRetry }) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     description: "",
@@ -21,6 +21,11 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   const [showCamera, setShowCamera] = useState(false);
   const [validationErrors, setValidationErrors] = useState({});
   const fileInputRef = useRef(null);
+  const [locations, setLocations] = useState([
+    "Accounting Office", "Alumni Affairs Office", "Basketball Court", 
+    "Chapel", "College Library", "Engineering Building", "GLE Building", "Junior High School Building", 
+    "Main Canteen", "Mini Canteen", "ST Building ", "Volleyball Court"
+  ]);
 
   // Memoize the validateInputs function with useCallback to avoid unnecessary re-renders
   const validateInputs = useCallback(() => {
@@ -61,6 +66,12 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
     setIsVisible(false);
     navigate("/wsreport");
   }, [navigate]);
+
+  const onPopUpReportClick = useCallback(() => {
+    if (validateInputs()) {
+      setShowPopUpConfirm(true); // Show PopUpConfirm when inputs are valid
+    }
+  }, [validateInputs]);
 
   // Get user location from browser's Geolocation API
   const getUserLocation = async () => {
@@ -108,7 +119,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
   };
 
   // Submit form and send location to backend
-  const onPopUpReportClick = useCallback(async () => {
+  const handleConfirmSubmit = useCallback(async () => {
     if (!validateInputs()) return;
 
     try {
@@ -128,6 +139,22 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       console.error("Error saving location:", error);
     }
   }, [formData.location, navigate, validateInputs]);
+
+  const handleLocationChange = (event) => {
+    const selectedLocation = event.target.value;
+    setFormData(prev => ({
+      ...prev,
+      location: { ...prev.location, address: selectedLocation }
+    }));
+  };
+
+  const handleChooseLocation = () => {
+    if (locationDenied) {
+      onLocationRetry();
+    } else {
+      getUserLocation();
+    }
+  };
 
   // Handle file upload
   const handleFileUpload = (event) => {
@@ -220,18 +247,43 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
         </div>
         <div className="Location-Container">
           <b className="t-name">Location</b>
-          <input
-            className={`Location-Input ${validationErrors.location ? 'error' : ''}`}
-            value={formData.location.address}
-            onChange={(e) => setFormData(prev => ({ ...prev, location: { ...prev.location, address: e.target.value } }))}
-            placeholder="Where it happened?"
-          />
+          {locationDenied ? (
+            <FormControl fullWidth>
+              <Select
+                labelId="location-select-label"
+                id="location-select"
+                value={formData.location.address}
+                label="Select Location"
+                onChange={handleLocationChange}
+                className={`Location-Input ${validationErrors.location ? 'error' : ''}`}
+                sx={{
+                  '&:focus-within .MuiOutlinedInput-notchedOutline': {
+                    borderColor: '#8A252C', 
+                  },
+                  '& .MuiSelect-icon': {
+                    right: '40px', 
+                  }
+                }}
+             >
+                {locations.map((loc) => (
+                  <MenuItem key={loc} value={loc}>{loc}</MenuItem>
+                ))}
+              </Select>
+            </FormControl>
+          ) : (
+            <input
+              className={`Location-Input ${validationErrors.location ? 'error' : ''}`}
+              value={formData.location.address}
+              onChange={(e) => setFormData(prev => ({ ...prev, location: { ...prev.location, address: e.target.value } }))}
+              placeholder="Where it happened?"
+            />
+          )}
         </div>
         <img
           className="Choose-Location"
           alt=""
           src="/r-location.png"
-          onClick={getUserLocation}
+          onClick={handleChooseLocation}
         />
         <div className="Upload-Photo-Container">
           <b>Upload photo</b>
@@ -331,7 +383,7 @@ const PopUpReportFinal = ({ onBack, onClose }) => {
       {showPopUpConfirm && (
         <PopUpConfirm
           onClose={() => setShowPopUpConfirm(false)}
-          onConfirm={handleConfirm}
+          onSubmit={handleConfirmSubmit}
         />
       )}
     </>
