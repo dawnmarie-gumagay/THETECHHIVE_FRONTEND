@@ -15,15 +15,15 @@ const PopUpConfirm = ({ onClose, onSubmit }) => {
   // Handle the Confirm button click
   const handleConfirm = useCallback(() => {
     if (onSubmit) {
-      onSubmit(); // Handle form/report submission
+      onSubmit(); 
     }
-    setSuccessVisible(true); // Show the success popup
+    setSuccessVisible(true); 
   }, [onSubmit]);
 
   // Close the success popup and the main pop-up
   const closeSuccessPopup = useCallback(() => {
-    setSuccessVisible(false); // Hide the success popup
-    onClose(); // Close the parent popup as well
+    setSuccessVisible(false); 
+    onClose(); 
   }, [onClose]);
 
   return (
